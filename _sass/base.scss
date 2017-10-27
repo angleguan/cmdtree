@@ -104,10 +104,13 @@ pre {
 }
 
 code {
-    font-size: 0.9em;
-    padding: 0 0.5em;
-    background-color: #f1f1f1;
+    padding: 0.2em 0.6em;
+    background-color: #F5F573;
     white-space: pre-wrap;
+    border-radius: 6px;
+    a {
+        color: #000;
+    }
 }
 
 pre>code {
