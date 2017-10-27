@@ -1,0 +1,15 @@
+title: ZhiYang Blog
+index_title: Life is too short. Don't do what you don't like to do
+url: https://fanzhiyang.com
+pics: https://fanzhiyang.com/pics
+description: 这个宇宙是一个残酷的空间，寻找人生的意义并不是得到快乐的关键，它只会让你在那些不重要的事情中忙忙碌碌，最终无为而亡。
+author: 樊志阳 
+email: fan0103@outlook.com
+permalink: /blog/:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+feed:
+  path: /blog/feed.xml

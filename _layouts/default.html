@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+{% include head.html %}
+<body>
+        <div class="top">
+                Life is too short. Don't do what you don't like to do
+        </div>
+{% include header.html %}
+{% include github-corners.html %}
+{% if page.layout == "home" %}
+<div class="home-banner">
+        <img src="/assets/bg.jpg">
+    </div>
+{% endif %}
+<div class="main">
+
+{{ content }}
+{% include sidebar.html %}
+</div>
+{% include footer.html %}
+</body>
+</html>

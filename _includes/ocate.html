@@ -1,0 +1,6 @@
+{% for cate in site.data.category %}
+{% if cate.value == page.category %}
+<a href="{{ site.url }}/{% if cate.link %}{{ cate.link }}{% else %}{{ cate.value }}{% endif %}/">{{ cate.title }}</a>
+{% break %}
+{% endif %}
+{% endfor %}
