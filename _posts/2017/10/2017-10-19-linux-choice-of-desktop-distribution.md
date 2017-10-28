@@ -5,9 +5,9 @@ layout: post
 category: linux
 ---
 
-![](/pics/2017/10/1901.jpg)
-
 基于Linux的发行版有很多，有广泛运用于网站服务器的CentOS，也有在桌面Linux中独占半边天的Ubuntu，现在来说说如何选择一个最适合自己的发行版。顺便推荐一个网站，里面有各种Linux发行版的最新资讯以及热度排行[DistroWatch.com: Put the fun back into computing. Use Linux, BSD.](http://distrowatch.com/)
+
+![](/pics/2017/10/1901.jpg)
 
 ## 考虑条件
 
