@@ -64,8 +64,10 @@ export PATH=$PATH:/root/.gem/ruby/2.4.0/bin
 
 ```
 
+添加完路径后执行
 
-完成～
-
-
+```
+$ source .zshrc  ## 或者.bashrc
+```
+更新配置文件即可。
 
