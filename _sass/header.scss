@@ -7,9 +7,10 @@ header {
     }
     .nav {
       padding: 2em 0 1em;
-      .fa-home {
+      .icon-homebig {
         position: absolute;
         left: 15.25%;
+        display: inline;
       }
       ul {
         overflow: hidden;
@@ -26,9 +27,4 @@ header {
 
 #archive-nav {
   width: 50%;
-  li {
-    i.iconfont {
-      font-size: 200%;
-    }
-  }
 }
