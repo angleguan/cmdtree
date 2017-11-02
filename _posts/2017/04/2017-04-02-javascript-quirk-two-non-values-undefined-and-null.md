@@ -1,5 +1,5 @@
 ---
-title: JavaScript 的怪癖 2：两个「空值」：undefined 和 null
+title: 理解 undefined 和 null
 date: 2017-04-02T07:39:50+00:00
 layout: post
 category: js
@@ -10,7 +10,6 @@ category: js
 但是在 Javascript 中却有两个特殊的值: `undefined` 和 `null`。
 
 他们基本上是相同，但用法上却略有些不同。
-
 
 `undefined` 是被语言本身所分配的。
 
