@@ -1,5 +1,5 @@
 ---
-title: JavaScript开发者容易烦的13个错误
+title: JavaScript开发者容易犯的13个错误
 date: 2017-04-05T09:41:36+00:00
 layout: post
 category: js
