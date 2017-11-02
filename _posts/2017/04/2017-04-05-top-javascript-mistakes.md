@@ -1,15 +1,17 @@
 ---
-title: 开发者最容易犯的 13 个 JavaScript 错误
+title: JavaScript开发者容易烦的13个错误
 date: 2017-04-05T09:41:36+00:00
 layout: post
 category: js
 ---
 
 开发者最容易犯的 JavaScript 错误，总结出 13 个。
+
 这些当中可能少不了你犯的错误。
+
 我们描述了这些陋习，并列出来解决办法，希望对开发者有帮助。
 
-## 1. for… 数组迭代的用法 <small>Usage of for..in to iterate Arrays</small>
+## 1. for… 数组迭代的用法
 
 举例：
 
@@ -30,9 +32,8 @@ for (var i = 0; i < totalElements; i++) {
 }
 ```
 
-疑有误，感谢 lveyo 同学的提醒。
-
 这里主要的问题是语句中的 "for…" 不能保证顺序，这意味着你将获得不同的执行结果。
+
 此外，如果有人增加一些其他自定义功能的函数 `Array.prototype`，你的循环将重复遍历这些函数，就像原数组项。
 
 解决办法：一直使用规则的 `for` 循环来遍历数组。
@@ -44,7 +45,7 @@ for (var i=0; i<myArray.length; i++) {
 }
 ```
 
-## 2. 数组维度 <small>Array dimensions</small>
+## 2. 数组维度
 
 举例
 
@@ -52,15 +53,13 @@ for (var i=0; i<myArray.length; i++) {
 var myArray = new Array(10);
 ```
 
-第二个问题是开发者使用数组构成器来创建数组，技术上是正确的，
-然而会比文字符号（literal notation）慢解决办法：使用文字符号来初始化数组，
-不要预定义数组长度。
+第二个问题是开发者使用数组构成器来创建数组，技术上是正确的，然而会比文字符号（literal notation）慢解决办法：使用文字符号来初始化数组，不要预定义数组长度。
 
 ```javascript
 var myArray = [];
 ```
 
-## 3. 未定义属性 <small>Undefined properties</small>
+## 3. 未定义属性
 
 举例：
 
@@ -72,7 +71,8 @@ var myObject = {
 ```
 
 未定义属性，将在对象中创建元素（键 `someOtherProperty` 和值 `undefined`.）。
-如果你遍历数组，检测已存在的元素，那么下面的语句将都返回 "未定义/undefined"。
+
+如果你遍历数组，检测已存在的元素，那么下面的语句将都返回 "undefined"。
 
 ```javascript
 typeof myObject['someOtherProperty'] // undefined
@@ -88,15 +88,15 @@ var myObject = {
 }
 ```
 
-## 4. 闭包的滥用 <small>Misuse of Closures</small>
+## 4. 闭包的滥用
 
 举例：
 
 ```javascript
 function(a, b, c) {
-var d = 10;
-var element = document.getElementById(‘myID’);
-element.onclick = (function(a, b, c, d) {
+	var d = 10;
+	var element = document.getElementById(‘myID’);
+	element.onclick = (function(a, b, c, d) {
 		return function() {
 			alert (a + b + c + d);
 		}
@@ -105,10 +105,13 @@ element.onclick = (function(a, b, c, d) {
 ```
 
 这里开发者使用两个函数来传递参数 `a`、`b`、`c` 到 `onclick`。
+
 双函数根本不需要，徒增代码的复杂性。
 
 变量 `a`、`b`、`c` 已经在局部函数中被定义，因为他们已经在主函数中作为参数被声明。
+
 局部函数中的任何函数都可创建主函数中定义的所有变量的闭包。
+
 因此不需要再次传递它们。
 
 看看这里 [JavaScript Closures FAQ](http://jibbering.com/faq/notes/closures/) 了解更多。
@@ -117,9 +120,9 @@ element.onclick = (function(a, b, c, d) {
 
 ```javascript
 function (a, b, c) {
-var d = 10;
-var element = document.getElementById(‘myID’);
-element.onclick = function() {
+	var d = 10;
+	var element = document.getElementById(‘myID’);
+	element.onclick = function() {
 		//a, b, and c come from the outer function arguments.
 		//d come from the outer function variable declarations.
 		//and all of them are in my closure
@@ -128,7 +131,7 @@ element.onclick = function() {
 }
 ```
 
-## 5. 循环中的闭包 <small>Closures in loops</small>
+## 5. 循环中的闭包
 
 举例：
 
@@ -142,10 +145,13 @@ for (var i = 0; i<elements.length; i++) {
 ```
 
 在这里例子里面，当用户点击不同的 `divs` 时，我们想触发一个动作(显示 "Div number 1", "Div number 2"… 等) 。
+
 然而，如果你在页面有 10 个 `divs`，他们全部都会显示 "Div number 10"。
 
 问题是当我们使用局部函数创建一个闭包时，函数中的代码可以访问变量 `i`。
+
 关键是函数内部 `i` 和函数外部 `i` 涉及同样的变量。
+
 当我们的循环结束，`i` 指向了值 `10`，所以局部函数中的 `i` 的值将是 `10`。
 
 解决办法：使用第二函数来传递正确的值。
@@ -161,7 +167,9 @@ for (var i = 0; i<elements.length; i++) {
 }
 ```
 
-## 6. DOM 对象的内测泄漏 <small>Memory leaks with DOM objects</small>
+> 这个错误经常在面试中被考到
+
+## 6. DOM 对象的内测泄漏
 
 举例：
 
@@ -176,10 +184,13 @@ attachEvents();
 ```
 
 该代码创建了一个引用循环。
+
 变量元素包含函数的引用（归于 `onclick` 属性）。
+
 同时，函数保持一个 DOM 元素的引用（提示函数内部可以访问元素，因为闭包。）。
 
 所以 JavaScript 垃圾收集器不能清除元素或是函数，因为他们被相互引用。
+
 大部分的 JavaScript 引擎对于清除循环应用都不够聪明。
 
 解决办法：避免那些闭包，或者不去做函数内的循环引用。
@@ -196,27 +207,27 @@ function attachEvents() {
 attachEvents();
 ```
 
-## 7. 区别整数数字和浮点数字 <small>Differentiate float numbers from integer numbers</small>
+## 7. 区别整数数字和浮点数字
 
 举例：
 
-```javascript
+```javascript 
 var myNumber = 3.5;
 var myResult = 3.5 + 1.0; //We use .0 to keep the result as float
 ```
 
-在 JavaScript 中，浮点与整数间没有区别。
-事实上，JavaScript 中的每个数字都表示使用双精度 64 位格式 IEEE 754。
-简单理解，所有数字都是浮点。
+在 JavaScript 中，没有浮点与整数之分。
 
-解决办法：不要使用小数（decimals），转换数字（numbers）到浮点（floats）。
+事实上，JavaScript 中的每个数字都表示使用双精度 64 位格式 IEEE 754。
+
+简单理解，所有数字都是浮点，两者没有区别，所以下面的代码和上面的是一回事，虽然在其它很多语言中并不能这样做。
 
 ```javascript
 var myNumber = 3.5;
 var myResult = 3.5 + 1; //Result is 4.5, as expected
 ```
 
-## 8. with() 作为快捷方式的用法 <small>Usage of with() as a shortcut</small>
+## 8. with() 作为快捷方式的用法
 
 举例：
 
