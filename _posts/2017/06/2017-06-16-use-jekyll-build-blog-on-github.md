@@ -4,19 +4,19 @@ date: 2017-06-16T22:10:39+00:00
 layout: post
 category: use
 ---
-jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板渲染引擎，支持Markdown和Textile标记语言，并且可以为所有以 .html、.markdown、.textile扩展名结尾的文件使用YAML配置，内置语法高亮功能。
 
-而Github的Pages服务可以为每个Github主机上的仓库提供静态页面服务，并且Pages服务支持jekyll。因为Github Pages有两种Pages，分别是用户页面和项目页面，所以我们可以使用用户页面来创建自己的Blog。
+## 使用Github Pages
 
-在开始前，请确保你已经有了Github账号一枚和Git的正确配置。没有的朋友可以先移步Github注册并安装配置Git。
+首先，你需要创建一个仓库按照这种 `yourname.github.io`命名格式（你也可以使用其它名称）
 
-首先，创建你的 Blog 仓库 `username.github.com`:
+然后clone到本地
 
-    $ mkdir username.github.com
-    $ cd username.github.com
-  
-新建一个 `index.html` 文件，像下面这样:
+```
+$ git@github.com:yourname/yourname.github.io.git
+```
 
+在`yourname.github.io`文件夹内，你可以新建一个文件，像这样
+```
     <!doctype html>
     <html>
       <head>
@@ -27,16 +27,67 @@ jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板�
         <h1>Hello!</h1>
       </body>
     </html>
+```
 
-初始化仓库、提交并push到Github:
+然后推送到Github
 
-    $ git init
+```
     $ git add .
     $ git commit -a -m 'init commit.'
-    $ git remote add origin
     $ git push origin master
-  
-现在你打开 `username.github.com` 就可以看到刚才新建的页面了，就是这么简单。当然也可以为你的Blog仓库绑定独立域名，具体做法就是：
+```
+
+一般如果按照`yourname.github.io`这种格式创建的仓库会默认开启Pages服务，如果没有，或者你使用了其它名称的仓库，需要在仓库的【Setting】下找到这个并选择你的分支即可
+
+![](/pics/2017/11/Screenshot_20171102_104929.png)
+
+现在你打开 `yourname.github.io` 就可以看到刚才新建的页面了。**这就是Github Pages服务**
+
+## 使用Jekyll
+
+![](/pics/2017/11/a3861d0800a231783e7ae74a2815132e.png)
+
+> jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板渲染引擎，支持Markdown和Textile标记语言，并且可以为所有以 .html、.markdown、.textile扩展名结尾的文件使用YAML配置，内置语法高亮功能。
+
+而Github的Pages服务可以为每个Github主机上的仓库提供静态页面服务，并且Github Pages服务支持Jekyll自动编译，也就说你可以将未生成的Jekyll源代码push到仓库由Github替你完成生成服务，这是Jekyll相对于其它静态博客生成系统的一大优点。
+
+**说白了Jekyll就是一个可以把你用Markdown写的文章变成HTML的工具，而Github Pages来帮你执行这个任务自动部署**
+
+
+### 安装Jekyll
+
+使用ruby gem安装，如果在这里遇到什么问题，可以看一下这里[Jekyll最全使用指南 - ZhiYang Blog](https://fanzhiyang.com/blog/jekyll/)
+
+```
+$ gem install jekyll
+```
+
+然后生成一个站点
+
+
+```
+$ jekyll new newsite
+```
+
+进入这个站点并输入
+
+```
+$ jekyll s
+```
+
+建议按照`bundle`并使用`bunlde`运行这个命令
+
+```
+$ gem install bundle
+$ bundle exec jekyll s
+```
+
+然后在浏览器访问`127.0.0.1:4000`就可以看到网站了，关于Jekyll的更多使用技巧或者问题可以查看我写过的更多的关于Jekyll的内容。
+
+
+## 绑定域名
+
+默认的`yourname.github.io` 域名不好看，你可以自己购买一个域名并绑定到Github Pages
 
 1. 在你的仓库中新建内容为 www.youdomain.com 的 CNAME 文件；
 2. 在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME(Alias)类型.
@@ -58,7 +109,7 @@ jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板�
       |-- _config.yml
       `-- index.html
 
-**_includes**存放你需要在模板文件中包含的文件，你可以使用Liquid标签 `{‰ include file.ext ‰} `来引用相应的文件。
+**_includes**存放你需要在模板文件中包含的文件，你可以使用Liquid标签 `{‰ include header.html ‰} `来引用相应的文件。
 
 **_plugins**可以增加你自己的插件
 
@@ -74,33 +125,7 @@ jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板�
 
 现在你可以在自己的仓库中配置好你自己的目录及文件，也可以`clone`我的仓库，然后修改。
 
-    $ git clone https://github.com/taberhuang/taberhuang.github.com.git
-
-修改完后就可以`push`你的代码到Github上，看到结果了。刚才有说到本地预览，如果你想在本地预览后，确保没错误再`push`的话，就需要在本地安装jekyll，下面介绍下jekyll的安装方法。
-
-一、安装Ruby运行环境和RubyGem:Windows用户只要下载 RubyInstaller。下载安装后请手动升级gem.
-
-    $ gem update --system
-    
-二、安装DevKit。DevKit是windows平台编译和使用本地C/C++扩展包工具。用来模拟Linux平台下的 make,gcc,sh 进行编译。下载文件后，解压到 `C:\DevKit'，再通过命令行安装:
-
-    $ cd C:\DevKit
-    $ ruby dk.rb init
-    $ ruby dk.rb install
-    
-三、安装并检查刚才的DevKit安装是否成功。如果成功安装，则DevKit也就安装成功，如果不成功，请重新安装DevKit。
-
-    $ gem install jekyll
-    
-四、安装Rdiscount，这个是用来解析Markdown标记的解析包。如果你使用Textile的话，就是安装Kramdown。
-
-  $ gem install rdiscount
-  
-所有的环境和依赖包都安装成功后，进入你的仓库目录，用下面的命令便可启动jekyll，并在本地预览了，预览地址默认为 `127.0.0.1:4000`，当然你也可以通过 _config.yml 配置:
-
-    jekyll --server
-  
-是不是很爽?
+    $ git clone https://github.com/rhatyang/rhatyang.github.io.git
 
 参考及相关资料：
 
