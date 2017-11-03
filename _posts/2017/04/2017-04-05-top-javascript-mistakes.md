@@ -239,10 +239,13 @@ with (team.attackers.myWarrior){
 ```
 
 讨论 `with()` 之前，要明白 JavaScript contexts 如何工作的。
+
 每个函数都有一个执行 context（语句），简单来说，包括函数可以访问的所有的变量。
+
 因此 context 包含 arguments 和定义变量。
 
 `with()` 真正是做什么？是插入对象到 context 链，它在当前 context 和父级 context 间植入。
+
 就像你看到的 `with()` 的快捷方式会非常慢。
 
 解决办法：不要使用 with() for shortcuts，仅 for context injection，如果你确实需要时。
@@ -253,7 +256,7 @@ var sc = team.attackers.myWarrior;
 console.log(“Your warrior power is ” + (sc.attack * sc.speed));
 ```
 
-## 9. setTimeout/setInterval 字符串的用法 <small>Usage of strings with setTimeout/setInterval</small>
+## 9. setTimeout/setInterval 字符串的用法
 
 举例：
 
@@ -266,6 +269,7 @@ setTimeout(“log2(” + myValue + “)”, 200);
 ```
 
 `setTimeout()` 和 `setInterval()` 可被或一个函数或一个字符串作为首个参数。
+
 如果你传递一个字符串，引擎将创建一个新函数（使用函数构造器），这在一些浏览器中会非常慢。
 
 相反，传递函数本身作为首个参数，更快、更强大、更干净。
@@ -282,7 +286,7 @@ setTimeout(function(){ //Get arg value using closures
 	}, 200);
 ```
 
-## 10. setInterval() 的用法 <small>Usage of setInterval() for heavy functions</small>
+## 10. setInterval() 的用法
 
 举例：
 
@@ -294,7 +298,9 @@ setInterval(domOperations, 200);
 ```
 
 `setInterval()` 将一函数列入计划被执行，仅是在没有另外一个执行在主执行队列中等待。
+
 JavaScript 引擎只增加下一个执行到队列如果没有另外一个执行已在队列。
+
 这可能导致跳过执行或者运行 2 个不同的执行，没有在它们之间等待 200ms 的情况下。
 
 一定要搞清，`setInterval()` 没有考虑进多长时间 `domOperations()` 来完成任务。
@@ -310,10 +316,12 @@ function domOperations() {
 setTimeout(domOperations, 200);
 ```
 
-## 11. "this" 的滥用 <small>Misuse of "this"</small>
+## 11. "this" 的滥用
 
 这个常用错误，没有例子，因为非常难创建来演示。
+
 this 的值在 JavaScript 中与其他语言有很大的不同。
+
 函数中的 this 值被定义是在当函数被调用时，而非声明的时间，这一点非常重要。
 
 下面的案例中，函数内 this 有不同的含义。
@@ -334,7 +342,7 @@ this points to an empty Object.
 
 this points to the object passed as first argument.
 
-## 12. eval() 访问动态属性的用法 <small>Usage of eval() to access dynamic properties</small>
+## 12. eval() 访问动态属性的用法 
 
 举例：
 
@@ -354,7 +362,7 @@ var i = 2;
 var myResult = myObject[“p”+i];
 ```
 
-## 13. 未定义(undefined)作为变量的用法 <small>Usage of undefined as a variable</small>
+## 13. 未定义(undefined)作为变量的用法
 
 举例：
 
@@ -365,8 +373,11 @@ if ( myVar === undefined ) {
 ```
 
 在上面的例子中，未定义实际上是一变量。
+
 所有的 JavaScript 引擎会创建初始化的变量 `window.undefined` 给未定义作为值。
+
 然而 注意的是变量不仅是可读，任何其他的代码可以刚改它的值。
+
 很奇怪能找到 `window.undefined` 有来自未定义的不同的值的场景，但是为什么冒险呢？
 
 解决办法：检查未定义时，使用 `typeof`。
