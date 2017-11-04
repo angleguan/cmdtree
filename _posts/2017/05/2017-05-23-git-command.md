@@ -15,7 +15,7 @@ category: use
 
 ## 设置用户名和邮箱
 
-```zsh
+```
 $ git config --global user.name "rhatyang"
 $ git config --global user.email "fanzhiyang2001@gmail.com"
 ```
@@ -28,7 +28,8 @@ git init
 在项目的根目录会生成.git文件夹
 
 ## 在该项目文件夹下新建一个文件，然后把该文件送到暂存区
-```bash
+
+```
 echo "# test" >> README.md
 git add .  //将工作区所有修改添加到暂存区
 git add filename //将指定文件添加到暂存区
@@ -36,29 +37,28 @@ git status  //列出变更文件
 ```
 
 ## 将暂存区修改添加到本地仓库
-```bash
+
+```
 git commit -m '备注信息'
 ```
 
 ## 添加远程仓库，并将上述改动push到远程仓库
 
-```zsh
+```
 git remote add origin https://github.com/rhatyang/test.git
 git push -u origin master
 ```
-<ul>
- 	<li>注意，在不同电脑中应该设置不同的origin，不然push时会报错</li>
- 	<li>推荐使用ssh而不是https，避免每次push都要输入用户名和密码</li>
-</ul>
 
-```zsh
+**一般情况下，自己的项目都是添加ssh连接**
+
+```
 git remote rm origin   //移除之前添加的origin
 git remote add origin git@github.com:rhatyang/test.git       //使用ssh添加新的origin
 ```
 
 ## 放弃暂存区修改
 
-```bash
+```
 git checkout -- filename  //放弃暂存区修改（修改不在）
 git rm --cached filename  //放弃add（修改还在，但产生一条delete记录）
 git reset HEAD filename   //同上（没有delete记录）
@@ -68,7 +68,7 @@ git stash pop  //恢复
 
 ## 分支操作
 
-```zsh
+```
 /*查看分支*/
 git branch     //所有本地分支
 git branch -r  //所有远程分支
