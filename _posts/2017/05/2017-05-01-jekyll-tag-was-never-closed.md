@@ -5,8 +5,10 @@ title: "Jekyll error：tag was never closed"
 category: use
 ---
 
-之前没有碰到过这个问题，如果你在文章的开头是{% raw %}{% raw %}{% endraw %}或者是{% raw %}{% highlight %}{% endraw %}，那么运行Jekyll时将会提示如下错误：
+#### 解决办法是不要在文章开头添加raw标签!
 
+
+之前没有碰到过这个问题，如果你在文章的开头是{% raw %}{% raw %}{% endraw %}或者是{% raw %}{% highlight %}{% endraw %}，那么运行Jekyll时将会提示如下错误：
 
 
 ```
