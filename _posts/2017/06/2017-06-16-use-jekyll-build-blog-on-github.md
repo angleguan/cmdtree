@@ -1,5 +1,5 @@
 ---
-title: 使用jekyll在Github上搭建博客
+title: 使用Jekyll在Github上搭建博客
 date: 2017-06-16T22:10:39+00:00
 layout: post
 category: use
@@ -12,7 +12,7 @@ category: use
 然后clone到本地
 
 ```
-$ git@github.com:yourname/yourname.github.io.git
+$ git clone git@github.com:yourname/yourname.github.io.git
 ```
 
 在`yourname.github.io`文件夹内，你可以新建一个文件，像这样
