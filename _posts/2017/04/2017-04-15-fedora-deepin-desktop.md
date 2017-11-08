@@ -5,8 +5,7 @@ layout: post
 category: linux
 ---
 
-
-**Fedora和Ubuntu可以说是Linux distribution中最受欢迎的两个桌面发行版，其社区文档都相当活跃，现在，我们可以在 Fedora 系统中使用 Deepin 桌面环境。**
+**Fedora和Ubuntu可以说是Linux distribution中最受欢迎的两个桌面发行版，其社区相当活跃，现在，我们可以在 Fedora 系统中使用 Deepin 桌面环境。**
 
 安装方法：
 ```zsh
@@ -21,8 +20,6 @@ sudo sed -i "/SELINUX=/s|enforcing|disabled|" /etc/selinux/config
 执行完重启后即可使用！
 
 此项目由FZUG Fedora中文社区软件源开源在Github ——<a href="https://github.com/FZUG/repo/tree/master/rpms/deepin_project">deepin_project</a>
-
-
 
 These files are based on <a href="https://github.com/cz-guardian/fedora-deepin/">cz-guardian/fedora-deepin</a> and <a href="https://www.archlinux.org/packages/?q=deepin">Arch packages</a>. You can visit the <a href="https://copr.fedorainfracloud.org/coprs/mosquito/deepin/">Deepin Copr</a> to install them. Thanks for all of the community developers and packagers.
 <h2><a id="user-content-installation-instructions" class="anchor" href="https://github.com/FZUG/repo/tree/master/rpms/deepin_project#installation-instructions"></a>Installation instructions</h2>
