@@ -1,8 +1,8 @@
 # Fan Zhiyang's Personal Blog
 
-我的个人博客，使用Jekyll。
+我的个人博客，使用Jekyll搭建。
 
-如果你喜欢，你可以clone（或者fork）下一份然后修改一下`_config.yml`文件，把`_posts`下的文章换成你自己的文章即可，当然有的信息我直接写在模板文件里了，自行查找并修改即可。
+如果你也想这样写博客，你可以clone（或者fork）下一份本源码或者下载一个你认为好看的Jekyll主题然后修改一下`_config.yml`文件，把`_posts`下的文章换成你自己的文章即可，当然有的信息我直接写在模板文件里了，自行查找并修改即可。
 
 ```
 $ git clone https://github.com/rhatyang/rhatyang.github.io.git
@@ -15,12 +15,7 @@ $ bundle install
 $ bundle exec jekyll serve
 ```
 
-具体使用方法可以参见文章: [使用jekyll在Github上搭建博客 - ZhiYang Blog](https://fanzhiyang.com/blog/use-jekyll-build-blog-on-github/)
-
-### 版本迭代
-
-每次进行界面改版的时候我都会发布一个release，你可以查看[Releases · rhatyang/rhatyang.github.io](https://github.com/rhatyang/rhatyang.github.io/releases)
-
+具体使用方法可以参见文章: [使用Jekyll在Github上搭建博客 - ZhiYang Blog](https://fanzhiyang.com/blog/use-jekyll-build-blog-on-github/)
 
 ### 关于分类
 
