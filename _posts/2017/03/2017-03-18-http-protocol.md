@@ -4,6 +4,7 @@ date: 2017-03-18T12:51:08+00:00
 layout: post
 category: network
 ---
+
 # HTTP简介
 
 HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。
@@ -27,6 +28,7 @@ http请求-响应模型
 3.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。
 
 4.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。
+
 5、支持B/S及C/S模式。
 
 # HTTP之URL
@@ -38,6 +40,7 @@ URL,全称是UniformResourceLocator, 中文叫统一资源定位符,是互联网
 http://www.aspxfans.com:8080/news/index.asp?boardID=5&ID=24618&page=1#name
 
 从上面的URL可以看出，一个完整的URL包括以下几部分：
+
 1.协议部分：该URL的协议部分为“http：”，这代表网页使用的是HTTP协议。在Internet中可以使用多种协议，如HTTP，FTP等等本例中使用的是HTTP协议。在"HTTP"后面的“//”为分隔符
 
 2.域名部分：该URL的域名部分为“www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用
@@ -60,24 +63,32 @@ URI，是uniform resource identifier，统一资源标识符，用来唯一的�
 
 Web上可用的每种资源如HTML文档、图像、视频片段、程序等都是一个来URI来定位的
 URI一般由三部组成：
+
 ①访问资源的命名机制
+
 ②存放资源的主机名
+
 ③资源自身的名称，由路径表示，着重强调于资源。
 
 URL是uniform resource locator，统一资源定位器，它是一种具体的URI，即URL可以用来标识一个资源，而且还指明了如何locate这个资源。
 
 URL是Internet上用来描述信息资源的字符串，主要用在各种WWW客户程序和服务器程序上，特别是著名的Mosaic。
 采用URL可以用一种统一的格式来描述各种信息资源，包括文件、服务器的地址和目录等。URL一般由三部组成：
+
 ①协议(或称为服务方式)
+
 ②存有该资源的主机IP地址(有时也包括端口号)
+
 ③主机资源的具体地址。如目录和文件名等
 
-URN，uniform resource name，统一资源命名，是通过名字来标识资源，比如mailto:java-net@java.sun.com。
+URN，uniform resource name，统一资源命名，是通过名字来标识资源，比mailto:java-net@java.sun.com。
 
 URI是以一种抽象的，高层次概念定义统一资源标识，而URL和URN则是具体的资源标识的方式。URL和URN都是一种URI。笼统地说，每个 URL 都是 URI，但不一定每个 URI 都是 URL。这是因为 URI 还包括一个子类，即统一资源名称 (URN)，它命名资源但不指定如何定位资源。上面的 mailto、news 和 isbn URI 都是 URN 的示例。
 
 在Java的URI中，一个URI实例可以代表绝对的，也可以是相对的，只要它符合URI的语法规则。而URL类则不仅符合语义，还包含了定位该资源的信息，因此它不能是相对的。
+
 在Java类库中，URI类不包含任何访问资源的方法，它唯一的作用就是解析。
+
 相反的是，URL类可以打开一个到达资源的流。
 
 # HTTP之请求消息Request
@@ -174,8 +185,7 @@ Content-Type: text/html; charset=UTF-8
 
 **第二部分：消息报头，用来说明客户端要使用的一些附加信息**
 
-第二行和第三行为消息报头，
-Date:生成响应的日期和时间；Content-Type:指定了MIME类型的HTML(text/html),编码类型是UTF-8
+第二行和第三行为消息报头，Date:生成响应的日期和时间；Content-Type:指定了MIME类型的HTML(text/html),编码类型是UTF-8
 
 **第三部分：空行，消息报头后面的空行是必须的**
 
@@ -218,6 +228,7 @@ Date:生成响应的日期和时间；Content-Type:指定了MIME类型的HTML(te
 HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。
 
 HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。
+
 ```
 GET     请求指定的页面信息，并返回实体主体。
 HEAD     类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头
