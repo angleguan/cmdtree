@@ -21,7 +21,7 @@ Cmder是一个开源项目[cmderdev / cmder：可爱的控制台模拟器包的W
 
 ![]({{ site.pics }}/2017/07/TIMscreenshot20170701203059.png)
 
-在下载选项中有两个选择，一个是mini版，一个full版，两者的区别就是full版自带了Git；
+在下载选项中有两个选择，一个是mini版，一个full版，full版相对更加强大，例如加入Git和vim等。
 
 虽然我已经安装了Git for windows，但是我还是选择了full版，两者都是压缩包形式，解压完直接就能打开cmder.exe，我推荐使用full版，并且如果你选择full版，我推荐你到[Releases · cmderdev/cmder](https://github.com/cmderdev/cmder/releases)下载7z压缩包，我在官网下载的是zip，7z格式的要小一半。
 
