@@ -7,9 +7,3 @@ author: 樊志阳
 email: fan0103@outlook.com
 permalink: /blog/:title/
 markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-feed:
-  path: /blog/feed.xml

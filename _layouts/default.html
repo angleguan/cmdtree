@@ -2,38 +2,38 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.index_title }}{% endif %}</title>
-    <meta name="description" content="{{ site.description }}" />
-    <meta name="viewport" content="width=device-width">
-    <link href="/favicon.png" rel="icon">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
-    <link rel="stylesheet" href="/style.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.index_title }}{% endif %}</title>
+	<meta name="description" content="{{ site.description }}" />
+	<meta name="viewport" content="width=device-width">
+	<link href="/favicon.png" rel="icon">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-    <div class="header">
-        <span class="title">
-            <a href="/">{{ site.title }}</a>
-        </span>
-        &#47;&nbsp;
-        <a class="extra" href="/about/">ABOUT</a>
-        &#47;&nbsp;
-        <a class="extra" href="/feed.xml">RSS</a>
-    </div>
+	<div class="header">
+		<span class="title">
+			<a href="/">{{ site.title }}</a>
+		</span>
+		&#47;&nbsp;
+		<a class="extra" href="/about/">ABOUT</a>
+		&#47;&nbsp;
+		<a class="extra" href="/feed.xml">RSS</a>
+	</div>
 
-    <div class="main">
+	<div class="main">
 
-        {{ content }}
+		{{ content }}
 
-    </div>
+	</div>
 
-    <div class="footer">
-        <p>© 2017 Fan Zhiyang
-        </p>
-    </div>
+	<div class="footer">
+		<p>© 2017 Fan Zhiyang
+		</p>
+	</div>
 </body>
 
 </html>
