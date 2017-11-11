@@ -9,7 +9,8 @@ layout: default
 	<div class="page_meta">
 		<small>
 			<span class="meta">
-				{{ page.date | date_to_string }} {% if page.categories == blank %} | {{ page.categories }} {% endif %}</span>
+				{% if page.date %}{{ page.date | date_to_string }}{% endif %}
+			</span>
 		</small>
 	</div>
 </div>

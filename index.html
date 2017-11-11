@@ -5,17 +5,12 @@ layout: default
 <div id="home">
 	<span class="index_recent">最近文章：</span>
 	<ul class="posts">
-		{% for post in site.posts limit:15 %} {% if post.categories contains "公众号" %} {% if post.display %}
+		{% for post in site.posts limit:15 %}
 		<li>
 			<span class="post_date">{{ post.date | date_to_string }}</span>
 			<a href="{{ post.url }}">{{ post.title }}</a>
 		</li>
-		{% endif %} {% else %}
-		<li>
-			<span class="post_date">{{ post.date | date_to_string }}</span>
-			<a href="{{ post.url }}">{{ post.title }}</a>
-		</li>
-		{% endif %} {% endfor %}
+		{% endfor %}
 		<span class="index_more">
 			<li>
 				<a href="/archive/">更多……</a>
