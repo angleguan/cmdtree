@@ -1,16 +1,19 @@
 ---
 layout: default
 ---
-<div class="container">
-        <div class="article">
+
+<div id="pagetitle">
+        <div class="page_title">
                 <h1>{{ page.title }}</h1>
-                <p>{{ page.date | date: "%Y年%m月%d日" }}
-                        <span><i class="fa fa-fw fa-tags"></i>
-                        {% include ocate.html %}
-                        </span>
-                </p>
-                <div class="content">
-                        {{ content }}
-                </div>
         </div>
+        <div class="page_meta">
+                <small>
+                        <span class="meta">
+                                {{ page.date | date_to_string }} {% if page.categories == blank %} | {{ page.categories }} {% endif %}</span>
+                </small>
+        </div>
+</div>
+
+<div class="post">
+        {{ content }}
 </div>
