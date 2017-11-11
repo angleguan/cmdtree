@@ -19,7 +19,7 @@ Cmder是一个开源项目[cmderdev / cmder：可爱的控制台模拟器包的W
 
 打开[Cmder官网](http://cmder.net)
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170701203059.png)
+![](/pics/2017/07/TIMscreenshot20170701203059.png)
 
 在下载选项中有两个选择，一个是mini版，一个full版，full版相对更加强大，例如加入Git和vim等。
 
@@ -29,7 +29,7 @@ Cmder是一个开源项目[cmderdev / cmder：可爱的控制台模拟器包的W
 
 这里我将它解压到c盘的根目录，然后**使用管理员身份**打开cmd或者powershell并定位到解压完的目录
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170701204523.png)
+![](/pics/2017/07/TIMscreenshot20170701204523.png)
 
 执行
 ```
@@ -38,24 +38,24 @@ Cmder是一个开源项目[cmderdev / cmder：可爱的控制台模拟器包的W
 
 **这样就将cmder添加到了右键打开菜单：**
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170701210239.png)
+![](/pics/2017/07/TIMscreenshot20170701210239.png)
 
 
 ### 我们还可以将Cmder的解压目录添加到path环境变量
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170702131546.png)
+![](/pics/2017/07/TIMscreenshot20170702131546.png)
 
 这样我们就可以在`win + R`的运行命令中打开cmder
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170702131712.png)
+![](/pics/2017/07/TIMscreenshot20170702131712.png)
 
 cmder还可以在一个窗口下新建多个tab页
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170702131932.png)
+![](/pics/2017/07/TIMscreenshot20170702131932.png)
 
 有多种模式可供选择
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170702133434.png)
+![](/pics/2017/07/TIMscreenshot20170702133434.png)
 
 更多使用技巧自行摸索。
 (完)

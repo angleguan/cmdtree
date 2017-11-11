@@ -7,13 +7,13 @@ category: use
 
 一、打开Sublime，按快捷键Ctrl + Shift + P，如下图所示，输入【Install Package】并打开
 
-![]({{ site.pics }}/2017/08/fzy_screenshot20170822103213.png)
+![](/pics/2017/08/fzy_screenshot20170822103213.png)
 
 
 二、稍等片刻，就会出现如下图所示，输入【Vue Syntax Hightlight】，安装这个插件
 
-![]({{ site.pics }}/2017/08/fzy_screenshot20170822103307.png)
+![](/pics/2017/08/fzy_screenshot20170822103307.png)
 
 三、重启Sublime打开`.vue`文件就可以看到高亮了。
 
-![]({{ site.pics }}/2017/08/fzy_screenshot20170822103732.png)
+![](/pics/2017/08/fzy_screenshot20170822103732.png)

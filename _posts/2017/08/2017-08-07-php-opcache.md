@@ -49,7 +49,7 @@ opcache.fast_shutdown=1
 
 访问页面可以看到以下信息
 
-![]({{ site.pics }}/2017/08/fzy_screenshot20170807132328.png)
+![](/pics/2017/08/fzy_screenshot20170807132328.png)
 
 我们可以看到`Up and Running`，是已经在运行的了，这就说明已经开启成功了
 
@@ -169,7 +169,7 @@ opcache.fast_shutdown=1
 
 将下载下来的项目放入到当前的Web服务器根目录下，直接访问即可，先看效果：
 
-![]({{ site.pics }}/2017/08/fzy_screenshot20170807133858.png)
+![](/pics/2017/08/fzy_screenshot20170807133858.png)
 
 从上面的截图及项目文件看出，该Opcache工具是一个简化的GUI版本，使用它可以清楚了解和分析下面的内容：
 1、缓存使用情况、剩余情况及内存浪费情况及比例；

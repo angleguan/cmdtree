@@ -6,7 +6,7 @@ category: use
 ---
 之前在使用git时就经常遇到这样的报错，起初并没有太在意，并没有影响到工作，但是今天在进行仓库分离的时候，使用jekyll build编译网站的时候
 
-![]({{ site.pics }}/2017/06/TIMscreenshot20170623201424.png)
+![](/pics/2017/06/TIMscreenshot20170623201424.png)
 
 如上图，满屏幕的warning，一看到warning都不舒服的我看到这么多warning瞬间都起鸡皮疙瘩了，于是google了一下，整理出如下内容
 
@@ -24,7 +24,7 @@ Windows/Dos > CR LF  > 回车 换行
 
 所以windows的换行符是CRLF，正如我在写这篇文章的时候，vscode的右下角已经标出这个使用CRLF换行
 
-![]({{ site.pics }}/2017/06/TIMscreenshot20170623203125.png)
+![](/pics/2017/06/TIMscreenshot20170623203125.png)
 
 也就说，你在windows系统上创建的文件都是CRLF换行的，但是我在使用bash命令生成文件时，bash是GNU shell啊，GNU又是类UNIX啊，所以追踪溯源，他生成的文件肯定是LF换行的。
 

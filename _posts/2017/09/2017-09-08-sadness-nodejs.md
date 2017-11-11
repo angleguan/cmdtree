@@ -15,7 +15,7 @@ error: failed to prepare transaction (could not satisfy dependencies)
 :: npm: removing nodejs breaks dependency 'nodejs'
 :: semver: removing nodejs breaks dependency 'nodejs'
 ```
-![]({{ site.pics }}/2017/09/0809001.jpg)
+![](/pics/2017/09/0809001.jpg)
 
 这让我懵逼了，没见过apm啊，这是个啥玩意。嗯，没事我知道npm，那我先删掉npm
 
@@ -35,7 +35,7 @@ error: failed to prepare transaction (could not satisfy dependencies)
 :: atom: removing apm breaks dependency 'apm'
 ```
 
-![]({{ site.pics }}/2017/09/0809002.jpg)
+![](/pics/2017/09/0809002.jpg)
 
 竟然是atom，没想到吧，之前用sublime老是卡死，所以想尝试换个editor，所以装了个atom，一直没用。
 

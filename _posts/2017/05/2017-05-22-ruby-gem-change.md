@@ -34,7 +34,7 @@ SSL_connect returned=1 errno=0 state=error: certificate verify failed (https://g
 google了一下得到的最直接的解决方法是使用http
 
 故
-![]({{ site.pics }}/2017/06/QQscreenshot20170622222624.png)
+![](/pics/2017/06/QQscreenshot20170622222624.png)
 
 也有说法是因为国内源没有ssl证书，需要自己下载证书配置
 

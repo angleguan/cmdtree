@@ -32,7 +32,7 @@ $ /usr/local/nginx/sbin/nginx
 
 打开浏览器访问此机器的 IP，如果浏览器出现 Welcome to nginx! 则表示 Nginx 已经安装并运行成功。
 
-![]({{ site.pics }}/2017/07/fzy_screenshot20170723115712.png)
+![](/pics/2017/07/fzy_screenshot20170723115712.png)
 
 部分命令如下：
 

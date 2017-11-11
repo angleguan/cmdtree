@@ -133,7 +133,7 @@ systemctl enable php-fpm.service
 
 然后在浏览器输入服务器的IP就可以看到如下界面
 
-![]({{ site.pics }}/2017/06/TIMscreenshot20170628114655.png)
+![](/pics/2017/06/TIMscreenshot20170628114655.png)
 
 # 二、安装并配置 WordPress
 
@@ -234,7 +234,7 @@ nginx -s reload
 
 然后我们可以在浏览器输入解析好的域名或者服务器的ip就可以看到如下界面：
 
-![]({{ site.pics }}/2017/06/TIMscreenshot20170628104823.png)
+![](/pics/2017/06/TIMscreenshot20170628104823.png)
 
 (完)
 

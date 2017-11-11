@@ -8,39 +8,39 @@ category: use
 
 打开[iconfont官网](http://iconfont.cn)
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093102.png)
+![](/pics/2017/07/TIMscreenshot20170704093102.png)
 
 在搜索框输入要查找的图标
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093138.png)
+![](/pics/2017/07/TIMscreenshot20170704093138.png)
 
 将鼠标移至图标上方点击 ‘添加入库’
 
 然后在网站右上方点击购物车
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093218.png)
+![](/pics/2017/07/TIMscreenshot20170704093218.png)
 
 打开购物车看到添加的图标，选择添加至项目
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093246.png)
+![](/pics/2017/07/TIMscreenshot20170704093246.png)
 
 新建一个项目并添加
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093420.png)
+![](/pics/2017/07/TIMscreenshot20170704093420.png)
 
 # 二、引用样式并应用
 
 然后就可以在‘我的图标’中看到‘我的项目’
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093439.png)
+![](/pics/2017/07/TIMscreenshot20170704093439.png)
 
 点击生成代码
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093521.png)
+![](/pics/2017/07/TIMscreenshot20170704093521.png)
 
 然后就可以看到生成的字体CDN代码，复制代码，粘贴在自己的css文件中
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704093747.png)
+![](/pics/2017/07/TIMscreenshot20170704093747.png)
 
 
 接着回到‘我的项目’中，鼠标移至图标上方选择复制代码
@@ -74,15 +74,15 @@ category: use
 
 使用项目管理图标的好处在于我们可以随时方便的修改图标
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704095640.png)
+![](/pics/2017/07/TIMscreenshot20170704095640.png)
 
 我们可以修改大小，颜色，位置等信息
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704095840.png)
+![](/pics/2017/07/TIMscreenshot20170704095840.png)
 
 但是每次修改完必须要重新更换一次引用的CDN文件
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170704095932.png)
+![](/pics/2017/07/TIMscreenshot20170704095932.png)
 
 点击更新代码后，再次引用即可
 

@@ -10,13 +10,13 @@ category: use
 
 # 什么是Github Pages
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170715122434.png)
+![](/pics/2017/07/TIMscreenshot20170715122434.png)
 
 Github Pages是Github提供的一个给项目生成静态网站的功能，相似的托管网站还有国内的Coding和码云。
 
 关于Github Pages的官方介绍请点击[GitHub Pages](https://pages.github.com/)
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170715122353.png)
+![](/pics/2017/07/TIMscreenshot20170715122353.png)
 
 # 一、开始使用
 
@@ -26,7 +26,7 @@ Github允许给任意仓库生成网站，如果不自定义域名，开启Githu
 
 创建好个人账号后，点击右上角的新建仓库，仓库名称格式为`yourname.github.io`
 
-![]({{ site.pics }}/2017/07/TIMscreenshot20170715124209.png)
+![](/pics/2017/07/TIMscreenshot20170715124209.png)
 
 仓库创建好后，默认已经开启了Github Pages服务，访问`yourname.github.io`即可看到。
 

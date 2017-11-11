@@ -14,18 +14,18 @@ category: use
 ```zsh
  $ gem install jekyll bundler
 ```
-![]({{ site.pics }}/2017/05/QQscreenshot20170525141624.png)
+![](/pics/2017/05/QQscreenshot20170525141624.png)
 
 安装完成可以查看一下版本号
 
-![]({{ site.pics }}/2017/05/QQscreenshot20170525143858.png)
+![](/pics/2017/05/QQscreenshot20170525143858.png)
 
 二. 新建一个jekyll文件夹
 
 ```zsh
 $ jekyll new githubpages
 ```
-![]({{ site.pics }}/2017/05/QQscreenshot20170525144615.png)
+![](/pics/2017/05/QQscreenshot20170525144615.png)
 
 三. 进入该文件夹运行本地服务
 
@@ -33,6 +33,6 @@ $ jekyll new githubpages
  $ cd githubpages
  $ bundle exec jekyll serve
  ```
-![]({{ site.pics }}/2017/05/QQscreenshot20170525145106.png)
+![](/pics/2017/05/QQscreenshot20170525145106.png)
 
 完成！  是不是很简单

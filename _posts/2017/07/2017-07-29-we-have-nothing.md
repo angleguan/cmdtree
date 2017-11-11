@@ -5,7 +5,7 @@ layout: post
 category: lifetime
 ---
 
-![]({{ site.pics }}/2017/07/2024657-49f5d9b654519df8.jpg)
+![](/pics/2017/07/2024657-49f5d9b654519df8.jpg)
 
 最近看到南方人物人物周刊上，一篇关于华裔男孩‘总理梦’的文章。
 
@@ -67,7 +67,7 @@ category: lifetime
 
 既然如此，那我们不妨来做个比较。
 
-![]({{ site.pics }}/2017/07/2024657-e0a320bbda609d98.png)
+![](/pics/2017/07/2024657-e0a320bbda609d98.png)
 
 
 
