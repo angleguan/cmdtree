@@ -1,6 +1,6 @@
 ---
 title: javascript 中强制执行 toString()
-date: 2016-04-18T11:38:07+00:00
+date: 2017-04-18T11:38:07+00:00
 layout: post
 category: js
 ---
