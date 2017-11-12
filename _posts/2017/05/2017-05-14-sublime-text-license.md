@@ -5,7 +5,7 @@ layout: post
 category: use
 ---
 
-Sublime Text 3 (build 3126)注册码（长期可用）
+Sublime Text 3 (build 3126)注册码
 
 虽然说sublime不注册也可以使用，但是有时候一保存总弹出让你注册的窗口，真的很烦
 ```
