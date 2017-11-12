@@ -7,11 +7,11 @@ category: use
 
 ## 按照jekyll官网的方法在本地安装jekyll环境
 
-此方法windows，linux，macos通用，前提是安装了ruby and nodejs
+此方法windows，linux，macos通用，前提是安装了Ruby。
 
 一. 安装jekyll bundler
 
-```zsh
+```
  $ gem install jekyll bundler
 ```
 ![](/pics/2017/05/QQscreenshot20170525141624.png)
@@ -22,15 +22,16 @@ category: use
 
 二. 新建一个jekyll文件夹
 
-```zsh
+```
 $ jekyll new githubpages
 ```
 ![](/pics/2017/05/QQscreenshot20170525144615.png)
 
 三. 进入该文件夹运行本地服务
 
-```zsh
+```
  $ cd githubpages
+ $ bundle install
  $ bundle exec jekyll serve
  ```
 ![](/pics/2017/05/QQscreenshot20170525145106.png)
