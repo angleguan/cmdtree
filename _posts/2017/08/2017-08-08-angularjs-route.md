@@ -5,8 +5,6 @@ layout: post
 category: js
 ---
 
-
-
 > 路由(route)，几乎所有的MVC(VM)框架都应该具有的特性，因为它是前端构建单页面应用(SPA)必不可少的组成部分。
 
 {% raw %}
@@ -55,7 +53,6 @@ app.config(function($routeProvider) {
 
 整个过程中页面不需要重新加载。
 
-
 # ng-view
 
 ng-view 是ngRoute中包含的一个特殊指令。它相当与一个占位符，表示即将载入页面的位置。
@@ -65,7 +62,6 @@ ng-view 是ngRoute中包含的一个特殊指令。它相当与一个占位符�
 - `<div ng-view></div>`
 - `<ng-view></ng-view>`
 - `<div class="ng-view"></div>`
-
 
 应用程序只能有一个`ng-view`指令.
 
@@ -95,7 +91,7 @@ app.config(function($routeProvider) {
 
 随着$routeProvider的使用，你可以定义每个视图的控制器
 
-```
+```js
 var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
@@ -161,7 +157,5 @@ app.config(function($routeProvider) {
 上面的例子中，倘若既不是banana又不是tomato的链接被点击时，就会插入
 
 ![](/pics/2017/08/fzy_screenshot20170808181808.png)
-
-
 
 {% endraw %}
