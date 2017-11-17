@@ -5,15 +5,14 @@ layout: post
 category: learn
 ---
 
-
 **prefetch 即预加载，在用户需要前我们就将所需的资源加载完毕。**
 
 ## 有了浏览器缓存，为何还需要预加载？
 
-* 用户可能是第一次访问网站，此时还无缓存
-* 用户可能清空了缓存
-* 缓存可能已经过期，资源将重新加载
-* 用户访问的缓存文件可能不是最新的，需要重新加载
+- 用户可能是第一次访问网站，此时还无缓存
+- 用户可能清空了缓存
+- 缓存可能已经过期，资源将重新加载
+- 用户访问的缓存文件可能不是最新的，需要重新加载
 
 ## Chrome 的预加载技术
 
@@ -25,18 +24,18 @@ category: learn
 
 ## DNS prefetch
 
-我们知道，当我们访问一个网站如 www.amazon.com 时，需要将这个域名先转化为对应的 IP 地址，这是一个非常耗时的过程。
+我们知道，当我们访问一个网站如 `www.amazon.com` 时，需要将这个域名先转化为对应的 IP 地址，这是一个非常耗时的过程。
 
 DNS prefetch 分析这个页面需要的资源所在的域名，浏览器空闲时提前将这些域名转化为 IP 地址，真正请求资源时就避免了上述这个过程的时间。
 
-{% highlight html %}
+```html
 <meta http-equiv='x-dns-prefetch-control' content='on'>
 <link rel='dns-prefetch' href='http://g-ecx.images-amazon.com'>
 <link rel='dns-prefetch' href='http://z-ecx.images-amazon.com'>
 <link rel='dns-prefetch' href='http://ecx.images-amazon.com'>
 <link rel='dns-prefetch' href='http://completion.amazon.com'>
 <link rel='dns-prefetch' href='http://fls-na.amazon.com'>
-{% endhighlight %}
+```
 
 应用场景1：我们的资源存在在不同的 CDN 中，那提前声明好这些资源的域名，就可以节省请求发生时产生的域名解析的时间。
 
@@ -46,18 +45,18 @@ DNS prefetch 分析这个页面需要的资源所在的域名，浏览器空闲�
 
 在 Chrome 下，我们可以用 `link` 标签声明特定文件的预加载：
 
-{% highlight html %}
+```html
 <link rel='subresource' href='critical.js'>
 <link rel='subresource' href='main.css'>
 
 <link rel='prefetch' href='secondary.js'>
-{% endhighlight %}
+```
 
 在 Firefox 中或用 `meta` 标签声明：
 
-{% highlight html %}
+```html
 <meta http-equiv="Link" content="<critical.js>; rel=prefetch">
-{% endhighlight %}
+```
 
 `rel='subresource'` 表示当前页面必须加载的资源，应该放到页面最顶端先加载，有最高的优先级。
 
@@ -71,42 +70,42 @@ DNS prefetch 分析这个页面需要的资源所在的域名，浏览器空闲�
 
 预渲染意味着我们提前加载好用户即将访问的下一个页面，否则进行预渲染这个页面将浪费资源，慎用！
 
-{% highlight html %}
+```html
 <link rel='prerender' href='http://www.pagetoprerender.com'>
-{% endhighlight %}
+```
 
 `rel='prerender'` 表示浏览器会帮我们渲染但隐藏指定的页面，一旦我们访问这个页面，则秒开了！
 
 在 Firefox 中或用 `rel='next'` 来声明
 
-{% highlight html %}
+```html
 <link rel="next" href="http://www.pagetoprerender.com">
-{% endhighlight %}
+```
 
 ## 不是所有的资源都可以预加载
 
 当资源为以下列表中的资源时，将阻止预渲染操作：
 
-* URL 中包含下载资源
-* 页面中包含音频、视频
-* POST、PUT 和 DELETE 操作的 ajax 请求
-* HTTP 认证(Authentication)
-* HTTPS 页面
-* 含恶意软件的页面
-* 弹窗页面
-* 占用资源很多的页面
-* 打开了 chrome developer tools 开发工具
+- URL 中包含下载资源
+- 页面中包含音频、视频
+- POST、PUT 和 DELETE 操作的 ajax 请求
+- HTTP 认证(Authentication)
+- HTTPS 页面
+- 含恶意软件的页面
+- 弹窗页面
+- 占用资源很多的页面
+- 打开了 chrome developer tools 开发工具
 
 ## 手动触发预渲染操作
 
 在 `head` 中强势插入 `link[rel='prerender']` 即可：
 
-{% highlight javascript %}
+```js
 var hint=document.createElement("link")
 hint.setAttribute("rel","prerender")
 hint.setAttribute("href","next-page.html")
 document.getElementsByTagName("head")[0].appendChild(hint)
-{% endhighlight %}
+```
 
 ## 兼容性
 
