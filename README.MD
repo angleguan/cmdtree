@@ -15,7 +15,7 @@ $ bundle install
 $ bundle exec jekyll serve
 ```
 
-具体使用方法可以参见文章: [使用Jekyll在Github上搭建博客 - ZhiYang Blog](https://fanzhiyang.com/blog/use-jekyll-build-blog-on-github/)
+具体使用方法可以参见文章: [使用Jekyll在Github上搭建博客 - 樊志阳](https://fanzhiyang.com/blog/use-jekyll-build-blog-on-github/)
 
 ### 关于分类
 

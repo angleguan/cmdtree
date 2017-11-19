@@ -6,5 +6,6 @@ permalink: /blog/:title/
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 feed:
   path: /blog/atom.xml

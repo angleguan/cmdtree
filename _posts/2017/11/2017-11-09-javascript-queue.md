@@ -13,7 +13,7 @@ category: js
 
 ## 使用数组实现一个队列
 
-之前在数组操作中就提到`shift()`和`push()`方法，具体可以查看[JavaScript数据结构与算法——数组操作 - ZhiYang Blog](https://fanzhiyang.com/blog/js-array-operation/)
+之前在数组操作中就提到`shift()`和`push()`方法，具体可以查看[JavaScript数据结构与算法——数组操作 - 樊志阳](https://fanzhiyang.com/blog/js-array-operation/)
 
 首先定义一个构造函数：
 
