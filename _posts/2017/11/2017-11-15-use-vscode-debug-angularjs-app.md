@@ -35,7 +35,7 @@ category: js
 
 # 三、开始Debug
 
-这个演示的项目在https://github.com/rhatyang/NiceFish。
+这个演示的项目在https://gitee.com/mumu-osc/NiceFish。
 
 我在app.component.ts里的构造函数里面打个断点，像这样
 
