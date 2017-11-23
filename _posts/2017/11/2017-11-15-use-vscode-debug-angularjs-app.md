@@ -5,6 +5,8 @@ title: "使用VScode调试Angularjs应用"
 category: js
 ---
 
+VSCode 在1.14更新后添加了调试Angularjs应用的功能。
+
 # 一、环境要求
 
 - 在VScode中安装插件`Debugger for Chrome`
