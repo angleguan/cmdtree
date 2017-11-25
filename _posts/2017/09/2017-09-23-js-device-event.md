@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-09-23 14:51:31+ 0800
+date: 2017-09-23 14:51:31 +0800
 title: "JS中的设备事件 —— deviceorientation、orientation、devicemotion"
 category: js
 ---
