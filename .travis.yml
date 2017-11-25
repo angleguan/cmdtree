@@ -3,7 +3,6 @@ language: ruby
 cache: bundler
 
 before_script: 
-  - chmod +x -R script
+  - chmod +x ./travis.sh
 
-install: script/bootstrap
-script: script/cibuild
+script: ./travis.sh
