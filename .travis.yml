@@ -1,0 +1,6 @@
+sudo: false
+language: ruby
+cache: bundler
+
+install: script/bootstrap
+script: script/cibuild
