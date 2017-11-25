@@ -1,4 +1,6 @@
-# Fan Zhiyang's Personal Blog[![Build Status](https://www.travis-ci.org/rhatyang/blog.svg?branch=master)](https://www.travis-ci.org/rhatyang/blog)
+# Fan Zhiyang's Personal Blog
+
+[![Build Status](https://www.travis-ci.org/rhatyang/blog.svg?branch=master)](https://www.travis-ci.org/rhatyang/blog)
 
 我的个人博客，使用Jekyll搭建。
 
