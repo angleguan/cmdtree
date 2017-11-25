@@ -89,16 +89,19 @@ a {
     margin: 1em auto;
 }
 
+// 41, 43, 44
+
 .header,
 .footer {
     font-size: 12px;
-    max-width: 856px;
     margin: 0 auto;
     color: #999;
 }
 
 .header {
-    padding-top: 1em;
+	padding-top: 1em;
+	background: rgb(41, 43, 44);
+    height: 30px;
     a {
         color: #ccc;
         text-decoration: none;
