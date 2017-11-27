@@ -1,0 +1,55 @@
+#pagetitle {
+    color: rgb(46, 65, 92);
+    border-bottom: 1px solid #ddd;
+    margin: 1em 0 2em 0;
+    padding-bottom: 1em;
+    .page_title {
+        max-width: 75%;
+        display: inline-block;
+    }
+    .page_meta {
+        float: right;
+    }
+    h1 {
+        display: inline;
+        word-break: break-all;
+    }
+    .meta {
+        color: #ccc;
+    }
+    h1 {
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+}
+
+.post {
+    pre {
+        overflow: auto;
+        margin: 1em 0;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+        border: unset;
+    }
+    ul,
+    ol {
+        margin-left: 1.3em;
+        margin-bottom: 1em;
+    }
+    h1 {
+        font-size: 1.6em;
+        line-height: 1em;
+        margin-bottom: 0.66em;
+    }
+    p {
+		margin-bottom: 20px;
+		word-break: break-all;
+        img {
+            max-width: 100%;
+            display: block;
+        }
+    }
+}

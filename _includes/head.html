@@ -1,0 +1,10 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.index_title }}{% endif %}</title>
+	{% seo title=false %}
+	<meta name="viewport" content="width=device-width">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="https://fanzhiyang.com/blog/atom.xml">
+	<link rel="stylesheet" href="/style.css">
+	<link rel="shortcut icon" href="/favicon.jpeg">
+</head>

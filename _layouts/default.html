@@ -1,56 +1,30 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.index_title }}{% endif %}</title>
-	{% seo title=false %}
-	<meta name="viewport" content="width=device-width">
-	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="https://fanzhiyang.com/blog/atom.xml">
-	<link rel="stylesheet" href="/style.css">
-	<link rel="shortcut icon" href="/favicon.jpeg">
-	
-</head>
-
+{% include head.html %}
 <body>
 
-	<div class="header">
-		
-		<h1 class="title">流年漂浮，奈何</h1>
-		<ul>
-			<li><a href="/">首页</a></li>
-			<li><a href="/archive/">归档</a></li>
-			<li><a href="/about/">关于我</a></li>
-			<li><a href="/blog/atom.xml" target="_blank">订阅</a></li>
-			<li><a href="https://dazai.fanzhiyang.com/" target="_blank">DazaiQuotes</a></li>
-		</ul>
+	{% include nav.html %}
+
+	<div id="container">
+		<div class="main">
+
+			{{ content }}
+
+		</div>
+
+		{% include footer.html %}
 	</div>
 
-	<div class="main">
 
-		{{ content }}
-
-	</div>
-
-	<div class="footer">
-		<p>© 2017 Fan Zhiyang</p>
-		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
-			<img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
-		</a>
-		<br />本作品采用
-		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">知识共享署名 4.0 国际许可协议</a>进行许可。
-		<p>This site is open source on <a href="https://github.com/rhatyang/blog" target="_blank">Github</a></p>
-	</div>
 	<script>
 		var _hmt = _hmt || [];
-		(function() {
-		  var hm = document.createElement("script");
-		  hm.src = "https://hm.baidu.com/hm.js?95d8c03d5e4c689f2c999c1a2fc19cd0";
-		  var s = document.getElementsByTagName("script")[0]; 
-		  s.parentNode.insertBefore(hm, s);
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?95d8c03d5e4c689f2c999c1a2fc19cd0";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
 		})();
-		</script>
+	</script>
 
 </body>
 

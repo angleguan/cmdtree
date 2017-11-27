@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div id="home">
+	<span>最近文章：</span>
+	<ul class="posts-list">
+		{% for post in site.posts limit:15 %}
+		<li>
+			<span class="post_date">{{ post.date | date: "%Y-%m-%d %H:%M:%S" }}</span>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+		</li>
+		{% endfor %}
+		<span class="index_more">
+			<li>
+				<a href="/archive/">更多……</a>
+			</li>
+		</span>
+	</ul>
+</div>
