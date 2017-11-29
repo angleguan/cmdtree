@@ -87,16 +87,19 @@ pre {
     padding-top: 2px;
     padding-bottom: 2px;
     border-radius: 3px;
-    font-size: .9em;
+    font-size: 1em;
     padding: 16px 16px 14px 16px;
-    white-space: pre-wrap;
+	white-space: pre-wrap;
+	font-family: "Consolas, Monaco, 'Andale Mono', monospace";
+	line-height: 1.3em;
 }
 
 code {
     padding-left: 5px;
     padding-right: 5px;
-    font-size: .9em;
+    font-size: 1em;
     position: relative;
     top: -1px;
-    color: #666;
+	color: #666;
+	font-family: "Consolas, Monaco, 'Andale Mono', monospace";
 }
