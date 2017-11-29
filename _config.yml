@@ -9,4 +9,4 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 feed:
-  path: /blog//atom.xml
+  path: /blog/atom.xml
