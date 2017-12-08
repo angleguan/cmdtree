@@ -1,16 +1,32 @@
 #nav {
 	background: rgb(41, 43, 44);
 	overflow: hidden;
+	.nav-inner {
+		width: 95%;
+		margin: 0 auto;
+	}
 	.nav-title { 
-		font-size: 25px;
+		font-size: 1.5em;
 		color: #fff;
 		font-weight: 300;
 		float: left;
 		margin: 0;
 		padding-left: 152px;
 		padding-top: 10px;
+		@media screen and (max-width:800px) {
+			font-size: 1em;
+			padding: 0;
+		}
 	}
-	ul {
+	.extra-nav {
+		color: #fff;
+		float: left;
+		margin-left: 8px;
+		@media screen and (min-width: 800px){
+			display: none;
+		}
+	}
+	ul.menu {
 		float: right;
 		padding-right: 50px;
 		li {
@@ -18,17 +34,26 @@
 			list-style: none;
 			padding: 10px;
 		}
+		@media screen and (max-width:800px){
+			display: none;
+		}
 	}
     a {
         color: #fff;
         text-decoration: none;
-    }
+	}
+	@media screen and (max-width:800px){
+		padding: 7px;
+	}
 }
 
 #container {
 	width: 85%;
 	max-width: 1260px;
 	margin: 0 auto;
+	@media screen and (max-width: 800px){
+		width: 90%;
+	}
 }
 
 .main {
@@ -38,15 +63,22 @@
     line-height: 1.75em;
     padding: 1em 2em;
     background-color: #fff;
-    margin: 1em auto;
+	margin: 1em auto;
+	@media screen and (max-width: 800px){
+		padding: 0.5em 1em;
+	}
 }
 
 .posts-list {
-    .index_more a {
-        color: #296bcc;
+	list-style-type: square;
+	margin-top: 1em;
+	a {
+        color: rgb(46, 65, 92);
+        &:link,
+        &:visited {
+            text-decoration: none;
+        }
     }
-    list-style-type: square;
-    margin-top: 1em;
     li {
         line-height: 2em;
         padding: 2px 0;
@@ -57,14 +89,13 @@
         color: #999;
 		float: right;
 		font-size: 80%;
-    }
-    a {
-        color: rgb(46, 65, 92);
-        &:link,
-        &:visited {
-            text-decoration: none;
-        }
-    }
+		@media screen and (max-width:800px){
+			display: none;
+		}
+	}
+	.index_more a {
+        color: #296bcc;
+	}
 }
 
 // footer
