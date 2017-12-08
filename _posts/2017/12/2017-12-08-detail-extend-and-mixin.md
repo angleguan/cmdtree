@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2017-12-8 13:57:29 +0800
-title: "详解@extend和@mixin"
+title: "@extend与@mixin"
 category: learn
 ---
 
