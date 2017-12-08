@@ -76,8 +76,9 @@ pre {
     border-radius: 3px;
     font-size: 1em;
     padding: 16px 16px 14px 16px;
-	white-space: pre-wrap;
 	line-height: 1.5em;
+	margin: 1em 0;
+	overflow: hidden;
 	code {
 		font-size: 1em;
 		padding: 0px;
