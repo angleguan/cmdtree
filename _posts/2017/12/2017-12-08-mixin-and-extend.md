@@ -13,12 +13,12 @@ category: learn
 
 ```scss
 .class1 {
-	color: red;
+    color: red;
 }
 
 .class2 {
-	@extend .class1;
-	font-size: 16px;
+    @extend .class1;
+    font-size: 16px;
 }
 ```
 
@@ -53,15 +53,15 @@ category: learn
 
 ```scss
 a {
-	color: #000;
-	&:hover {
-		text-decoration: underline;
-	}
+    color: #000;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .link {
-	@extend a:hover;
-	font-weight: bold;
+    @extend a:hover;
+    font-weight: bold;
 }
 
 ```
@@ -86,9 +86,9 @@ a {
 
 ```scss
 .class3 {
-	@extend .class1;
-	@extend .class2;
-	font-weight: bold;
+    @extend .class1;
+    @extend .class2;
+    font-weight: bold;
 }
 ```
 
@@ -113,17 +113,17 @@ a {
 
 ```scss
 .class1 {
-	color: red;
+    color: red;
 }
 
 .class2 {
-	@extend .class1;
-	font-size: 16px;
+    @extend .class1;
+    font-size: 16px;
 }
 
 .class3 {
-	@extend .class2;
-	font-weight: bold;
+    @extend .class2;
+    font-weight: bold;
 }
 ```
 
@@ -158,9 +158,9 @@ a {
 
 ```scss
 .class4 {
-	@include media-query(800px) {
-		width: 85%;
-	}
+    @include media-query(800px) {
+        width: 85%;
+    }
 }
 ```
 
@@ -176,16 +176,19 @@ a {
 }
 
 p {
-	@include sexy-border(blue, 1in); 
+    @include sexy-border(blue, 1in); 
 }
 ```
 
 ```scss
 // 为参数指定缺省值
 @mixin left($value: 10px) {
-	float: left;
-	margin-right: $value;
+    float: left;
+    margin-right: $value;
 }
 ```
 
 `@content`用于添加混合样式，在`@include`中出现的其它样式将会出现在@content的位置。
+
+
+更多内容可以浏览[Sass教程 Sass中文文档 | Sass中文网](https://www.sass.hk/docs/)
