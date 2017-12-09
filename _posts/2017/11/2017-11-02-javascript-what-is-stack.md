@@ -26,7 +26,7 @@ push()方法表示进栈，pop()方法表示出栈。
 
 来简单实现一个栈吧
 
-```
+```js
 function Stack() {
     this.dataStore = [];
     this.top = 0;
@@ -40,7 +40,7 @@ function Stack() {
 
 声明一个实例，下面都用这个实例来演示：
 
-```
+```js
 var stack = new Stack()
 ```
 
@@ -49,7 +49,7 @@ var stack = new Stack()
 #### 实现push方法
 
 
-```
+```js
 function push(element) {
     this.dataStore[this.top++] = element;
 }
@@ -57,14 +57,14 @@ function push(element) {
 
 实现一个push方法用来往栈中加入元素，并将其储存在当前的top值的位置，然后再给top+1。
 
-```
+```js
 stack.push("good man")
 stack.top       // 1
 ```
 
 #### 实现pop方法
 
-```
+```js
 function pop() {
     return this.dataStore[--this.top];
 }
@@ -75,14 +75,14 @@ function pop() {
 
 看这个例子：
 
-```
+```js
 stack.pop()     // "good man"
 stack.top       // 0
 ```
 
 #### 实现peek方法
 
-```
+```js
 function peek() {
     return this.dataStore[this.top-1];
 }
@@ -90,8 +90,7 @@ function peek() {
 
 peek()方法用来**返回**栈顶元素，即栈的第top-1个元素，
 
-
-```
+```js
 stack.peek()    // undefined
 ```
 
@@ -103,8 +102,7 @@ stack.peek()    // undefined
 
 可以设置一个clear方法来把top设置为0，即清空栈内所有的元素。
 
-
-```
+```js
 function clear() {
     this.top = 0;
 }
@@ -115,7 +113,7 @@ function clear() {
 
 栈的用处很多，这里写一个例子，判断一个字符串是否回文，我前两天有用c写了一个，下面用上面实现的那个栈来实现一遍。
 
-```
+```js
 function isPalindrome(word) {
     var s = new Stack();
     for (var i = 0; i < word.length; ++i) {
@@ -136,7 +134,7 @@ function isPalindrome(word) {
 
 非常简单，只要把这个字符串依次放入一个栈中，再依次拿出来，按照栈的LIFO特性，拿出来的这个字符串就会是之前反转的字符串了，再一比较，完事。
 
-```
+```js
 > isPalindrome("mmm")
 < "mmm is a palindrome."
 
