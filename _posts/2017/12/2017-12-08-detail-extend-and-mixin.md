@@ -191,4 +191,4 @@ p {
 `@content`用于添加混合样式，在`@include`中出现的其它样式将会出现在@content的位置。
 
 
-更多内容可以浏览[Sass教程 Sass中文文档 | Sass中文网](https://www.sass.hk/docs/)
+更多内容可以浏览[Sass教程 Sass中文文档](https://www.sass.hk/docs/)
