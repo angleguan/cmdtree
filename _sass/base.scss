@@ -37,12 +37,6 @@ h6 {
     font-weight: 500;
 }
 
-blockquote {
-    font-size: 1em;
-    margin-left: 20px;
-    font-style: italic;
-}
-
 html {
     height: 100%;
 }
@@ -85,6 +79,12 @@ pre {
 		top: 0px;
 		background-color: #f6f6f6;
 	}
+}
+
+blockquote {
+	padding-left: 10px;
+    font-style: italic;
+    border-left: 3px solid #FFC125;
 }
 
 table {
