@@ -30,13 +30,15 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz && tar zxf lnmp1.4.tar.gz && c
 ```zsh
 yum install nginx -y
 ```
+
 - 对于centos6 需要去除对IPv6的监听
 
 
-修改 `/etc/nginx/conf.d/default.conf`，CentOS 6 不支持 IPv6，需要取消对 IPv6 地址的监听，否则 Nginx 不能成功启动。
+修改 `/etc/nginx/conf.d/default.conf`文件，CentOS 6 不支持 IPv6，需要取消对 IPv6 地址的监听，否则 Nginx 不能成功启动。
 
 原default.conf文件
-```conf
+
+```
 server {
     listen       80 default_server;
     listen       [::]:80 default_server;
@@ -74,7 +76,6 @@ nginx
 systemctl enable nginx.service
 ```
 
-
 ### 安装MySQL
 
 - 使用 yum 安装 MySQL：
@@ -83,13 +84,12 @@ systemctl enable nginx.service
 yum install mysql-server -y
 ```
 
-对于最新的centos 7+，会提示没有这个软件包，解决办法参考[centos7 mysql数据库安装和配置]({{ site.url }}/blog/2017/06/centos-7+-mysqlserver.html)
+对于最新的centos 7+，会提示没有这个软件包，解决办法参考[centos7 mysql数据库安装和配置 - 樊志阳的个人博客](https://fanzhiyang.com/blog/centos-mysqlserver/)
 
 - 安装完成后，启动 MySQL 服务：
 
 ```zsh
 service mysqld restart
-
 ```
 
 - 设置 MySQL 账户 root 密码：
@@ -103,7 +103,6 @@ service mysqld restart
 ```zsh
 systemctl enable mysqld.service
 ```
-
 
 ### 安装php
 
@@ -140,6 +139,7 @@ systemctl enable php-fpm.service
 ## 安装WordPress
 
 - 配置好 LNMP 环境后，继续使用 yum 来安装 WordPress：
+
 ```
 yum install wordpress -y
 ```
@@ -149,6 +149,7 @@ yum install wordpress -y
 ## 配置数据库
 
 - 进入 MySQL：
+
 ```
 mysql -uroot --password='password'
 ```
@@ -182,6 +183,7 @@ define('DB_PASSWORD', 'password_here');
 ```
 
 分别把数据库名称和用户名密码填进去
+
 ```php
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -206,7 +208,8 @@ mv default.conf defaut.conf.bak
 ```
 
 在 /etc/nginx/conf.d 创建 wordpress.conf 配置，参考下面的内容：
-```conf
+
+```
 server {
     listen 80;
     root /usr/share/wordpress;
@@ -224,13 +227,13 @@ server {
 }
 ```
 
-- 配置后，通知 Nginx 进程重新加载：
+- 配置后，重启nginx服务
+
 ```
-nginx -s reload
+systemctl restart nginx
 ```
 
 （安装完成）
-
 
 然后我们可以在浏览器输入解析好的域名或者服务器的ip就可以看到如下界面：
 

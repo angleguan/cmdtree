@@ -12,7 +12,7 @@ category: js
 
 # 闭包产生的内存泄漏
 
-```
+```js
 function assignHandler () {
   var element = document.getElementById('someElement');
   element.onclick = function () {
@@ -25,7 +25,7 @@ function assignHandler () {
 
 而《JavaScript高级程序设计》一书对此建议的解决办法是把`element.id`的一个副本保存在一个变量中，从而消除闭包中该变量的循环引用同时将element变量设为null。
 
-```
+```js
 function assignHandler () {
   var element = document.getElementById('someElement');
   var id = element.id;
@@ -55,8 +55,8 @@ Javascript 的垃圾回收机制，我现在知道的有两种：标记、计数
 2.IE 9 之前的版本
 
 IE 9 之前的版本是在环境中bom和dom不是原生的js对象，而是com对象，而com对象的垃圾收集机制是引用计数策略。换句话说，只要ie中存在着com对象，就会存在循环引用的问题。比如
-```
 
+```js
 var element=document.getElementById("someElement");
 var myobject=new Object();
 myobject.element=element;
@@ -64,7 +64,8 @@ element.someObject=myobject;
 ```
 
 这个例子中js对象和dom对象之间建立了循环引用，由于存在这个循环引用，即使将com对象从页面移除，也永远不会被回收。为避免类似问题，应该在不使用它们的时候手动把js对象和com对象断开。
-```
+
+```js
 myobject.element=null;
 element.someObject=null;
 ```
