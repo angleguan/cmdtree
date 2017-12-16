@@ -3,6 +3,7 @@
 	overflow: hidden;
 	.nav-inner {
 		width: 95%;
+		max-width: 1260px;
 		margin: 0 auto;
 	}
 	.nav-title { 
@@ -11,7 +12,6 @@
 		font-weight: 300;
 		float: left;
 		margin: 0;
-		padding-left: 152px;
 		padding-top: 10px;
 		@media screen and (max-width:800px) {
 			font-size: 1em;
@@ -26,9 +26,8 @@
 			display: none;
 		}
 	}
-	ul.menu {
+	.menu {
 		float: right;
-		padding-right: 50px;
 		li {
 			float: left;
 			list-style: none;

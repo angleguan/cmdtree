@@ -7,7 +7,7 @@ category: use
 
 要想实现对代码的高亮，首先要搞清楚Jekyll把你在文章（md文件）中的代码块都解析成什么样了。
 
-Jekyll默认使用kramdown解析器，其它解析器不作讨论，然后这里需要注意一下，在Jekyll中你可以使用两种方法来表明代码块：{% raw %}`{% highlight ruby %}`或者三个反单引号<code>```</code>{% endraw %}。
+Jekyll默认使用kramdown解析器，其它解析器不作讨论，然后这里需要注意一下，在Jekyll中你可以使用两种方法来表明代码块：{% raw %}`{% highlight ruby %}`或者用三个反单引号<code>```</code>{% endraw %}来包括代码块。
 
 但是它们解析出来的HTML结构却不同：
 
@@ -71,3 +71,6 @@ rougify style monokai.sublime > rouge.css
 pygmentize -S default -f html -a .highlight > default.css
 ```
 
+这里`default`也是代码样式，您可以换成其它样式，具体可以到[Pygments — Pygments](http://pygments.org/demo/)查看到一些样式预览，我现在是使用的Pygments生成的tango主题。
+
+还有其它的方法就是使用`highlight.js`了。
