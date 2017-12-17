@@ -73,4 +73,4 @@ pygmentize -S default -f html -a .highlight > default.css
 
 这里`default`也是代码样式，您可以换成其它样式，具体可以到[Pygments — Pygments](http://pygments.org/demo/)查看到一些样式预览，我现在是使用的Pygments生成的tango主题。
 
-还有其它的方法就是使用`highlight.js`了。
+还有其它的方法就是使用`highlightjs`，利用js自动解析出`pre code`中的代码给他们加上span标签，可以在[Getting highlight.js](https://highlightjs.org/download/)进行下载，解压下载的压缩包里面有个style文件夹里面是样式文件，只要在页面中引入highlight.js文件和样式文件就就可以了，具体样式的预览可以在[highlight.js demo](https://highlightjs.org/static/demo/)看到。
