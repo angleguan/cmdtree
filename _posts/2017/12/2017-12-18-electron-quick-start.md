@@ -29,7 +29,7 @@ npm install
 接着就可以运行程序了
 
 ```
-npm start
+npm start	## 或者 electron .
 ```
 
 接着就会弹出一个窗口，就是这个快速开始的程序
@@ -126,13 +126,13 @@ app.on('activate', function () {
 
 ### createWindow()
 
-上面各种导入声明不看，关键看`createWindow()`函数
+上面各种导入声明不看，关键看`createWindow()`函数，我们来一步一步的分析
 
 ```js
 mainWindow = new BrowserWindow({width: 800, height: 600})
 ```
 
-`BrowserWindow`就是创建窗口的模块，是主进程，接受一个参数`[options]`。其中width为创建窗口的宽度，height为高度。更多参数可以查看[BrowserWindow#new-browserwindowoptions](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions)
+`BrowserWindow`是一个是用来创建窗口的模块，是主进程，接受一个参数`[options]`。上面的例子中width为创建窗口的宽度，height为高度，表示打开一个长600px、宽800px的窗口。这里可以接受的参数很多，可以查看文档[BrowserWindow#new-browserwindowoptions](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions)
 
 接着出现`loadURL`方法为主窗口载入一个页面，作为程序打开的首页。
 
@@ -144,7 +144,13 @@ mainWindow.loadURL(url.format({
   }))
 ```
 
-这里间接的传入了`./index.html`文件作为首页。
+这里使用了Nodejs的[url.format](https://nodejs.org/api/url.html#url_url_format_urlobject)方法间接的传入了`./index.html`文件作为首页，或者也可以直接在这里写一个URL:
+
+```js
+mainWindow.loadURL('https://fanzhiyang.com');
+```
+
+接着来看一下index.html文件
 
 ```html
 <!DOCTYPE html>
@@ -167,9 +173,7 @@ mainWindow.loadURL(url.format({
 
 ```
 
-这就是刚才看到的程序了，其实就是个HTML页面。`process.versions.node`、`process.versions.chrome`、`process.versions.electron`分别是node版本、Chrome内核版本和electron的版本。
-
-其中还引入了`./renderer.js`文件。
+没错，这就是刚才看到的程序了，其实就是个HTML页面。`process.versions.node`、`process.versions.chrome`、`process.versions.electron`分别是node版本、Chrome内核版本和electron的版本。
 
 在`createWindow()`函数最后的是关闭窗口的函数。
 
@@ -181,6 +185,7 @@ mainWindow.on('closed', function () {
 
 直接将`null`赋给mainWindow就好了。
 
+看到这里，你也许会这样想，其实Electron就是一个“浏览器”罢了，对，没错，你完全可以这样理解，你可以按照编写WEB页面的方式来写这个程序，只是不同的是，这个浏览器就是chromium内核，你无需考虑任何兼容性问题，并且你可以使用各种Node API，以及支持各种新特性。
 
 ### app
 
