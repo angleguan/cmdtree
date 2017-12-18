@@ -44,9 +44,9 @@ npm start
 
 ```
 electron-quick-start/
-	├── package.json
-	├── main.js
-	└── index.html
+  ├── package.json
+  ├── main.js
+  └── index.html
 ```
 
 首先是`package.json`，这是Nodejs项目的配置文件，里面包括了这个项目的一些信息和一些依赖情况，这个我们都知道。
@@ -130,7 +130,7 @@ app.on('activate', function () {
 mainWindow = new BrowserWindow({width: 800, height: 600})
 ```
 
-`BrowserWindow`就是创建窗口的模块，是主进程，接受一个参数`[options]`。其中width为创建窗口的宽度，height为高度。更多参数可以查看[BrowserWindow | Electron](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions)
+`BrowserWindow`就是创建窗口的模块，是主进程，接受一个参数`[options]`。其中width为创建窗口的宽度，height为高度。更多参数可以查看[BrowserWindow#new-browserwindowoptions](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions)
 
 接着出现`loadURL`方法为主窗口载入一个页面，作为程序打开的首页。
 
