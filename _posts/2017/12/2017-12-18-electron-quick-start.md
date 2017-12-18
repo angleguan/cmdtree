@@ -217,6 +217,19 @@ app.on('activate', function () {
 
 以及一个只有在mac OS里面才会被触发的`activate`事件，应该是在从dock中打开这个程序时重新加载窗口吧。
 
+## 开发者工具
+
+既然刚才说到开发人员可以像开发WEB应用一样去开发Electron，那怎能少得了浏览器中的开发者工具呢
+
+```js
+mainWindow.webContents.openDevTools();
+```
+
+只要在`createWindow()`函数中加入上面的代码，就会自动打开开发者工具，像这样
+
+![](/pics/2017/12/1803.png)
+
+
 ## 结束
 
 其实这个东西我也只是之前听说过一点，Atom就是基于Electron构建的，类似的还有Github Desktop。
