@@ -232,4 +232,4 @@ mainWindow.webContents.openDevTools();
 
 ## 结束
 
-其实这个东西我也只是之前听说过一点，Atom就是基于Electron构建的，类似的还有Github Desktop。
+其实这个东西我也只是之前听说过一点，Atom就是使用Electron开发的，类似的还有Github Desktop、VScode等都是基于Electron开发的。
