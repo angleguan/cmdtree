@@ -29,7 +29,7 @@ npm install
 接着就可以运行程序了
 
 ```
-npm start	## 或者 electron .
+npm start    ## 或者 electron .
 ```
 
 接着就会弹出一个窗口，就是这个快速开始的程序

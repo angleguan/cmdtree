@@ -15,24 +15,24 @@ category: js
 看下面这个例子：
 
 ```
-	<div id="btn1">
-		<div id="btn2">
-			<div id="btn3">
-				hello world!
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		document.getElementById('btn1').addEventListener("click", function () {
-			console.log("这是btn1")
-		})
-		document.getElementById('btn2').addEventListener("click", function () {
-			console.log("这是btn2")
-		})
-		document.getElementById('btn3').addEventListener("click", function () {
-			console.log("这是btn3")
-		})
-	</script>
+    <div id="btn1">
+        <div id="btn2">
+            <div id="btn3">
+                hello world!
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn1').addEventListener("click", function () {
+            console.log("这是btn1")
+        })
+        document.getElementById('btn2').addEventListener("click", function () {
+            console.log("这是btn2")
+        })
+        document.getElementById('btn3').addEventListener("click", function () {
+            console.log("这是btn3")
+        })
+    </script>
 ```
 
 当hello world被点击时，控制台输出的信息是这样的：
@@ -51,10 +51,10 @@ category: js
 可以在触发函数中添加`stopPropagation()`方法来阻止事件冒泡，例如上面的代码中，我们只想让当hello World被点击时触发btn3的事件监听
 
 ```
-	document.getElementById('btn3').addEventListener("click", function (event) {
-		event.stopPropagation();
-		console.log("这是btn3")
-	})
+    document.getElementById('btn3').addEventListener("click", function (event) {
+        event.stopPropagation();
+        console.log("这是btn3")
+    })
 ```
 
 传入事件参数，触发`stopPropagation()`方法，然后看看控制台
@@ -68,10 +68,10 @@ category: js
 
 
 ```
-	document.getElementById('btn2').addEventListener("click", function (event) {
-		event.stopPropagation();
-		console.log("这是btn2")
-	})
+    document.getElementById('btn2').addEventListener("click", function (event) {
+        event.stopPropagation();
+        console.log("这是btn2")
+    })
 ```
 
 
@@ -84,10 +84,10 @@ category: js
 顾名思义，取消冒泡，同样是上面那个例子，我们可以这样写
 
 ```
-	document.getElementById('btn3').addEventListener("click", function (event) {
-		event.cancelBubble = true;
-		console.log("这是btn3")
-	})
+    document.getElementById('btn3').addEventListener("click", function (event) {
+        event.cancelBubble = true;
+        console.log("这是btn3")
+    })
 ```
 
 同样也会达到只会触发btn3一个事件的效果
@@ -115,24 +115,24 @@ category: js
 当`useCapture`为`true`时，事件只捕获，不冒泡。
 
 ```
-	<div id="btn1">
-		<div id="btn2">
-			<div id="btn3">
-				hello world!
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		document.getElementById('btn1').addEventListener("click", function () {
-			console.log("这是btn1")
-		},true)
-		document.getElementById('btn2').addEventListener("click", function () {
-			console.log("这是btn2")
-		},true)
-		document.getElementById('btn3').addEventListener("click", function () {
-			console.log("这是btn3")
-		},true)
-	</script>
+    <div id="btn1">
+        <div id="btn2">
+            <div id="btn3">
+                hello world!
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn1').addEventListener("click", function () {
+            console.log("这是btn1")
+        },true)
+        document.getElementById('btn2').addEventListener("click", function () {
+            console.log("这是btn2")
+        },true)
+        document.getElementById('btn3').addEventListener("click", function () {
+            console.log("这是btn3")
+        },true)
+    </script>
 ```
 
 

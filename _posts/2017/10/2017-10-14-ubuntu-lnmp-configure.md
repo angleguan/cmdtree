@@ -20,13 +20,13 @@ vim /etc/nginx/sites-available/default
 修改此处PHP设置
 ```
 location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-	#
-	#	# With php7.0-cgi alone:
-	#	fastcgi_pass 127.0.0.1:9000;
-	#	# With php7.0-fpm:
-		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-	}
+        include snippets/fastcgi-php.conf;
+    #
+    #    # With php7.0-cgi alone:
+    #    fastcgi_pass 127.0.0.1:9000;
+    #    # With php7.0-fpm:
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    }
 ```
 
 然后修改index，添加上index.php

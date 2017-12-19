@@ -20,7 +20,7 @@ Brian McKenna ([@puffnfresh][puffnfresh]) [suggests][] 提供了下列测试代�
 
 ```javascript
 Object.prototype.valueOf = function () {
-	throw new Error('Use an explicit toString');
+    throw new Error('Use an explicit toString');
 };
 ```
 

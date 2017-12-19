@@ -15,18 +15,18 @@ category: js
 
 ```
 function MyObject(){
-	//私有变量和私有函数
-	var privateVariable =10;
+    //私有变量和私有函数
+    var privateVariable =10;
 
-	function privateFunction(){
-		return false;
-	}
+    function privateFunction(){
+        return false;
+    }
 
-	//特权函数
-	this.publicMethod = function(){
-		privateVariable++;
-		return privateFunction();
-	};
+    //特权函数
+    this.publicMethod = function(){
+        privateVariable++;
+        return privateFunction();
+    };
 }
 ```
 
@@ -36,18 +36,18 @@ function MyObject(){
 
 ```
 function Person(name){
-	this.getName=function(){
-		return name;
-	}
-	this.setName=function(value){
-		name=value;
-	}
+    this.getName=function(){
+        return name;
+    }
+    this.setName=function(value){
+        name=value;
+    }
 }
 
 var person=new Person("Nicholas");
-alert(person.getName());	//Nicholas
+alert(person.getName());    //Nicholas
 person.setName("Greg");
-alert(person.getName());	//Greg
+alert(person.getName());    //Greg
 ```
 
 私有变量name在Person的每一个实例中都不相同，因为每次调用构造函数都会重新创建这两个方法。
@@ -67,14 +67,14 @@ Person.prototype.age=29;
 Person.prototype.job="Software Engineering";
 
 Person.prototype.sayName=function(){
-	return this.name;
+    return this.name;
 };
 
 var person1=new Person();
-alert(person1.sayName());	//Nicholas
+alert(person1.sayName());    //Nicholas
 var person2=new Person();
-alert(person2.sayName());	//Nicholas
-alert(person1.sayName()==person2.sayName());	//true
+alert(person2.sayName());    //Nicholas
+alert(person1.sayName()==person2.sayName());    //true
 ```
 
 
@@ -83,21 +83,21 @@ alert(person1.sayName()==person2.sayName());	//true
 ```
 (function(){
 
-	//私有变量和私有函数
-	var privateVariale = 10;
-	function privateFunction(){
- 		return false;
-	}
+    //私有变量和私有函数
+    var privateVariale = 10;
+    function privateFunction(){
+         return false;
+    }
 
- 	//构造函数
-	MyObject = function(){
-	};
+     //构造函数
+    MyObject = function(){
+    };
 
-	//公有/特权方法
-	MyObject.prototype.publicMethod = function(){
-		privateVariale++;
-		privateFunction();
-	}
+    //公有/特权方法
+    MyObject.prototype.publicMethod = function(){
+        privateVariale++;
+        privateFunction();
+    }
 })();
 
 ```
@@ -108,17 +108,17 @@ alert(person1.sayName()==person2.sayName());	//true
 
 ```
 (function(){
-	var name = "";
-	
-	Person = function(value){
-		name=value;
-	};
-	Person.prototype.getName = function(){
-		return name;
-	};
-	Person.prototype.setName = function(value){
-		name=value;
-	};
+    var name = "";
+    
+    Person = function(value){
+        name=value;
+    };
+    Person.prototype.getName = function(){
+        return name;
+    };
+    Person.prototype.setName = function(value){
+        name=value;
+    };
 })();
 
 var person1 = new Person("Nocholas");
@@ -140,10 +140,10 @@ alert(person2.getName());//Michale
 
 ```
 var singleton={
-	name:value;
-	method:function(){
-		//这是方法的代码
-	};
+    name:value;
+    method:function(){
+        //这是方法的代码
+    };
 };
 ```
 
@@ -151,20 +151,20 @@ var singleton={
 
 ```
 var singleton={
-	
-	//私有变量和私有函数
-	var privateVariable = 10;
-	function privateFunction(){
-		return false;
-	}
-	//特权/公有方法和属性
-	return{
-		publicProperty:true;
-		publicMethod:function(){
-			privateVariable++;
-			privateFunction();	
-		}
-	}
+    
+    //私有变量和私有函数
+    var privateVariable = 10;
+    function privateFunction(){
+        return false;
+    }
+    //特权/公有方法和属性
+    return{
+        publicProperty:true;
+        publicMethod:function(){
+            privateVariable++;
+            privateFunction();    
+        }
+    }
 };
 ```
 
@@ -181,14 +181,14 @@ components.push(new BaseComponent());
 
 //公共
 return{
-	getComponentCount:function(）{
-		return components.length;
-	}，
-	registerComponent:function(component){
-		if(typeof component =="object"){
-			component.push(component);
-		}
-	}
+    getComponentCount:function(）{
+        return components.length;
+    }，
+    registerComponent:function(component){
+        if(typeof component =="object"){
+            component.push(component);
+        }
+    }
 };
 }();
 ```
@@ -200,24 +200,24 @@ return{
 ```
 var singleton = function(){
 
-	//私有变量和私有函数
-	var privateVariable = 10;
-	function privateFunction(){
-		return false;
-	}
+    //私有变量和私有函数
+    var privateVariable = 10;
+    function privateFunction(){
+        return false;
+    }
 
-	//创建对象
-	var object = new customeType();
+    //创建对象
+    var object = new customeType();
 
-	//添加公有属性和方法
-	object.publicProperty = true;
-	object.publicMethod = function(){
-		privateVariable++;
-		privateFunction();
-	};
+    //添加公有属性和方法
+    object.publicProperty = true;
+    object.publicMethod = function(){
+        privateVariable++;
+        privateFunction();
+    };
 
-	//返回这个对象
-	return object;
+    //返回这个对象
+    return object;
 }
 ```
 

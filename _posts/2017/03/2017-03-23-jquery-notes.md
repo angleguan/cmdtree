@@ -93,13 +93,13 @@ alert("a=10,b=20,max="+$.max(10,20)+",min="+$.min(10,20));
 
 ```js
 $("p").click(function () {
-	alert($(this).html())
+    alert($(this).html())
 })
 .mouseover(function () {
-	alert('mouse over event')
+    alert('mouse over event')
 })
 .each(function (i) {
-	this.style.color = ['#f00', '#0f0', '#00f'][i]
+    this.style.color = ['#f00', '#0f0', '#00f'][i]
 });
 ```
 
@@ -139,10 +139,10 @@ $("p").click(function(i){this.style.color=['#f00','#0f0','#00f'][ i ]})
 ```js
 //当鼠标放在html表格的某行上时将class置为over，离开时置为out。
 $("tr").hover(function () {
-	$(this).addClass("over");
+    $(this).addClass("over");
 },
 function () {
-	$(this).addClass("out");
+    $(this).addClass("out");
 });
 ```
 
@@ -152,7 +152,7 @@ function () {
  
 ```
 $(document).ready(function () {
-	alert("Load Success")
+    alert("Load Success")
 })
 //页面加载完毕提示“Load Success”,相当于onload事件。与$(fn)等价
 ```
@@ -165,9 +165,9 @@ $(document).ready(function () {
 ```js
 //每次点击时轮换添加和删除名为selected的class。
 $("p").toggle(function () {
-	$(this).addClass("selected");
+    $(this).addClass("selected");
 }, function () {
-	$(this).removeClass("selected");
+    $(this).removeClass("selected");
 });
 ```
 
@@ -187,7 +187,7 @@ $("p").trigger("click"); //触发所有p元素的click事件
 
 ```
 $("p").bind("click", function(){
-	alert($(this).text());
+    alert($(this).text());
 });
 ```
 
@@ -212,7 +212,7 @@ $("p").unbind("click") //删除所有p元素上的单击事件
 - $.each(obj, fn)：通用的迭代函数。可用于近似地迭代对象和数组（代替循环）。如:
 ```
 $.each([0, 1, 2], function (i, n) {
-	alert("Item #" + i + ": " + n);
+    alert("Item #" + i + ": " + n);
 });
 ```
 
@@ -221,7 +221,7 @@ $.each([0, 1, 2], function (i, n) {
 ```
 var tempArr=[0,1,2];
 for(var i=0;i<tempArr.length;i++){
-	alert("Item #"+i+": "+tempArr[ i ]);
+    alert("Item #"+i+": "+tempArr[ i ]);
 }
 ```
 
@@ -231,11 +231,11 @@ for(var i=0;i<tempArr.length;i++){
 
 ```
 $.each({
-	name: "John",
-	lang: "JS"
+    name: "John",
+    lang: "JS"
 },
 function (i, n) {
-	alert("Name: " + i + ", Value: " + n);
+    alert("Name: " + i + ", Value: " + n);
 });
 ```
 
@@ -263,7 +263,7 @@ $.map(array, fn)：数组映射。把一个数组中的项目(处理转换后)�
 
 ```
 var tempArr = $.map([0, 1, 2], function (i) {
-	return i + 4;
+    return i + 4;
 });
 ```
 
@@ -272,7 +272,7 @@ tempArr内容为：
 ```
 [4, 5, 6]
 var tempArr = $.map([0, 1, 2], function (i) {
-	return i > 0 ? i + 1 : null;
+    return i > 0 ? i + 1 : null;
 });
 ```
 

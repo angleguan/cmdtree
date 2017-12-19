@@ -67,7 +67,7 @@ calc是英文单词calculate(计算)的缩写，是css3的一个新增的功能�
 .wrapper {
     width: 300px;
     background: #60f;
-    padding: 3px 0;	
+    padding: 3px 0;    
 }
 .content {
     width: 100%;
@@ -86,9 +86,9 @@ calc是英文单词calculate(计算)的缩写，是css3的一个新增的功能�
 
 ```css
 .wrapper {
-	width: 300px;
-	background: #60f;
-	padding: 3px 0;
+    width: 300px;
+    background: #60f;
+    padding: 3px 0;
 }
 .content {
     background: #f60;

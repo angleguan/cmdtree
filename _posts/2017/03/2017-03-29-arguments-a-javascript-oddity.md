@@ -22,11 +22,11 @@ category: js
 
 ```javascript
 function format(string) {
-	var args = arguments;
-	var pattern = new RegExp("%([1-" + arguments.length + "])", "g");
-	return String(string).replace(pattern, function(match, index) {
-		return args[index];
-	});
+    var args = arguments;
+    var pattern = new RegExp("%([1-" + arguments.length + "])", "g");
+    return String(string).replace(pattern, function(match, index) {
+        return args[index];
+    });
 };
 ```
 
@@ -61,11 +61,11 @@ var args = Array.prototype.slice.call(arguments);
 
 ```javascript
 function makeFunc() {
-	var args = Array.prototype.slice.call(arguments);
-	var func = args.shift();
-	return function() {
-		return func.apply(null, args.concat(Array.prototype.slice.call(arguments)));
-	};
+    var args = Array.prototype.slice.call(arguments);
+    var func = args.shift();
+    return function() {
+        return func.apply(null, args.concat(Array.prototype.slice.call(arguments)));
+    };
 }
 ```
 
@@ -116,14 +116,14 @@ majorTom("floating in a most peculiar way");
 
 ```javascript
 function repeat(fn, times, delay) {
-	return function() {
-		if(times-- > 0) {
-			fn.apply(null, arguments);
-			var args = Array.prototype.slice.call(arguments);
-			var self = arguments.callee;
-			setTimeout(function(){self.apply(null,args)}, delay);
-		}
-	};
+    return function() {
+        if(times-- > 0) {
+            fn.apply(null, arguments);
+            var args = Array.prototype.slice.call(arguments);
+            var self = arguments.callee;
+            setTimeout(function(){self.apply(null,args)}, delay);
+        }
+    };
 }
 ```
 
@@ -134,7 +134,7 @@ function repeat(fn, times, delay) {
 
 ```javascript
 function comms(s) {
-	alert(s);
+    alert(s);
 }
 ```
 

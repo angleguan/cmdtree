@@ -12,13 +12,13 @@ category: js
 我们描述了这些陋习，并列出来解决办法，希望对开发者有帮助。
 
 ## 1. for… 数组迭代的用法
-
+    
 举例：
 
 ```javascript
 var myArray = ["a", "b", "c"];
 for (var i in myArray) {
-	console.log(myArray[i]);
+    console.log(myArray[i]);
 }
 ```
 
@@ -28,7 +28,7 @@ for (var i in myArray) {
 var myArray = [ “a”, “b”, “c” ];
 var totalElements = myArray.length;
 for (var i = 0; i < totalElements; i++) {
-   console.log(myArray[i]);
+    console.log(myArray[i]);
 }
 ```
 
@@ -41,7 +41,7 @@ for (var i = 0; i < totalElements; i++) {
 ```javascript
 var myArray = ["a", "b", "c"];
 for (var i=0; i<myArray.length; i++) {
-	console.log(myArray[i]);
+    console.log(myArray[i]);
 }
 ```
 
@@ -65,8 +65,8 @@ var myArray = [];
 
 ```javascript
 var myObject = {
-	someProperty: “value”,
-	someOtherProperty: undefined
+    someProperty: “value”,
+    someOtherProperty: undefined
 }
 ```
 
@@ -83,8 +83,8 @@ typeof myObject['unknownProperty'] // undefined
 
 ```javascript
 var myObject = {
-	someProperty: “value”,
-	someOtherProperty: null
+    someProperty: “value”,
+    someOtherProperty: null
 }
 ```
 
@@ -94,13 +94,13 @@ var myObject = {
 
 ```javascript
 function(a, b, c) {
-	var d = 10;
-	var element = document.getElementById(‘myID’);
-	element.onclick = (function(a, b, c, d) {
-		return function() {
-			alert (a + b + c + d);
-		}
-	})(a, b, c, d);
+    var d = 10;
+    var element = document.getElementById(‘myID’);
+    element.onclick = (function(a, b, c, d) {
+        return function() {
+            alert (a + b + c + d);
+        }
+    })(a, b, c, d);
 }
 ```
 
@@ -120,14 +120,14 @@ function(a, b, c) {
 
 ```javascript
 function (a, b, c) {
-	var d = 10;
-	var element = document.getElementById(‘myID’);
-	element.onclick = function() {
-		//a, b, and c come from the outer function arguments.
-		//d come from the outer function variable declarations.
-		//and all of them are in my closure
-		alert (a + b + c + d);
-	};
+    var d = 10;
+    var element = document.getElementById(‘myID’);
+    element.onclick = function() {
+        //a, b, and c come from the outer function arguments.
+        //d come from the outer function variable declarations.
+        //and all of them are in my closure
+        alert (a + b + c + d);
+    };
 }
 ```
 
@@ -138,9 +138,9 @@ function (a, b, c) {
 ```javascript
 var elements = document.getElementByTagName(‘div’);
 for (var i = 0; i<elements.length; i++) {
-	elements[i].onclick = function() {
-		alert(“Div number “ + i);
-	}
+    elements[i].onclick = function() {
+        alert(“Div number “ + i);
+    }
 }
 ```
 
@@ -159,11 +159,11 @@ for (var i = 0; i<elements.length; i++) {
 ```javascript
 var elements = document.getElementsByTagName(‘div’);
 for (var i = 0; i<elements.length; i++) {
-	elements[i].onclick = (function(idx) { //Outer function
-		return function() { //Inner function
-			alert(“Div number “ + idx);
-		}
-	})(i);
+    elements[i].onclick = (function(idx) { //Outer function
+        return function() { //Inner function
+            alert(“Div number “ + idx);
+        }
+    })(i);
 }
 ```
 
@@ -175,10 +175,10 @@ for (var i = 0; i<elements.length; i++) {
 
 ```javascript
 function attachEvents() {
-	var element = document.getElementById(‘myID’);
-	element.onclick = function() {
-		alert(“Element clicked”);
-	}
+    var element = document.getElementById(‘myID’);
+    element.onclick = function() {
+        alert(“Element clicked”);
+    }
 };
 attachEvents();
 ```
@@ -197,12 +197,12 @@ attachEvents();
 
 ```javascript
 function attachEvents() {
-	var element = document.getElementById(‘myID’);
-	element.onclick = function() {
-		//Remove element, so function can be collected by GC
-		delete element;
-		alert(“Element clicked”);
-	}
+    var element = document.getElementById(‘myID’);
+    element.onclick = function() {
+        //Remove element, so function can be collected by GC
+        delete element;
+        alert(“Element clicked”);
+    }
 };
 attachEvents();
 ```
@@ -234,7 +234,7 @@ var myResult = 3.5 + 1; //Result is 4.5, as expected
 ```javascript
 team.attackers.myWarrior = { attack: 1, speed: 3, magic: 5};
 with (team.attackers.myWarrior){
-	console.log ( “Your warrior power is ” + (attack * speed));
+    console.log ( “Your warrior power is ” + (attack * speed));
 }
 ```
 
@@ -282,8 +282,8 @@ function log2(arg) { console.log(arg); }
 var myValue = “test”;
 setTimeout(log1, 100); //Reference to a function
 setTimeout(function(){ //Get arg value using closures
-		log2(arg);
-	}, 200);
+        log2(arg);
+    }, 200);
 ```
 
 ## 10. setInterval() 的用法
@@ -292,7 +292,7 @@ setTimeout(function(){ //Get arg value using closures
 
 ```javascript
 function domOperations() {
-	//Heavy DOM operations, takes about 300ms
+    //Heavy DOM operations, takes about 300ms
 }
 setInterval(domOperations, 200);
 ```
@@ -309,9 +309,9 @@ JavaScript 引擎只增加下一个执行到队列如果没有另外一个执行
 
 ```javascript
 function domOperations() {
-	//Heavy DOM operations, takes about 300ms
-	//After all the job is done, set another timeout for 200 ms
-	setTimeout(domOperations, 200);
+    //Heavy DOM operations, takes about 300ms
+    //After all the job is done, set another timeout for 200 ms
+    setTimeout(domOperations, 200);
 }
 setTimeout(domOperations, 200);
 ```
@@ -368,7 +368,7 @@ var myResult = myObject[“p”+i];
 
 ```javascript
 if ( myVar === undefined ) {
-	//Do something
+    //Do something
 }
 ```
 
@@ -384,7 +384,7 @@ if ( myVar === undefined ) {
 
 ```javascript
 if ( typeof myVar === “undefined” ) {
-	//Do something
+    //Do something
 }
 ```
 

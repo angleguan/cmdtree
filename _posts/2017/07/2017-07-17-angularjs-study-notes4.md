@@ -30,12 +30,12 @@ $http({
 
 ```js
 $http({
-	method: 'GET',
-	url: 'data.js'
+    method: 'GET',
+    url: 'data.js'
 }).then(function successCallback(response) {
-		//响应成功
-	}, function errorCallback(response) {
-		//处理响应失败
+        //响应成功
+    }, function errorCallback(response) {
+        //处理响应失败
 });
 ```
 

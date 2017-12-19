@@ -9,7 +9,7 @@ category: js
 ```javascript
 // 不要这样做
 Array.prototype.map = function() {
-	// 一些代码
+    // 一些代码
 };
 ```
 
@@ -19,9 +19,9 @@ Array.prototype.map = function() {
 
 ```javascript
 if (!Array.prototype.map) {
-	Array.prototype.map = function() {
-		// 一些代码
-	};
+    Array.prototype.map = function() {
+        // 一些代码
+    };
 }
 ```
 
@@ -29,9 +29,9 @@ if (!Array.prototype.map) {
 
 ```javascript
 if (typeof Array.prototype.map !== "function") {
-	Array.prototype.map = function() {
-		// 一些代码
-	};
+    Array.prototype.map = function() {
+        // 一些代码
+    };
 }
 ```
 
@@ -73,14 +73,14 @@ Array.prototype.map.toString().replace(/\s/g, '');
 
 ```javascript
 function shim(o, prop, fn) {
-	var nbody = "function" + prop + "(){[nativecode]}";
-	if (o.hasOwnProperty(prop) && 
-			o[prop].toString().replace(/\s/g, '') === nbody) {
-		// 表名是原生的！ 
-		return true;
-	}
-	// 新添加的 
-	o[prop] = fn;
+    var nbody = "function" + prop + "(){[nativecode]}";
+    if (o.hasOwnProperty(prop) && 
+            o[prop].toString().replace(/\s/g, '') === nbody) {
+        // 表名是原生的！ 
+        return true;
+    }
+    // 新添加的 
+    o[prop] = fn;
 }
 ```
 
@@ -89,14 +89,14 @@ function shim(o, prop, fn) {
 ```javascript
 // 这是原生的方法
 shim(
-	Array.prototype, 'map',
-	function(){/*...*/}
+    Array.prototype, 'map',
+    function(){/*...*/}
 ); // true
 
 // 这是新添加的方法
 shim(
-	Array.prototype, 'mapzer',
-	function(){alert(this)}
+    Array.prototype, 'mapzer',
+    function(){alert(this)}
 );
 
 [1,2,3].mapzer(); // alerts 1,2,3

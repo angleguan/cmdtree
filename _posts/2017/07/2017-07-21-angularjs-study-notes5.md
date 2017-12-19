@@ -17,8 +17,8 @@ category: js
 
 ```
 <div ng-app="">
-	<button ng-click="count = count + 1" ng-init="count = 1">ClickMe</button>
-	<p>{{ count }}</p>
+    <button ng-click="count = count + 1" ng-init="count = 1">ClickMe</button>
+    <p>{{ count }}</p>
 </div>
 ```
 
@@ -28,16 +28,16 @@ ng-click事件还可以触发一个函数
 
 ```
 <div ng-app="myapp" ng-controller="myCtrl">
-	<button ng-click="click()">clickFun</button>
+    <button ng-click="click()">clickFun</button>
 </div>
 
 <script type="text/javascript">
-	var app = angular.module("myapp",[]);
-	app.controller("myCtrl",function($scope){
-		$scope.click = function(){
-			alert("you clicked me!");
-		}
-	})
+    var app = angular.module("myapp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.click = function(){
+            alert("you clicked me!");
+        }
+    })
 </script>
 
 ```
@@ -52,16 +52,16 @@ ng-selected 指令用于设置` <select> `列表中的 `<option>` 元素的 sele
 
 ```
 <div ng-app="">
-	点击复选框选择 BMW 选项:
-	<input type="checkbox" ng-model="mySel">
+    点击复选框选择 BMW 选项:
+    <input type="checkbox" ng-model="mySel">
 
-	<p>我喜欢的车:</p>
+    <p>我喜欢的车:</p>
 
-	<select>
-	  <option>Volvo</option>
-	  <option ng-selected="mySel">BMW</option>
-	  <option>Ford</option>    
-	</select>
+    <select>
+      <option>Volvo</option>
+      <option ng-selected="mySel">BMW</option>
+      <option>Ford</option>    
+    </select>
 </div>
 ```
 
@@ -84,10 +84,10 @@ ng-change需要搭配ng-model指令使用。
 <script type="text/javascript">
 var app = angular.module("myapp",[]);
 app.controller("myCtrl",function($scope){
-	$scope.count = 0;
-	$scope.myFunc = function(){
-		$scope.count++;
-	}
+    $scope.count = 0;
+    $scope.myFunc = function(){
+        $scope.count++;
+    }
 })
 </script>
 ```

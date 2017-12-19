@@ -104,7 +104,7 @@ $ bundle exec jekyll s
 |   `-- yyyy-mm-dd-title.markdown
 |-- _site
 |-- _sass
-	|-- base.scss
+    |-- base.scss
 |-- _config.yml
 `-- index.html
 ```

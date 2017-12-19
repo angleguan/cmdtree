@@ -108,16 +108,16 @@ $ nslookup -q=a www.youdomain.com
 
 ```
 $ nslookup www.zhihu.com
-Server:		223.5.5.5          # DNS服务器的主机名
-Address:	223.5.5.5#53           # DNS服务器IP地址
+Server:        223.5.5.5          # DNS服务器的主机名
+Address:    223.5.5.5#53           # DNS服务器IP地址
 
 Non-authoritative answer:       # 非权威服务器的应答
-www.zhihu.com	canonical name = eclipse.zhihu.com.   # cname = eclipse.zhihu.com. 别名
+www.zhihu.com    canonical name = eclipse.zhihu.com.   # cname = eclipse.zhihu.com. 别名
 
-Name:	eclipse.zhihu.com         # 解析的URL
+Name:    eclipse.zhihu.com         # 解析的URL
 Address: 115.159.241.25         # 解析出来的IP
 
-Name:	eclipse.zhihu.com
+Name:    eclipse.zhihu.com
 Address: 115.159.241.95
 ```
 
@@ -170,100 +170,100 @@ $ dig +trace www.zhihu.com
 # 第一步是向我这台机器的ISPDNS获取到根(`.`)域服务区的13个IP和主机名[b-j].root-servers.NET.
 ; <<>> DiG 9.8.3-P1 <<>> +trace www.zhihu.com
 ;; global options: +cmd
-.			143034	IN	NS	m.root-servers.net.
-.			143034	IN	NS	a.root-servers.net.
-.			143034	IN	NS	g.root-servers.net.
-.			143034	IN	NS	d.root-servers.net.
-.			143034	IN	NS	c.root-servers.net.
-.			143034	IN	NS	k.root-servers.net.
-.			143034	IN	NS	h.root-servers.net.
-.			143034	IN	NS	j.root-servers.net.
-.			143034	IN	NS	i.root-servers.net.
-.			143034	IN	NS	f.root-servers.net.
-.			143034	IN	NS	e.root-servers.net.
-.			143034	IN	NS	l.root-servers.net.
-.			143034	IN	NS	b.root-servers.net.
+.            143034    IN    NS    m.root-servers.net.
+.            143034    IN    NS    a.root-servers.net.
+.            143034    IN    NS    g.root-servers.net.
+.            143034    IN    NS    d.root-servers.net.
+.            143034    IN    NS    c.root-servers.net.
+.            143034    IN    NS    k.root-servers.net.
+.            143034    IN    NS    h.root-servers.net.
+.            143034    IN    NS    j.root-servers.net.
+.            143034    IN    NS    i.root-servers.net.
+.            143034    IN    NS    f.root-servers.net.
+.            143034    IN    NS    e.root-servers.net.
+.            143034    IN    NS    l.root-servers.net.
+.            143034    IN    NS    b.root-servers.net.
 ;; Received 525 bytes from 223.5.5.5#53(223.5.5.5) in 196 ms
 
 # 第二步是向其中的一台根域服务器（Servername就是末行小括号里面的）发送www.zhihu.com的查询请求，返回了`com.`顶级域的服务器IP（未显示）和名称
 
-com.			172800	IN	NS	d.gtld-servers.net.
-com.			172800	IN	NS	k.gtld-servers.net.
-com.			172800	IN	NS	g.gtld-servers.net.
-com.			172800	IN	NS	c.gtld-servers.net.
-com.			172800	IN	NS	e.gtld-servers.net.
-com.			172800	IN	NS	m.gtld-servers.net.
-com.			172800	IN	NS	h.gtld-servers.net.
-com.			172800	IN	NS	i.gtld-servers.net.
-com.			172800	IN	NS	a.gtld-servers.net.
-com.			172800	IN	NS	b.gtld-servers.net.
-com.			172800	IN	NS	f.gtld-servers.net.
-com.			172800	IN	NS	l.gtld-servers.net.
-com.			172800	IN	NS	j.gtld-servers.net.
+com.            172800    IN    NS    d.gtld-servers.net.
+com.            172800    IN    NS    k.gtld-servers.net.
+com.            172800    IN    NS    g.gtld-servers.net.
+com.            172800    IN    NS    c.gtld-servers.net.
+com.            172800    IN    NS    e.gtld-servers.net.
+com.            172800    IN    NS    m.gtld-servers.net.
+com.            172800    IN    NS    h.gtld-servers.net.
+com.            172800    IN    NS    i.gtld-servers.net.
+com.            172800    IN    NS    a.gtld-servers.net.
+com.            172800    IN    NS    b.gtld-servers.net.
+com.            172800    IN    NS    f.gtld-servers.net.
+com.            172800    IN    NS    l.gtld-servers.net.
+com.            172800    IN    NS    j.gtld-servers.net.
 ;; Received 491 bytes from 192.203.230.10#53(192.203.230.10) in 672 ms
 
 # 第三步，便向`com.`域的一台服务器192.203.230.10请求,www.zhihu.com，他返回了`zhihu.com`域的服务器IP（未显示）和名称，知乎有2台顶级域的服务器
 
-zhihu.com.		172800	IN	NS	ns3.dnsv4.com.
-zhihu.com.		172800	IN	NS	ns4.dnsv4.com.
+zhihu.com.        172800    IN    NS    ns3.dnsv4.com.
+zhihu.com.        172800    IN    NS    ns4.dnsv4.com.
 ;; Received 393 bytes from 192.43.172.30#53(192.43.172.30) in 240 ms
 
 # 第四步，向知乎的顶级域服务器（192.43.172.30）请求www.zhihu.com，他发现这个www有个别名，而不是一台主机，别名是eclipse.zhihu.com
-www.zhihu.com.		120	IN	CNAME	eclipse.zhihu.com.
-eclipse.zhihu.com.	600	IN	A	115.159.241.95
-eclipse.zhihu.com.	600	IN	A	115.159.241.25
-zhihu.com.		86400	IN	NS	ns4.dnsv4.com.
-zhihu.com.		86400	IN	NS	ns3.dnsv4.com.
+www.zhihu.com.        120    IN    CNAME    eclipse.zhihu.com.
+eclipse.zhihu.com.    600    IN    A    115.159.241.95
+eclipse.zhihu.com.    600    IN    A    115.159.241.25
+zhihu.com.        86400    IN    NS    ns4.dnsv4.com.
+zhihu.com.        86400    IN    NS    ns3.dnsv4.com.
 ;; Received 148 bytes from 183.232.90.141#53(183.232.90.141) in 60 ms
 $ dig +trace www.zhihu.com
 
 # 第一步是向我这台机器的ISPDNS获取到根(`.`)域服务区的13个IP和主机名[b-j].root-servers.NET.
 ; <<>> DiG 9.8.3-P1 <<>> +trace www.zhihu.com
 ;; global options: +cmd
-.			143034	IN	NS	m.root-servers.net.
-.			143034	IN	NS	a.root-servers.net.
-.			143034	IN	NS	g.root-servers.net.
-.			143034	IN	NS	d.root-servers.net.
-.			143034	IN	NS	c.root-servers.net.
-.			143034	IN	NS	k.root-servers.net.
-.			143034	IN	NS	h.root-servers.net.
-.			143034	IN	NS	j.root-servers.net.
-.			143034	IN	NS	i.root-servers.net.
-.			143034	IN	NS	f.root-servers.net.
-.			143034	IN	NS	e.root-servers.net.
-.			143034	IN	NS	l.root-servers.net.
-.			143034	IN	NS	b.root-servers.net.
+.            143034    IN    NS    m.root-servers.net.
+.            143034    IN    NS    a.root-servers.net.
+.            143034    IN    NS    g.root-servers.net.
+.            143034    IN    NS    d.root-servers.net.
+.            143034    IN    NS    c.root-servers.net.
+.            143034    IN    NS    k.root-servers.net.
+.            143034    IN    NS    h.root-servers.net.
+.            143034    IN    NS    j.root-servers.net.
+.            143034    IN    NS    i.root-servers.net.
+.            143034    IN    NS    f.root-servers.net.
+.            143034    IN    NS    e.root-servers.net.
+.            143034    IN    NS    l.root-servers.net.
+.            143034    IN    NS    b.root-servers.net.
 ;; Received 525 bytes from 223.5.5.5#53(223.5.5.5) in 196 ms
 
 # 第二步是向其中的一台根域服务器（Servername就是末行小括号里面的）发送www.zhihu.com的查询请求，返回了`com.`顶级域的服务器IP（未显示）和名称
 
-com.			172800	IN	NS	d.gtld-servers.net.
-com.			172800	IN	NS	k.gtld-servers.net.
-com.			172800	IN	NS	g.gtld-servers.net.
-com.			172800	IN	NS	c.gtld-servers.net.
-com.			172800	IN	NS	e.gtld-servers.net.
-com.			172800	IN	NS	m.gtld-servers.net.
-com.			172800	IN	NS	h.gtld-servers.net.
-com.			172800	IN	NS	i.gtld-servers.net.
-com.			172800	IN	NS	a.gtld-servers.net.
-com.			172800	IN	NS	b.gtld-servers.net.
-com.			172800	IN	NS	f.gtld-servers.net.
-com.			172800	IN	NS	l.gtld-servers.net.
-com.			172800	IN	NS	j.gtld-servers.net.
+com.            172800    IN    NS    d.gtld-servers.net.
+com.            172800    IN    NS    k.gtld-servers.net.
+com.            172800    IN    NS    g.gtld-servers.net.
+com.            172800    IN    NS    c.gtld-servers.net.
+com.            172800    IN    NS    e.gtld-servers.net.
+com.            172800    IN    NS    m.gtld-servers.net.
+com.            172800    IN    NS    h.gtld-servers.net.
+com.            172800    IN    NS    i.gtld-servers.net.
+com.            172800    IN    NS    a.gtld-servers.net.
+com.            172800    IN    NS    b.gtld-servers.net.
+com.            172800    IN    NS    f.gtld-servers.net.
+com.            172800    IN    NS    l.gtld-servers.net.
+com.            172800    IN    NS    j.gtld-servers.net.
 ;; Received 491 bytes from 192.203.230.10#53(192.203.230.10) in 672 ms
 
 # 第三步，便向`com.`域的一台服务器192.203.230.10请求,www.zhihu.com，他返回了`zhihu.com`域的服务器IP（未显示）和名称，知乎有2台顶级域的服务器
 
-zhihu.com.		172800	IN	NS	ns3.dnsv4.com.
-zhihu.com.		172800	IN	NS	ns4.dnsv4.com.
+zhihu.com.        172800    IN    NS    ns3.dnsv4.com.
+zhihu.com.        172800    IN    NS    ns4.dnsv4.com.
 ;; Received 393 bytes from 192.43.172.30#53(192.43.172.30) in 240 ms
 
 # 第四步，向知乎的顶级域服务器（192.43.172.30）请求www.zhihu.com，他发现这个www有个别名，而不是一台主机，别名是eclipse.zhihu.com
-www.zhihu.com.		120	IN	CNAME	eclipse.zhihu.com.
-eclipse.zhihu.com.	600	IN	A	115.159.241.95
-eclipse.zhihu.com.	600	IN	A	115.159.241.25
-zhihu.com.		86400	IN	NS	ns4.dnsv4.com.
-zhihu.com.		86400	IN	NS	ns3.dnsv4.com.
+www.zhihu.com.        120    IN    CNAME    eclipse.zhihu.com.
+eclipse.zhihu.com.    600    IN    A    115.159.241.95
+eclipse.zhihu.com.    600    IN    A    115.159.241.25
+zhihu.com.        86400    IN    NS    ns4.dnsv4.com.
+zhihu.com.        86400    IN    NS    ns3.dnsv4.com.
 ;; Received 148 bytes from 183.232.90.141#53(183.232.90.141) in 60 ms
 ```
 

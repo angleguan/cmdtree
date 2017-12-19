@@ -14,16 +14,16 @@ category: learn
 
 int main()
 {
-	char *pa, pb;						//声明指针类型pa,和字符类型pb
-	typedef char *PS;					//定义指向字符的指针类型，设置类型名为PS
-	PS psa, psb;						//同时声明指针类型psa,psb
+    char *pa, pb;                        //声明指针类型pa,和字符类型pb
+    typedef char *PS;                    //定义指向字符的指针类型，设置类型名为PS
+    PS psa, psb;                        //同时声明指针类型psa,psb
 
-	printf("pa=%ld\n", sizeof(pa));		// 8
-	printf("pb=%ld\n", sizeof(pb));		// 1
+    printf("pa=%ld\n", sizeof(pa));        // 8
+    printf("pb=%ld\n", sizeof(pb));        // 1
 
-	printf("psa=%ld\n", sizeof(psa));	// 8
-	printf("psb=%ld\n", sizeof(psb));	// 8
-	return 0;
+    printf("psa=%ld\n", sizeof(psa));    // 8
+    printf("psb=%ld\n", sizeof(psb));    // 8
+    return 0;
 }
 ```
 

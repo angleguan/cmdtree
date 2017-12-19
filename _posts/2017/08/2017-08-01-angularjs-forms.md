@@ -39,9 +39,9 @@ function testC($scope){
 应用了ng-controller的div就是testC的一个实例，我们可以在模板中使用定义在$scopt上的任何属性和方法，而testC的定义也是由我们自己实现的。当我们使用`<form>`的时候也是这样的道理，FormController由ng为我们定义好了，有一系列属性和方法提供给我们完成验证工作，form实例通过name属性来进行标识，我们可以通过此标识来访问form实例的属性和方法，如：
 
 ```
-	<form name="myform">
-		{{myform.$valid}}
-	</form>
+    <form name="myform">
+        {{myform.$valid}}
+    </form>
 ```
 
 form提供的属性都是用来表示表单的验证状态的，包括：$pristine(表单没有填写记录)、$dirty(表单有填写记录)、$valid(通过验证)、$invalid(未通过验证)、$error(验证错误信息)。除$error外，前四个的值为true或false表示相应的状态。$error的值为一个js对象，包含了以下验证内容的状态：

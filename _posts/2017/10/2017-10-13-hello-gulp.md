@@ -96,7 +96,7 @@ gulp.watch(glob[, opts], tasks)
 
 ```
 gulp.task('watch', function() {
-	gulp.watch('src/scss/index.scss',['sass']);
+    gulp.watch('src/scss/index.scss',['sass']);
 })
 ```
 

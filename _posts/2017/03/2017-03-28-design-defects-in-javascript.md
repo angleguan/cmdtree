@@ -86,8 +86,8 @@ Javascript 的全局变量，在所有模块中都是可见的；
 a = 1;
 
 (function(){
-	b=2;
-	alert(a);
+    b=2;
+    alert(a);
 })(); // 1
 
 alert(b); //2
@@ -103,10 +103,10 @@ Javascript 的所有语句，都必须以分号结尾。
 
 ```javascript
 function(){
-	return
-		{
-			i=1
-		};
+    return
+        {
+            i=1
+        };
 }
 ```
 
@@ -114,10 +114,10 @@ function(){
 
 ```javascript
 function(){
-	return;
-		{
-			i=1
-		};
+    return;
+        {
+            i=1
+        };
 }
 ```
 
@@ -159,10 +159,10 @@ alert( 1 + NaN ); // NaN
 
 ```javascript
 if ( arr && 
-	typeof arr === 'object' &&
-		typeof arr.length === 'number' &&
-		!arr.propertyIsEnumerable('length')){
-			alert("arr is an array");
+    typeof arr === 'object' &&
+        typeof arr.length === 'number' &&
+        !arr.propertyIsEnumerable('length')){
+            alert("arr is an array");
 }
 ```
 

@@ -106,7 +106,7 @@ true
 
 ```javascript
 function isDefined(x) {
-	return x !== null && x !== undefined;
+    return x !== null && x !== undefined;
 }
 ```
 
@@ -151,8 +151,8 @@ obj.??foo.??bar
 
 ```javascript
 (obj === undefined || obj === null) ? obj
-	: (obj.foo === undefined || obj.foo === null) ? obj.foo
-		: obj.foo.bar
+    : (obj.foo === undefined || obj.foo === null) ? obj.foo
+        : obj.foo.bar
 ```
   
 ## 区分对象值和原始值
@@ -161,8 +161,8 @@ obj.??foo.??bar
 
 ```javascript
 function isObject(x) {
-	return (typeof x === "function"
-			|| (typeof x === "object" && x !== null));
+    return (typeof x === "function"
+            || (typeof x === "object" && x !== null));
 }
 ```
 
@@ -172,7 +172,7 @@ function isObject(x) {
 
 ```javascript
 function isObject2(x) {
-	return x === Object(x);
+    return x === Object(x);
 }
 ```
 
@@ -218,20 +218,20 @@ obj 确实是一个对象，但它不是任何值的实例:
 
 ```javascript
 function getPrimitiveTypeName(x) {
-	var typeName = typeof x;
-	switch(typeName) {
-		case "undefined":
-		case "boolean":
-		case "number":
-		case "string":
-			return typeName;
-		case "object":
-			if (x === null) {
-				return "null";
-			}
-		default: // 前面的判断都没通过
-			throw new TypeError("参数不是一个原始值: "+x);
-	}
+    var typeName = typeof x;
+    switch(typeName) {
+        case "undefined":
+        case "boolean":
+        case "number":
+        case "string":
+            return typeName;
+        case "object":
+            if (x === null) {
+                return "null";
+            }
+        default: // 前面的判断都没通过
+            throw new TypeError("参数不是一个原始值: "+x);
+    }
 }
 ```
 

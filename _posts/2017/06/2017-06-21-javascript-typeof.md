@@ -27,19 +27,19 @@ var error= new Error();
 我们平时用的最多的就是用`typeof`检测变量类型了。这次，我们也使用typeof检测变量的类型：
 ```js
 console.log(
-	typeof num, 
-	typeof str, 
-	typeof bool, 
-	typeof arr, 
-	typeof json, 
-	typeof func, 
-	typeof und, 
-	typeof nul, 
-	typeof date, 
-	typeof reg, 
-	typeof error
+    typeof num, 
+    typeof str, 
+    typeof bool, 
+    typeof arr, 
+    typeof json, 
+    typeof func, 
+    typeof und, 
+    typeof nul, 
+    typeof date, 
+    typeof reg, 
+    typeof error
 );
-// number string boolean object	object function undefined object object object object
+// number string boolean object    object function undefined object object object object
 ```
 
 从输出的结果来看，`arr, json, nul, date, reg, error` 全部被检测为object类型，其他的变量能够被正确检测出来。当需要变量是否是`number, string, boolean, function, undefined, json`类型时，可以使用typeof进行判断。其他变量是判断不出类型的，包括`null`。
@@ -78,17 +78,17 @@ console.log(John instancdof Person);  // true
 好了，我们来使用`instanceof`检测上面的那些变量：
 ```js
 console.log(
-	num instanceof Number,
-	str instanceof String,
-	bool instanceof Boolean,
-	arr instanceof Array,
-	json instanceof Object,
-	func instanceof Function,
-	und instanceof Object,
-	nul instanceof Object,
-	date instanceof Date,
-	reg instanceof RegExp,
-	error instanceof Error
+    num instanceof Number,
+    str instanceof String,
+    bool instanceof Boolean,
+    arr instanceof Array,
+    json instanceof Object,
+    func instanceof Function,
+    und instanceof Object,
+    nul instanceof Object,
+    date instanceof Date,
+    reg instanceof RegExp,
+    error instanceof Error
 )
 // num : false 
 // str : false 
@@ -129,16 +129,16 @@ var Tom = new Person();
 
 // undefined和null没有constructor属性
 console.log(
-	Tom.constructor==Person,
-	num.constructor==Number,
-	str.constructor==String,
-	bool.constructor==Boolean,
-	arr.constructor==Array,
-	json.constructor==Object,
-	func.constructor==Function,
-	date.constructor==Date,
-	reg.constructor==RegExp,
-	error.constructor==Error
+    Tom.constructor==Person,
+    num.constructor==Number,
+    str.constructor==String,
+    bool.constructor==Boolean,
+    arr.constructor==Array,
+    json.constructor==Object,
+    func.constructor==Function,
+    date.constructor==Date,
+    reg.constructor==RegExp,
+    error.constructor==Error
 );
 // 所有结果均为true
 ```
@@ -170,17 +170,17 @@ console.log(John.constructor==Person);  // true
 我们先不管这个是什么，先来看看他是怎么检测变量类型的：
 ```js
 console.log(
-	Object.prototype.toString.call(num),
-	Object.prototype.toString.call(str),
-	Object.prototype.toString.call(bool),
-	Object.prototype.toString.call(arr),
-	Object.prototype.toString.call(json),
-	Object.prototype.toString.call(func),
-	Object.prototype.toString.call(und),
-	Object.prototype.toString.call(nul),
-	Object.prototype.toString.call(date),
-	Object.prototype.toString.call(reg),
-	Object.prototype.toString.call(error)
+    Object.prototype.toString.call(num),
+    Object.prototype.toString.call(str),
+    Object.prototype.toString.call(bool),
+    Object.prototype.toString.call(arr),
+    Object.prototype.toString.call(json),
+    Object.prototype.toString.call(func),
+    Object.prototype.toString.call(und),
+    Object.prototype.toString.call(nul),
+    Object.prototype.toString.call(date),
+    Object.prototype.toString.call(reg),
+    Object.prototype.toString.call(error)
 );
 // '[object Number]' '[object String]' '[object Boolean]' '[object Array]' '[object Object]'
 // '[object Function]' '[object Undefined]' '[object Null]' '[object Date]' '[object RegExp]' '[object Error]'
@@ -203,17 +203,17 @@ console.log(
 在jquery中提供了一个$.type的接口，来让我们检测变量的类型：
 ```js
 console.log(
-	$.type(num),
-	$.type(str),
-	$.type(bool),
-	$.type(arr),
-	$.type(json),
-	$.type(func),
-	$.type(und),
-	$.type(nul),
-	$.type(date),
-	$.type(reg),
-	$.type(error)
+    $.type(num),
+    $.type(str),
+    $.type(bool),
+    $.type(arr),
+    $.type(json),
+    $.type(func),
+    $.type(und),
+    $.type(nul),
+    $.type(date),
+    $.type(reg),
+    $.type(error)
 );
 // number string boolean array object function undefined null date regexp error
 
@@ -222,23 +222,23 @@ console.log(
 我们这里先来对比一下上面所有方法检测出的结果，横排是使用的检测方法， 竖排是各个变量：
 
 ```js
-类型判断	typeof	instanceof	constructor	toString.call	$.type
-num	number	false	true	[object Number]	number
-str	string	false	true	[object String]	string
-bool	boolean	false	true	[object Boolean]	boolean
-arr	object	true	true	[object Array]	array
-json	object	true	true	[object Object]	object
-func	function	true	true	[object Function]	function
-und	undefined	false	-	[object Undefined]	undefined
-nul	object	false	-	[object Null]	null
-date	object	true	true	[object Date]	date
-reg	object	true	true	[object RegExp]	regexp
-error	object	true	true	[object Error]	error
+类型判断    typeof    instanceof    constructor    toString.call    $.type
+num    number    false    true    [object Number]    number
+str    string    false    true    [object String]    string
+bool    boolean    false    true    [object Boolean]    boolean
+arr    object    true    true    [object Array]    array
+json    object    true    true    [object Object]    object
+func    function    true    true    [object Function]    function
+und    undefined    false    -    [object Undefined]    undefined
+nul    object    false    -    [object Null]    null
+date    object    true    true    [object Date]    date
+reg    object    true    true    [object RegExp]    regexp
+error    object    true    true    [object Error]    error
 ```
 
-优点	使用简单，能直接输出结果	能检测出复杂的类型	基本能检测出所有的类型	检测出所有的类型
+优点    使用简单，能直接输出结果    能检测出复杂的类型    基本能检测出所有的类型    检测出所有的类型
 
-缺点	检测出的类型太少	基本类型检测不出，且不能跨iframe	不能跨iframe，且constructor易被修改	IE6下undefined,null均为Object	-
+缺点    检测出的类型太少    基本类型检测不出，且不能跨iframe    不能跨iframe，且constructor易被修改    IE6下undefined,null均为Object    -
 这样对比一下，就更能看到各个方法之间的区别了，而且Object.prototype.toString.call和$type输出的结果真的很像。我们来看看jquery（2.1.2版本）内部是怎么实现$.type方法的：
 ```js
 // 实例对象是能直接使用原型链上的方法的
@@ -248,57 +248,57 @@ var toString = class2type.toString;
 // 省略部分代码...
 
 type: function( obj ) {
-	if ( obj == null ) {
-		return obj + "";
-	}
-	// Support: Android<4.0, iOS<6 (functionish RegExp)
-	return (typeof obj === "object" || typeof obj === "function") ?
-		(class2type[ toString.call(obj) ] || "object") :
-		typeof obj;
+    if ( obj == null ) {
+        return obj + "";
+    }
+    // Support: Android<4.0, iOS<6 (functionish RegExp)
+    return (typeof obj === "object" || typeof obj === "function") ?
+        (class2type[ toString.call(obj) ] || "object") :
+        typeof obj;
 },
 
 // 省略部分代码... 
 
 // Populate the class2type map
 jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
-	class2type[ "[object " + name + "]" ] = name.toLowerCase();
+    class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 ```
 我们先来看看jQuery.each的这部分：
 ```js
 // Populate the class2type map
 jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
-	class2type[ "[object " + name + "]" ] = name.toLowerCase();
+    class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
 //循环之后，`class2type`的值是： 
 class2type = {
-	'[object Boolean]' : 'boolean', 
-	'[object Number]'  : 'number',
-	'[object String]'  : 'string',
-	'[object Function]': 'function',
-	'[object Array]'   : 'array',
-	'[object Date]'    : 'date',
-	'[object RegExp]'  : 'regExp',
-	'[object Object]'  : 'object',
-	'[object Error]'   : 'error'
+    '[object Boolean]' : 'boolean', 
+    '[object Number]'  : 'number',
+    '[object String]'  : 'string',
+    '[object Function]': 'function',
+    '[object Array]'   : 'array',
+    '[object Date]'    : 'date',
+    '[object RegExp]'  : 'regExp',
+    '[object Object]'  : 'object',
+    '[object Error]'   : 'error'
 }
 ```
 再来看看type方法：
 ```js
 // type的实现
 type: function( obj ) {
-	// 若传入的是null或undefined，则直接返回这个对象的字符串
-	// 即若传入的对象obj是undefined，则返回"undefined"
-	if ( obj == null ) {
-		return obj + "";
-	}
-	// Support: Android<4.0, iOS<6 (functionish RegExp)
-	// 低版本regExp返回function类型；高版本已修正，返回object类型
-	// 若使用typeof检测出的obj类型是object或function，则返回class2type的值，否则返回typeof检测的类型
-	return (typeof obj === "object" || typeof obj === "function") ?
-		(class2type[ toString.call(obj) ] || "object") :
-		typeof obj;
+    // 若传入的是null或undefined，则直接返回这个对象的字符串
+    // 即若传入的对象obj是undefined，则返回"undefined"
+    if ( obj == null ) {
+        return obj + "";
+    }
+    // Support: Android<4.0, iOS<6 (functionish RegExp)
+    // 低版本regExp返回function类型；高版本已修正，返回object类型
+    // 若使用typeof检测出的obj类型是object或function，则返回class2type的值，否则返回typeof检测的类型
+    return (typeof obj === "object" || typeof obj === "function") ?
+        (class2type[ toString.call(obj) ] || "object") :
+        typeof obj;
 }
 ```
 当`typeof obj === "object" || typeof obj === "function"`时，就返回`class2type[ toString.call(obj)`。
