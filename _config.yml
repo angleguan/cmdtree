@@ -5,7 +5,9 @@ author: 樊志阳
 email: fanzhiyang2001@gmail.com
 description: 其实我也没什么想说的
 url: https://fanzhiyang.com
+permalink: /blog/:title/
 markdown: kramdown
+excerpt_separator: <!-- more -->
 plugins:
   - jekyll-paginate
   - jekyll-feed
@@ -14,8 +16,6 @@ feed:
   path: /blog/atom.xml
 paginate: 5
 paginate_path: "/pages:num/"
-excerpt_separator: <!-- more -->
-permalink: /blog/:title/
 social_media:
   github_url: https://github.com/rhatyang
   zhihu_url: https://www.zhihu.com/people/fan-zhi-yang-57
