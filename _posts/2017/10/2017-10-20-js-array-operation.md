@@ -2,7 +2,7 @@
 title: JavaScript数据结构与算法——数组操作
 date: 2017-10-20T10:49:18+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 数组是一种最基本的数据结构，对于其它语言，如C语言，一个数组的元素只能是同一种，js则不然，你可以在任一一个数组中加入任何类型的数据类型。
 

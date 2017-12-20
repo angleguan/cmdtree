@@ -2,7 +2,7 @@
 title: 成年的标准可不是十八岁，而是学会为自己买单
 date: 2017-07-19T22:17:44+00:00
 layout: post
-category: lifetime
+category: 晃眼一生
 ---
 ![](/pics/2017/07/2759192-b6ad0aae8969da07.jpg)
 

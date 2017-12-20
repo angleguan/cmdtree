@@ -2,7 +2,7 @@
 title: 本站搭建笔记(二)修改默认主题
 date: 2017-05-25T15:31:21+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 ## 自定义默认minima主题
 

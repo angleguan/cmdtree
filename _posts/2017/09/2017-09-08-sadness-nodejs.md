@@ -2,7 +2,7 @@
 layout: post
 title: "apm: removing nodejs breaks dependency 'nodejs>=8'—— 这是一个赤裸裸的py交易"
 date: 2017-09-08 15:29:18
-category: use
+category: 使用笔记
 ---
 
 安装了最新版的Nodejs，在`npm run dev`时报错，查到是软件包的问题，所以打算删除掉最新版的nodejs，去官网下载v6.11.3LTS版。

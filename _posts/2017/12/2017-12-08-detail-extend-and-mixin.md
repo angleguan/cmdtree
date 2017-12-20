@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-8 13:57:29 +0800
 title: "SCSS @extend与@mixin"
-category: learn
+category: 学习笔记
 ---
 
 ## @extend
@@ -21,6 +21,8 @@ category: learn
     font-size: 16px;
 }
 ```
+<!-- more -->
+
 
 编译出来的结果为：
 

@@ -2,7 +2,7 @@
 layout: post
 date: 2017-11-26 10:29:33 +0800
 title: Jekyll和Hexo详细对比
-category: use
+category: 使用笔记
 ---
 
 我一直是使用的Jekyll，这个博客就是使用Jekyll搭建的，源码在[rhatyang/blog: Fan Zhiyang's personal blog , built using jekyll](https://github.com/rhatyang/blog)，使用Github Pages自动部署，所以你可以在我的博客找到很多关于Jekyll的内容——[Jekyll最全使用指南 - 樊志阳](https://fanzhiyang.com/blog/jekyll/)，我之前曾经尝试过使用Hexo，但最后也是不了了之，现在来详细的对比一下这两者的优劣。

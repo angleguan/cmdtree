@@ -2,7 +2,7 @@
 title: 自己搭建Git服务器
 date: 2017-07-18T22:16:20+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 > 服务器环境: CentOS 6.8
 

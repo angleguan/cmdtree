@@ -2,7 +2,7 @@
 title: 树莓派新手入门教程
 date: 2017-06-15T22:08:43+00:00
 layout: post
-category: linux
+category: Unix/Linux
 ---
 树莓派（Raspberry Pi）是学习计算机知识、架设服务器的好工具，价格低廉，可玩性高。
 ![](/pics/2017/06/bg2017061501.png)

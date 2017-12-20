@@ -2,7 +2,7 @@
 title: AngularJS入门学习（五）事件
 date: 2017-07-21T22:15:38+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 

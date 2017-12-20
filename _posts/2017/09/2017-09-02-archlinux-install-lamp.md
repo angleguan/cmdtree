@@ -2,7 +2,7 @@
 title: 在Arch Linux 中搭建LAMP环境
 date: 2017-09-02T17:28:58+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 
 简单的概括一下在Arch Linux中如何搭建LAMP环境。

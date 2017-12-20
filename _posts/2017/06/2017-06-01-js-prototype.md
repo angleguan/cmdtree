@@ -2,7 +2,7 @@
 title: JS中的prototype方法
 date: 2017-06-01T20:38:06+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 我们先来了解几个知识点:

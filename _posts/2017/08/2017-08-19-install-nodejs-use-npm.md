@@ -2,7 +2,7 @@
 title: Nodejs的安装与npm的使用
 date: 2017-08-19T22:22:00+00:00
 layout: post
-category: learn
+category: 学习笔记
 ---
 > Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
 

@@ -2,7 +2,7 @@
 title: Angularjs入门学习（七）路由
 date: 2017-08-08T18:21:46+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 > 路由(route)，几乎所有的MVC(VM)框架都应该具有的特性，因为它是前端构建单页面应用(SPA)必不可少的组成部分。

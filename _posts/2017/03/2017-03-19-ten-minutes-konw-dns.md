@@ -2,7 +2,7 @@
 title: 十分钟了解DNS
 date: 2017-03-19T12:15:52+00:00
 layout: post
-category: network
+category: 网络技术与安全
 ---
 
 # 一.hosts

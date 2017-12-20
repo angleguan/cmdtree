@@ -2,7 +2,7 @@
 title: 手动在服务器上部署wordpress个人博客
 date: 2017-06-28T22:08:08+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 
 > 测试主机: Cenots 7.2 X64 

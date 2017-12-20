@@ -2,7 +2,7 @@
 title: Python中的赋值和深浅拷贝
 date: 2017-08-17T14:12:00+00:00
 layout: post
-category: learn
+category: 学习笔记
 ---
 
 python中，`A object  = B object` 是一种赋值操作，赋的值不是一个对象在内存中的空间，而只是这个对象在内存中的位置。

@@ -2,7 +2,7 @@
 layout: post
 date: 2017-09-14 21:14:48 +0800
 title: "Linux mint的字体配置"
-category: linux
+category: Unix/Linux
 ---
 
 Linux mint是一款非常优秀的发行版，常年稳居distorwatch排行第一名，但是默认在安装之后是楷体字，比较难看的，这里说一下怎么安装文泉译黑字体和配置字体修复还会显示部分楷体字。

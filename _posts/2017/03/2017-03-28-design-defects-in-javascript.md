@@ -2,7 +2,7 @@
 title: Javascript 的 10 个设计缺陷
 date: 2017-03-28T12:36:36+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 ## 一、为什么 Javascript 有设计缺陷？
 

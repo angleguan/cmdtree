@@ -2,7 +2,7 @@
 layout: post
 date: 2017-11-02 15:41:31 +0800
 title: "JavaScript数据结构与算法——什么是栈"
-category: js
+category: JavaScript
 ---
 
 

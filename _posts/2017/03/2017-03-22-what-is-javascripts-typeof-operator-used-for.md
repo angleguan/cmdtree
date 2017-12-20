@@ -2,7 +2,7 @@
 title: JavaScript 的 typeof 的用途
 date: 2017-03-22T21:33:05+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 JavaScript 中的 `typeof` 其实非常复杂，它可以用来做很多事情，但同时也有很多怪异的表现。

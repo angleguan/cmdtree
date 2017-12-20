@@ -2,7 +2,7 @@
 title: 理解带宽
 date: 2017-06-06T22:10:04+00:00
 layout: post
-category: network
+category: 网络技术与安全
 ---
 带宽的单位是”bit/s”，就是单位时间的比特数，如100M带宽，全称为100Mbit/s,或100Mbps.带宽并非像公路一样理解，理解它之前要搞清楚数据是如何发送的。
 

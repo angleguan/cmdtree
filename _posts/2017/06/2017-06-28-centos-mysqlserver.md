@@ -2,7 +2,7 @@
 title: centos7 mysql数据库安装和配置
 date: 2017-06-28T14:01:55+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 # 一、系统环境
 

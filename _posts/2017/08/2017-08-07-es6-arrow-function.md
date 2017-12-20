@@ -2,7 +2,7 @@
 title: ES6箭头函数详解
 date: 2017-08-07T20:15:10+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 箭头函数是es6新增的非常有意思的特性，初次写起来，可能会觉得别扭，习惯之后，会发现很精简.

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
-{% include head.html %}
+<html lang="{{ site.lang | default: "en-US" }}">
+
+  {% include head.html %}
+
 <body>
+    {% include {{ siteurl }}header.html %}
+  
+    {{ content }}
 
-	{% include nav.html %}
+    {% include {{ siteurl }}footer.html %}
 
-	<div id="container">
-		<div class="main">
+    <a href="#top" class="back-to-top">^</a>
 
-			{{ content }}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ siteurl }}/assets/js/jquery-1.12.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ siteurl }}/assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- TOC -->
+    <script src="{{ siteurl }}/assets/js/TOC.js"></script>
 
-		</div>
-
-		{% include footer.html %}
-	</div>
-	
-</body>
-
+    <script>$("#search-form").submit(function(event){
+      var query = $("#search-input").value;
+      window.open("http://google.com/search?q=" + query + "%20site:" + "fanzhiyang.com");
+    });</script>
+  </body>
 </html>

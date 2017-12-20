@@ -2,12 +2,14 @@
 layout: post
 date: 2017-12-2 09:42:26 +0800
 title: Angular5.0 英雄教程
-category: js
+category: JavaScript
 ---
 
 花了点时间（前后一个月。。。）做了一下angular的英雄教程，官方文档在这里[Angular - Tutorial: Tour of Heroes](https://angular.io/tutorial)，中文文档在[Angular - 教程：英雄指南](https://angular.cn/tutorial)，我是使用cli构建的应用，做好的仓库[rhatyang/AngularJS-Heroes-Tutorial-Demo: angular heroes tutorial Demo based on angular5 using cli build](https://github.com/rhatyang/AngularJS-Heroes-Tutorial-Demo)。
 
 其实这个教程挺简单的，根本不需要这么多时间，如果认真做的话，即使没有接触过ng的人也能在两天之内做完，如果遇到有坑的话，先看看自己是不是有哪些地方没看到。
+
+<!-- more -->
 
 angular在上个月发布了5.0版本，ng的版本有必要提一下，严格上来说angularjs指的是angular1.0版本，是google在2009发布的一款MVC前端框架，而在2016年发布的angular2.0进行了很大的重写，所以通常把angular1.0和angular2.0是分开来的，官方也同时维护这两个版本，上个月发布的5.0和之前的4.0都是基于2.0的再优化。（angular5.0应用需要用cli1.5构建）
 

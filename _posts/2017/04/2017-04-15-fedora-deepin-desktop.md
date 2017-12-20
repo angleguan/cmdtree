@@ -2,7 +2,7 @@
 title: 在Fedora 系统中使用 Deepin 桌面环境
 date: 2017-04-15T11:32:52+00:00
 layout: post
-category: linux
+category: Unix/Linux
 ---
 
 **Fedora和Ubuntu可以说是Linux distribution中最受欢迎的两个桌面发行版，其社区相当活跃，现在，我们可以在 Fedora 系统中使用 Deepin 桌面环境。**

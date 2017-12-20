@@ -1,7 +1,7 @@
 ---
 title: Sublime Text 3143 注册码
 date: 2017-11-11 09:48:10 +0800
-category: use
+category: 使用笔记
 layout: post
 ---
 

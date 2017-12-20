@@ -1,3 +1,12 @@
-<div class="footer">
-	<p>所有内容采用<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>协议进行许可，随意转载保留署名。</p>
-</div>
+<footer class="footer">
+	<div class="container">
+		<div class="copyright">
+			Copyright &copy;
+			<time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>
+			<a href="{{ site.url }}">fanzhiyang.com</a> | Powered by
+			<a href="https://jekyllrb.com">Jekyll</a> | Designed by
+			<a href="{{ site.url }}">{{ site.author }}</a>
+		</div>
+	</div>
+
+</footer>

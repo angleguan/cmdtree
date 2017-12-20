@@ -2,7 +2,7 @@
 title: 让Sublime支持Vue语法高亮
 date: 2017-08-22T10:39:39+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 
 一、打开Sublime，按快捷键Ctrl + Shift + P，如下图所示，输入【Install Package】并打开

@@ -1,0 +1,56 @@
+@import "my/post",
+		"my/sidebar",
+		"my/sidebar_main",
+		"my/sidebar_post",
+		"my/sidebar_listgroup",
+		"my/archives",
+		"my/back_to_top",
+		"my/home";
+
+/*---------------------- main ------------------------*/
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+p {
+    color: #515151;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+blockquote {
+	font-size: 1.1em;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+/*---------------------- footer copyright ------------------------*/
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 40px;
+    background-color: #F8F8F8;
+    border-top: 1px solid #EAEAEA;
+    .copyright {
+        font-size: 14px;
+        line-height: 18px;
+        padding: 10px 0px;
+        margin: 0 auto;
+        display: block;
+        color: #404040;
+    }
+}

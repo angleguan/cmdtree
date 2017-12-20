@@ -2,7 +2,7 @@
 layout: post
 date: 2017-04-28 09:18:26 +0800
 title: phpstorm不能输入中文的解决办法
-category: use
+category: 使用笔记
 ---
 
 在Linux上安装phpstorm之后不能输入中文，通常是因为环境变量未设置正确

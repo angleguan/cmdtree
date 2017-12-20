@@ -2,7 +2,7 @@
 title: jekyll 的一些函数和技巧
 date: 2017-06-02T15:32:53+00:00
 layout: post
-category: use
+category: 使用笔记
 ---
 ## Jekyll常用标签
 

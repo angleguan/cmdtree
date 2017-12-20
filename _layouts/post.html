@@ -2,21 +2,61 @@
 layout: default
 ---
 
-<article id="post" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="container">
+	<div class="row-fluid main">
+		<div class="col-md-9 content">
+			<article class="post">
+				<h1 class="post-title">{{ page.title }}</h1>
 
-<header id="post-header">
-		<h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-	<div class="page_meta">
-		{% if page.date %}
-		<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-			{{ page.date | date: "%Y-%m-%d %H:%M:%S" }}
-		</time>
-		{% endif %}
+				<div class="post-info">
+					<span class="post-date">{{ page.date | date: "%Y年%m月%d日 %H:%M:%S" }}</span>
+					{% if page.categories.size > 0 %} |
+					<span class="fa fa-folder-open" aria-hidden="true">
+						{% for category in page.categories %}
+						<a class="post-categories" href="{{ siteurl }}/categories.html#{{ category }}">{{ category }}</a>
+						{% endfor %}
+					</span>
+					{% endif %}
+				</div>
+
+				<hr>
+				<div class="post-content">
+					{{ content }}
+				</div>
+				<br>
+				<br>
+			</article>
+
+			<nav class="post-pagination">
+				{% if page.previous %}
+				<a href="{{ siteurl }}{{ page.previous.url }}" class="btn previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
+				{% endif %} {% if page.next %}
+				<a href="{{ siteurl }}{{ page.next.url }}" class="btn next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
+				{% endif %}
+			</nav>
+
+			<hr> {% if site.related_posts != empty %}
+			<aside class="related">
+				<h3>推荐文章</h3>
+				<ul class="related-posts">
+					{% for post in site.related_posts limit:5 %}
+					<li>
+						<a href="{{ siteurl }}{{ post.url }}">
+							{{ post.title }}
+							<small>
+								<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+							</small>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</aside>
+			{% endif %}
+
+		</div>
+
+		<div class="col-md-3 post-sidebar">
+			{% include sidebar_post.html %}
+		</div>
 	</div>
-</header>
-
-<div id="post-content" itemprop="articleBody">
-	{{ content }}
 </div>
-
-</article>

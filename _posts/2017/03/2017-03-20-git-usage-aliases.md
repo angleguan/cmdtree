@@ -2,7 +2,7 @@
 layout: post
 date: 2017-03-20 18:12:15
 title: 给Git命令使用别名
-category: use
+category: 使用笔记
 ---
 
 有的时候我们在操作Git时通常要输入非常长的命令又或者是两三行的命令，太麻烦了！

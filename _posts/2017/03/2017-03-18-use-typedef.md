@@ -2,7 +2,7 @@
 title: typedef的几种用法
 date: 2017-03-18T17:46:06+00:00
 layout: post
-category: learn
+category: 学习笔记
 ---
 
 # 用途一：

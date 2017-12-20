@@ -2,7 +2,7 @@
 title: 详解面向对象、构造函数、原型与原型链
 date: 2017-03-23T09:08:36+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 

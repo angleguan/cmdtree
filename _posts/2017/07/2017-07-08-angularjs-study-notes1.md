@@ -2,7 +2,7 @@
 title: AngularJS入门学习（一）表达式与指令
 date: 2017-07-08T22:12:56+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 
 # 一、AngularJS表达式

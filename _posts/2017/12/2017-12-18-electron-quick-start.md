@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-18 16:17:29 +0800
 title: "Electron 快速入门"
-category: learn
+category: 学习笔记
 ---
 
 Electron是一种基于Node.js的跨平台技术，可以用HTML、CSS、JS来构建桌面应用。
@@ -27,6 +27,8 @@ npm install
 ```
 
 接着就可以运行程序了
+
+<!-- more -->
 
 ```
 npm start    ## 或者 electron .

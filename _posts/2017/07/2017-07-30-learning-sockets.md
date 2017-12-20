@@ -2,7 +2,7 @@
 title: 网络编程之套接字（sockets）
 date: 2017-07-30T21:06:17+00:00
 layout: post
-category: network
+category: 网络技术与安全
 ---
 
 ## 网络编程

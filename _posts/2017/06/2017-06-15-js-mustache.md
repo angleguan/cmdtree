@@ -2,7 +2,7 @@
 title: JavaScript语言的模板引擎Mustache
 date: 2017-06-15T11:56:17+00:00
 layout: post
-category: js
+category: JavaScript
 ---
 Web 模板引擎是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，通常是标准的 HTML 文档。当然不同的开发语言有不同模板引擎，如 Javascript 下的 Hogan 、ASP 下的 aspTemplate、以及 PHP 下的 Smarty，这里主要介绍基于 Javascript 语言的模板引擎，目前流行有 Mustache、Hogan、doT.js、JsRender、Kendo UI Templates等，jsperf.com 上可以看到它们的性能对比，首先先介绍下 Mustache。
 
