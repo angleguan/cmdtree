@@ -6,7 +6,7 @@
 <body>
     {% include {{ siteurl }}header.html %}
   
-    {{ content }}
+    	{{ content }}
 
     {% include {{ siteurl }}footer.html %}
 
@@ -15,13 +15,10 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ siteurl }}/assets/js/jquery-1.12.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ siteurl }}/assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <!-- TOC -->
-    <script src="{{ siteurl }}/assets/js/TOC.js"></script>
+    <!-- <script src="{{ siteurl }}/assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
+	<script src="/assets/js/bootstrap.js"></script>
+	<!-- TOC -->
+	<script src="{{ siteurl }}/assets/js/TOC.js"></script>
 
-    <script>$("#search-form").submit(function(event){
-      var query = $("#search-input").value;
-      window.open("http://google.com/search?q=" + query + "%20site:" + "fanzhiyang.com");
-    });</script>
   </body>
 </html>
