@@ -54,15 +54,15 @@
   .site-state-item-count {
 	display: block;
   }
-  
-  /*--------- list-group ----------*/
-  
-  .list-group-item {
-	> .badge {
-	  float: right;
-	  background-color: #999;
-	}
-	a {
-	  color: #4183c4;
-	}
-  }
+
+/*--------- list-group ----------*/
+.list-group-item {
+    span {
+		float: right;
+		margin-top: 8px;
+		margin-right: 20px;
+    }
+    a {
+        color: #4183c4;
+    }
+}

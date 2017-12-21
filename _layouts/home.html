@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="container">
+	<div class="columns">
+		<div class="column is-two-thirds content main-posts-preview">
+			{% for post in paginator.posts %}
+			<article class="post-preview">
+				<h1 class="post-title">
+					<a href="{{ siteurl }}{{ post.url }}">{{ post.title }}</a>
+				</h1>
+
+				<div class="post-info">
+					<span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+					{% if post.categories.size > 0 %} |
+					<span class="fa fa-folder-open" aria-hidden="true">
+						{% for category in post.categories %}
+						<a class="post-categories" href="{{ siteurl }}/categories#{{ category }}">{{ category }}</a>
+						{% endfor %}
+					</span>
+					{% endif %}
+				</div>
+
+				<div class="post-excerpt">
+					{{ post.excerpt }}
+				</div>
+
+				<div class="post-readmore">
+					<a class="button is-primary read-more" href="{{ post.url }}">Read More</a>
+				</div>
+			</article>
+			<hr /> {% endfor %}
+			
+			{% if paginator.total_pages >= 1 %}
+				{% include paginator.html %}
+			{% endif %}
+		</div>
+		<div class="column is-one-third main-sidebar">
+			{% include {{ siteurl }}sidebar_main.html %}
+		</div>
+	</div>
+</div>

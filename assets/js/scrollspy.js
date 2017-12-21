@@ -83,8 +83,7 @@ function ($) {
 
 				return ($href &&
 					$href.length &&
-					$href.is(':visible') &&
-					[
+					$href.is(':visible') && [
 						[$href[offsetMethod]().top + offsetBase, href]
 					]) || null
 			})

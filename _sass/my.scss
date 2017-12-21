@@ -41,7 +41,6 @@ img {
 .footer {
     bottom: 0;
     width: 100%;
-    position: absolute;
     height: 40px;
     background-color: #F8F8F8;
     border-top: 1px solid #EAEAEA;
@@ -53,4 +52,8 @@ img {
         display: block;
         color: #404040;
     }
+}
+
+.main {
+	margin-top: 20px;
 }

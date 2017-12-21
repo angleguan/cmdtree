@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: " en-US " }}">
 
-  {% include head.html %}
+{% include head.html %}
 
 <body>
-    {% include {{ siteurl }}header.html %}
-  
-    	{{ content }}
+	{% include header.html %} 
+	<div class="main">
+	{{ content }}
+	</div>
+	
+	{% include footer.html %}
 
-    {% include {{ siteurl }}footer.html %}
+	<a href="#top" class="back-to-top">^</a>
 
-    <a href="#top" class="back-to-top">^</a>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/assets/js/jquery-1.12.4.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="{{ siteurl }}/assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
-	<script src="/assets/js/bootstrap.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/assets/js/jquery-1.12.4.min.js"></script>
+	<script src="/assets/js/scrollspy.js"></script>
 	<!-- TOC -->
 	<script src="/assets/js/TOC.js"></script>
 
-  </body>
+</body>
+
 </html>

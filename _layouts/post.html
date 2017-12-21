@@ -3,8 +3,7 @@ layout: default
 ---
 
 <div class="container">
-	<div class="row-fluid main">
-		<div class="col-md-9 content">
+		<div class="column is-two-thirds content">
 			<article class="post">
 				<h1 class="post-title">{{ page.title }}</h1>
 
@@ -29,9 +28,9 @@ layout: default
 
 			<nav class="post-pagination">
 				{% if page.previous %}
-				<a href="{{ siteurl }}{{ page.previous.url }}" class="btn previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
+				<a href="{{ siteurl }}{{ page.previous.url }}" class="button is-link previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
 				{% endif %} {% if page.next %}
-				<a href="{{ siteurl }}{{ page.next.url }}" class="btn next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
+				<a href="{{ siteurl }}{{ page.next.url }}" class="button is-link next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
 				{% endif %}
 			</nav>
 
@@ -55,8 +54,5 @@ layout: default
 
 		</div>
 
-		<div class="col-md-3 post-sidebar">
-			{% include sidebar_post.html %}
-		</div>
-	</div>
+
 </div>

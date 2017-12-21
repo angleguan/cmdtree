@@ -16,30 +16,33 @@
 		<div class="site-state-item">
 			<a href="{{ siteurl }}/archives.html">
 				<span class="site-state-item-count">{{ site.posts | size }}</span>
-				<span>Posts</span>
+				<span>文章</span>
 			</a>
 		</div>
 		<div class="site-state-item">
 			<a href="{{ siteurl }}/categories/">
 				<span class="site-state-item-count">{{ site.categories.size }}</span>
-				<span>Categories</span>
+				<span>分类</span>
 			</a>
 		</div>
 	</nav>
 
 	<hr />
 
-	<nav class="category-list list-group">
-		<h3 class="sidebar-title">Categories</h3>
-		<ul class="list-group">
+	<aside class="menu">
+		<p class="menu-label">Categories</p>
+
+		<ul class="menu-list">
 			{% for category in site.categories %}
 			<li class="list-group-item">
+				<span class="tag">{{ category[1].size }}</span>
 				<a href="{{ siteurl }}/categories/#{{ category[0] }}">{{ category[0] }}</a>
-				<span class="badge">{{ category[1].size }}</span>
+
 			</li>
 			{% endfor %}
 		</ul>
-	</nav>
+
+	</aside>
 
 	<hr />
 
