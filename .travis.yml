@@ -1,8 +1,0 @@
-sudo: true
-language: ruby
-cache: bundler
-
-before_script: 
-  - chmod +x ./travis.sh
-
-script: ./travis.sh
