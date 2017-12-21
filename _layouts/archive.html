@@ -13,7 +13,7 @@ layout: default
 				<ul class="posts-list">
 					{% for post in site.posts %}
 					<li>
-						<a class="post-title" href="{{ siteurl }}{{ post.url }}">{{ post.title }}
+						<a class="post-title" href="{{ post.url }}">{{ post.title }}
 							<small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>
 						</a>
 					</li>

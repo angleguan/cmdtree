@@ -1,6 +1,6 @@
 <div class="sidebar-content" id="sidebar">
 	<div class="author-avatar">
-		<img src="{{ siteurl }}/assets/img/author_avatar.jpg" alt="lszero">
+		<img src="/assets/img/author_avatar.jpg" alt="lszero">
 	</div>
 
 	<div class="brief-intro">
@@ -14,13 +14,13 @@
 
 	<nav class="site-state">
 		<div class="site-state-item">
-			<a href="{{ siteurl }}/archives.html">
+			<a href="/archives.html">
 				<span class="site-state-item-count">{{ site.posts | size }}</span>
 				<span>文章</span>
 			</a>
 		</div>
 		<div class="site-state-item">
-			<a href="{{ siteurl }}/categories/">
+			<a href="/categories/">
 				<span class="site-state-item-count">{{ site.categories.size }}</span>
 				<span>分类</span>
 			</a>
@@ -36,7 +36,7 @@
 			{% for category in site.categories %}
 			<li class="list-group-item">
 				<span class="tag">{{ category[1].size }}</span>
-				<a href="{{ siteurl }}/categories/#{{ category[0] }}">{{ category[0] }}</a>
+				<a href="/categories/#{{ category[0] }}">{{ category[0] }}</a>
 
 			</li>
 			{% endfor %}

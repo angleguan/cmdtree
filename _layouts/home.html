@@ -8,7 +8,7 @@ layout: default
 			{% for post in paginator.posts %}
 			<article class="post-preview">
 				<h1 class="post-title">
-					<a href="{{ siteurl }}{{ post.url }}">{{ post.title }}</a>
+					<a href="{{ post.url }}">{{ post.title }}</a>
 				</h1>
 
 				<div class="post-info">
@@ -16,7 +16,7 @@ layout: default
 					{% if post.categories.size > 0 %} |
 					<span class="fa fa-folder-open" aria-hidden="true">
 						{% for category in post.categories %}
-						<a class="post-categories" href="{{ siteurl }}/categories#{{ category }}">{{ category }}</a>
+						<a class="post-categories" href="/categories#{{ category }}">{{ category }}</a>
 						{% endfor %}
 					</span>
 					{% endif %}
@@ -37,7 +37,7 @@ layout: default
 			{% endif %}
 		</div>
 		<div class="column is-one-third main-sidebar">
-			{% include {{ siteurl }}sidebar_main.html %}
+			{% include sidebar_main.html %}
 		</div>
 	</div>
 </div>

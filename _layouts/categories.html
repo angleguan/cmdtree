@@ -23,7 +23,7 @@ layout: default
 
         <ul class="posts-list">
         {% for post in category[1] %}
-          <li><a class="post-title" href="{{ siteurl }}{{ post.url }}"><small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>{{ post.title }}</a></li>
+          <li><a class="post-title" href="{{ post.url }}"><small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>{{ post.title }}</a></li>
           {% if post.subtitle %}
             -- <a class="post-subtitle">{{ post.subtitle }}</a>
           {% endif %}

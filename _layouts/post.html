@@ -12,7 +12,7 @@ layout: default
 					{% if page.categories.size > 0 %} |
 					<span class="fa fa-folder-open" aria-hidden="true">
 						{% for category in page.categories %}
-						<a class="post-categories" href="{{ siteurl }}/categories.html#{{ category }}">{{ category }}</a>
+						<a class="post-categories" href="/categories.html#{{ category }}">{{ category }}</a>
 						{% endfor %}
 					</span>
 					{% endif %}
@@ -28,9 +28,9 @@ layout: default
 
 			<nav class="post-pagination">
 				{% if page.previous %}
-				<a href="{{ siteurl }}{{ page.previous.url }}" class="button is-link previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
+				<a href="{{ page.previous.url }}" class="button is-link previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
 				{% endif %} {% if page.next %}
-				<a href="{{ siteurl }}{{ page.next.url }}" class="button is-link next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
+				<a href="{{ page.next.url }}" class="button is-link next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
 				{% endif %}
 			</nav>
 
@@ -40,7 +40,7 @@ layout: default
 				<ul class="related-posts">
 					{% for post in site.related_posts limit:5 %}
 					<li>
-						<a href="{{ siteurl }}{{ post.url }}">
+						<a href="{{ post.url }}">
 							{{ post.title }}
 							<small>
 								<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
