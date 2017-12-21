@@ -1,3 +1,4 @@
+<div class="column is-one-third main-sidebar">
 <div class="sidebar-content" id="sidebar">
 	<div class="author-avatar">
 		<img src="/assets/img/author_avatar.jpg" alt="lszero">
@@ -35,7 +36,7 @@
 		<ul class="menu-list">
 			{% for category in site.categories %}
 			<li class="list-group-item">
-				<span class="tag">{{ category[1].size }}</span>
+				<span class="tag is-dark">{{ category[1].size }}</span>
 				<a href="/categories/#{{ category[0] }}">{{ category[0] }}</a>
 
 			</li>
@@ -45,5 +46,7 @@
 	</aside>
 
 	<hr />
+
+</div>
 
 </div>
