@@ -4,6 +4,7 @@
     background-color: #fff;
     margin-top: 20px;
 }
+
 .post-sidebar .sidebar-content {
     margin-left: 20px;
 }
@@ -15,8 +16,10 @@
     width: 250px;
 }
 
+
 /* All levels of nav */
-.header-list-sidebar .nav > li > a {
+
+.header-list-sidebar .nav>li>a {
     display: block;
     padding: 2px 20px;
     font-weight: bold;
@@ -28,32 +31,36 @@
     font-weight: normal;
 }
 
-.header-list-sidebar .nav > li > a:hover,
-.header-list-sidebar .nav > li > a:focus {
+.header-list-sidebar .nav>li>a:hover,
+.header-list-sidebar .nav>li>a:focus {
     color: #87CEFA;
     text-decoration: none;
     background-color: transparent;
     border-left: 2px solid #87CEFA;
 }
-.header-list-sidebar .nav > .active > a,
-.header-list-sidebar .nav > .active:hover > a,
-.header-list-sidebar .nav > .active:focus > a {
+
+.header-list-sidebar .nav>.active>a,
+.header-list-sidebar .nav>.active:hover>a,
+.header-list-sidebar .nav>.active:focus>a {
     font-weight: bold;
     color: #5bc0de;
     background-color: transparent;
     border-left: 2px solid #5bc0de;
 }
 
+
 /* Nav: second level (shown on .active) */
-.header-list-sidebar .nav .nav > li > a {
+
+.header-list-sidebar .nav .nav>li>a {
     padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 35px;
 }
 
+
 /* Nav: 3rd level (shown on .active) */
 
-.header-list-sidebar .nav .nav .nav > li > a {
+.header-list-sidebar .nav .nav .nav>li>a {
     padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 50px;

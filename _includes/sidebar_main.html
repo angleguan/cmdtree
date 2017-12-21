@@ -1,52 +1,52 @@
 <div class="column is-one-third main-sidebar">
-<div class="sidebar-content" id="sidebar">
-	<div class="author-avatar">
-		<img src="/assets/img/author_avatar.jpg" alt="lszero">
+	<div class="sidebar-content" id="sidebar">
+		<div class="author-avatar">
+			<img src="/assets/img/author_avatar.jpg" alt="lszero">
+		</div>
+
+		<div class="brief-intro">
+			<div class="author-name">
+				ZhiYang
+			</div>
+			<div class="author-bio">
+				{{ site.description }}
+			</div>
+		</div>
+
+		<nav class="site-state">
+			<div class="site-state-item">
+				<a href="/archives.html">
+					<span class="site-state-item-count">{{ site.posts | size }}</span>
+					<span>文章</span>
+				</a>
+			</div>
+			<div class="site-state-item">
+				<a href="/categories/">
+					<span class="site-state-item-count">{{ site.categories.size }}</span>
+					<span>分类</span>
+				</a>
+			</div>
+		</nav>
+
+		<hr />
+
+		<aside class="menu">
+			<p class="menu-label">Categories</p>
+
+			<ul class="menu-list">
+				{% for category in site.categories %}
+				<li class="list-group-item">
+					<span class="tag is-dark">{{ category[1].size }}</span>
+					<a href="/categories/#{{ category[0] }}">{{ category[0] }}</a>
+
+				</li>
+				{% endfor %}
+			</ul>
+
+		</aside>
+
+		<hr />
+
 	</div>
-
-	<div class="brief-intro">
-		<div class="author-name">
-			ZhiYang
-		</div>
-		<div class="author-bio">
-			{{ site.description }}
-		</div>
-	</div>
-
-	<nav class="site-state">
-		<div class="site-state-item">
-			<a href="/archives.html">
-				<span class="site-state-item-count">{{ site.posts | size }}</span>
-				<span>文章</span>
-			</a>
-		</div>
-		<div class="site-state-item">
-			<a href="/categories/">
-				<span class="site-state-item-count">{{ site.categories.size }}</span>
-				<span>分类</span>
-			</a>
-		</div>
-	</nav>
-
-	<hr />
-
-	<aside class="menu">
-		<p class="menu-label">Categories</p>
-
-		<ul class="menu-list">
-			{% for category in site.categories %}
-			<li class="list-group-item">
-				<span class="tag is-dark">{{ category[1].size }}</span>
-				<a href="/categories/#{{ category[0] }}">{{ category[0] }}</a>
-
-			</li>
-			{% endfor %}
-		</ul>
-
-	</aside>
-
-	<hr />
-
-</div>
 
 </div>

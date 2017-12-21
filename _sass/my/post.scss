@@ -18,16 +18,15 @@
 }
 
 .related {
-	margin-bottom: 30px;
-	.related-posts {
-		li {
-			a {
-				font-size: 15px;
-				time {
-					color: gray;
-				}
-			}
-		}
-		
-	}
+    margin-bottom: 30px;
+    .related-posts {
+        li {
+            a {
+                font-size: 15px;
+                time {
+                    color: gray;
+                }
+            }
+        }
+    }
 }

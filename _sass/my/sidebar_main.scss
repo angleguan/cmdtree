@@ -1,66 +1,70 @@
 /*---------------------- main-sidebar ------------------------*/
 
 .main-sidebar {
-	margin-top: 20px;
-	.sidebar-content {
-	  margin-left: 20px;
-	}
-	.author-avatar img {
-	  border-radius: 50%;
-	  max-width: 180px;
-	  border: 1px solid #f2f3f3;
-	  padding: 5px;
-	  margin: 10px auto;
-	  display: block;
-	}
-  }
-  
-  .brief-intro {
-	margin-bottom: 6px;
-	.author-name {
-	  font-size: 25px;
-	  margin-bottom: 6px;
-	  text-align: center;
-	}
-	.author-bio {
-	  text-align: center;
-	  color: #333;
-	}
-  }
-  
-  /*--------- site-state-count ----------*/
-  
-  .site-state {
-	text-align: center;
-	padding: 5px 0;
-	a {
-	  color: #777;
-	  &:hover, &:focus {
-		color: #333;
-		text-decoration: none;
-	  }
-	}
-  }
-  
-  .site-state-item {
-	display: inline-block;
-	padding: 0 15px;
-	border-left: 1px solid #eee;
-	&:first-child {
-	  border-left: none;
-	}
-  }
-  
-  .site-state-item-count {
-	display: block;
-  }
+    margin-top: 20px;
+    .sidebar-content {
+        margin-left: 20px;
+    }
+    .author-avatar img {
+        border-radius: 50%;
+        max-width: 180px;
+        border: 1px solid #f2f3f3;
+        padding: 5px;
+        margin: 10px auto;
+        display: block;
+    }
+}
+
+.brief-intro {
+    margin-bottom: 6px;
+    .author-name {
+        font-size: 25px;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .author-bio {
+        text-align: center;
+        color: #333;
+    }
+}
+
+
+/*--------- site-state-count ----------*/
+
+.site-state {
+    text-align: center;
+    padding: 5px 0;
+    a {
+        color: #777;
+        &:hover,
+        &:focus {
+            color: #333;
+            text-decoration: none;
+        }
+    }
+}
+
+.site-state-item {
+    display: inline-block;
+    padding: 0 15px;
+    border-left: 1px solid #eee;
+    &:first-child {
+        border-left: none;
+    }
+}
+
+.site-state-item-count {
+    display: block;
+}
+
 
 /*--------- list-group ----------*/
+
 .list-group-item {
     span {
-		float: right;
-		margin-top: 8px;
-		margin-right: 40px;
+        float: right;
+        margin-top: 8px;
+        margin-right: 40px;
     }
     a {
         color: #4183c4;
