@@ -30,15 +30,14 @@
 
 		<hr />
 
-		<aside class="menu">
+		<aside class="menu categories-list">
 			<p class="menu-label">Categories</p>
 
 			<ul class="menu-list">
 				{% for category in site.categories %}
-				<li class="list-group-item">
+				<li class="menu-list-item">
 					<span class="tag is-dark">{{ category[1].size }}</span>
 					<a href="/categories/#{{ category[0] }}">{{ category[0] }}</a>
-
 				</li>
 				{% endfor %}
 			</ul>

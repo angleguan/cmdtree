@@ -2,23 +2,19 @@
 layout: default
 ---
 
-<div class="container">
-	<div class="columns">
-		<div class="column is-8 content" style="margin: 0 auto">
-			<h1>Archives</h1>
+<div class="column is-8" style="margin: 0 auto">
+	<h1>Archives</h1>
 
-			<hr />
+	<hr />
 
-			<div class="archive-posts-list">
-				<ul class="posts-list">
-					{% for post in site.posts %}
-					<li>
-						<a class="post-title" href="{{ post.url }}">{{ post.title }}
-							<small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>
-						</a>
-					</li>
-					{% endfor %}
-			</div>
-		</div>
+	<div class="archive-posts-list">
+		<ul class="posts-list">
+			{% for post in site.posts %}
+			<li>
+				<a class="post-title" href="{{ post.url }}">{{ post.title }}
+					<small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>
+				</a>
+			</li>
+			{% endfor %}
 	</div>
 </div>

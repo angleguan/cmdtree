@@ -19,7 +19,7 @@ const postHeaderList = {
 				if (window.XMLHttpRequest) {
 					element.css({
 						position: "fixed",
-						top: 100
+						top: 50
 					});
 				} else {
 					element.css({

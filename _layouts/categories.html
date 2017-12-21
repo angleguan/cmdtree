@@ -2,37 +2,33 @@
 layout: default
 ---
 
-<div class="container">
-	<div class="columns">
-		<div class="column is-8 content" style="margin: 0 auto">
-			<h1 class="title is-2">Categories</h1>
+<div class="column is-8" style="margin: 0 auto">
+	<h1 class="title is-2">Categories</h1>
 
-			<div class="archive-cloud categories-cloud">
-				{% for category in site.categories %}
-				<a class="button is-primary" href="#{{ category[0] }}" title="{{ category[0] }}" rel="{{ category[1].size }}">{{ category[0] }} ({{ category[1].size }})</a>
-				{% endfor %}
-			</div>
+	<div class="archive-cloud categories-cloud">
+		{% for category in site.categories %}
+		<a class="button is-primary" href="#{{ category[0] }}" title="{{ category[0] }}" rel="{{ category[1].size }}">{{ category[0] }} ({{ category[1].size }})</a>
+		{% endfor %}
+	</div>
 
-			<hr />
+	<hr />
 
-			<div class="archive-posts-list category-posts-list">
-				{% for category in site.categories %}
-				<span class="fa fa-book" aria-hidden="true" id="{{ category[0] }}">
-					<span class="title is-4 is-info">{{ category[0] }}</span>
-				</span>
+	<div class="archive-posts-list category-posts-list">
+		{% for category in site.categories %}
+		<span class="fa fa-book" aria-hidden="true" id="{{ category[0] }}">
+			<span class="title is-4 is-info">{{ category[0] }}</span>
+		</span>
 
-				<ul class="posts-list">
-					{% for post in category[1] %}
-					<li>
-						<a class="post-title" href="{{ post.url }}">
-							<small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>{{ post.title }}</a>
-					</li>
-					{% if post.subtitle %} --
-					<a class="post-subtitle">{{ post.subtitle }}</a>
-					{% endif %} {% endfor %}
-				</ul>
-				{% endfor %}
-			</div>
-		</div>
+		<ul class="posts-list">
+			{% for post in category[1] %}
+			<li>
+				<a class="post-title" href="{{ post.url }}">
+					<small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>{{ post.title }}</a>
+			</li>
+			{% if post.subtitle %} --
+			<a class="post-subtitle">{{ post.subtitle }}</a>
+			{% endif %} {% endfor %}
+		</ul>
+		{% endfor %}
 	</div>
 </div>

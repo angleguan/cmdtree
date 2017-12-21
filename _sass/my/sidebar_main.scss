@@ -60,13 +60,19 @@
 
 /*--------- list-group ----------*/
 
-.list-group-item {
+.menu-list-item {
     span {
         float: right;
         margin-top: 8px;
         margin-right: 40px;
     }
-    a {
-        color: #4183c4;
+}
+
+// categories-list
+
+.categories-list {
+    ul {
+        margin: 0;
+        list-style: none;
     }
 }
