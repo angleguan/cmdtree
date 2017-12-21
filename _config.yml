@@ -16,6 +16,3 @@ feed:
   path: /blog/atom.xml
 paginate: 5
 paginate_path: "/pages:num/"
-social_media:
-  github_url: https://github.com/rhatyang
-  zhihu_url: https://www.zhihu.com/people/fan-zhi-yang-57
