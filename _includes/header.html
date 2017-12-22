@@ -1,26 +1,35 @@
-<header class="header">
+<nav class="navbar is-dark">
+	<div class="container">
 
-	<nav class="navbar is-dark">
-		<div class="container">
-
-			<div class="navbar-brand">
-				<a class="navbar-item" href="/">
-					{{ site.title }}
-				</a>
-				<div class="navbar-burger burger" data-target="navMenuDocumentation navMenu">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-			</div>
-
-			<div class="navbar-menu" id="navMenu">
-				<div class="navbar-end">
-					<a class="navbar-item" href="/archives/">归档</a>
-					<a class="navbar-item" href="/categories/">分类</a>
-					<a class="navbar-item" href="/about/">关于</a>
-				</div>
+		<div class="navbar-brand">
+			<a class="navbar-item" href="/">
+				{{ site.title }}
+			</a>
+			<div class="navbar-burger burger" data-target="navMenu">
+				<span></span>
+				<span></span>
+				<span></span>
 			</div>
 		</div>
-	</nav>
-</header>
+
+		<div class="navbar-menu" id="navMenu">
+			<div class="navbar-start">
+				<a class="navbar-item is-hidden-desktop-only" href="{{ site.url }}/blog/atom.xml" target="_blank">
+					<span class="icon">
+						<i class="fa fa-lg fa-rss" aria-hidden="true"></i>
+					</span>
+				</a>
+				<a class="navbar-item is-hidden-desktop-only" href="https://github.com/rhatyang" target="_blank">
+					<span class="icon">
+						<i class="fa fa-lg fa-github" aria-hidden="true"></i>
+					</span>
+				</a>
+			</div>
+			<div class="navbar-end">
+				<a class="navbar-item" href="/archives/">归档</a>
+				<a class="navbar-item" href="/categories/">分类</a>
+				<a class="navbar-item" href="/about/">关于</a>
+			</div>
+		</div>
+	</div>
+</nav>
