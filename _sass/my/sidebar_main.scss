@@ -4,6 +4,7 @@
     .sidebar-content {
         margin-left: 20px;
     }
+
     .author-avatar img {
         border-radius: 50%;
         max-width: 180px;
@@ -16,11 +17,13 @@
 
 .brief-intro {
     margin-bottom: 6px;
+
     .author-name {
         font-size: 25px;
         margin-bottom: 6px;
         text-align: center;
     }
+
     .author-bio {
         text-align: center;
         color: #333;
@@ -33,8 +36,10 @@
 .site-state {
     text-align: center;
     padding: 5px 0;
+
     a {
         color: #777;
+
         &:hover,
         &:focus {
             color: #333;
@@ -47,6 +52,7 @@
     display: inline-block;
     padding: 0 15px;
     border-left: 1px solid #eee;
+
     &:first-child {
         border-left: none;
     }

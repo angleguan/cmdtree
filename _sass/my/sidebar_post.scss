@@ -2,22 +2,24 @@
 
 .post-sidebar {
     margin-left: 50px;
+
     .sidebar-content {
         .header-list-sidebar {
             ul {
                 margin: 0;
                 list-style-type: none;
             }
+
             .headers-sidenav {
                 padding: 20px 10px;
                 padding-left: 0px;
                 border: 1px solid #EAEAEA;
                 width: 250px;
-						}
-						// toc level 
+            }
+            // toc level
             .nav {
                 > {
-                    li>a {
+                    li > a {
                         display: block;
                         padding: 2px 20px;
                         font-weight: bold;
@@ -27,6 +29,7 @@
                         white-space: nowrap;
                         text-overflow: ellipsis;
                         font-weight: normal;
+
                         &:hover,
                         &:focus {
                             color: #87CEFA;
@@ -35,10 +38,11 @@
                             border-left: 2px solid #87CEFA;
                         }
                     }
+
                     .active {
-                        >a,
-                        &:hover>a,
-                        &:focus>a {
+                        > a,
+                        &:hover > a,
+                        &:focus > a {
                             font-weight: bold;
                             color: #5bc0de;
                             background-color: transparent;
@@ -46,13 +50,15 @@
                         }
                     }
                 }
+
                 .nav {
-                    >li>a {
+                    > li > a {
                         padding-top: 1px;
                         padding-bottom: 1px;
                         padding-left: 35px;
                     }
-                    .nav>li>a {
+
+                    .nav > li > a {
                         padding-top: 1px;
                         padding-bottom: 1px;
                         padding-left: 50px;

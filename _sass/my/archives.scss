@@ -11,28 +11,34 @@
         font-size: 20px;
         padding: 10px 0px;
     }
+
     .title {
         color: #5bc0de;
     }
+
     ul {
         list-style-type: circle;
         margin: 10px 0;
     }
+
     li {
         margin: 5px;
         border-bottom: 1px dashed #ccc;
         margin: 10px;
         padding-bottom: 0.3em;
     }
+
     .posts-list a {
         text-decoration: none;
         color: #404040;
         font-size: 16px;
+
         &:hover,
         &:focus {
             color: #FFA500;
         }
     }
+
     .post-date {
         color: #9a9a9a;
         margin-right: 5px;
