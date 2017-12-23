@@ -4,13 +4,14 @@ date: 2017-08-19T22:22:00+00:00
 layout: post
 category: 学习笔记
 ---
+
 > Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
 
-# 一、下载安装NodeJS
+## 一、下载安装NodeJS
 
 下载地址[Download Node.js](https://nodejs.org/en/download/)
 
-## Linux平台
+### Linux平台
 
 Linux平台安装NodeJS的传统方法是编译安装：
 
@@ -45,11 +46,11 @@ npm -v
 sudo npm install -g npm
 ```
 
-## Windows平台
+### Windows平台
 
 Windows下安装NodeJS十分简单，在官网下载安装包（msi格式）打开即可。
 
-## Mac平台
+### Mac平台
 
 使用`brew`安装即可：
 
@@ -57,7 +58,7 @@ Windows下安装NodeJS十分简单，在官网下载安装包（msi格式）打�
 brew install node
 ```
 
-## 安装cnpm
+### 安装cnpm
 
 安装完NodeJS会自带包管理工具npm，但是速度较慢，我们可以使用国内的阿里镜像
 
@@ -73,7 +74,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 我们平常也就是使用它来安装和卸载一些依赖包。
 
-## NPM的安装
+### NPM的安装
 
 npm一般会跟随NodeJS一起安装，也有情况是要单独使用命令来安装：
 
@@ -187,7 +188,7 @@ $ npm list grunt
 $ npm help <command> 
 ```
 
-## package.json属性说明
+### package.json属性说明
 
 - name - 包名。
 - version - 包的版本号。

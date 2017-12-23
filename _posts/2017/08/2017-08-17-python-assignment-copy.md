@@ -9,7 +9,7 @@ python中，`A object  = B object` 是一种赋值操作，赋的值不是一个
 
 此时当B对象里面的内容发生更改的时候，A对象也自然而然的会跟着更改。
 
-```
+```py
 name = ["root","admin"]
 cp_name = name  # 对cp_name进行赋值操作
 
@@ -24,7 +24,7 @@ print(id(name),id(cp_name)) # 23991960 23991960
 
 首先来说下浅拷贝，当进行浅拷贝时，使用`copy.copy`方法。
 
-```
+```py
 import copy
 name = ["root","admin"]
 # 进行浅拷贝操作
@@ -44,7 +44,7 @@ print(cp_name) # ['root', 'admin'] 内容并没有更改
 
 其中有一点需要注意，如下：
 
-```
+```py
 import copy
 
 name = ['root','admin',['root_temp','admin_temp']]
@@ -70,7 +70,7 @@ print(cp_name) # ['root', 'admin', ['root_temp', 'admin_temp', 'ttttt']] 发现c
 
 深层拷贝需要使用copy模块的`deepcopy()`方法。
 
-```
+```py
 import copy
 
 name = ['root','admin',['root_temp','admin_temp']]

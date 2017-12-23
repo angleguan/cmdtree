@@ -5,9 +5,9 @@ layout: post
 category: JavaScript
 ---
 
-箭头函数是es6新增的非常有意思的特性，初次写起来，可能会觉得别扭，习惯之后，会发现很精简.
+箭头函数是ES6新增的非常有意思的特性，初次写起来，可能会觉得别扭，习惯之后，会发现很精简。
 
-# 什么是箭头函数?
+## 什么是箭头函数?
 
 箭头函数是一种使用箭头( => )定义函数的新语法, 主要有以下特性:
 
@@ -197,6 +197,3 @@ console.log(add.call(null)); //300
 console.log(add.apply(null)); //300
 console.log(add.bind(null)()); //300
 ```
-
-
-> 原文:http://www.cnblogs.com/zhiyang 略有修改

@@ -13,7 +13,7 @@ category: JavaScript
 
 看一个实例:
 
-```
+```html
 <body ng-app="myApp">
 
 <p><a href="#/!">Main</a></p>
@@ -53,7 +53,7 @@ app.config(function($routeProvider) {
 
 整个过程中页面不需要重新加载。
 
-# ng-view
+## ng-view
 
 ng-view 是ngRoute中包含的一个特殊指令。它相当与一个占位符，表示即将载入页面的位置。
 
@@ -65,13 +65,13 @@ ng-view 是ngRoute中包含的一个特殊指令。它相当与一个占位符�
 
 应用程序只能有一个`ng-view`指令.
 
-# $routeProvider
+## $routeProvider
 
-$routeProvider是配置在应用程序的config部分配置路由的提供程序服务，使用$routeProvider您可以定义当用户点击一个链接，显示的页面。
+`$routeProvider`是配置在应用程序的config部分配置路由的提供程序服务，使用$routeProvider您可以定义当用户点击一个链接，显示的页面。
 
 定义$routeProvider的例子
 
-```
+```js
 var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
@@ -89,7 +89,7 @@ app.config(function($routeProvider) {
 
 ## controller
 
-随着$routeProvider的使用，你可以定义每个视图的控制器
+随着`$routeProvider`的使用，你可以定义每个视图的控制器
 
 ```js
 var app = angular.module("myApp", ["ngRoute"]);
@@ -118,15 +118,17 @@ app.controller("parisCtrl", function ($scope) {
 然后你可以在london.htm或者paris.htm中使用`{{ msg }}`
 
 london.htm
-```
-<p>{{ msg }}</p>    //I love London
+
+```htm
+<p>{{ msg }}</p>    // I love London
 ```
 
 
 ## template
 
 在前面的例子中，我们在$routeProvider.when中使用了templateUrl，这个参数用来插入HTML文件
-```
+
+```js
 $routeProvider.when('/computers', {
     templateUrl: 'views/computers.html',
 });
@@ -138,7 +140,7 @@ $routeProvider.when('/computers', {
 
 在$routeProvider中还有个otherwise方法
 
-```
+```js
 var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider) {
    $routeProvider

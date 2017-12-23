@@ -4,17 +4,17 @@ date: 2017-08-07T13:42:31+00:00
 layout: post
 category: 学习笔记
 ---
-# 说明
+## 说明
 
 PHP 5.5+版本以上的，可以使用PHP自带的opcache开启性能加速（默认是关闭的）。对于PHP 5.5以下版本的，需要使用APC加速，这里不说明，可以自行上网搜索PHP APC加速的方法。
 
-# PHP开启opcache方法
+## PHP开启opcache方法
 
 1、打开php.ini文件
 
 2、找到：[opcache]，设置为：
 
-```
+```conf
 [opcache]
 ; dll地址
 zend_extension=php_opcache.dll
@@ -37,11 +37,11 @@ opcache.fast_shutdown=1
 
 3、重启apache即可。
 
-# 测试
+## 测试
 
 配置完成后，可以使用如下代码查询opcache：
 
-```
+```php
 <?php
     phpinfo();
 ?>
@@ -63,7 +63,7 @@ opcache.file_cache=/tmp
 
 **以下是opcache的配置说明：**
 
-```
+```conf
 [opcache]
 zend_extension=/www/server/php/extensions/no-debug-non-zts-20160303/opcache.so
 
@@ -179,7 +179,7 @@ opcache.fast_shutdown=1
 5、缓存的脚本文件，以视图形式划分直观显示；
  
  
-# 注意事项
+## 注意事项
 1、不建议Xcache和Opcache同时启用PHP优化；
 因为PHP 5.5.0及后续版本已经内嵌对Opcache的支持，所以PHP意识到其重要性，相对于Xcache等第三方的PHP优化器来说，使用Opcache会是更好的选择。另外，两者同时存在的话，会使Opcache的缓存命中数大大降低，而且增加不必要的开销。
  
