@@ -17,29 +17,3 @@
     padding: 7px 12px;
     border-radius: 14px;
 }
-
-.post-pagination {
-    margin-bottom: 60px;
-    .previous {
-        float: left;
-    }
-    .next {
-        float: right;
-    }
-    a {
-        border: 1px solid #EAEAEA;
-        background-color: #48D1CC;
-        color: #ffffff;
-        text-decoration: none;
-        &:hover,
-        &:focus {
-            color: #fff;
-            text-decoration: underline;
-        }
-    }
-}
-
-.pagination>li>a,
-.pagination>li>span {
-    margin-bottom: 7px;
-}
