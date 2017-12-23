@@ -13,7 +13,7 @@ category: 使用笔记
 
 IIS 环境是 Windows 主机常用的服务器环境，新建一个 txt 文件，将下面的代码添加到文件中：
 
-```
+```conf
 [ISAPI_Rewrite]
 # Defend your computer from some worm attacks
 #RewriteRule .*(?:global.asa|default\.ida|root\.exe|\.\.).* . [F,I,O]
@@ -44,7 +44,7 @@ RewriteRule /(.*) /index.php/$1 [L]
 
 Apache是 Linux 主机下常见的环境，现在一般的 Linux 虚拟主机都采用这种环境。新建一个 htaccess.txt 文件，添加下面的代码：
 
-```
+```apache
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
@@ -62,7 +62,7 @@ RewriteRule . /index.php [L]
 
 Nginx环境一般是Linux 主机 VPS或服务器用户用的比较多，这些用户一般都会自己配置Nginx，或者有专门的人帮你配置，打开 nginx.conf 或者某个站点的配置环境，比如 wpdaxue.com.conf（不同人配置的不一样），在  server   { } 大括号里面添加下面的代码：
 
-```
+```nginx
 location / {
 if (-f $request_filename/index.html){
                 rewrite (.*) $1/index.html break;

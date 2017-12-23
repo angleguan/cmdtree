@@ -5,17 +5,15 @@ layout: post
 category: JavaScript
 ---
 
-
-
 这里讲一下AngularJS比较简单的几个事件，包括`ng-click``ng-selected``ng-change`。
 
 {% raw %}
 
-# ng-click
+## ng-click
 
 `ng-click`指令用来定义HTML元素被点击后触发的事件。
 
-```
+```html
 <div ng-app="">
     <button ng-click="count = count + 1" ng-init="count = 1">ClickMe</button>
     <p>{{ count }}</p>
@@ -24,9 +22,9 @@ category: JavaScript
 
 上面的click定义了一个表达式（expression）每次点击button后，count便加一。
 
-ng-click事件还可以触发一个函数
+`ng-click`事件还可以触发一个函数
 
-```
+```html
 <div ng-app="myapp" ng-controller="myCtrl">
     <button ng-click="click()">clickFun</button>
 </div>
@@ -50,7 +48,7 @@ ng-click事件还可以触发一个函数
 
 ng-selected 指令用于设置` <select> `列表中的 `<option>` 元素的 selected 属性。ng-selected 属性的表达式返回 true 则选项被选中。
 
-```
+```html
 <div ng-app="">
     点击复选框选择 BMW 选项:
     <input type="checkbox" ng-model="mySel">
@@ -67,15 +65,13 @@ ng-selected 指令用于设置` <select> `列表中的 `<option>` 元素的 sele
 
 上面的例子展示了当`checkbox`被选中时，即`mySel`为`true`时，`ng-seleted`为`mySel`的选项被选中。
 
-
-
-# ng-change
+## ng-change
 
 ng-change指令定义了当HTML元素改变的时候触发的事件。
 
 ng-change需要搭配ng-model指令使用。
 
-```
+```html
 <div ng-app="myapp" ng-controller="myCtrl">
     <input type="text" ng-change="myFunc()" ng-model="myValue" />
     <p>The input field has changed {{ count }} times.</p>

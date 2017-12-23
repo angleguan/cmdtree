@@ -4,7 +4,8 @@ date: 2017-07-04T22:18:15+00:00
 layout: post
 category: 使用笔记
 ---
-# 一、打开iconfont官网并将图标加入项目
+
+## 一、打开iconfont官网并将图标加入项目
 
 打开[iconfont官网](http://iconfont.cn)
 
@@ -28,7 +29,7 @@ category: 使用笔记
 
 ![](/pics/2017/07/TIMscreenshot20170704093420.png)
 
-# 二、引用样式并应用
+## 二、引用样式并应用
 
 然后就可以在‘我的图标’中看到‘我的项目’
 

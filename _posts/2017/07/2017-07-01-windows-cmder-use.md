@@ -15,7 +15,7 @@ Cmder是一个开源项目[cmderdev / cmder：可爱的控制台模拟器包的W
 
 现在来说一下如何安装配置Cmder
 
-# 一、安装Cmder
+## 一、安装Cmder
 
 打开[Cmder官网](http://cmder.net)
 
@@ -25,7 +25,7 @@ Cmder是一个开源项目[cmderdev / cmder：可爱的控制台模拟器包的W
 
 虽然我已经安装了Git for windows，但是我还是选择了full版，两者都是压缩包形式，解压完直接就能打开cmder.exe，我推荐使用full版，并且如果你选择full版，我推荐你到[Releases · cmderdev/cmder](https://github.com/cmderdev/cmder/releases)下载7z压缩包，我在官网下载的是zip，7z格式的要小一半。
 
-# 二、配置Cmder
+## 二、配置Cmder
 
 这里我将它解压到c盘的根目录，然后**使用管理员身份**打开cmd或者powershell并定位到解压完的目录
 
@@ -58,4 +58,5 @@ cmder还可以在一个窗口下新建多个tab页
 ![](/pics/2017/07/TIMscreenshot20170702133434.png)
 
 更多使用技巧自行摸索。
+
 (完)
