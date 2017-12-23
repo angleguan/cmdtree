@@ -3,11 +3,13 @@ layout: default
 ---
 
 <div class="column is-two-thirds">
-	<article class="post">
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 		<h1 class="post-title">{{ page.title }}</h1>
 
 		<div class="post-info">
-			<span class="post-date">{{ page.date | date: "%Y年%m月%d日 %H:%M:%S" }}</span>
+			<time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+				{{ page.date | date: "%Y年%m月%d日 %H:%M:%S" }}
+			</time>
 			{% if page.categories.size > 0 %} |
 			<span class="fa fa-folder-open" aria-hidden="true">
 				{% for category in page.categories %}
@@ -18,11 +20,11 @@ layout: default
 		</div>
 
 		<hr>
-		<div class="post-content">
+		
+		<div class="post-content" itemprop="articleBody">
 			{{ content }}
 		</div>
-		<br>
-		<br>
+
 	</article>
 
 	<nav class="post-pagination">
