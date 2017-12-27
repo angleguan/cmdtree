@@ -1,47 +1,40 @@
 /*---------------------- tags & categories ------------------------*/
 
 .archive-cloud a {
-    margin: 5px;
-    padding: 5px 10px;
+  margin: 5px;
+  padding: 5px 10px;
 }
 
 .archive-posts-list {
-    .fa {
-        color: #5bc0de;
-        font-size: 20px;
-        padding: 10px 0px;
-    }
-
-    .title {
-        color: #5bc0de;
-    }
-
-    ul {
-        list-style-type: circle;
-        margin: 10px 0;
-    }
-
+  .fa {
+    color: #5bc0de;
+    font-size: 20px;
+    padding: 10px 0px;
+  }
+  .title {
+    color: #5bc0de;
+  }
+  .posts-list {
+    list-style-type: circle;
     li {
-        margin: 5px;
-        border-bottom: 1px dashed #ccc;
-        margin: 10px;
-        padding-bottom: 0.3em;
-    }
-
-    .posts-list a {
+      margin: 5px;
+      border-bottom: 1px dashed #ccc;
+      margin: 10px;
+      padding-bottom: 0.3em;
+      a {
         text-decoration: none;
         color: #404040;
         font-size: 16px;
-
         &:hover,
         &:focus {
-            color: #FFA500;
+          color: #FFA500;
         }
+        .post-date {
+          color: #9a9a9a;
+          margin-right: 5px;
+          float: right;
+        }
+      }
     }
-
-    .post-date {
-        color: #9a9a9a;
-        margin-right: 5px;
-        float: right;
-    }
+  }
 }
