@@ -11,12 +11,13 @@ layout: default
 
     <div class="post-info">
       <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-      {% if post.categories.size > 0 %} |
-      <span class="fa fa-folder-open" aria-hidden="true">
-        {% for category in post.categories %}
+			{% if post.categories.size > 0 %} |
+			<div class="post-category">
+				<i class="fa fa-folder-open" aria-hidden="true"></i>
+				{% for category in post.categories %}
         <a class="post-categories" href="/categories#{{ category }}">{{ category }}</a>
         {% endfor %}
-      </span>
+			</div>
       {% endif %}
     </div>
 
