@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-28 11:42:06 +0800
 title: 使用Uncss去除未使用的CSS样式
-category: learn
+category: 学习笔记
 ---
 
 [Uncss](https://github.com/giakki/uncss)是一个可以去除在HTML页面中没有使用过的CSS样式的工具。
