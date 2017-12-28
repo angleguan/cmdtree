@@ -3,55 +3,56 @@ layout: default
 ---
 
 <div class="column is-two-thirds">
-	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 id="post-title">{{ page.title }}</h1>
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 id="post-title">{{ page.title }}</h1>
 
-		<div class="post-info">
-			<time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-				{{ page.date | date: "%Y年%m月%d日 %H:%M:%S" }}
-			</time>
-			{% if page.categories.size > 0 %} |
-			<span class="fa fa-folder-open" aria-hidden="true">
-				{% for category in page.categories %}
-				<a class="post-categories" href="/categories/#{{ category }}">{{ category }}</a>
-				{% endfor %}
-			</span>
-			{% endif %}
-		</div>
+    <div class="post-info">
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%Y年%m月%d日 %H:%M:%S" }}
+      </time>
+      {% if page.categories.size > 0 %} |
+      <span class="fa fa-folder-open" aria-hidden="true">
+        {% for category in page.categories %}
+        <a class="post-categories" href="/categories/#{{ category }}">{{ category }}</a>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
 
-		<hr>
-		
-		<div class="post-content" itemprop="articleBody">
-			{{ content }}
-		</div>
+    <hr>
 
-	</article>
+    <div class="post-content" itemprop="articleBody">
+      {{ content }}
+    </div>
 
-	<nav class="post-pagination">
-		{% if page.previous %}
-		<a href="{{ page.previous.url }}" class="button is-link previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
-		{% endif %} {% if page.next %}
-		<a href="{{ page.next.url }}" class="button is-link next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;</a>
-		{% endif %}
-	</nav>
+  </article>
 
-	<hr> {% if site.related_posts != empty %}
-	<aside class="related">
-		<h3>最新文章</h3>
-		<ul class="related-posts">
-			{% for post in site.related_posts limit:5 %}
-			<li>
-				<a href="{{ post.url }}">
-					{{ post.title }}
-					<small>
-						<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-					</small>
-				</a>
-			</li>
-			{% endfor %}
-		</ul>
-	</aside>
-	{% endif %}
+  <nav class="post-pagination">
+    {% if page.previous %}
+    <a href="{{ page.previous.url }}" class="button is-link previous" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a>
+    {% endif %} {% if page.next %}
+    <a href="{{ page.next.url }}" class="button is-link next" title="{{ page.next.title }}">{{ page.next.title }} &rarr;
+    </a>
+    {% endif %}
+  </nav>
+
+  <hr> {% if site.related_posts != empty %}
+  <aside class="related">
+    <h3>最新文章</h3>
+    <ul class="related-posts">
+      {% for post in site.related_posts limit:5 %}
+      <li>
+        <a href="{{ post.url }}">
+          {{ post.title }}
+          <small>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+          </small>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
 
 </div>
 

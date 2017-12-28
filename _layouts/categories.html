@@ -11,7 +11,7 @@ layout: default
     {% endfor %}
   </div>
 
-  <hr />
+  <hr/>
 
   <div class="archive-posts-list category-posts-list">
     {% for category in site.categories %}
@@ -23,7 +23,8 @@ layout: default
       {% for post in category[1] %}
       <li>
         <a class="post-title" href="{{ post.url }}">
-          <small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>{{ post.title }}</a>
+          <small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>
+          {{ post.title }}</a>
       </li>
       {% if post.subtitle %} --
       <a class="post-subtitle">{{ post.subtitle }}</a>
