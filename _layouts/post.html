@@ -11,11 +11,12 @@ layout: default
         {{ page.date | date: "%Y年%m月%d日 %H:%M:%S" }}
       </time>
       {% if page.categories.size > 0 %} |
-      <span class="fa fa-folder-open" aria-hidden="true">
+      <div class="post-category">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
         {% for category in page.categories %}
-        <a class="post-categories" href="/categories/#{{ category }}">{{ category }}</a>
+        <a href="/categories#{{ category }}">{{ category }}</a>
         {% endfor %}
-      </span>
+      </div>
       {% endif %}
     </div>
 
@@ -57,3 +58,4 @@ layout: default
 </div>
 
 {% include sidebar_post.html %}
+
