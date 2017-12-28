@@ -19,6 +19,8 @@ npm install -g uncss
 
 最简单的一个例子就是使用`uncss`命令：
 
+<!-- more -->
+
 ```
 uncss [options] <file or URL, ...>
 ```
