@@ -31,7 +31,7 @@ Gulp的配置文件只有一个，名为`gulpfile.js`在项目的根目录下，
 
 然后编辑这个文件
 
-```
+```js
 var gulp = require('gulp'); //引入gulp赋给gulp变量
 
 gulp.task('default', function() {
@@ -48,7 +48,7 @@ $ gulp
 
 这个命令默认会执行默认任务（default），如果想要单独运行自己定义的任务，就使用`gulp [任务名]`,同理，想要创建一个自定义的任务：
 
-```
+```js
 gulp.task('customTaskName', function() {
   // 这是一个自定义任务。
 })
@@ -56,7 +56,7 @@ gulp.task('customTaskName', function() {
 
 自定义的任务也可以放到default里来随默认任务运行：
 
-```
+```js
 gulp.task('default', function() {
   gulp.run('customTaskName');
 })；
@@ -66,7 +66,7 @@ gulp.task('default', function() {
 
 Gulp的强大是依赖于它各种各样的插件的。例如`gulp-sass`、`gulp-jslint`、`gulp-uglify`等，这些都可以使用npm安装的。同样的，像下面这样引入这些插件
 
-```
+```js
 var sass = require('gulp-sass');
 var jslint = require('gulp-jslint');
 var uglify = require('gulp-uglify');
@@ -74,7 +74,7 @@ var uglify = require('gulp-uglify');
 
 以`gulp-sass`，一个把sass（scss）文件编译为css文件的插件为例，像下面这样使用这个插件
 
-```
+```js
 gulp.task('sass', function() {
     gulp.src('src/scss/index.scss')
         .pipe(sass())
@@ -88,13 +88,13 @@ gulp.task('sass', function() {
 
 既然是自动化工具，那肯定是运行了就不用管的，在开发环境中，如何在修改了文件后自动执行任务，这就要使用到`watch`方法：
 
-```
+```js
 gulp.watch(glob[, opts], tasks)
 ```
 
 以上面的sass任务为例，监听index.scss文件，当文件修改时，重新编译一次css文件，创建一个watch任务
 
-```
+```js
 gulp.task('watch', function() {
     gulp.watch('src/scss/index.scss',['sass']);
 })
