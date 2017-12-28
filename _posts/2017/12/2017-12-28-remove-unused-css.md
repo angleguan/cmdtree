@@ -57,7 +57,7 @@ uncss https://fanzhiyang.com > style.css
 
 ```js
 const gulp = require('gulp'),
-  	uncss = require('gulp-uncss');
+      uncss = require('gulp-uncss');
 gulp.task('default', () => {
   gulp.src('oldstyle.css')
     .pipe(uncss({
