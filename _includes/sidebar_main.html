@@ -15,32 +15,23 @@
 
     <nav class="site-state">
       <div class="site-state-item">
-        <a href="/archives/">
-          <span class="site-state-item-count">{{ site.posts | size }}</span>
-          <span>文章</span>
-        </a>
+        <span class="site-state-item-count">{{ site.posts | size }}</span>
+        <span>文章</span>
       </div>
       <div class="site-state-item">
-        <a href="/categories/">
-          <span class="site-state-item-count">{{ site.categories.size }}</span>
-          <span>分类</span>
-        </a>
+        <span class="site-state-item-count">{{ site.categories.size }}</span>
+        <span>分类</span>
       </div>
       <div class="site-state-item">
-        <a href="#">
-          <span class="site-state-item-count blog-age"></span>
-          <span>博龄</span>
-        </a>
+        <span class="site-state-item-count blog-age"></span>
+        <span>博龄</span>
       </div>
     </nav>
-
-    
 
     <hr />
 
     <aside class="menu categories-list">
       <p class="menu-label">Categories</p>
-
       <ul class="menu-list">
         {% for category in site.categories %}
         <li class="menu-list-item">
@@ -49,11 +40,7 @@
         </li>
         {% endfor %}
       </ul>
-
     </aside>
-
     <hr />
-
   </div>
-
 </div>
