@@ -14,4 +14,4 @@ plugins:
 feed:
   path: /blog/atom.xml
 paginate: 5
-paginate_path: "/pages:num/"
+paginate_path: "/page/:num/"
