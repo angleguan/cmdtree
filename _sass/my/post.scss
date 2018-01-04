@@ -45,6 +45,9 @@
 .related {
   margin-bottom: 30px;
   .related-posts {
+    list-style: disc outside;
+    margin-left: 2em;
+    margin-top: 1em;
     li {
       a {
         font-size: 15px;
