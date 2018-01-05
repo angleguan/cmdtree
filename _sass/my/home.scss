@@ -1,19 +1,10 @@
 /*---------------------- posts preview ------------------------*/
 
-.post-preview {
-  #post-title a {
-    color: #404040;
-    &:hover,
-    &:focus {
-      color: #337ab7;
-    }
-  }
-  .post-readmore {
-    text-align: right;
-    margin: 20px 5px;
-    a.read-more {
-      padding: 7px 12px;
-      border-radius: 14px;
-    }
+.post-readmore {
+  text-align: right;
+  margin: 20px 5px;
+  a.read-more {
+    padding: 7px 12px;
+    border-radius: 14px;
   }
 }

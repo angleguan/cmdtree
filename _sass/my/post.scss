@@ -1,7 +1,13 @@
 /*---------------------- post content ------------------------*/
-
-#post-title {
+.post-title {
   font-weight: bolder;
+  a {
+    color: #404040;
+    &:hover,
+    &:focus {
+      color: #337ab7;
+    }
+  }
 }
 
 .post-info {
@@ -27,19 +33,6 @@
 
 .post .post-info {
   margin-bottom: -10px;
-}
-
-.post-content {
-  h1,
-  h2 {
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid #eaecef;
-  }
-  h4 {
-    margin-top: 15px;
-  }
-  line-height: 1.6;
-  font-size: 1em;
 }
 
 .related {

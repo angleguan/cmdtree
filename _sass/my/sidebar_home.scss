@@ -59,16 +59,37 @@
 
 /*--------- list-group ----------*/
 
-.menu-list-item {
-  span {
-    float: right;
+.index-categories-list {
+  padding: 0 20px 20px;
+  .categories-list-label {
+    padding-left: 6px;
+    border-left: 3px solid #cf2730;
+    margin-bottom: 20px;
+    color: #333;
+    margin-left: -10px;
   }
-}
-
-// categories-list
-.categories-list {
-  ul {
-    margin: 0;
-    list-style: none;
+  .categories-list {
+    .categories-list-item {
+      margin-bottom: 15px;
+      .category-size {
+        align-items: center;
+        border-radius: 3px;
+        display: inline-flex;
+        font-size: 0.75rem;
+        height: 2em;
+        justify-content: center;
+        line-height: 1.5;
+        padding: 0 0.75em;
+        background-color: #363636;
+        color: whitesmoke;
+        float: right;
+      }
+      a {
+        color: #757a7e;
+        &:hover {
+          color: red;
+        }
+      }
+    }
   }
 }

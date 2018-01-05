@@ -1,10 +1,4 @@
 article {
-  li+li {
-    margin-top: 0.25em;
-  }
-  p:not(:last-child) {
-    margin-bottom: 1em;
-  }
   h1,
   h2,
   h3,
@@ -36,6 +30,12 @@ article {
       margin-top: 1.3333em;
     }
   }
+  p {
+    line-height: 1.6em;
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
   ul {
     list-style: disc outside;
     margin-left: 2em;
@@ -48,29 +48,8 @@ article {
       }
     }
   }
-  figure {
-    margin-left: 2em;
-    margin-right: 2em;
-    text-align: center;
-    &:not(:first-child) {
-      margin-top: 2em;
-    }
-    &:not(:last-child) {
-      margin-bottom: 2em;
-    }
-    img {
-      display: inline-block;
-    }
-    figcaption {
-      font-style: italic;
-    }
-  }
-  pre {
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-    padding: 1.25em 1.5em;
-    white-space: pre;
-    word-wrap: normal;
+  li+li {
+    margin-top: 0.25em;
   }
   table {
     width: 100%;
@@ -110,6 +89,23 @@ article {
       th {
         border-bottom-width: 0;
       }
+    }
+  }
+  figure {
+    margin-left: 2em;
+    margin-right: 2em;
+    text-align: center;
+    &:not(:first-child) {
+      margin-top: 2em;
+    }
+    &:not(:last-child) {
+      margin-bottom: 2em;
+    }
+    img {
+      display: inline-block;
+    }
+    figcaption {
+      font-style: italic;
     }
   }
 }

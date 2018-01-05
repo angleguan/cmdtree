@@ -1,3 +1,13 @@
+.content {
+  padding: 3rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer {
+  background-color: whitesmoke;
+  padding: 3rem 1.5rem 6rem;
+}
+
 .container {
   margin: 0 auto;
   position: relative;
@@ -12,13 +22,6 @@
   @media screen and (min-width: 1408px) {
     max-width: 1344px;
     width: 1344px;
-  }
-}
-
-.content {
-  padding: 3rem 1.5rem;
-  &:not(:last-child) {
-    margin-bottom: 1.5rem;
   }
 }
 
@@ -52,9 +55,4 @@
       width: 66.6666666667%;
     }
   }
-}
-
-.footer {
-  background-color: whitesmoke;
-  padding: 3rem 1.5rem 6rem;
 }

@@ -13,7 +13,7 @@
         padding-left: 0px;
         border: 1px solid #EAEAEA;
         width: 250px;
-      } // toc level
+      }
       .nav {
         > {
           li>a {
@@ -21,7 +21,6 @@
             padding: 2px 20px;
             font-weight: bold;
             color: #767676;
-            /*no wrap*/
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
