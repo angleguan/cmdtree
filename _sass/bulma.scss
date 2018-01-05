@@ -709,6 +709,17 @@ print {
   }
 }
 
+.columns {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  margin-top: -0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  &:last-child {
+    margin-bottom: -0.75rem;
+  }
+}
+
 .column {
   display: block;
   flex-basis: 0;
@@ -716,6 +727,7 @@ print {
   flex-shrink: 1;
   padding: 0.75rem;
 }
+
 
 @media screen and (min-width: 769px),
 print {
@@ -735,15 +747,6 @@ print {
   }
 }
 
-.columns {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-  margin-top: -0.75rem;
-  display: flex;
-  &:last-child {
-    margin-bottom: -0.75rem;
-  }
-}
 
 .footer {
   background-color: whitesmoke;
