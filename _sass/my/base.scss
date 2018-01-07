@@ -54,13 +54,6 @@ section {
   display: block;
 }
 
-code,
-pre {
-  -moz-osx-font-smoothing: auto;
-  -webkit-font-smoothing: auto;
-  font-family: monospace;
-}
-
 a {
   color: #3273dc;
   cursor: pointer;
@@ -92,6 +85,13 @@ span {
 strong {
   color: #363636;
   font-weight: 700;
+}
+
+code,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
 }
 
 code {
