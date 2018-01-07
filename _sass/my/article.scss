@@ -30,11 +30,28 @@ article {
       margin-top: 1.3333em;
     }
   }
+  h4 {
+    font-size: 1.25em;
+    margin-bottom: 0.8em;
+  }
+  h5 {
+    font-size: 1.125em;
+    margin-bottom: 0.8888em;
+  }
+  h6 {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
   p {
     line-height: 1.6em;
     &:not(:last-child) {
       margin-bottom: 1em;
     }
+  }
+  blockquote {
+    background-color: whitesmoke;
+    border-left: 5px solid #dbdbdb;
+    padding: 1.25em 1.5em;
   }
   ul {
     list-style: disc outside;
