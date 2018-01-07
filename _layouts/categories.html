@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="column is-8" style="margin: 0 auto">
-  <h1 class="title is-2">Categories</h1>
+  <h1 class="categories-title">文章分类</h1>
 
   <div class="archive-cloud categories-cloud">
     {% for category in site.categories %}
@@ -16,7 +16,7 @@ layout: default
   <div class="archive-posts-list category-posts-list">
     {% for category in site.categories %}
     <span class="fa fa-book" aria-hidden="true" id="{{ category[0] }}">
-      <span class="title is-4 is-info">{{ category[0] }}</span>
+      <span class="categories-item-title">{{ category[0] }}</span>
     </span>
 
     <ul class="posts-list">
