@@ -9,6 +9,8 @@ markdown: kramdown
 excerpt_separator: <!-- more -->
 plugins:
   - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
 feed:
   path: /blog/atom.xml
 paginate: 5
