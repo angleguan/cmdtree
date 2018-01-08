@@ -1,8 +1,8 @@
 <div class="category-list">
   <h3>分类</h3>
   <ul>
-    {% for category in site.categories %}
     {% for c in site.data.category %}
+    {% for category in site.categories %}
     {% if category[0] == c.value %}
     <li>
       <a href="{{site.url}}/category/{% if c.link %}{{c.link}}{% else %}{{c.value}}{% endif %}/">

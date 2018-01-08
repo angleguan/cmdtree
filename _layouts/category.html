@@ -10,7 +10,7 @@ layout: default
     {% if page_category == category[0] %}
     {% for post in category[1] %}
     <li>
-      <small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>
+      <small class="post-date">{{ post.date | date:"%Y年%-m月%-d日" }}</small>
       <a class="category-post-title" href="{{ post.url }}">
         {{ post.title }}
       </a>
