@@ -1,7 +1,8 @@
-/*---------------------- post-sidebar ------------------------*/
-
 .post-sidebar {
   margin-left: 50px;
+  @media screen and (max-width: 769px){
+    display: none;
+  }
   .sidebar-content {
     .header-list-sidebar {
       ul {
