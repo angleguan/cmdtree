@@ -2,7 +2,7 @@
 title: Arch Linux 安装使用配置
 date: 2017-04-16T16:38:53+00:00
 layout: post
-category: Unix/Linux
+category: linux
 ---
 
 

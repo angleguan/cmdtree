@@ -2,7 +2,7 @@
 title: 理解 undefined 和 null
 date: 2017-04-02T07:39:50+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 对于“空值”或“空引用”，大多数编程语言只有一个值。比如，在 Java 中用的是 `null`。

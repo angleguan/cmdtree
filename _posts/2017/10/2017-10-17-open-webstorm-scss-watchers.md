@@ -2,7 +2,7 @@
 title: 给WebStorm/PhpStorm开启SCSS自动编译
 date: 2017-10-17T09:52:32+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 ## 安装Ruby-sass
 

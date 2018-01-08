@@ -2,7 +2,7 @@
 title: JavaScript 并非所有的东西都是对象
 date: 2017-03-21T00:55:15+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 添加了第四节，解释了和类型密切相关的两个运算：`typeof` 和 `instanceof`。

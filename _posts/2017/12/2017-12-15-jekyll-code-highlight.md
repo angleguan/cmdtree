@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-15 20:47:39 +0800
 title: "浅谈Jekyll代码高亮"
-category: 使用笔记
+category: use
 ---
 
 要想实现对代码的高亮，首先要搞清楚Jekyll把你在文章（md文件）中的代码块都解析成什么样了。

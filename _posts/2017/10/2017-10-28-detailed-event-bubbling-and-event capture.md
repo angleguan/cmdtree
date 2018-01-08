@@ -2,7 +2,7 @@
 layout: post
 title: 理解事件冒泡与事件捕获
 date: 2017-10-28 08:58:06 +0800
-category: JavaScript
+category: js
 ---
 
 

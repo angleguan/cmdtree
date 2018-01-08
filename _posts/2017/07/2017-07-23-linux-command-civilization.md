@@ -2,7 +2,7 @@
 title: 一条Linux命令，一段人类文明
 date: 2017-07-23T22:19:00+00:00
 layout: post
-category: Unix/Linux
+category: linux
 ---
 
 以前听人说在Linux上可以查到一个很奇怪的月份，只是当时忘了那个特殊的月份。今天在网上搜了一下，发现通过这个命令（月份）了解了一段人类文明历史。呵呵。虽然和Linux没什么关系，但是确实是因为Linux才让我了解到的。

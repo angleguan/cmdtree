@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-18 16:17:29 +0800
 title: "Electron 快速入门"
-category: 学习笔记
+category: learn
 ---
 
 Electron是一种基于Node.js的跨平台技术，可以用HTML、CSS、JS来构建桌面应用。

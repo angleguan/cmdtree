@@ -2,7 +2,7 @@
 title: git commit警告 LF will be replaced by CRLF
 date: 2017-05-23T20:09:58+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 之前在使用git时就经常遇到这样的报错，起初并没有太在意，并没有影响到工作，但是今天在进行仓库分离的时候，使用jekyll build编译网站的时候
 

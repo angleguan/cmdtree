@@ -2,7 +2,7 @@
 title: AngularJS入门学习（四）常用服务
 date: 2017-07-17T22:14:47+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 AngularJS Service是一个函数或对象，可以使用在Angular应用中。
 

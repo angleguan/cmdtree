@@ -2,7 +2,7 @@
 layout: post
 title: "使用Python通过FTP进行Web渗透"
 date: 2017-10-03 09:48:06 +0800
-category: 学习笔记
+category: learn
 ---
 
 > 节选自《python绝技：运用python成为顶级黑客》一书

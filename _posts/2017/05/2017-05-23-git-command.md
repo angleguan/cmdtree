@@ -2,7 +2,7 @@
 title: Git常用命令
 date: 2017-05-23T14:35:57+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 ## 首先我们要生成SSH

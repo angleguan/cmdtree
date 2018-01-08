@@ -34,10 +34,14 @@
       <h4 class="categories-list-label">文章分类</h4>
       <ul class="categories-list">
         {% for category in site.categories %}
+    {% for c in site.data.category %}
+    {% if category[0] == c.value %}
         <li class="categories-list-item">
           <span class="category-size">{{ category[1].size }}</span>
-          <a href="/categories/#{{ category[0] }}">{{ category[0] }}</a>
+          <a href="{{site.url}}/category/{% if c.link %}{{c.link}}{% else %}{{c.value}}{% endif %}">{{ c.title }}</a>
         </li>
+        {% endif %}
+        {% endfor %}
         {% endfor %}
       </ul>
     </aside>

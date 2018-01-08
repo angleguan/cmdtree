@@ -2,7 +2,7 @@
 title: Windows中的超级终端——Cmder
 date: 2017-07-01T22:21:29+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 Cmder是一个Windows上的一个很好的CMD的替代品，但是现在Win10也自带了PowerShell，也是非常强大的一款官方推出的CMD替代品，同时也支持Git，我是两者都用。

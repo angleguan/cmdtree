@@ -2,7 +2,7 @@
 title: Windows IIS服务器搭建
 date: 2017-07-20T22:22:02+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 > 测试环境：Windows Server 2008 R2 数据中心版 64位 、IIS 7.5

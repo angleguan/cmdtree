@@ -2,7 +2,7 @@
 title: 更改RubyGems源
 date: 2017-05-22T22:09:23+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 # 一、删除默认源

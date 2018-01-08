@@ -2,7 +2,7 @@
 title: 科学使用Adobe全系列软件方法
 date: 2017-06-19T18:53:48+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 # 一、下载amtemu这个软件

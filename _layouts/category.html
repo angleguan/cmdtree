@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="column is-two-thirds category">
+	<h2 class="category-title">分类：{{ page.title }}</h2>
+  {% assign page_category = page.category %}
+  <ul>
+    {% for category in site.categories %}
+    {% if page_category == category[0] %}
+    {% for post in category[1] %}
+    <li>
+      <small class="post-date">{{ post.date | date:"%Y-%m-%d" }}</small>
+      <a class="category-post-title" href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </li>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="column is-one-thirds category-aside">
+	{% include category-list.html %}
+</div>

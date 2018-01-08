@@ -2,7 +2,7 @@
 layout: post
 date: 2017-05-01 09:57:48
 title: "Jekyll error：tag was never closed"
-category: 使用笔记
+category: use
 ---
 
 #### 解决办法是不要在文章开头添加raw标签!

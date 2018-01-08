@@ -2,7 +2,7 @@
 title: 如何在自己的网页中使用阿里图标iconfont
 date: 2017-07-04T22:18:15+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 ## 一、打开iconfont官网并将图标加入项目

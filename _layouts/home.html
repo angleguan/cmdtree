@@ -10,15 +10,11 @@ layout: default
     </h1>
 
     <div class="post-info">
-      <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-      {% if post.categories.size > 0 %} |
+      <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span> | 
       <div class="post-category">
         <i class="fa fa-folder-open" aria-hidden="true"></i>
-        {% for category in post.categories %}
-        <a href="/categories#{{ category }}">{{ category }}</a>
-        {% endfor %}
+        {% include ocategory.html %}
       </div>
-      {% endif %}
     </div>
 
     <div class="post-excerpt">

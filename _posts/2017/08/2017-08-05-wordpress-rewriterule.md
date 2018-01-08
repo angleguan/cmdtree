@@ -2,7 +2,7 @@
 title: WordPress 伪静态规则（IIS/Apache/Nginx）
 date: 2017-08-05T16:38:54+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 不少朋友总是询问 WordPress 如何添加伪静态规则，今天倡萌就总结一下 IIS/Apache/Nginx 三种环境下的伪静态规则，希望对大家有所帮助。

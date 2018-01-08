@@ -2,7 +2,7 @@
 title: javascript 一怪——arguments 对象
 date: 2017-03-29T16:12:27+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 `arguments` 是一种本地、类数组的对象的名称，它存在于每个函数中。

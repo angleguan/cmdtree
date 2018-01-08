@@ -2,7 +2,7 @@
 title: Nginx的安装及配置
 date: 2017-07-23T22:20:36+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 > 测试环境：Centos 7.2

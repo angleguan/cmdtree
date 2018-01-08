@@ -2,7 +2,7 @@
 title: 使用Gihub Pages免费制作个人博客
 date: 2017-04-08T12:19:43+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 

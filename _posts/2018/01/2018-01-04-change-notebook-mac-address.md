@@ -2,7 +2,7 @@
 layout: post
 date: 2018-1-4 15:17:39 +0800
 title: 修改笔记本无线网卡MAC地址
-category: 网络技术与安全
+category: network
 ---
 
 ### WIFI黑名单

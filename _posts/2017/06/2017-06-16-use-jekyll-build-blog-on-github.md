@@ -2,7 +2,7 @@
 title: 使用Jekyll在Github上搭建博客
 date: 2017-06-16T22:10:39+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 ## 使用Github Pages

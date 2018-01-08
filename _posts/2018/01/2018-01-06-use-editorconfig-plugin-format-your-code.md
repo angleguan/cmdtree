@@ -2,7 +2,7 @@
 layout: post
 date: 2018-1-6 18:32:39 +0800
 title: 使用EditorConfig插件来格式化代码
-category: 使用笔记
+category: use
 ---
 
 初衷：VS Code是个很棒的编辑器（or IDE？），但是在自定义代码格式化上面还有很多不足，例如在WebStrom中可以设置不同的语言使用不同的方法来格式化代码，但在vscode中却无法设置，默认在HTML文件中会使用tab来缩进，但在css/scss中却使用两个空格来缩进，以及可能对于py会使用四个空格来缩进，也许这样符合大多数人的编写习惯，但对于有特殊要求的人来说却无法满足。

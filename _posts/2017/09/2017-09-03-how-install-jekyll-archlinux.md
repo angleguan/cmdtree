@@ -2,7 +2,7 @@
 layout: post
 date: 2017-09-03 14:20:09
 title: Arch Linux 安装 Jekyll
-category: 使用笔记
+category: use
 ---
 
 #### 补充一个：

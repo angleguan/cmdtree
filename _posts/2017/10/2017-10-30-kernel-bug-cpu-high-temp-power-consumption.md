@@ -2,7 +2,7 @@
 layout: post
 title: "Linux内核bug导致的CPU功耗异常"
 date: 2017-10-30 09:16:38 +0800
-category: Unix/Linux
+category: linux
 ---
 
 

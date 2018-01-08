@@ -2,7 +2,7 @@
 title: JavaScript中对变量类型的判断
 date: 2017-06-21T12:57:26+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 在JavaScript中，有5种基本数据类型和1种复杂数据类型，基本数据类型有：**Undefined**, **Null**, **Boolean**, **Number**和**String**；复杂数据类型是**Object**，Object中还细分了很多具体的类型，比如：Array, Function, Date等等。今天我们就来探讨一下，使用什么方法判断一个出一个变量的类型。

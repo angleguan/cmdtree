@@ -2,7 +2,7 @@
 layout: post
 date: 2017-10-13 20:54:27 +0800
 title: "Gulp入门教程"
-category: JavaScript
+category: js
 ---
 
 

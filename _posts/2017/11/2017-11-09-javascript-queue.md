@@ -2,7 +2,7 @@
 layout: post
 date: 2017-11-09 10:14:53 +0800
 title: JavaScript数据结构与算法——队列
-category: JavaScript
+category: js
 ---
 
 之前说到栈是一种特殊的线性表，队列也是一种列表，与栈不同的是队列是一种FIFO（(First-In-First-Out,先进先出）的数据结构，而栈与之相反。

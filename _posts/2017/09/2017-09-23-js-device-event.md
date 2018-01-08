@@ -2,7 +2,7 @@
 layout: post
 date: 2017-09-23 14:51:31 +0800
 title: "JS中的设备事件 —— deviceorientation、orientation、devicemotion"
-category: JavaScript
+category: js
 ---
 
 智能手机和平板电脑的诞生，为用户与浏览器的交互带来了一种新的方式，一系列新的特性随之诞生。**设备事件**让开发人员可以确定用户是在怎样的使用设备，W3C从2011年开始便在制定一份新的关于设备的草案，为不同的设备定义相关的事件。

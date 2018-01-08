@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-4 14:57:04 +0800
 title: JavaScript数据结构与算法——链表
-category: JavaScript
+category: js
 ---
 
 ## 什么是链表

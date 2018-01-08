@@ -2,7 +2,7 @@
 layout: post
 date: 2017-11-24 20:30:29 +0800
 title: 一些我最近喜欢的句子
-category: 晃眼一生
+category: lifetime
 ---
 
 不如意事常八九，可与语人无二三。

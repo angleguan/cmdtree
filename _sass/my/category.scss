@@ -1,0 +1,41 @@
+.category {
+  .category-title {
+    font-size: 2em;
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 0.2em;
+    margin-bottom: 1.2em;
+  }
+  ul {
+    margin-left: 50px;
+    li {
+      list-style-type: square;
+      .post-date {
+        color: #9a9a9a;
+      }
+      a {
+        color: #000;
+      }
+    }
+  }
+}
+
+.category-list {
+  padding: 20px;
+  border: 1px solid #EAEAEA;
+  h3 {
+    border-bottom: 1px solid #EAEAEA;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  ul {
+    margin-left: 10px;
+    li {
+      a {
+        color: #000;
+      }
+      span {
+        font-size: 15px;
+      }
+    }
+  }
+}

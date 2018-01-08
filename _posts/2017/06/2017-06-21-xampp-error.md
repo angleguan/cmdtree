@@ -2,7 +2,7 @@
 title: xampp 不能启动报错 Error:Apache shutdown unexpectedly
 date: 2017-06-21T19:39:22+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 

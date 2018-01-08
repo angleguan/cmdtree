@@ -2,7 +2,7 @@
 title: AngularJS入门学习（二）模型与作用域
 date: 2017-07-10T22:13:42+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 

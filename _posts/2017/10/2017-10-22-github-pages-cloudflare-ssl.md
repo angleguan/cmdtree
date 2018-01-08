@@ -2,7 +2,7 @@
 layout: post
 date: 2017-10-22 11:29:59 +0800
 title: "Github Pages绑定域名添加HTTPS（Cloudflare）"
-category: 使用笔记
+category: use
 ---
 
 绑定域名到Github pages后是无法再使用github的SSL证书了，这时候只能依靠CDN来实现HTTPS来访问了。

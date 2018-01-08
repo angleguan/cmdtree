@@ -2,7 +2,7 @@
 layout: post
 date: 2017-10-07 14:31:29 +0800
 title: "编写一个简单的Node.js模块"
-category: 学习笔记
+category: learn
 ---
 
 模块化是Node.js的一个特点，模块是一个Node.js应用程序的基本组成部分，一个文件就可以是一个模块，用来负责一个功能。

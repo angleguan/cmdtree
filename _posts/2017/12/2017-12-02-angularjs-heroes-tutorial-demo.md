@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-2 09:42:26 +0800
 title: Angular5.0 英雄教程
-category: JavaScript
+category: js
 ---
 
 花了点时间（前后一个月。。。）做了一下angular的英雄教程，官方文档在这里[Angular - Tutorial: Tour of Heroes](https://angular.io/tutorial)，中文文档在[Angular - 教程：英雄指南](https://angular.cn/tutorial)，我是使用cli构建的应用，做好的仓库[rhatyang/AngularJS-Heroes-Tutorial-Demo: angular heroes tutorial Demo based on angular5 using cli build](https://github.com/rhatyang/AngularJS-Heroes-Tutorial-Demo)。

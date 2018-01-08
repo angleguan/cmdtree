@@ -2,7 +2,7 @@
 layout: post
 date: 2017-10-10 09:44:54 +0800
 title: "Debian stable使用backports源升级新内核"
-category: Unix/Linux
+category: linux
 ---
 
 > 为什么要升级内核？我的笔记本电脑CPU较新，估计是7代CPUSoC的电影管理模块状态有变化，导致我在待机下的cpu功耗也能达到5-6瓦，我升级完内核后稳定在2瓦左右，虽然这也高出一般电脑，但也已经好很多了。如果没有必须要升级内核的需求，不建议使用stable单独升级内核。

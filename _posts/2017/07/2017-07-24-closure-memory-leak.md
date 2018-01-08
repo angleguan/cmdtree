@@ -2,7 +2,7 @@
 title: 闭包引起的内存泄漏
 date: 2017-07-24T22:16:55+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 # 什么是内存泄漏

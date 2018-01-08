@@ -2,7 +2,7 @@
 title: 值得收藏的Jquery笔记
 date: 2017-03-23T17:00:07+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 #### 1、关于页面元素的引用

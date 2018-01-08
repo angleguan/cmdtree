@@ -2,7 +2,7 @@
 title: 如何在自己网站中使用Fontawesome的图标
 date: 2017-04-30T09:08:26+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 Font Awesome, 是一款非常流行的图标字体库和CSS框架,最新版<em>Font Awesome</em> 4.7。
 

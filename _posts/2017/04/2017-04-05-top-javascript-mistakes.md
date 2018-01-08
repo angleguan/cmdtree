@@ -2,7 +2,7 @@
 title: JavaScript开发者容易犯的13个错误
 date: 2017-04-05T09:41:36+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 开发者最容易犯的 JavaScript 错误，总结出 13 个。

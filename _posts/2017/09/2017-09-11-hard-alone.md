@@ -2,7 +2,7 @@
 layout: post
 date: 2017-09-11 13:47:03 +0800
 title: "孤独是安宁而恒久的东西，也许你曾经努力摆脱过它，可你不要讨厌它。"
-category: 晃眼一生
+category: lifetime
 ---
 
 

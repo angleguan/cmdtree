@@ -2,7 +2,7 @@
 title: 内网和外网的区别
 date: 2017-05-21T12:33:02+00:00
 layout: post
-category: 网络技术与安全
+category: network
 ---
 # 什么是内网
 

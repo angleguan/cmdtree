@@ -1,6 +1,6 @@
 ---
 title: "命名为USERNAME.github.io的Github Pages库如何更改名称"
-category: 使用笔记
+category: use
 layout: post
 date: 2017-11-13 09:33:10 +0800
 ---

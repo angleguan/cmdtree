@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-11 09:57:18 +0800
 title: "Wappalyzer 分析网站所用技术"
-category: 使用笔记
+category: use
 ---
 
 wappalyzer是一个可以分析网站所用技术的浏览器插件，可以在Firefox和Chrome中使用，可以在浏览器的插件商店里找到，也可以在官网[Wappalyzer - Download & Install](https://www.wappalyzer.com/download)进行下载。

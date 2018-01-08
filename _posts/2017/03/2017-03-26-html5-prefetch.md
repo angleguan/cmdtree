@@ -2,7 +2,7 @@
 title: HTML5 Prefetch
 date: 2017-03-26T23:00:41+00:00
 layout: post
-category: 学习笔记
+category: learn
 ---
 
 **prefetch 即预加载，在用户需要前我们就将所需的资源加载完毕。**

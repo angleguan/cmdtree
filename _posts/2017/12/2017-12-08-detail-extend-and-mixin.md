@@ -2,7 +2,7 @@
 layout: post
 date: 2017-12-8 13:57:29 +0800
 title: "SCSS @extend与@mixin"
-category: 学习笔记
+category: learn
 ---
 
 ## @extend

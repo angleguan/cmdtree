@@ -2,7 +2,7 @@
 title: Sublime Text 3 (build 3126)注册码
 date: 2017-05-14T01:56:47+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 Sublime Text 3 (build 3126)注册码

@@ -2,7 +2,7 @@
 title: AngularJS入门学习（三）控制器
 date: 2017-07-14T22:14:12+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 controller是MVC（Model View Controller）框架中的一部分，(官方翻译)ngController指令是一个试图控制类，这是一个关键在angular如何支持模型视图控制器设计模式原则方面。Angular的控制器：ngController实际上是一个函数，指定一个Controller类，这个类控制业务逻辑和模型的在视图的绑定。

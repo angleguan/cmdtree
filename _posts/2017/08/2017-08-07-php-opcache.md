@@ -2,7 +2,7 @@
 title: PHP性能优化之Opcache
 date: 2017-08-07T13:42:31+00:00
 layout: post
-category: 学习笔记
+category: learn
 ---
 ## 说明
 

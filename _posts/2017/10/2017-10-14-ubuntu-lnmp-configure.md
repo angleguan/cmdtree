@@ -2,7 +2,7 @@
 layout: post
 date: 2017-10-14 15:25:36 +0800
 title: "[笔记]在Ubuntu 16.04 LTS中配置LNMP环境"
-category: Unix/Linux
+category: linux
 ---
 
 首先安装软件

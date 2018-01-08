@@ -1,0 +1,25 @@
+<!-- 供主页使用 -->
+{% if post.category %}
+{% for category in post.categories %}
+{% for c in site.data.category %}
+{% if category == c.value %}
+<a href="{{site.url}}/category/{% if c.link %}{{c.link}}{% else %}{{c.value}}{% endif %}/">
+  {{ c.title }}
+</a>
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+<!-- 供文章页 -->
+{% if page.category %}
+{% for category in page.categories %}
+{% for c in site.data.category %}
+{% if category == c.value %}
+<a href="{{site.url}}/category/{% if c.link %}{{c.link}}{% else %}{{c.value}}{% endif %}/">
+  {{ c.title }}
+</a>
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}

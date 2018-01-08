@@ -2,7 +2,7 @@
 title: 本站搭建笔记(一)安装本地环境
 date: 2017-05-25T08:31:27+00:00
 layout: post
-category: 使用笔记
+category: use
 ---
 
 ## 按照jekyll官网的方法在本地安装jekyll环境

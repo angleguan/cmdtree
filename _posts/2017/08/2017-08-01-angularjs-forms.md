@@ -2,7 +2,7 @@
 title: Angularjs入门学习（六）表单
 date: 2017-08-01T11:05:33+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 AngularJS 表单是输入控件的集合。

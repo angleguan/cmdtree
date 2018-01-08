@@ -2,7 +2,7 @@
 title: AngularJS入门学习（五）事件
 date: 2017-07-21T22:15:38+00:00
 layout: post
-category: JavaScript
+category: js
 ---
 
 这里讲一下AngularJS比较简单的几个事件，包括`ng-click``ng-selected``ng-change`。

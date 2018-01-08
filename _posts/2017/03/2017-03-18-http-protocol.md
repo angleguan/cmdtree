@@ -2,7 +2,7 @@
 title: HTTP协议快速了解
 date: 2017-03-18T12:51:08+00:00
 layout: post
-category: 网络技术与安全
+category: network
 ---
 
 # HTTP简介
