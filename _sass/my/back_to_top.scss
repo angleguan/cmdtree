@@ -9,14 +9,9 @@
   padding: 2px 14px;
   font-size: 24px;
   right: 20px;
-}
-
-a.back-to-top {
   text-decoration: none;
-}
-
-a.back-to-top:hover,
-a.back-to-top:focus {
-  opacity: 1;
-  color: #fff;
+  &:hover,&:focus {
+    opacity: 1;
+    color: #fff;
+  }
 }
