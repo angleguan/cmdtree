@@ -1,8 +1,9 @@
 ---
 layout: post
-date: 2018-1-8 14:48:46 +0800
+date: '2018-1-8 14:48:46 +0800'
 title: Jekyll生成单个分类页面
 category: use
+published: true
 ---
 
 Jekyll有提供生成分类或者标签页面的插件——[jekyll-archives](https://github.com/jekyll/jekyll-archives)，只需简单配置即可使用，但是在Github Pages中不允许使用，所以我只能手动生成分类页了。
@@ -79,6 +80,7 @@ Jekyll有提供生成分类或者标签页面的插件——[jekyll-archives](ht
 <!-- 将分类页的分类赋给变量page_category -->
 {% assign page_category = page.category %}
 <ul>
+  <!-- 因为无法直接在categories后面跟新建的变量,所以只能通过循环判断的方式来确定当前分类 -->
   <!-- 循环所有分类 -->
   {% for category in site.categories %}
 
