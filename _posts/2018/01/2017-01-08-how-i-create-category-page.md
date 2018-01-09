@@ -1,6 +1,6 @@
 ---
 layout: post
-date: '2018-1-8 14:48:46 +0800'
+date: 2018-1-8 14:48:46 +0800
 title: Jekyll生成单个分类页面
 category: use
 published: true
