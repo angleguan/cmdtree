@@ -126,13 +126,15 @@ article {
       font-style: italic;
     }
   }
-}
-
-article.post {
-  h1:not(.post-title),
-  h2,
-  h3 {
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid #d3d3d3;
+  &.post,&.page {
+    h1:not(.post-title),
+    h2,
+    h3 {
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #d3d3d3;
+    }
+    p,img,div.highlighter-rouge {
+      padding-left: 0.8rem;
+    }
   }
 }
