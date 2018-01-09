@@ -13,6 +13,7 @@ category: use
 到一个 **xml** 文件中。这个 **xml** 文件我们可将其命名为 `search.xml`，以便我们后续的工作。
 
 具体的写法如下：
+
 {% raw %}
 ```
     <?xml version="1.0" encoding="UTF-8" ?>
@@ -69,30 +70,30 @@ DOM 结构保存在同一个页面。
 
 
 ```js
-    $(function() {
-            $.ajax({
-                url: "search.xml",
-                dataType: "xml",
-                success: function( xmlResponse ) {
-                    var data = $( "article", xmlResponse ).map(function() {
-                        return {
-                            value: $( "title", this ).text() + ", " +
-                                ( $.trim( $( "date", this ).text() ) ),
-                            desc: $("description", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
+$(function () {
+	$.ajax({
+		url: "search.xml",
+		dataType: "xml",
+		success: function (xmlResponse) {
+			var data = $("article", xmlResponse).map(function () {
+				return {
+					value: $("title", this).text() + ", " +
+						($.trim($("date", this).text())),
+					desc: $("description", this).text(),
+					url: $("url", this).text()
+				};
+			}).get();
 
-                    $( "#J_search" ).autocomplete({
-                        source: data,
-                        minLength: 0,
-                        select: function( event, ui ) {
-                            window.location.href = ui.item.url;
-                        }
-                    });
-                }
-            });
-        });
+			$("#J_search").autocomplete({
+				source: data,
+				minLength: 0,
+				select: function (event, ui) {
+					window.location.href = ui.item.url;
+				}
+			});
+		}
+	});
+});
 ```
 
 ### 五、测试
@@ -104,6 +105,3 @@ DOM 结构保存在同一个页面。
 这是一个很简单的实现方法，因为就今晚几个小时做出来的，所以可能还有很多不适用性。兼容性方面还没做好测试，只兼容 Firefox 和 Chrome ，还没完善的一个方面是出错处理，有空再补上。
 
 遗憾的是暂时只支持英文关键词搜索，后续，恩，中英文。
-
-
-
