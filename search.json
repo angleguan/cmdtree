@@ -1,0 +1,9 @@
+---
+---
+{
+	{% for post in site.posts %}
+	"{{ post.title }}": {
+		"url": "{{ post.url }}"
+	}{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+}
