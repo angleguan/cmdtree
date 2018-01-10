@@ -19,6 +19,8 @@ function Dictionary() {
 
 在Dictionary类中要使用数组来进行储存，这样一来，数组的索引即为`key`值。
 
+<!-- more -->
+
 然后定义一些基本方法
 
 #### 添加键值
