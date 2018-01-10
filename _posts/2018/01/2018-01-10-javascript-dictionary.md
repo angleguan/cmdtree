@@ -51,11 +51,11 @@ function remove(key) {
 
 ```js
 function count() {
-	var n = 0;
-	for (key in this.data) {
-		++n;
-	}
-	return(n);
+  var n = 0;
+  for (key in this.data) {
+    ++n;
+  }
+  return(n);
 }
 ```
 
@@ -96,9 +96,9 @@ function clear() {
 
 ```js
 function Dictionary() {
-	this.data = new Array();
-	this.add = add;
-	this.find = find;
+  this.data = new Array();
+  this.add = add;
+  this.find = find;
   this.remove = remove;
   this.count = count;
   this.returnAll = returnAll;
@@ -106,23 +106,23 @@ function Dictionary() {
 }
 
 function add(key, value) {
-	this.data[key] = value;
+  this.data[key] = value;
 }
 
 function find(key) {
-	return this.data[key];
+  return this.data[key];
 }
 
 function remove(key) {
-	delete this.data[key];
+  delete this.data[key];
 }
 
 function count() {
-	var n = 0;
-	for (key in this.data) {
-		++n;
-	}
-	return(n);
+  var n = 0;
+  for (key in this.data) {
+    ++n;
+  }
+  return(n);
 }
 
 function returnAll() {
