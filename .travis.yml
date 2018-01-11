@@ -2,8 +2,9 @@ language: ruby
 node_js: stable
 before_script:
   - gem install jekyll
+  - bundle install
 script:
-  - jekyll build
+  - bundle exec jekyll build
 deploy:
   provider: pages
   local_dir: _site
