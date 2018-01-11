@@ -1,7 +1,15 @@
+language: node_js
+node_js: stable
+before_script:
+  - npm install hexo-cli -g
+script:
+  - hexo generate
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: fc2233c333720410d15cd6c0477c38b5dd3c1b77  # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
+  local_dir: public
+  repo: rhatyang/hexo-demo
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
   on:
     branch: master
+  target_branch: gh-pages
