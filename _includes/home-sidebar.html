@@ -1,0 +1,27 @@
+<div class="column is-one-third main-sidebar">
+  <div class="sidebar-content" id="sidebar">
+
+    <aside class="widget-wrap index-categories-list">
+      <h4 class="widget-title categories-list-label">文章分类</h4>
+      <ul class="widget categories-list">
+      {% for category in site.categories %}
+        {% for c in site.data.category %}
+          {% if category[0] == c.value %}
+        <li class="categories-list-item">
+          <a href="{{site.url}}/category/{% if c.link %}{{c.link}}{% else %}{{c.value}}{% endif %}">{{ c.title }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <aside class="widget-wrap">
+      <h4 class="widget-title">关于</h4>
+      <div class="widget">
+        一共写了{{ site.categories.size }}个分类，{{ site.posts.size }}篇文章
+      </div>
+    </aside>
+    
+  </div>
+</div>
