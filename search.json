@@ -1,9 +1,9 @@
 ---
 ---
 {
-	{% for post in site.posts %}
-	"{{ post.title }}": {
-		"url": "{{ post.url }}"
-	}{% if forloop.last == false %},{% endif %}
-	{% endfor %}
+	{% for post in site.posts %}"{{ forloop.rindex }}": {
+		"title": "{{ post.title }}",
+		"url": "{{ site.url }}{{ post.url }}",
+		"category": "{{ post.categories }}"	
+	}{% if forloop.last == false %},{% endif %}{% endfor %}
 }

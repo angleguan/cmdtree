@@ -13,8 +13,10 @@
       .headers-sidenav {
         padding: 20px 10px;
         padding-left: 0px;
-        border: 1px solid #EAEAEA;
+        border: 1px solid #ddd;
         width: 250px;
+        background-color: #fff;
+        box-shadow: 1px 2px 3px #ddd;
       }
       .nav {
         > {

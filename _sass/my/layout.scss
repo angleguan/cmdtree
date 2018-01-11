@@ -7,8 +7,15 @@
 }
 
 .footer {
-  background-color: whitesmoke;
-  padding: 3rem 1.5rem 6rem;
+  background-color: #333;
+  padding: 2rem;
+  color: rgba(255,255,255,.8);
+  a {
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
 }
 
 .container {

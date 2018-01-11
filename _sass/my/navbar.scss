@@ -2,13 +2,18 @@
   background-color: white;
   min-height: 3.25rem;
   position: relative;
-  background-color: #363636;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   color: whitesmoke;
+  height: 80px;
+  top: 20px;
   >.container {
     align-items: stretch;
     display: flex;
     min-height: 3.25rem;
     width: 100%;
+  }
+  @media screen and (max-width: 769px) {
+    height: 60px;
   }
 }
 
@@ -17,40 +22,40 @@
   display: flex;
   flex-shrink: 0;
   min-height: 3.25rem;
-  .navbar-item {
-    color: whitesmoke;
-    &:hover {
-      background-color: #292929;
+  .site-title {
+    font-size: 2em;
+    font-weight: bolder;
+    a {
       color: whitesmoke;
+      &:hover {
+        color: #fff;
+      }
+    }
+    @media screen and (max-width: 769px) {
+      font-size: 1.5em;
     }
   }
 }
 
 .navbar-menu {
   display: none;
-  @media screen and (min-width: 1024px) {
-    .navbar-item {
-      color: whitesmoke;
-      &:hover {
-        background-color: #292929;
-        color: whitesmoke;
-      }
-    }
-  }
+  position: relative;
+  z-index: 1;
 }
 
 .navbar-item {
-  color: #4a4a4a;
+  color: whitesmoke;
   display: block;
   line-height: 1.5;
   padding: 0.5rem 1rem;
   position: relative;
   flex-grow: 0;
   flex-shrink: 0;
-  &:hover {
-    background-color: whitesmoke;
-    color: #3273dc;
-  }
+}
+
+a.navbar-item:hover {
+  background-color: #2ab8bd;
+  color: #fff;
 }
 
 .navbar-burger {
@@ -98,6 +103,13 @@
     background-color: white;
     box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
     padding: 0.5rem 0;
+    a.navbar-item {
+      color: #4a4a4a;
+      &:hover {
+        background-color: whitesmoke;
+        color: #3273dc;
+      }
+    }
   }
 }
 
