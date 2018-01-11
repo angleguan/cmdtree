@@ -1,15 +1,15 @@
-language: node_js
+language: ruby
 node_js: stable
 before_script:
-  - npm install hexo-cli -g
+  - gem install jekyll
 script:
-  - hexo generate
+  - jekyll build
 deploy:
   provider: pages
-  local_dir: public
+  local_dir: _site
   repo: rhatyang/hexo-demo
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  github_token: $blog
   on:
     branch: master
   target_branch: gh-pages
