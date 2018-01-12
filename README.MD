@@ -1,5 +1,7 @@
 # Fan Zhiyang's Personal Blog
 
+[![Build Status](https://www.travis-ci.org/rhatyang/blog.svg?branch=master)](https://www.travis-ci.org/rhatyang/blog)
+
 我的个人博客，使用Jekyll搭建。
 
 如果你也想这样写博客，你可以clone（或者fork）下一份本源码或者下载一个你认为好看的Jekyll主题然后修改一下`_config.yml`文件，把`_posts`下的文章换成你自己的文章即可，当然有的信息我直接写在模板文件里了，自行查找并修改即可。
