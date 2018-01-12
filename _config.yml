@@ -11,7 +11,14 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-archives
 feed:
   path: /blog/atom.xml
 paginate: 5
 paginate_path: "/page/:num/"
+exclude: [node_modules,pics,.git]
+jekyll-archives:
+  enabled: month
+  layout: month-archive
+  permalinks:
+    month: '/:year/:month/'
