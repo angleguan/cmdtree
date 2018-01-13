@@ -16,9 +16,12 @@ feed:
   path: /blog/atom.xml
 paginate: 5
 paginate_path: "/page/:num/"
-exclude: [node_modules,pics,.git]
-jekyll-archives:
-  enabled: month
-  layout: month-archive
-  permalinks:
-    month: '/:year/:month/'
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - package.json
+  - gulpfile.js
+  - node_modules
+  - _site

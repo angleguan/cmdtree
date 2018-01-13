@@ -4,7 +4,7 @@
   "description": "Fan Zhiyang's personal blog, built using jekyll",
   "main": "index.js",
   "scripts": {
-    "s": "bundle exec jekyll serve --watch --livereload --incremental --limit_posts 15",
+    "s": "bundle exec jekyll serve --incremental --limit_posts 15",
     "build": "bundle exec jekyll build"
   },
   "repository": {

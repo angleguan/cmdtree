@@ -4,4 +4,4 @@ _site
 .idea
 .vs
 .project
-.node_modules
+node_modules
