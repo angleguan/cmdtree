@@ -1,20 +1,20 @@
 {
-  "name": "fanzhiyang-blog",
-  "version": "1.0.0",
-  "description": "Fan Zhiyang's personal blog, built using jekyll",
-  "main": "index.js",
-  "scripts": {
-    "s": "bundle exec jekyll serve --incremental --limit_posts 15",
-    "build": "bundle exec jekyll build"
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "3.4.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rhatyang/blog.git"
-  },
-  "author": "zhiyang",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rhatyang/blog/issues"
-  },
-  "homepage": "https://fanzhiyang.com"
+  "dependencies": {
+    "hexo": "^3.2.0",
+    "hexo-generator-archive": "^0.1.4",
+    "hexo-generator-category": "^0.1.3",
+    "hexo-generator-feed": "^1.2.2",
+    "hexo-generator-index": "^0.2.0",
+    "hexo-generator-tag": "^0.2.0",
+    "hexo-renderer-ejs": "^0.3.0",
+    "hexo-renderer-marked": "^0.3.0",
+    "hexo-renderer-stylus": "^0.3.1",
+    "hexo-server": "^0.2.0"
+  }
 }
