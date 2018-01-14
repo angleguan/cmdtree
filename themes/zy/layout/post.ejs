@@ -57,10 +57,6 @@
       <li>
         <a href="<%- url_for(post.path) %>">
           <%= post.title %>
-          <small>
-            <time
-              datetime="<%= post.date.format(config.date_format) %>"><%= post.date.format(config.date_format) %></time>
-          </small>
         </a>
       </li>
       <% }) %>
