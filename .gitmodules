@@ -1,0 +1,3 @@
+[submodule "themes/zy"]
+	path = themes/zy
+	url = git@github.com:rhatyang/hexo-theme-zy.git
