@@ -8,7 +8,7 @@
       <a class="category-post-title" href="<%- config.root %><%- item.path %>">
         <%= item.title %>
       </a>
-      <small class="post-date">（<%= item.date.format(config.date_format) %>）</small>
+      <small class="post-date">（<%= item.date.format('YYYY.MM.DD') %>）</small>
     </li>
     
     <% }); %>
