@@ -1,0 +1,2 @@
+Sitemap: https://fanzhiyang.com/sitemap.xml
+Sitemap: https://fanzhiyang.com/baidusitemap.xml

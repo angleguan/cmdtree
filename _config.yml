@@ -48,6 +48,8 @@ pagination_dir: page
 theme: zy
 plugin:
   - hexo-generator-feed
+  - hexo-generator-sitemap
+  - hexo-generator-baidu-sitemap
 feed:
   type: atom
   path: blog/atom.xml
@@ -56,3 +58,5 @@ feed:
   content_limit_delim: ' '
 sitemap:
   path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
