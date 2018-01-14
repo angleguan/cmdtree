@@ -1,0 +1,69 @@
+<div class="column is-two-thirds">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 class="post-title"><%- page.title %></h1>
+
+    <div class="post-info">
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        
+        <%= page.date.format(config.date_format) %>
+
+      </time> | 
+      <div class="post-category">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
+
+        <%- list_categories(page.categories, {
+          show_count: false,
+          style: 'none'
+        }) %>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="post-content" itemprop="articleBody">
+
+      <%- page.content %>
+      
+    </div>
+
+  </article>
+
+  <% if (page.prev || page.next){ %>
+  <nav class="post-pagination">
+    <% if (page.prev){ %>
+    <a href="<%- url_for(page.prev.path) %>" class="button previous">
+      &larr; <%= page.prev.title %>
+    </a>
+    <% } %>
+    <% if (page.next){ %>
+    <a href="<%- url_for(page.next.path) %>" class="button next">
+      <%= page.next.title %> &rarr;
+    </a>
+    <% } %>
+  </nav>
+  <% } %>
+
+  <hr>
+
+  <aside class="related">
+    <h3>随机推荐</h3>
+    <ul class="related-posts">
+      <% site.posts.random().limit(5).each(function(post){ %>
+      <li>
+        <a href="<%- url_for(post.path) %>">
+          <%= post.title %>
+          <small>
+            <time
+              datetime="<%= post.date.format(config.date_format) %>"><%= post.date.format(config.date_format) %></time>
+          </small>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+  </aside>
+
+</div>
+
+<%- partial('partial/post-sidebar.ejs') %>
+

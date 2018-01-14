@@ -1,0 +1,30 @@
+<head>
+  <meta charset="utf-8">
+  <%
+  var title;
+
+  if(is_home()) {
+    title = '樊志阳的个人博客 | Life is too short. Don\'t do what you don\'t like to do'
+  } else if (is_post()) {
+    title = page.title + ' - ' + config.title;
+  }  else if (is_archive()) {
+    title = __('归档');
+    if (is_month()) {
+      title += '：' + page.year + '年' + page.month + '月' + ' - ' + config.title;
+    } else if (is_year()) {
+      title += '：' + page.year +' - ' + config.title;
+    }
+  } else if (is_category()) {
+    title = __('分类') + '：' + page.category + ' - ' + config.title;
+  }
+  %>
+  <title>
+  <%- title %>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <%- favicon_tag('assets/img/favicon.jpeg') %>
+  <%- css('css/style') %>
+  <%- css('css/font-awesome.min') %>
+
+</head>

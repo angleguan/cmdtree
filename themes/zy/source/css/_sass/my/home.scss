@@ -1,0 +1,24 @@
+.post-preview {
+  .post-title {
+    font-size: 2em;
+  }
+  .post-excerpt {
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.75em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+  .post-readmore {
+    text-align: right;
+    margin: 20px 5px;
+    a.read-more {
+      padding: 7px 12px;
+      border-radius: 14px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="column is-two-thirds category">
+  <h2 class="category-title">分类：<%- page.category %></h2>
+  <ul>
+
+    <% page.posts.each(function(item){ %>
+
+    <li>
+      <a class="category-post-title" href="<%- config.root %><%- item.path %>">
+        <%= item.title %>
+      </a>
+      <small class="post-date">（<%= item.date.format(config.date_format) %>）</small>
+    </li>
+    
+    <% }); %>
+
+  </ul>
+</div>
+
+<div class="column is-one-thirds category-aside">
+
+  <%- partial('partial/category-list') %>
+  
+</div>

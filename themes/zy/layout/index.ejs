@@ -1,0 +1,47 @@
+<div class="column is-two-thirds main-posts-preview">
+
+  <% page.posts.each(function(item){ %>
+
+  <article class="post-preview">
+    <h1 class="post-title">
+      <a href="<%- config.root %><%- item.path %>"><%= item.title %></a>
+    </h1>
+
+    <div class="post-info">
+            <span class="post-date">
+                <%= item.date.format(config.date_format) %>
+            </span> |
+      <div class="post-category">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
+
+        <%- list_categories(item.categories, {
+          show_count: false,
+          style: 'none'
+        }) %>
+
+      </div>
+    </div>
+
+    <div class="post-excerpt">
+    
+      <% if (item.excerpt) { %>
+      <%- item.excerpt %>
+      <% } else { %>
+      <%- item.content %>
+      <% } %>
+      
+    </div>
+
+    <div class="post-readmore">
+      <a class="button is-primary read-more" href="<%- config.root %><%- item.path %>">阅读更多……</a>
+    </div>
+  </article>
+  <hr/>
+  <% }); %>
+
+  <%- partial('partial/paginator') %>
+  
+</div>
+
+
+<%- partial('partial/home-sidebar') %>

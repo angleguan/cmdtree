@@ -1,0 +1,101 @@
+.main-sidebar {
+  .sidebar-content {
+    @media screen and (min-width: 769px) {
+      margin-left: 20px;
+    }
+  }
+  .author-avatar img {
+    border-radius: 50%;
+    max-width: 180px;
+    border: 1px solid #f2f3f3;
+    padding: 5px;
+    margin: 10px auto;
+    display: block;
+  }
+}
+
+.brief-intro {
+  margin-bottom: 6px;
+  .author-name {
+    font-size: 25px;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .author-bio {
+    text-align: center;
+    color: #333;
+  }
+}
+
+.site-state {
+  text-align: center;
+  padding: 5px 0;
+  a {
+    color: #777;
+    &:hover,
+    &:focus {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
+
+.site-state-item {
+  display: inline-block;
+  padding: 0 15px;
+  border-left: 1px solid #eee;
+  &:first-child {
+    border-left: none;
+  }
+}
+
+.site-state-item-count {
+  display: block;
+}
+
+.widget-wrap {
+  padding: 0 10px 10px;
+  .widget-title {
+    color: #999;
+    text-shadow: 0 1px #fff;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .widget {
+    color: #777;
+    text-shadow: 0 1px #fff;
+    background: #ddd;
+    -webkit-box-shadow: 0 -1px 4px #ccc inset;
+    box-shadow: 0 -1px 4px #ccc inset;
+    border: 1px solid #ccc;
+    padding: 15px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    a {
+      color: #258fb8;
+    }
+  }
+}
+
+.index-categories-list {
+  padding: 0 10px 10px;
+  .categories-list {
+    .categories-list-item {
+      margin-bottom: 15px;
+      .category-size {
+        align-items: center;
+        border-radius: 3px;
+        display: inline-flex;
+        font-size: 0.75rem;
+        height: 2em;
+        justify-content: center;
+        line-height: 1.5;
+        padding: 0 0.75em;
+        background-color: #363636;
+        color: whitesmoke;
+        float: right;
+      }
+    }
+  }
+}
