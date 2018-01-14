@@ -5,4 +5,4 @@ hexo clean
 hexo g
 echo "Build Finish"
 
-compress.sh
+script/compress
