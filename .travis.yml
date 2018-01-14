@@ -10,7 +10,7 @@ deploy:
   local_dir: public
   repo: rhatyang/blog
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN # 在travis中设置的环境变量
+  github_token: $GITHUB_TOKEN
   on:
     branch: master
   target_branch: gh-pages
