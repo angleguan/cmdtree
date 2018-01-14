@@ -5,4 +5,6 @@ hexo clean
 hexo g
 echo "Build Finish"
 
-script/compress
+echo "Begin compress code"
+gulp compress
+echo "End compress"

@@ -1,11 +1,11 @@
-const gulp = require('gulp');
-const minifycss = require('gulp-minify-css');
-const htmlmin = require('gulp-htmlmin');
-const htmlclean = require('gulp-htmlclean');
+let gulp = require('gulp');
+let htmlmin = require('gulp-htmlmin');
+let htmlclean = require('gulp-htmlclean');
+let cleanCSS = require('gulp-clean-css');
 
-gulp.task('minify-css', () => {
+gulp.task('clean-css', () => {
     return gulp.src('./public/**/*.css')
-      .pipe(minifycss())
+      .pipe(cleanCSS())
       .pipe(gulp.dest('./public'));
   })
   .task('minify-html', () => {
@@ -20,6 +20,6 @@ gulp.task('minify-css', () => {
       .pipe(gulp.dest('./public'))
   })
   .task('compress', [
-    'minify-html', 'minify-css'
+    'minify-html', 'clean-css'
   ])
   
