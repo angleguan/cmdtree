@@ -12,10 +12,13 @@ gulp.task('clean-css', () => {
     return gulp.src('./public/**/*.html')
       .pipe(htmlclean())
       .pipe(htmlmin({
+        removeAttributeQuotes: true,
         removeComments: true,
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true,
+        removeStyleLinkTypeAttributes: true,
+        removeScriptTypeAttributes: true
       }))
       .pipe(gulp.dest('./public'))
   })
