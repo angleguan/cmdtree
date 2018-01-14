@@ -2,9 +2,7 @@ language: node_js
 node_js: stable
 before_script:
   - npm install
-script:
-  - hexo clean
-  - hexo g
+script: scripts/build.sh
 deploy:
   provider: pages
   local_dir: public

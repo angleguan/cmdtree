@@ -1,6 +1,20 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "fanzhiyang-blog",
+  "version": "1.0.0",
+  "description": "Fan Zhiyang's personal blog.",
+  "keywords": [
+    "fanzhiyang",
+    "blog"
+  ],
+  "author": {
+    "name": "zhiyang",
+    "email": "fanzhiyang2001@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/rhatyang/blog.git",
+    "type": "git"
+  },
   "private": true,
   "hexo": {
     "version": "3.4.4"
