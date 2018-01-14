@@ -4,7 +4,7 @@
 
   <article class="post-preview">
     <h1 class="post-title">
-      <a href="<%- config.root %><%- item.path %>"><%= item.title %></a>
+      <a href="<%- url_for(item.path) %>"><%= item.title %></a>
     </h1>
 
     <div class="post-info">
@@ -23,24 +23,24 @@
     </div>
 
     <div class="post-excerpt">
-    
+
       <% if (item.excerpt) { %>
       <%- item.excerpt %>
       <% } else { %>
       <%- item.content %>
       <% } %>
-      
+
     </div>
 
     <div class="post-readmore">
-      <a class="button is-primary read-more" href="<%- config.root %><%- item.path %>">阅读更多……</a>
+      <a class="button is-primary read-more" href="<%- url_for(item.path) %>">阅读更多……</a>
     </div>
   </article>
   <hr/>
   <% }); %>
 
   <%- partial('partial/paginator') %>
-  
+
 </div>
 
 
