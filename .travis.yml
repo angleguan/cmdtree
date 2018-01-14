@@ -3,7 +3,7 @@ node_js: stable
 install:
   - npm install
 before_script:
-  - chmod -Rx script
+  - chmod 777 -R script
 script: script/build.sh
 deploy:
   provider: pages
