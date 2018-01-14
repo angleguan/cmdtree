@@ -1,0 +1,16 @@
+language: node_js
+node_js: stable
+before_script:
+  - npm install
+script:
+  - hexo clean
+  - hexo g
+deploy:
+  provider: pages
+  local_dir: public
+  repo: rhatyang/blog
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # 在travis中设置的环境变量
+  on:
+    branch: master
+  target_branch: gh-pages
