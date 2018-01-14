@@ -1,7 +1,9 @@
 language: node_js
 node_js: stable
-before_script:
+install:
   - npm install
+before_script:
+  - chmod -Rx script
 script: script/build.sh
 deploy:
   provider: pages
