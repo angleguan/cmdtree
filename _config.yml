@@ -22,6 +22,8 @@ index_generator:
   path: ''
   per_page: 5
   order_by: -date
+archive_generator:
+  per_page: 5
 default_category: 杂文
 category_map:
   网络技术与安全: network
