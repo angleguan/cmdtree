@@ -3,17 +3,12 @@ title: 樊志阳的个人博客
 author: 樊志阳
 url: https://fanzhiyang.com
 permalink: blog/:title/
-permalink_defaults:
 source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: blog/archives
 category_dir: blog/categories/
 code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
-new_post_name: :title.md
-default_layout: post
 titlecase: false
 external_link: true
 filename_case: 0
@@ -25,7 +20,6 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
 index_generator:
   path: ''
   per_page: 5
@@ -40,7 +34,6 @@ category_map:
   Unix/Linux: linux
   JavaScript: javscript
   杂文: other
-tag_map:
 date_format: YYYY年M月D日
 time_format: HH:mm:ss
 per_page: 0
