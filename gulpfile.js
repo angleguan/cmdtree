@@ -30,7 +30,7 @@ gulp.task('clean-css', () => {
         progressive: true,
         use: [pngquant()]
       }))
-      .pipe(gulp.desk('./public'))
+      .pipe(gulp.dest('./public'))
   })
   .task('compress', [
     'minify-html', 'clean-css', 'imagemin'
