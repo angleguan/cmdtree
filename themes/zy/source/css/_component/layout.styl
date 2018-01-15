@@ -1,69 +1,49 @@
-.content {
-  padding: 3rem 1.5rem;
-  margin-bottom: 1.5rem;
-  @media screen and (max-width: 769px) {
-    padding: 2rem 1rem;
-  }
-}
-
-.footer {
-  background-color: #333;
-  padding: 2rem;
-  color: rgba(255,255,255,.8);
-  a {
-    &:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-  }
-}
-
-.container {
-  margin: 0 auto;
-  position: relative;
-  @media screen and (min-width: 1024px) {
-    max-width: 960px;
-    width: 960px;
-  }
-  @media screen and (min-width: 1216px) {
-    max-width: 1152px;
-    width: 1152px;
-  }
-  @media screen and (min-width: 1408px) {
-    max-width: 1344px;
-    width: 1344px;
-  }
-}
-
-.columns {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-  margin-top: -0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  &:last-child {
-    margin-bottom: -0.75rem;
-  }
-}
-
-.column {
-  display: block;
-  flex-grow: 1;
-  flex-shrink: 1;
-  padding: 0.75rem;
-  max-width: 100%;
-  @media screen and (min-width: 769px) {
-    &.is-two-thirds {
-      flex: none;
-      width: 72%;
-    }
-    &.is-one-third {
-      flex: none;
-      width: 28%;
-    }
-    &.second {
-      flex: none;
-      width: 70%;
-    }
-  }
-}
+.content
+  padding: 3rem 1.5rem
+  margin-bottom: 1.5rem
+  @media screen and (max-width: 769px)
+    padding: 2rem 1rem
+.footer
+  background-color: #333
+  padding: 2rem
+  color: rgba(255, 255, 255, 0.8)
+  a
+    &:hover
+      color: #fff
+      text-decoration: underline
+.container
+  margin: 0 auto
+  position: relative
+  @media screen and (min-width: 1024px)
+    max-width: 960px
+    width: 960px
+  @media screen and (min-width: 1216px)
+    max-width: 1152px
+    width: 1152px
+  @media screen and (min-width: 1408px)
+    max-width: 1344px
+    width: 1344px
+.columns
+  margin-left: -0.75rem
+  margin-right: -0.75rem
+  margin-top: -0.75rem
+  display: flex
+  flex-wrap: wrap
+  &:last-child
+    margin-bottom: -0.75rem
+.column
+  display: block
+  flex-grow: 1
+  flex-shrink: 1
+  padding: 0.75rem
+  max-width: 100%
+  @media screen and (min-width: 769px)
+    &.is-two-thirds
+      flex: none
+      width: 72%
+    &.is-one-third
+      flex: none
+      width: 28%
+    &.second
+      flex: none
+      width: 70%
