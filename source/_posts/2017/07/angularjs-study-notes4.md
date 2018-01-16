@@ -15,13 +15,13 @@ $http服务封装了浏览器原生的XMLHttpRequest对象。它只能接受一�
 
 ```js
 $http({
-    url:'data.json',
-    method:'GET'
+  url:'data.json',
+  method:'GET'
 }).success(function(response){
-    //响应成功
-    
+  //响应成功
+  
 }).error(function(response){
-    //处理响应失败
+  //处理响应失败
 });
 ```
 
@@ -29,12 +29,12 @@ $http({
 
 ```js
 $http({
-    method: 'GET',
-    url: 'data.js'
+  method: 'GET',
+  url: 'data.js'
 }).then(function successCallback(response) {
-        //响应成功
-    }, function errorCallback(response) {
-        //处理响应失败
+  //响应成功
+  }, function errorCallback(response) {
+  //处理响应失败
 });
 ```
 
@@ -63,13 +63,13 @@ $location服务初始化好以后，你就可以使用jquery风格的读写器�
 要配置$location服务，检索$locationProvider并把参数设置成以下这样：
 ```
 html5Mode(模式): {boolean}
-    strue - 参阅HTML5模式
-    false - 参阅Hashbang模式
-    default: false
+  strue - 参阅HTML5模式
+  false - 参阅Hashbang模式
+  default: false
 
 hashPrefix(前缀): {string}
-    Hashbang URLs的前缀 (在Hashbang模式中或者低级浏览器中使用)
-    default: '!'
+  Hashbang URLs的前缀 (在Hashbang模式中或者低级浏览器中使用)
+  default: '!'
 ```
 
 **配置示例**
@@ -90,23 +90,23 @@ $location服务有两种用来控制地址栏URL格式的配置：Hashbang模式
 ```js
 it('should show example', inject(
   function($locationProvider) {
-    $locationProvider.html5mode = false;
-    $locationProvider.hashPrefix = '!';
+  $locationProvider.html5mode = false;
+  $locationProvider.hashPrefix = '!';
   },
   function($location) {
-    // open http://host.com/base/index.html#!/a
-    $location.absUrl() == 'http://host.com/base/index.html#!/a'
-    $location.path() == '/a'
+  // open http://host.com/base/index.html#!/a
+  $location.absUrl() == 'http://host.com/base/index.html#!/a'
+  $location.path() == '/a'
 
-    $location.path('/foo')
-    $location.absUrl() == 'http://host.com/base/index.html#!/foo'
+  $location.path('/foo')
+  $location.absUrl() == 'http://host.com/base/index.html#!/foo'
 
-    $location.search() == {}
-    $location.search({a: 'b', c: true});
-    $location.absUrl() == 'http://host.com/base/index.html#!/foo?a=b&c'
+  $location.search() == {}
+  $location.search({a: 'b', c: true});
+  $location.absUrl() == 'http://host.com/base/index.html#!/foo?a=b&c'
 
-    $location.path('/new').search('x=y');
-    $location.absUrl() == 'http://host.com/base/index.html#!/new?x=y'
+  $location.path('/new').search('x=y');
+  $location.absUrl() == 'http://host.com/base/index.html#!/new?x=y'
   }
 ));
 ```
@@ -130,36 +130,36 @@ it('should show example', inject(
 ```js
 it('should show example', inject(
   function($locationProvider) {
-    $locationProvider.html5mode = true;
-    $locationProvider.hashPrefix = '!';
+  $locationProvider.html5mode = true;
+  $locationProvider.hashPrefix = '!';
   },
   function($location) {
-    // in browser with HTML5 history support:
-    // open http://host.com/#!/a -> rewrite to http://host.com/a
-    // (replacing the http://host.com/#!/a history record)
-    $location.path() == '/a'
+  // in browser with HTML5 history support:
+  // open http://host.com/#!/a -> rewrite to http://host.com/a
+  // (replacing the http://host.com/#!/a history record)
+  $location.path() == '/a'
 
-    $location.path('/foo');
-    $location.absUrl() == 'http://host.com/foo'
+  $location.path('/foo');
+  $location.absUrl() == 'http://host.com/foo'
 
-    $location.search() == {}
-    $location.search({a: 'b', c: true});
-    $location.absUrl() == 'http://host.com/foo?a=b&c'
+  $location.search() == {}
+  $location.search({a: 'b', c: true});
+  $location.absUrl() == 'http://host.com/foo?a=b&c'
 
-    $location.path('/new').search('x=y');
-    $location.url() == 'new?x=y'
-    $location.absUrl() == 'http://host.com/new?x=y'
+  $location.path('/new').search('x=y');
+  $location.url() == 'new?x=y'
+  $location.absUrl() == 'http://host.com/new?x=y'
 
-    // in browser without html5 history support:
-    // open http://host.com/new?x=y -> redirect to http://host.com/#!/new?x=y
-    // (again replacing the http://host.com/new?x=y history item)
-    $location.path() == '/new'
-    $location.search() == {x: 'y'}
+  // in browser without html5 history support:
+  // open http://host.com/new?x=y -> redirect to http://host.com/#!/new?x=y
+  // (again replacing the http://host.com/new?x=y history item)
+  $location.path() == '/new'
+  $location.search() == {x: 'y'}
 
-    $location.path('/foo/bar');
-    $location.path() == '/foo/bar'
-    $location.url() == '/foo/bar?x=y'
-    $location.absUrl() == 'http://host.com/#!/foo/bar?x=y'
+  $location.path('/foo/bar');
+  $location.path() == '/foo/bar'
+  $location.url() == '/foo/bar?x=y'
+  $location.absUrl() == 'http://host.com/#!/foo/bar?x=y'
   }
 ));
 ```
@@ -219,30 +219,30 @@ $timeout和$interval是AngularJS自带的服务，跟原生js中的setTimeout和
 // 错误的写法示例（使用setTimeout却没有用$apply）：
 angular.module('myDemo', [])
 
-    .controller('firstController', ['$scope', function ($scope) {
+  .controller('firstController', ['$scope', function ($scope) {
 
-        setTimeout(function () {
-            console.log('before');  // 正常输出before
-            $scope.name = "My name have been changed."; // 这一句不被执行
-            console.log('after');   // 正常输出after
-        }, 2000);
-    }]);
+  setTimeout(function () {
+    console.log('before');  // 正常输出before
+    $scope.name = "My name have been changed."; // 这一句不被执行
+    console.log('after');   // 正常输出after
+  }, 2000);
+  }]);
 ```
 
 ```js
 // 正确的写法示例
 angular.module('myDemo', [])
 
-    .controller('firstController', ['$scope', function ($scope) {
+  .controller('firstController', ['$scope', function ($scope) {
 
-        setTimeout(function () {
-            console.log('before');  // 正常输出before
-            $scope.$apply(function () {
-                $scope.name = "My name have been changed.";  // 正确显示
-            });
-            console.log('after');   // 正常输出after
-        }, 2000);
-    }]);
+  setTimeout(function () {
+    console.log('before');  // 正常输出before
+    $scope.$apply(function () {
+    $scope.name = "My name have been changed.";  // 正确显示
+    });
+    console.log('after');   // 正常输出after
+  }, 2000);
+  }]);
 ```
 
 
@@ -288,8 +288,8 @@ HTML：
 
 ```html
 <div ng-controller="LogController">
-    <!--这里不能用ng-bind，因为是渲染一段html文本，而不是显示简单的数据-->
-    <div ng-bind-html="results"></div>
+  <!--这里不能用ng-bind，因为是渲染一段html文本，而不是显示简单的数据-->
+  <div ng-bind-html="results"></div>
 </div>
 ```
 
@@ -297,14 +297,14 @@ JS：
 
 ```js
 angular.module('myDemo', [])
-    .controller('LogController', function ($scope, $http, $sce) {
+  .controller('LogController', function ($scope, $http, $sce) {
 
-        // 随便定义一段html文本
-        var txt = "<h1>Hello world!</h1>";
+  // 随便定义一段html文本
+  var txt = "<h1>Hello world!</h1>";
 
-        // 这里不能直接$scope.results = txt，否则会报错显示“不安全”
-        $scope.results = $sce.trustAsHtml(txt);
-    });
+  // 这里不能直接$scope.results = txt，否则会报错显示“不安全”
+  $scope.results = $sce.trustAsHtml(txt);
+  });
 ```
 
 此时浏览器就会输出Hello world!

@@ -13,9 +13,9 @@ category: JavaScript
 
 ```html
 <div ng-app="">
-    <!-- 表达式写在双大括号内 数据绑定 -->
-    <!-- angluarjs的表达式类似于js的表达式 可以包含文字 运算符 变量 -->
-    {{ 5+5 }} // 输出： 10
+  <!-- 表达式写在双大括号内 数据绑定 -->
+  <!-- angluarjs的表达式类似于js的表达式 可以包含文字 运算符 变量 -->
+  {{ 5+5 }} // 输出： 10
 </div>
 ```
 
@@ -24,7 +24,7 @@ category: JavaScript
 ```html
 <div ng-app="" ng-init="quantity=1;cost=5">
  
-    <p>总价： {{ quantity * cost }}</p>
+  <p>总价： {{ quantity * cost }}</p>
  
 </div>
 
@@ -35,7 +35,7 @@ category: JavaScript
 ```html
 <div ng-app="" ng-init="firstName='John';lastName='Doe'">
  
-    <p>姓名： {{ firstName + " " + lastName }}</p>
+  <p>姓名： {{ firstName + " " + lastName }}</p>
  
 </div>
 
@@ -46,7 +46,7 @@ category: JavaScript
 ```html
 <div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
  
-    <p>姓为 {{ person.lastName }}</p>
+  <p>姓为 {{ person.lastName }}</p>
  
 </div>
 ```
@@ -56,7 +56,7 @@ category: JavaScript
 ```html
 <div ng-app="" ng-init="points=[1,15,19,2,40]">
  
-    <p>第三个值为 {{ points[2] }}</p>
+  <p>第三个值为 {{ points[2] }}</p>
  
 </div>
 ```
@@ -73,9 +73,9 @@ category: JavaScript
 看一个数据绑定的实例:
 ```html
 <div ng-app="" ng-init="firstName='John'">
-     <p>在输入框中尝试输入：</p>
-     <p>姓名：<input type="text" ng-model="firstName"></p>
-     <p>你输入的为： {{ firstName }}</p>
+   <p>在输入框中尝试输入：</p>
+   <p>姓名：<input type="text" ng-model="firstName"></p>
+   <p>你输入的为： {{ firstName }}</p>
 </div>
 ```
 
@@ -93,9 +93,9 @@ ng-repeat 指令会重复一个 HTML 元素：
 <div ng-app="" ng-init="names=['Jani','Hege','Kai']">
   <p>使用 ng-repeat 来循环数组</p>
   <ul>
-    <li ng-repeat="x in names">
-      {{ x }}
-    </li>
+  <li ng-repeat="x in names">
+    {{ x }}
+  </li>
   </ul>
 </div>
 ```
@@ -111,8 +111,8 @@ ng-repeat 指令用在一个对象数组上：
  
 <p>循环对象：</p>
 <ul>
-  <li ng-repeat="x    in names">
-    {{ x.name + ', ' + x.country }}
+  <li ng-repeat="x  in names">
+  {{ x.name + ', ' + x.country }}
   </li>
 </ul>
  
@@ -133,16 +133,16 @@ ng-repeat 指令用在一个对象数组上：
 ```html
 <body ng-app="myApp">
 
-    <customize-directive></customize-directive>
+  <customize-directive></customize-directive>
 
-    <script>
-        var app = angular.module("myApp", []);
-        app.directive("customizeDirective", function() {
-            return {
-                template : "<h1>自定义指令!</h1>"
-            };
-        });
-    </script>
+  <script>
+    var app = angular.module("myApp", []);
+    app.directive("customizeDirective", function() {
+      return {
+        template : "<h1>自定义指令!</h1>"
+      };
+    });
+  </script>
 
 </body>
 ```

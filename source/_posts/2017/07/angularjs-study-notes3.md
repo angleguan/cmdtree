@@ -8,21 +8,21 @@ controller是MVC（Model View Controller）框架中的一部分，(官方翻译
 
 我们来看一段代码：
 ```html
-    <div ng-app="myapp" ng-controller="myCtrl">
-        输入的姓名:<br/>
-        名：<input type="text" ng-model="firstname"/><br/>
-        姓：<input type="text" ng-model="lastname"/>
-        <br />
-        <h1>hello {{ firstname +" "+ lastname }}</h1>
-    </div>
+  <div ng-app="myapp" ng-controller="myCtrl">
+    输入的姓名:<br/>
+    名：<input type="text" ng-model="firstname"/><br/>
+    姓：<input type="text" ng-model="lastname"/>
+    <br />
+    <h1>hello {{ firstname +" "+ lastname }}</h1>
+  </div>
 
-    <script>
-        var app = angular.module("myapp" ,[]);
-        app.controller('myCtrl', function($scope) {
-            $scope.firstname = "John";
-            $scope.lastname =  "Doe";
-        });
-    </script>
+  <script>
+    var app = angular.module("myapp" ,[]);
+    app.controller('myCtrl', function($scope) {
+      $scope.firstname = "John";
+      $scope.lastname =  "Doe";
+    });
+  </script>
 ```
 
 上面是一个最简单的使用ng-controller的实例
@@ -43,25 +43,25 @@ ng-model 指令绑定输入域到控制器的属性（firstName 和 lastName）�
 
 我们将上面的例子改变一下:
 ```html
-    <div ng-app="myapp" ng-controller="personCtrl">
-        输入的姓名: <br/>
-        名：
-        <input type="text" ng-model="firstname" /><br/> 姓：
-        <input type="text" ng-model="lastname" />
-        <br /> 这里使用函数的方式输出的姓名
-        <h1>hello {{ fullname() }}</h1>
-    </div>
+  <div ng-app="myapp" ng-controller="personCtrl">
+    输入的姓名: <br/>
+    名：
+    <input type="text" ng-model="firstname" /><br/> 姓：
+    <input type="text" ng-model="lastname" />
+    <br /> 这里使用函数的方式输出的姓名
+    <h1>hello {{ fullname() }}</h1>
+  </div>
 
-    <script>
-        var app = angular.module("myapp", []);
-        app.controller('personCtrl', function ($scope) {
-            $scope.firstname = "John";
-            $scope.lastname = "Doe";
-            $scope.fullname = function () {
-                return $scope.firstname + " " + $scope.lastname;
-            }
-        });
-    </script>
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller('personCtrl', function ($scope) {
+      $scope.firstname = "John";
+      $scope.lastname = "Doe";
+      $scope.fullname = function () {
+        return $scope.firstname + " " + $scope.lastname;
+      }
+    });
+  </script>
 ```
 
 这里我们使用调用函数的方式来输出姓名，将`$scope.fullname`绑定到HTML，这样修改`input`中的内容时，就可以看到全名被自动更新了。

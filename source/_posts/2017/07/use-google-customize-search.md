@@ -52,8 +52,8 @@ category: 使用笔记
 
 ```
 <form action="https://www.fanzhiyang.com/blog/search" + value>
-    <input type="text" id="search-text" name="q"/>
-    <input type="submit" />
+  <input type="text" id="search-text" name="q"/>
+  <input type="submit" />
 </form>
 ```
 
