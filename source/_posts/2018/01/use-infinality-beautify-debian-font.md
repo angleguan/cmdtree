@@ -14,6 +14,8 @@ git clone https://github.com/rhatyang/debian-infinality.git
 
 克隆这仓库，然后安装infinality包
 
+<!-- more -->
+
 ```
 sudo dpkg -i fontconfig-infinality_20160429.0042-2_all.deb
 ```
@@ -44,7 +46,7 @@ Xft.rgba: rgb
 
 下面是我安装后的效果：
 
-![](/pics/2017/01/Screenshot_20180118_141306.png)
+![](/pics/2018/01/Screenshot_20180118_141306.png)
 
 ## BUG
 
