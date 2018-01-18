@@ -28,7 +28,7 @@ sudo dpkg -i libfreetype6_2.6.3-infinality5_amd64.deb
 
 ## 二、配置文件
 
-将以下内容加到home目录下的`.Xresources`文件中
+将以下内容加到当前用户目录下的`.Xresources`文件中
 
 ```
 Xft.antialias: 1
