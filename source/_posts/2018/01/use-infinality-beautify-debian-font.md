@@ -1,7 +1,7 @@
 ---
 title: 使用infinality增强Debian字体渲染
 date: 2018-01-18
-category: Unix/linux
+category: Unix/Linux
 ---
 
 infinality是一个Linux下增强字体显示和渲染的脚本包，虽然已经有两年没有维护了，但使用起来还是有点效果的，下面说下怎么在最新版的Debian 中使用：
