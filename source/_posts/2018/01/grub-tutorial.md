@@ -1,5 +1,5 @@
 ---
-title: GRUB教程
+title: GRUB简单学习教程
 date: 2018-01-19 15:48:05
 category: Unix/Linux
 ---
