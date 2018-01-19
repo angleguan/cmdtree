@@ -4,7 +4,6 @@ date: 2018-01-19 15:48:05
 category: Unix/Linux
 ---
 
-
 ## GRUB2
 
 GRUB全称GRand Unified Bootloader，是GNU项目中一个支持多系统启动的系统引导程序。GRUB目前分为两个版本，0.9版本以前称为`GRUB legacy`，1.x以后的版本称为GRUB2，本文描述的是GRUB2。
@@ -58,39 +57,39 @@ GRUB的主要配置文件是/boot/grub/grub.cfg，这份文件不可以直接编
 
 ```
 menuentry 'Ubuntu, with Linux 4.13.0-26-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-4.13.0-26-generic-advanced-3c909df0-784e-4b1c-890b-b1e971c84d47' {
-		recordfail
-		load_video
-		gfxmode $linux_gfx_mode
-		insmod gzio
-		if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
-		insmod part_gpt
-		insmod ext2
-		set root='hd1,gpt5'
-		if [ x$feature_platform_search_hint = xy ]; then
-		  search --no-floppy --fs-uuid --set=root --hint-bios=hd1,gpt5 --hint-efi=hd1,gpt5 --hint-baremetal=ahci1,gpt5  3c909df0-784e-4b1c-890b-b1e971c84d47
-		else
-		  search --no-floppy --fs-uuid --set=root 3c909df0-784e-4b1c-890b-b1e971c84d47
-		fi
-		echo	'Loading Linux 4.13.0-26-generic ...'
-		linux	/boot/vmlinuz-4.13.0-26-generic.efi.signed root=UUID=3c909df0-784e-4b1c-890b-b1e971c84d47 ro  quiet splash $vt_handoff
-		echo	'Loading initial ramdisk ...'
-		initrd	/boot/initrd.img-4.13.0-26-generic
-	}
+    recordfail
+    load_video
+    gfxmode $linux_gfx_mode
+    insmod gzio
+    if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+    insmod part_gpt
+    insmod ext2
+    set root='hd1,gpt5'
+    if [ x$feature_platform_search_hint = xy ]; then
+      search --no-floppy --fs-uuid --set=root --hint-bios=hd1,gpt5 --hint-efi=hd1,gpt5 --hint-baremetal=ahci1,gpt5  3c909df0-784e-4b1c-890b-b1e971c84d47
+    else
+      search --no-floppy --fs-uuid --set=root 3c909df0-784e-4b1c-890b-b1e971c84d47
+    fi
+    echo  'Loading Linux 4.13.0-26-generic ...'
+    linux  /boot/vmlinuz-4.13.0-26-generic.efi.signed root=UUID=3c909df0-784e-4b1c-890b-b1e971c84d47 ro  quiet splash $vt_handoff
+    echo  'Loading initial ramdisk ...'
+    initrd  /boot/initrd.img-4.13.0-26-generic
+  }
 ```
 
 **Windows**
 
 ```
 menuentry 'Windows Boot Manager (on /dev/sdb2)' --class windows --class os $menuentry_id_option 'osprober-efi-18E3-6B87' {
-	insmod part_gpt
-	insmod fat
-	set root='hd1,gpt2'
-	if [ x$feature_platform_search_hint = xy ]; then
-	  search --no-floppy --fs-uuid --set=root --hint-bios=hd1,gpt2 --hint-efi=hd1,gpt2 --hint-baremetal=ahci1,gpt2  18E3-6B87
-	else
-	  search --no-floppy --fs-uuid --set=root 18E3-6B87
-	fi
-	chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+  insmod part_gpt
+  insmod fat
+  set root='hd1,gpt2'
+  if [ x$feature_platform_search_hint = xy ]; then
+    search --no-floppy --fs-uuid --set=root --hint-bios=hd1,gpt2 --hint-efi=hd1,gpt2 --hint-baremetal=ahci1,gpt2  18E3-6B87
+  else
+    search --no-floppy --fs-uuid --set=root 18E3-6B87
+  fi
+  chainloader /EFI/Microsoft/Boot/bootmgfw.efi
 }
 ```
 
@@ -100,9 +99,9 @@ menuentry 'Windows Boot Manager (on /dev/sdb2)' --class windows --class os $menu
 
 ```
 menuentry "Linux Name" {
-	set root=(hd0,2) # 系统所在位置
-	linux /boot/vmlinuz # 引导内核
-	initrd /boot/initrd.img # 临时内核
+  set root=(hd0,2) # 系统所在位置
+  linux /boot/vmlinuz # 引导内核
+  initrd /boot/initrd.img # 临时内核
 }
 ```
 
@@ -110,10 +109,10 @@ menuentry "Linux Name" {
 
 ```
 menuentry "Windows" {
-	insmod part_gpt # 载入模块，下同
-	insmod fat
-	set root='hd1,gpt2' # 系统所在位置
-	chainloader /EFI/Microsoft/Boot/bootmgfw.efi # UEFI启动的Windows的efi引导文件
+  insmod part_gpt # 载入模块，下同
+  insmod fat
+  set root='hd1,gpt2' # 系统所在位置
+  chainloader /EFI/Microsoft/Boot/bootmgfw.efi # UEFI启动的Windows的efi引导文件
 }
 ```
 
@@ -121,8 +120,8 @@ menuentry "Windows" {
 
 ```
 menuentry "System shutdown" {
-	echo "System shutting down..."
-	halt
+  echo "System shutting down..."
+  halt
 }
 ```
 
@@ -130,8 +129,8 @@ menuentry "System shutdown" {
 
 ```
 menuentry "System restart" {
-	echo "System rebooting..."
-	reboot
+  echo "System rebooting..."
+  reboot
 }
 ```
 
