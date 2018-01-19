@@ -22,12 +22,16 @@ sudo sed -i "/SELINUX=/s|enforcing|disabled|" /etc/selinux/config
 
 These files are based on <a href="https://github.com/cz-guardian/fedora-deepin/">cz-guardian/fedora-deepin</a> and <a href="https://www.archlinux.org/packages/?q=deepin">Arch packages</a>. You can visit the <a href="https://copr.fedorainfracloud.org/coprs/mosquito/deepin/">Deepin Copr</a> to install them. Thanks for all of the community developers and packagers.
 <h2><a id="user-content-installation-instructions" class="anchor" href="https://github.com/FZUG/repo/tree/master/rpms/deepin_project#installation-instructions"></a>Installation instructions</h2>
-<pre class="lang:js decode:true">sudo dnf install http://download1.rpmfusion.org/free/fedora/releases/$(rpm -E %fedora)/Everything/$(uname -i)/os/Packages/r/rpmfusion-free-release-$(rpm -E %fedora)-1.noarch.rpm
+
+```
+sudo dnf install http://download1.rpmfusion.org/free/fedora/releases/$(rpm -E %fedora)/Everything/$(uname -i)/os/Packages/r/rpmfusion-free-release-$(rpm -E %fedora)-1.noarch.rpm
 sudo dnf copr enable mosquito/deepin
 sudo dnf update
 sudo dnf install deepin-desktop deepin-session-ui deepin-launcher deepin-screenshot deepin-terminal
 sudo systemctl disable gdm.service &amp;&amp; sudo systemctl enable lightdm.service (optional, gdm also available)
-sudo sed -i "/SELINUX=/s|enforcing|disabled|" /etc/selinux/config</pre>
+sudo sed -i "/SELINUX=/s|enforcing|disabled|" /etc/selinux/config
+```
+
 After this is done, simply reboot into your new nice environment.
 <h2><a id="user-content-fedora-deepin-repository-content" class="anchor" href="https://github.com/FZUG/repo/tree/master/rpms/deepin_project#fedora-deepin-repository-content"></a>fedora-deepin repository content</h2>
 This repository contains the following .specs for integrating the deepin desktop environment into Fedora. You can simply compile them in order.

@@ -1,5 +1,5 @@
 ---
-title: GRUB简单学习教程
+title: GRUB简单入门教程
 date: 2018-01-19 15:48:05
 category: Unix/Linux
 ---
@@ -77,7 +77,7 @@ menuentry 'Ubuntu, with Linux 4.13.0-26-generic' --class ubuntu --class gnu-linu
   }
 ```
 
-**Windows**
+**Windows 10**
 
 ```
 menuentry 'Windows Boot Manager (on /dev/sdb2)' --class windows --class os $menuentry_id_option 'osprober-efi-18E3-6B87' {
