@@ -73,7 +73,7 @@ DNS prefetch 分析这个页面需要的资源所在的域名，浏览器空闲�
 <link rel='prerender' href='http://www.pagetoprerender.com'>
 ```
 
-`rel='prerender'` 表示浏览器会帮我们渲染但隐藏指定的页面，一旦我们访问这个页面，则秒开了！
+`rel='prerender'`表示浏览器会帮我们渲染但隐藏指定的页面，一旦我们访问这个页面，则秒开了！
 
 在 Firefox 中或用 `rel='next'` 来声明
 

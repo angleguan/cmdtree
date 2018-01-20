@@ -3,6 +3,7 @@ title: JavaScript 当中的代码嗅探
 date: 2017-03-27T15:40:52+00:00
 category: JavaScript
 ---
+
 除非有特殊需要，否则不要试图扩展原生对象和原型（prototype）：
 
 ```javascript

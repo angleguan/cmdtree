@@ -3,13 +3,6 @@ title: javascript 中强制执行 toString()
 date: 2017-04-18T11:38:07+00:00
 category: JavaScript
 ---
-原文：[Enforcing toString()](http://www.2ality.com/2013/04/enforcing-tostring.html)
-
-译文：[javascript 中强制执行 toString()](http://justjavac.com/javascript/2013/04/24/javascript-enforcing-the-function-tostring.html)
-
-译者：[singleseeker](http://weibo.com/singleseeker)
-
-----------------------------------------------------
 
 Javascript通常会根据方法或运算符的需要而自动把值转成所需的类型，这可能导致各种错误。
 Brian McKenna ([@puffnfresh][puffnfresh]) [suggests][] 提供了下列测试代码：
@@ -81,11 +74,5 @@ Object.prototype.valueOf = function () {
 
 3. 如果使得 `valueOf()` 返回一个明确的基本数值类型，那么当一个对象与字符串相加时，`toString()` 将不会被调用
 
-## 参考
-
-1. [强制转换对象（objects）为原始值（primitives）][1]
-
-2. [JavaScript中,{}+{}等于多少?][2]
-
-[1]: http://justjavac.com/javascript/2013/04/22/javascript-coercing-objects-to-primitives.html "强制转换对象（objects）为原始值（primitives）"
-[2]: http://justjavac.com/javascript/2012/12/20/object-plus-object.html "JavaScript中,{}+{}等于多少?"
+> 原文：[Enforcing toString()](http://www.2ality.com/2013/04/enforcing-tostring.html)
+> 译文：[javascript 中强制执行 toString()](http://justjavac.com/javascript/2013/04/24/javascript-enforcing-the-function-tostring.html)
