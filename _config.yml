@@ -34,6 +34,7 @@ category_map:
   Unix/Linux: linux
   JavaScript: javscript
   杂文: other
+  观后感: review
 date_format: YYYY年M月D日
 time_format: HH:mm:ss
 per_page: 0
