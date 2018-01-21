@@ -105,7 +105,7 @@ true
 
 ```javascript
 function isDefined(x) {
-    return x !== null && x !== undefined;
+  return x !== null && x !== undefined;
 }
 ```
 
@@ -150,8 +150,8 @@ obj.??foo.??bar
 
 ```javascript
 (obj === undefined || obj === null) ? obj
-    : (obj.foo === undefined || obj.foo === null) ? obj.foo
-        : obj.foo.bar
+  : (obj.foo === undefined || obj.foo === null) ? obj.foo
+    : obj.foo.bar
 ```
   
 ## 区分对象值和原始值
@@ -160,8 +160,7 @@ obj.??foo.??bar
 
 ```javascript
 function isObject(x) {
-    return (typeof x === "function"
-            || (typeof x === "object" && x !== null));
+  return (typeof x === "function" || (typeof x === "object" && x !== null));
 }
 ```
 
@@ -171,66 +170,76 @@ function isObject(x) {
 
 ```javascript
 function isObject2(x) {
-    return x === Object(x);
+  return x === Object(x);
 }
 ```
 
 警告：你也许认为这里可以使用 `instanceof Object` 来检测，但是 `instanceof` 是通过使用使用一个对象的原型来判断实例关系的，那么没有原型的对象怎么办呢：
 
-    > var obj = Object.create(null);
-    > Object.getPrototypeOf(obj)
-    null
+```
+> var obj = Object.create(null);
+> Object.getPrototypeOf(obj)
+null
+```
 
 obj 确实是一个对象，但它不是任何值的实例:
 
-    > typeof obj
-    'object'
-    > obj instanceof Object
-    false
+```
+> typeof obj
+'object'
+> obj instanceof Object
+false
+```
 
 在实际中，你可能很少遇到这样的对象，但它的确存在，而且有它的用途。
 
 译者注：`Object.prototype` 就是唯一的一个内置的，没有原型的对象。
 
-    >Object.getPrototypeOf(Object.prototype)
-    null
-    >typeof Object.prototype
-    'object'
-    >Object.prototype instanceof Object 
-    false
+```
+>Object.getPrototypeOf(Object.prototype)
+null
+>typeof Object.prototype
+'object'
+>Object.prototype instanceof Object 
+false
+```
 
 ## 原始值的类型是什么?
 
 `typeof` 是最好的用来查看某个原始值的类型的方式。
 
-    > typeof "abc"
-    'string'
-    > typeof undefined
-    'undefined'
+```
+> typeof "abc"
+'string'
+> typeof undefined
+'undefined'
+```
 
 问题：你必须知道 `typeof null` 的怪异表现。
 
-    > typeof null  // 要小心!
-    'object'
+```
+> typeof null  // 要小心!
+'object'
+```
 
 解决办法：下面的函数可以修复这个问题(只针对这个用例)。
 
 ```javascript
 function getPrimitiveTypeName(x) {
-    var typeName = typeof x;
-    switch(typeName) {
-        case "undefined":
-        case "boolean":
-        case "number":
-        case "string":
-            return typeName;
-        case "object":
-            if (x === null) {
-                return "null";
-            }
-        default: // 前面的判断都没通过
-            throw new TypeError("参数不是一个原始值: "+x);
-    }
+  var typeName = typeof x;
+  switch(typeName) {
+    case "undefined":
+    case "boolean":
+    case "number":
+    case "string":
+      return typeName;
+    case "object":
+      if (x === null) {
+        return "null";
+      }
+    default: // 前面的判断都没通过
+      throw new TypeError("参数不是一个原始值: "+x);
+  }
 }
 ```
 

@@ -3,12 +3,13 @@ title: JavaScript 当中的代码嗅探
 date: 2017-03-27T15:40:52+00:00
 category: JavaScript
 ---
+
 除非有特殊需要，否则不要试图扩展原生对象和原型（prototype）：
 
 ```javascript
 // 不要这样做
 Array.prototype.map = function() {
-    // 一些代码
+  // 一些代码
 };
 ```
 
@@ -18,9 +19,9 @@ Array.prototype.map = function() {
 
 ```javascript
 if (!Array.prototype.map) {
-    Array.prototype.map = function() {
-        // 一些代码
-    };
+  Array.prototype.map = function() {
+    // 一些代码
+  };
 }
 ```
 
@@ -28,13 +29,14 @@ if (!Array.prototype.map) {
 
 ```javascript
 if (typeof Array.prototype.map !== "function") {
-    Array.prototype.map = function() {
-        // 一些代码
-    };
+  Array.prototype.map = function() {
+    // 一些代码
+  };
 }
 ```
 
 显然，这样做将破坏其它开发者的 map 定义，并影响他们功能的实现。
+
 但是，在一个充满敌意和残酷竞争的环境下（换句话说，但你提供或者使用一个 js 库时），你不应该相信任何人。
 
 如果其他人的 js 代码先于你的 js 代码加载，并且以某种方式定义了一个不完全兼容 ES5 的 `map()` 方法，导致你的代码不能正常运行，该怎么办呢？
@@ -47,8 +49,10 @@ if (typeof Array.prototype.map !== "function") {
 
 例如在 Chrome 的控制台下：
 
-    > Array.prototype.map.toString();
-    "function map() { [native code] }"
+```js
+> Array.prototype.map.toString();
+"function map() { [native code] }"
+````
 
 编写一个适当的代码检查向来就是一件令人不快的事，因为不同浏览器对空格和换行处理的太过轻率。
 测试如下：
@@ -72,14 +76,14 @@ Array.prototype.map.toString().replace(/\s/g, '');
 
 ```javascript
 function shim(o, prop, fn) {
-    var nbody = "function" + prop + "(){[nativecode]}";
-    if (o.hasOwnProperty(prop) && 
-            o[prop].toString().replace(/\s/g, '') === nbody) {
-        // 表名是原生的！ 
-        return true;
-    }
-    // 新添加的 
-    o[prop] = fn;
+  var nbody = "function" + prop + "(){[nativecode]}";
+  if (o.hasOwnProperty(prop) && 
+      o[prop].toString().replace(/\s/g, '') === nbody) {
+    // 表名是原生的！ 
+    return true;
+  }
+  // 新添加的 
+  o[prop] = fn;
 }
 ```
 
@@ -88,14 +92,14 @@ function shim(o, prop, fn) {
 ```javascript
 // 这是原生的方法
 shim(
-    Array.prototype, 'map',
-    function(){/*...*/}
+  Array.prototype, 'map',
+  function(){/*...*/}
 ); // true
 
 // 这是新添加的方法
 shim(
-    Array.prototype, 'mapzer',
-    function(){alert(this)}
+  Array.prototype, 'mapzer',
+  function(){alert(this)}
 );
 
 [1,2,3].mapzer(); // alerts 1,2,3

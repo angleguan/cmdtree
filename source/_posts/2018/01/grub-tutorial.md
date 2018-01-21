@@ -1,5 +1,5 @@
 ---
-title: GRUB简单学习教程
+title: GRUB简单入门教程
 date: 2018-01-19 15:48:05
 category: Unix/Linux
 ---
@@ -38,7 +38,7 @@ GRUB2的设备命令方式：
 
 通常情况下，大部分的Linux版本都不需要我们手动安装。
 
-你也可以下载源代码编译安装
+你也可以克隆源代码编译安装
 
 ```
 # git clone git://git.savannah.gnu.org/grub.git
@@ -49,9 +49,9 @@ GRUB2的设备命令方式：
 
 ## 配置文件
 
-GRUB的主要配置文件是/boot/grub/grub.cfg，这份文件不可以直接编辑，如果想修改启动项或者添加自定义启动项应该编辑`/etc/grub.d/`下的脚本。
+GRUB的主要配置文件是/boot/grub/grub.cfg，该配置文件根据/etc/default/grub和/etc/grub.d/目录下的文件生成，所以不可以直接编辑，如果想修改启动项或者添加自定义启动项应该编辑`/etc/grub.d/`下的脚本。
 
-下面是已经生成的双系统电脑中的`grub.cfg`文件中两份系统的信息：
+下面是已经生成的双系统电脑中的`grub.cfg`文件中两个系统的引导信息：
 
 **Ubuntu 16.04**
 
@@ -77,7 +77,7 @@ menuentry 'Ubuntu, with Linux 4.13.0-26-generic' --class ubuntu --class gnu-linu
   }
 ```
 
-**Windows**
+**Windows 10**
 
 ```
 menuentry 'Windows Boot Manager (on /dev/sdb2)' --class windows --class os $menuentry_id_option 'osprober-efi-18E3-6B87' {
@@ -134,7 +134,6 @@ menuentry "System restart" {
 }
 ```
 
-
 每当你修改了这些配置文件，都需要输入下面的命令来重新生成grub.cfg文件
 
 ```
@@ -152,21 +151,3 @@ $ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 > 如果你想在Windows系统中编辑或添加UEFI启动项，你可以使用EasyUEFI软件（在非企业版系统中免费），EasyBCD只能在传统（legacy）启动中使用。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

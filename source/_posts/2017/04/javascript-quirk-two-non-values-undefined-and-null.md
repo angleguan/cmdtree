@@ -14,23 +14,29 @@ category: JavaScript
 
 如果一个变量还没有被初始化，那么它的值就是 `undefined`:
 
-    > var foo;
-    > foo
-    undefined
+```
+> var foo;
+> foo
+undefined
+```
 
 同理，当缺失参数时 JavaScript 会分配一个 `undefined`：
 
-    > function id(x) { return x }
-    > id()
-    undefined
+```
+> function id(x) { return x }
+> id()
+undefined
+```
 
 `null` 是被开发者用来明确指出某个值是缺失的，
 例如，对于 [JSON.stringify()](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify):   
 
-    > console.log(JSON.stringify({ first: 'Jane' }, null, 4))
-    {
-        "first": "Jane"
-    }
+```
+> console.log(JSON.stringify({ first: 'Jane' }, null, 4))
+{
+  "first": "Jane"
+}
+```
 
 校检：一个变量是否有值？
 
@@ -81,6 +87,5 @@ if (v !== undefined && v !== null) {
 [性能方面](http://jsperf.com/definedness)，所有在这个章节中提到的这三个校检基本是相同的。
 
 所以，最后用哪个取决于你的需求还有你的品味。
-
 
 一些压缩工具甚至用 `!=` 重写了最后一条校检。

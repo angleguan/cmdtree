@@ -3,6 +3,7 @@ title: Javascript 的 10 个设计缺陷
 date: 2017-03-28T12:36:36+00:00
 category: JavaScript
 ---
+
 ## 一、为什么 Javascript 有设计缺陷？
 
 这里有三个客观原因，导致 Javascript 的设计不够完善。
@@ -10,16 +11,20 @@ category: JavaScript
 ### 1. 设计阶段过于仓促
 
 Javascript 的设计，其实只用了十天。
+
 而且，设计师是为了向公司交差，本人并不愿意这样设计（参见《Javascript 诞生记》）。
 
 另一方面，这种语言的设计初衷，是为了解决一些简单的网页互动（比如，检查"用户名"是否填写），
 并没有考虑复杂应用的需要。
+
 设计者做梦也想不到，Javascript 将来可以写出像 Gmail 这种极其庞大复杂的网页。
 
 ### 2. 没有先例
 
 Javascript 同时结合了函数式编程和面向对象编程的特点，这很可能是历史上的第一例。
+
 而且直到今天为止，Javascript 仍然是世界上唯一使用 Prototype 继承模型的主要语言。
+
 这使得它没有设计先例可以参考。
 
 ### 3. 过早的标准化
@@ -27,19 +32,27 @@ Javascript 同时结合了函数式编程和面向对象编程的特点，这很
 Javascript 的发展非常快，根本没有时间调整设计。
 
 1995年5月，设计方案定稿；
+
 10 月，解释器开发成功；
+
 12 月，向市场推出，立刻被广泛接受，全世界的用户大量使用。
+
 Javascript 缺乏一个从小到大、慢慢积累用户的过程，而是连续的爆炸式扩散增长。
+
 大量的既成网页和业余网页设计者的参与，使得调整语言规格困难重重。
 
 更糟的是，Javascript 的规格还没来及调整，就固化了。
 
 1996 年 8 月，微软公司强势介入，宣布推出自己的脚本语言 Jscript；
+
 11 月，为了压制微软，网景公司决定申请 Javascript 的国际标准；
+
 1997 年 6 月，第一个国际标准 ECMA-262 正式颁布。
 
 也就是说，Javascript 推出一年半之后，国际标准就问世了。
+
 设计缺陷还没有充分暴露就成了标准。
+
 相比之下，C 语言问世将近 20 年之后，国际标准才颁布。
 
 ## 二、Javascript 的 10 个设计缺陷
@@ -47,7 +60,9 @@ Javascript 缺乏一个从小到大、慢慢积累用户的过程，而是连续
 ### 1. 不适合开发大型程序
 
 Javascript 没有名称空间（namespace），很难模块化；
+
 没有如何将代码分布在多个文件的规范；
+
 允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。
 
 ### 2. 非常小的标准库
@@ -57,6 +72,7 @@ Javascript 提供的标准函数库非常小，只能完成一些基本操作，
 ### 3. null 和 undefined
 
 `null` 属于对象（`object`）的一种，意思是该对象为空；
+
 `undefined` 则是一种数据类型，表示未定义。
 
 ```javascript
@@ -79,14 +95,15 @@ alert(foo === undefined); // true
 ### 4. 全局变量难以控制
 
 Javascript 的全局变量，在所有模块中都是可见的；
+
 任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。
 
 ```javascript
 a = 1;
 
 (function(){
-    b=2;
-    alert(a);
+  b=2;
+  alert(a);
 })(); // 1
 
 alert(b); //2
@@ -95,17 +112,19 @@ alert(b); //2
 ### 5. 自动插入行尾分号
 
 Javascript 的所有语句，都必须以分号结尾。
+
 但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。
+
 有时候，这会导致一些难以发现的错误。
 
 比如，下面这个函数根本无法达到预期的结果，返回值不是一个对象，而是 `undefined`。
 
 ```javascript
 function(){
-    return
-        {
-            i=1
-        };
+  return
+    {
+      i=1
+    };
 }
 ```
 
@@ -113,10 +132,10 @@ function(){
 
 ```javascript
 function(){
-    return;
-        {
-            i=1
-        };
+  return;
+    {
+      i=1
+    };
 }
 ```
 
@@ -141,6 +160,7 @@ alert("10"+1); // 101
 ### 7. NaN
 
 `NaN` 是一种数字，表示超出了解释器的极限。
+
 它有一些很奇怪的特性：
 
 ```javascript
@@ -153,21 +173,21 @@ alert( 1 + NaN ); // NaN
 
 ### 8. 数组和对象的区分
 
-由于 Javascript 的数组也属于对象（`object`），所以要区分一个对象到底是不是数组，
-相当麻烦。Douglas Crockford 的代码是这样的：
+由于 Javascript 的数组也属于对象（`object`），所以要区分一个对象到底是不是数组，相当麻烦。Douglas Crockford 的代码是这样的：
 
 ```javascript
 if ( arr && 
-    typeof arr === 'object' &&
-        typeof arr.length === 'number' &&
-        !arr.propertyIsEnumerable('length')){
-            alert("arr is an array");
+  typeof arr === 'object' &&
+    typeof arr.length === 'number' &&
+    !arr.propertyIsEnumerable('length')){
+      alert("arr is an array");
 }
 ```
 
 ### 9. == 和 ===
 
 `==` 用来判断两个值是否相等。
+
 当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。
 
 ```javascript
@@ -187,6 +207,7 @@ null == undefined // true
 ### 10. 基本类型的包装对象
 
 Javascript 有三种基本数据类型：字符串、数字和布尔值。
+
 它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。
 
 ```javascript
@@ -213,9 +234,9 @@ alert( typeof new Number(1234)); // object
 首先，如果遵守良好的编程规范，加上第三方函数库的帮助，Javascript 的这些缺陷大部分可以回避。
 
 其次，Javascript 目前是网页编程的唯一语言，只要互联网继续发展，它就必然一起发展。
-目前，许多新项目大大扩展了它的用途，
-[node.js](http://nodejs.org/) 使得 Javascript 可以用于后端的服务器编程，
-[coffeeScript](http://jashkenas.github.com/coffee-script/) 使你可以用 python 和 ruby 的语法，撰写 Javascript。
+
+目前，许多新项目大大扩展了它的用途，[node.js](http://nodejs.org/) 使得 Javascript 可以用于后端的服务器编程，[coffeeScript](http://jashkenas.github.com/coffee-script/) 使你可以用 python 和 ruby 的语法，撰写 Javascript。
 
 最后，只要发布新版本的语言标准（比如 [ECMAscript 5](http://www.ecma-international.org/publications/standards/Ecma-262.htm)），就可以弥补这些设计缺陷。
+
 当然，标准的发布和标准的实现是两回事，上述的很多缺陷也许会一直伴随到 Javascript 存在的最后一天。
