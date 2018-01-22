@@ -19,21 +19,12 @@
 
 <%- partial('partial/footer') %>
 
-<a href="#top" class="back-to-top">^</a>
+<a id="back-to-top">^</a>
 
 <%- js('js/jquery-3.2.1.min.js') %>
 <%- js('js/scrollspy.js') %>
-<%- js('js/TOC.js') %>
-
-<script>
-  $(document).ready(() => {
-    $(".navbar-burger"
-    ).click(() => {
-      $(".navbar-menu"
-      ).toggle();
-    })
-  })
-</script>
+<%- js('js/main.js') %>
+<%- js('js/post.js') %>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112754683-1"></script>
