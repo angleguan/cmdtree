@@ -48,11 +48,9 @@ const postHeaderList = {
       const $this = $(this);
 
       let nodetext = $this.text();
-      // There maybe HTML tags in header inner text, use regex to erase them
       nodetext = nodetext.replace(/<\/?[^>]+>/g, "");
       nodetext = nodetext.replace(/&nbsp;/ig, "");
 
-      // btw: Jekyll generates id for each header.
       let nodeid = $this.attr("id");
       if (!nodeid) {
         nodeid = "top";
@@ -63,10 +61,6 @@ const postHeaderList = {
       item_a.text(nodetext);
 
       let ret_li;
-      // wrapper: ul ( in the template, outside this code )
-      // h1: layer 1: li - a
-      // h2: layer 2: ul - li - a
-      // h3: layer 3: ul - ul - li - a
       switch ($this.get(0).tagName) {
         case "H1":
           var li_a = $("<li></li>").append(item_a);
@@ -86,14 +80,13 @@ const postHeaderList = {
       }
 
       if (!ret_li) {
-        // do nothing
+
       } else {
         ulSideNav.append(ret_li);
       }
-    }) // end of each
+    })
   }
 };
-
 
 $($ => {
   $(document).ready(() => {
