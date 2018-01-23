@@ -11,7 +11,7 @@ category: 使用笔记
 
 我觉得无论是在任何平台安装Jekyll都是非常简单的。安装好ruby和gem就可以使用gem安装jekyll了
 
-[本站搭建笔记(一)安装本地环境](https://fanzhiyang.com/blog/this-site-building-notes-01/)
+[本站搭建笔记(一)安装本地环境](https://fanzhiyang.com/blog/2017/05/this-site-building-notes-01/)
 
 **失败原因总结:**
 
@@ -27,7 +27,7 @@ category: 使用笔记
 
 如果在`bundle install`中提示包含HTTP或者`SSL_connect`的字眼的错误时，请安装OpenSSL并修改源为https的源。
 
-修改方法：[更改RubyGems源](https://fanzhiyang.com/blog/ruby-gem-change/)
+修改方法：[更改RubyGems源](https://fanzhiyang.com/blog/2017/05/ruby-gem-change/)
 
 ## 配置Jekyll
 
@@ -103,15 +103,15 @@ images_url: "https://images.fanzhiyang.com"
 
 ## 相关文章：
 
-[jekyll 的一些函数和技巧](https://fanzhiyang.com/blog/jekyll-more/)
+[jekyll 的一些函数和技巧](https://fanzhiyang.com/blog/2017/06/jekyll-more/)
 
-[Jekyll error：tag was never closed](https://fanzhiyang.com/blog/jekyll-tag-was-never-closed/)
+[Jekyll error：tag was never closed](https://fanzhiyang.com/blog/2017/05/jekyll-tag-was-never-closed/)
 
-[使用jekyll在Github上搭建博客](https://fanzhiyang.com/blog/use-jekyll-build-blog-on-github/)
+[使用jekyll在Github上搭建博客](https://fanzhiyang.com/blog/2017/06/use-jekyll-build-blog-on-github/)
 
-[为 jekyll 博客添加静态搜索](https://fanzhiyang.com/blog/jekyll-static-search/)
+[为 jekyll 博客添加静态搜索](https://fanzhiyang.com/blog/2017/04/jekyll-static-search/)
 
-[定制Google自定义搜索页](https://fanzhiyang.com/blog/use-google-customize-search/)
+[定制Google自定义搜索页](https://fanzhiyang.com/blog/2017/07/use-google-customize-search/)
 
-[Github Pages绑定域名添加HTTPS（Cloudflare](https://fanzhiyang.com/blog/github-pages-cloudflare-ssl/)
+[Github Pages绑定域名添加HTTPS（Cloudflare](https://fanzhiyang.com/blog/2017/10/github-pages-cloudflare-ssl/)
 
