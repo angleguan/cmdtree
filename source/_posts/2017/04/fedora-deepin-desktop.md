@@ -7,6 +7,7 @@ category: Unix/Linux
 **Fedora和Ubuntu可以说是Linux distribution中最受欢迎的两个桌面发行版，其社区相当活跃，现在，我们可以在 Fedora 系统中使用 Deepin 桌面环境。**
 
 安装方法：
+
 ```zsh
 sudo dnf install http://download1.rpmfusion.org/free/fedora/releases/$(rpm -E %fedora)/Everything/$(uname -i)/os/Packages/r/rpmfusion-free-release-$(rpm -E %fedora)-1.noarch.rpm
 sudo dnf copr enable mosquito/deepin

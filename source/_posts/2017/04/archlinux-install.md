@@ -4,7 +4,6 @@ date: 2017-04-16T16:38:53+00:00
 category: Unix/Linux
 ---
 
-
 > Arch Linux(或称Arch)是一种以轻量简洁为设计理念的Linux发行版。其开发团队秉承简洁、优雅、正确和代码最小化的设计宗旨。Arch Linux 项目受 CRUX 启发，由 Judd Vinet 于2002年启动。
 
 Arch Linux下载地址
@@ -55,7 +54,6 @@ Arch Linux是官方wiki最完善强大的Linux发行版，其社区也相当活�
 依次选择来挂载一个安装镜像，选择我们刚才下载的镜像
 
 ![](/pics/2017/04/1608.png)
-
 
 挂载完成后点击【启动】即可
 
