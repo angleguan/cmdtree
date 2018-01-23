@@ -142,8 +142,8 @@ category: Jekyll
 
 默认的`yourname.github.io` 域名不好看，你可以自己购买一个域名并绑定到Github Pages：
 
-1. 在你的仓库中新建一个名为CNAME的文件，往里面写入你的网站域名（不带HTTPS/HTTP）
-2. 在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME类型，指向YOURNAME.github.io即可。
+1）在你的仓库中新建一个名为CNAME的文件，往里面写入你的网站域名（不带HTTPS/HTTP）
+2）在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME类型，指向YOURNAME.github.io即可。
 
 绑定域名后如何开启HTTPS，参考[Github Pages绑定域名添加HTTPS（Cloudflare） - 樊志阳](https://fanzhiyang.com/blog/github-pages-cloudflare-ssl/)
 

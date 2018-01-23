@@ -38,11 +38,11 @@ Error: Use an explicit toString
 
 要把一个对象转成一个特定的基本类型 T，首先是它的值被转化成基本类型，然后才是转换成 T，前一个转换由[两步完成][1]：  
 
-1. 调用`valueOf()`方法，如果返回一个基本类型，那么就结束
+1）调用`valueOf()`方法，如果返回一个基本类型，那么就结束
 
-2. 不然，调用方法`toString()`。如果返回一个基本类型，那么结束
+2）不然，调用方法`toString()`。如果返回一个基本类型，那么结束
 
-3. 再不然，抛出错误
+3）再不然，抛出错误
 
 如果最后的转换是个数值，会是上述调用`valueOf()`与`toString()`的这个顺序。
 
@@ -73,11 +73,11 @@ Error: Use an explicit toString
 
 下面进行简单的总结。
 
-1. 通常`valuOf()`指示返回一个未转换的对象，也就是其本身
+1）通常`valuOf()`指示返回一个未转换的对象，也就是其本身
 
-2. 加号运算符除了`Date`对象外，几乎全是先调用`valueOf()`方法
+2）加号运算符除了`Date`对象外，几乎全是先调用`valueOf()`方法
 
-3. 如果使得`valueOf()`返回一个明确的基本数值类型，那么当一个对象与字符串相加时，`toString()` 将不会被调用
+3）如果使得`valueOf()`返回一个明确的基本数值类型，那么当一个对象与字符串相加时，`toString()` 将不会被调用
 
 > 原文：[Enforcing toString()](http://www.2ality.com/2013/04/enforcing-tostring.html)
 > 译文：[javascript 中强制执行 toString()](http://justjavac.com/javascript/2013/04/24/javascript-enforcing-the-function-tostring.html)

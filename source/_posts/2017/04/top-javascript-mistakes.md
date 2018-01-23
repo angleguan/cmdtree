@@ -10,7 +10,7 @@ category: JavaScript
 
 我们描述了这些陋习，并列出来解决办法，希望对开发者有帮助。
 
-## 1. for… 数组迭代的用法
+## 一、for… 数组迭代的用法
     
 举例：
 
@@ -44,7 +44,7 @@ for (var i=0; i<myArray.length; i++) {
 }
 ```
 
-## 2. 数组维度
+## 二、数组维度
 
 举例
 
@@ -58,7 +58,7 @@ var myArray = new Array(10);
 var myArray = [];
 ```
 
-## 3. 未定义属性
+## 三、未定义属性
 
 举例：
 
@@ -87,7 +87,7 @@ var myObject = {
 }
 ```
 
-## 4. 闭包的滥用
+## 四、闭包的滥用
 
 举例：
 
@@ -130,7 +130,7 @@ function (a, b, c) {
 }
 ```
 
-## 5. 循环中的闭包
+## 五、循环中的闭包
 
 举例：
 
@@ -168,7 +168,7 @@ for (var i = 0; i<elements.length; i++) {
 
 > 这个错误经常在面试中被考到
 
-## 6. DOM 对象的内测泄漏
+## 六、DOM 对象的内测泄漏
 
 举例：
 
@@ -206,7 +206,7 @@ function attachEvents() {
 attachEvents();
 ```
 
-## 7. 区别整数数字和浮点数字
+## 七、区别整数数字和浮点数字
 
 举例：
 
@@ -226,7 +226,7 @@ var myNumber = 3.5;
 var myResult = 3.5 + 1; //Result is 4.5, as expected
 ```
 
-## 8. with() 作为快捷方式的用法
+## 八、with() 作为快捷方式的用法
 
 举例：
 
@@ -255,7 +255,7 @@ var sc = team.attackers.myWarrior;
 console.log(“Your warrior power is ” + (sc.attack * sc.speed));
 ```
 
-## 9. setTimeout/setInterval 字符串的用法
+## 九、setTimeout/setInterval 字符串的用法
 
 举例：
 
@@ -285,7 +285,7 @@ setTimeout(function(){ //Get arg value using closures
     }, 200);
 ```
 
-## 10. setInterval() 的用法
+## 十、setInterval() 的用法
 
 举例：
 
@@ -315,7 +315,7 @@ function domOperations() {
 setTimeout(domOperations, 200);
 ```
 
-## 11. "this" 的滥用
+## 十一、"this" 的滥用
 
 这个常用错误，没有例子，因为非常难创建来演示。
 
@@ -341,7 +341,7 @@ this points to an empty Object.
 
 this points to the object passed as first argument.
 
-## 12. eval() 访问动态属性的用法 
+## 十二、eval() 访问动态属性的用法 
 
 举例：
 
@@ -361,7 +361,7 @@ var i = 2;
 var myResult = myObject[“p”+i];
 ```
 
-## 13. 未定义(undefined)作为变量的用法
+## 十三、未定义(undefined)作为变量的用法
 
 举例：
 

@@ -22,7 +22,7 @@ var reg  = /^[a-zA-Z]{5,20}$/;
 var error= new Error();
 ```
 
-## 1. 使用typeof检测
+## 一、使用typeof检测
 
 我们平时用的最多的就是用`typeof`检测变量类型了。这次，我们也使用typeof检测变量的类型：
 ```js
@@ -46,7 +46,7 @@ console.log(
 
 还有，`typeof`是区分不出`array`和`json`类型的。因为使用`typeof`这个变量时，`array`和`json`类型输出的都是`object`。
 
-## 2. 使用instance检测
+## 二、使用instance检测
 
 在 JavaScript 中，判断一个变量的类型尝尝会用 `typeof` 运算符，在使用 typeof 运算符时采用引用类型存储值会出现一个问题，无论引用的是什么类型的对象，它都返回 “object”。ECMAScript 引入了另一个 Java 运算符 `instanceof` 来解决这个问题。
 
@@ -107,7 +107,7 @@ var boolean = new Boolean(true);
 ```
 同时，我们也要看到，und和nul是检测不成Object类型的，其他的类型也不对，因此，若要使用instanceof进行变量检测时，需要首先判断是否是`undefined`和`null`。
 
-## 3. 使用constructor检测
+## 三、使用constructor检测
 
 在使用instanceof检测变量类型时，我们是检测不到number, ‘string’, bool的类型的。因此，我们需要换一种方式来解决这个问题。
 constructor本来是原型对象上的属性，指向构造函数。但是根据实例对象寻找属性的顺序，若实例对象上没有实例属性或方法时，就去原型链上寻找，因此，实例对象也是能使用constructor属性的。
@@ -162,7 +162,7 @@ console.log(John.constructor==Person);  // true
 
 2、每个页面的Array原生对象所引用的地址是不一样的，在子页面声明的array，所对应的构造函数，是子页面的Array对象；父页面来进行判断，使用的Array并不等于子页面的Array；切记，不然很难跟踪问题！
 
-## 4. 使用Object.prototype.toString.call
+## 四、使用Object.prototype.toString.call
 
 我们先不管这个是什么，先来看看他是怎么检测变量类型的：
 
@@ -199,7 +199,7 @@ console.log(
 
 上面的规范定义了`Object.prototype.toString`的行为：首先，取得对象的一个内部属性`[[Class]]`，然后依据这个属性，返回一个类似于`[object Array]`的字符串作为结果（看过ECMA标准的应该都知道，`[[]]`用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”）。利用这个方法，再配合call，我们可以取得任何对象的内部属性`[[Class]]`，然后把类型检测转化为字符串比较，以达到我们的目的。
 
-# 5. jquery中$.type的实现
+## 五、jquery中$.type的实现
 
 在jquery中提供了一个$.type的接口，来让我们检测变量的类型：
 
