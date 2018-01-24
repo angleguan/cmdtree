@@ -5,6 +5,8 @@ category: Python
 
 生成器（Generator）是Python语言中一个很独特的特性，生成器可以是一个函数，这个generator函数一定会包含`yield`语句，我们知道，在一般函数中，遇到return语句时就会终止执行返回结果，而在generator中，当for对一组可迭代项目进行迭代时，一旦generator函数运行到yield语句处就会停止执行，然后从项目中获取一个新值再从yield处继续执行。
 
+<!-- more -->
+
 ### 生成器表达式
 
 跟列表生成式一样，生成器也可以用类似表达式的形式写出来，只需要把`[]`改成`()`就可以创建一个generator。
