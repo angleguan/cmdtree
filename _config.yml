@@ -3,7 +3,7 @@ title: 樊志阳的BLOG
 author: 樊志阳
 url: https://fanzhiyang.com
 permalink: blog/:title/
-source_dir: source
+source_dir: src
 public_dir: public
 archive_dir: blog
 category_dir: blog
