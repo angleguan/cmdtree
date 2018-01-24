@@ -35,6 +35,7 @@ category_map:
   JavaScript: javascript
   杂文: other
   观后感: review
+  Python: python
 date_format: YYYY年M月D日
 time_format: HH:mm:ss
 per_page: 0
