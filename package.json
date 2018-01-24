@@ -1,13 +1,15 @@
 {
-  "name": "fanzhiyang-blog",
+  "name": "fanzhiyang-website",
   "version": "1.0.0",
-  "description": "Fan Zhiyang's personal blog.",
+  "description": "Fan Zhiyang's personal Website.",
   "keywords": [
     "fanzhiyang",
-    "blog"
+    "blog",
+    "website",
+    "homepage"
   ],
   "author": {
-    "name": "zhiyang",
+    "name": "fanzhiyang",
     "email": "fanzhiyang2001@gmail.com"
   },
   "license": "MIT",
