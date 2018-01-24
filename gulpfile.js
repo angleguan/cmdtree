@@ -1,9 +1,9 @@
-let gulp = require('gulp');
-let htmlmin = require('gulp-htmlmin');
-let htmlclean = require('gulp-htmlclean');
-let cleanCSS = require('gulp-clean-css');
-let imagemin = require('gulp-imagemin');
-let pngquant = require('imagemin-pngquant');
+const gulp = require('gulp');
+const htmlmin = require('gulp-htmlmin');
+const htmlclean = require('gulp-htmlclean');
+const cleanCSS = require('gulp-clean-css');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
 
 gulp.task('clean-css', () => {
   return gulp.src('./public/**/*.css')
