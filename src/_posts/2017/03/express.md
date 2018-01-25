@@ -23,7 +23,7 @@ $ npm init
 安装express
 
 ```
-$ npm install express --seva
+$ npm install express --save
 ```
 
 ## 二、创建启动文件
