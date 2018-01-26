@@ -1,0 +1,13 @@
+{
+  "site": {
+    "title": "测试"
+  },
+  "generator": {
+    "source_dir": "md",
+    "public_dir": "public"
+  },
+  "category": {
+    "使用笔记": "use",
+    "网络技术与安全": "network"
+  }
+}
