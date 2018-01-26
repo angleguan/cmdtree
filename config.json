@@ -1,10 +1,12 @@
 {
   "site": {
-    "title": "测试"
+    "title": "测试",
+    "url": "https://fanzhiyang.com"
   },
   "generator": {
     "source_dir": "md",
-    "public_dir": "public"
+    "public_dir": "public",
+    "posts_permalink": "blog"
   },
   "category": {
     "使用笔记": "use",
