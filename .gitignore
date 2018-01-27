@@ -1,6 +1,5 @@
 node_modules/
 .idea/
-package.json
 posts.json
 public/
 md/
