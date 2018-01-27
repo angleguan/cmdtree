@@ -4,10 +4,12 @@ const fs = require('fs-extra'),
   MarkdownIt = require('markdown-it'),
   moment = require('moment'),
   fm = require('./lib/front-matter'),
-  writeDb = require('./lib/db'),
+  Db = require('./lib/db'),
   config = require('./config');
 
 const md = new MarkdownIt();
+
+let writeDb = new Db();
 
 const site_url = config.site.url;
 const public_dir = path.join(__dirname, config.generator.public_dir);
@@ -28,35 +30,32 @@ if (!fs.existsSync(public_dir)) {
 function getFiles() {
 
   // 读取所有的Markdown文件
-  rd.readFile(source_dir, (err, files) => {
-    if (err) {
-      console.log(err)
-    }
+  files = rd.readFileSync(source_dir);
 
-    //遍历所有的md文件
-    files.forEach((filePath, index) => {
+  files.forEach((filePath, index) => {
 
-      fileName = (path.basename(filePath).slice(0, -3));
+    fileName = (path.basename(filePath).slice(0, -3));
 
-      mdContent = fs.readFileSync(filePath, 'utf-8');
+    mdContent = fs.readFileSync(filePath, 'utf-8');
 
-      let fContent = fm(mdContent);
+    let fContent = fm(mdContent);
 
-      post = {
-        id: index,
-        title: fContent.attributes.title,
-        date: f => moment(fContent.attributes.date).format(f || 'YYYY-MM-DD'),
-        category: fContent.attributes.category,
-        conetnt: md.render(fContent.body),
-        path: postLink(fileName)
-      };
+    post = {
+      title: fContent.attributes.title,
+      date: f => moment(fContent.attributes.date).format(f || 'YYYY-MM-DD'),
+      category: fContent.attributes.category,
+      conetnt: md.render(fContent.body),
+      path: postLink(fileName)
+    };
 
-      writeDb(post);
+    writeDb.appendDb(post);
 
-      outputFile(post.conetnt)
+    outputFile(post.conetnt)
 
-    })
-  })
+  });
+
+  writeDb.sortDb();
+
 }
 
 function outputFile(data) {
