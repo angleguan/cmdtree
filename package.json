@@ -1,5 +1,5 @@
 {
-  "name": "LMBlogGenerator",
+  "name": "lite-blog-generator",
   "version": "1.0.0",
   "description": "A minimalist blog generator",
   "main": "index.js",
