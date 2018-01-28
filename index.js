@@ -3,7 +3,6 @@ const fs = require('fs-extra'),
   path = require('path'),
   MarkdownIt = require('markdown-it'),
   moment = require('moment'),
-  outputFileSync = require('./lib/output-file-sync'),
   fm = require('./lib/front-matter'),
   Db = require('./lib/db'),
   config = require('./lib/config');
@@ -13,7 +12,7 @@ const md = new MarkdownIt();
 let writeDb = new Db();
 
 let postLink = (fileName) => {
-  return path.join(config.postpermalink, fileName).replace("\\", "/") + ".html";
+  return path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
 };
 
 moment().format();
@@ -41,18 +40,11 @@ function getFiles() {
 
     writeDb.appendDb(post);
 
-    outputFile(post.conetnt)
+    // outputFile(post.conetnt)
 
   });
 
   writeDb.sortDb();
-
-}
-
-function outputFile(data) {
-
-  // 写入文件
-  outputFileSync(path.resolve(config.public_dir, config.postpermalink, fileName) + '.html', data, 'utf8')
 
 }
 

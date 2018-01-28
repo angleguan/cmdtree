@@ -4,6 +4,7 @@
     "url": "https://fanzhiyang.com"
   },
   "generator": {
+    "template_dir": "template",
     "source_dir": "md",
     "public_dir": "public",
     "posts_permalink": "blog"
