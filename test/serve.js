@@ -2,7 +2,7 @@ const express = require('express'),
   fs = require('fs-extra'),
   path = require('path'),
   config = require('../lib/config'),
-  tel = require('../lib/template/template');
+  tel = require('../lib/template');
 
 const aa= new tel()
 
