@@ -4,7 +4,8 @@
   "description": "A minimalist blog generator",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "claen": "node ./utils/clean.js"
   },
   "author": "fanzhiyang",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "markdown-it": "^8.4.0",
     "moment": "^2.20.1",
     "rd": "^1.1.2",
+    "rimraf": "^2.6.2",
     "warehouse": "^2.2.0"
   }
 }

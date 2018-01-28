@@ -6,19 +6,14 @@ const fs = require('fs-extra'),
   outputFileSync = require('./lib/output-file-sync'),
   fm = require('./lib/front-matter'),
   Db = require('./lib/db'),
-  config = require('./config');
+  config = require('./lib/config');
 
 const md = new MarkdownIt();
 
 let writeDb = new Db();
 
-const site_url = config.site.url;
-const public_dir = path.join(__dirname, config.generator.public_dir);
-const source_dir = path.join(__dirname, config.generator.source_dir);
-const postpermalink = config.generator.posts_permalink;
-
 let postLink = (fileName) => {
-  return path.join(postpermalink,fileName).replace("\\","/")+".html";
+  return path.join(config.postpermalink, fileName).replace("\\", "/") + ".html";
 };
 
 moment().format();
@@ -26,7 +21,7 @@ moment().format();
 function getFiles() {
 
   // 读取所有的Markdown文件
-  files = rd.readFileSync(source_dir);
+  files = rd.readFileSync(config.source_dir);
 
   files.forEach((filePath, index) => {
 
@@ -57,7 +52,7 @@ function getFiles() {
 function outputFile(data) {
 
   // 写入文件
-  outputFileSync(path.resolve(public_dir, postpermalink, fileName) + '.html', data, 'utf8')
+  outputFileSync(path.resolve(config.public_dir, config.postpermalink, fileName) + '.html', data, 'utf8')
 
 }
 
