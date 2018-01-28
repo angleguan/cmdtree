@@ -40,8 +40,6 @@ function getFiles() {
 
     writeDb.appendDb(post);
 
-    // outputFile(post.conetnt)
-
   });
 
   writeDb.sortDb();
