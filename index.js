@@ -3,6 +3,7 @@ const fs = require('fs-extra'),
   path = require('path'),
   MarkdownIt = require('markdown-it'),
   moment = require('moment'),
+  outputFileSync = require('./lib/output-file-sync'),
   fm = require('./lib/front-matter'),
   Db = require('./lib/db'),
   config = require('./config');
@@ -21,11 +22,6 @@ let postLink = (fileName) => {
 };
 
 moment().format();
-
-//创建生成文件夹
-if (!fs.existsSync(public_dir)) {
-  fs.mkdir(public_dir)
-}
 
 function getFiles() {
 
@@ -61,7 +57,7 @@ function getFiles() {
 function outputFile(data) {
 
   // 写入文件
-  fs.writeFileSync(path.join(public_dir, fileName) + '.html', data, 'utf8')
+  outputFileSync(path.resolve(public_dir, postpermalink, fileName) + '.html', data, 'utf8')
 
 }
 
