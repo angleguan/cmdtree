@@ -1,3 +1,10 @@
 <head>
-    <title>{{post.title}} - {{ site.title }}</title>
+    <title>
+        {{if post.title}}
+        {{post.title}} - {{ site.title }}
+        {{else}}
+        {{site.title}}
+        {{/if}}
+    </title>
 </head>
+

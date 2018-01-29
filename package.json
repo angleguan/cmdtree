@@ -11,10 +11,12 @@
   "license": "MIT",
   "dependencies": {
     "art-template": "^4.12.2",
+    "chokidar": "^2.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "front-matter": "^2.3.0",
     "fs-extra": "^5.0.0",
+    "gulp-connect": "^5.2.0",
     "js-yaml": "^3.10.0",
     "lowdb": "^1.0.0",
     "markdown-it": "^8.4.0",
@@ -23,5 +25,9 @@
     "rimraf": "^2.6.2",
     "swig": "^1.4.2",
     "warehouse": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-watch": "^5.0.0"
   }
 }
