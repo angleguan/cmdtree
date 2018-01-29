@@ -7,30 +7,25 @@ const fs = require('fs-extra'),
   Db = require('./lib/db'),
   config = require('./lib/config');
 
-const md = new MarkdownIt();
-
-let writeDb = new Db();
-
-let postLink = (fileName) => {
-  return path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
-};
+const md = new MarkdownIt(),
+  writeDb = new Db();
 
 moment().format();
+
+let postLink = fileName => path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
 
 function getFiles() {
 
   // 读取所有的Markdown文件
-  files = rd.readFileSync(config.source_dir);
+  rd.readFileSync(config.source_dir).forEach( filePath => {
 
-  files.forEach((filePath, index) => {
+    let fileName = (path.basename(filePath).slice(0, -3));
 
-    fileName = (path.basename(filePath).slice(0, -3));
-
-    mdContent = fs.readFileSync(filePath, 'utf-8');
+    let mdContent = fs.readFileSync(filePath, 'utf-8');
 
     let fContent = fm(mdContent);
 
-    post = {
+    const post = {
       title: fContent.attributes.title,
       date: f => moment(fContent.attributes.date).format(f || 'YYYY-MM-DD'),
       category: fContent.attributes.category,
@@ -47,3 +42,5 @@ function getFiles() {
 }
 
 getFiles();
+
+module.exports = getFiles;
