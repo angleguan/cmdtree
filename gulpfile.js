@@ -15,9 +15,17 @@ gulp.task('webserver', function () {
 
 gulp.task('default', ['webserver'], function () {
 
-  fs.watch('./template', {}, function (event, filename) {
-    console.log('watch task');
+  fs.watch(config.template_dir, {}, () => {
+    console.log('watching template');
     generate();
-  })
+  });
+
+  // error
+
+  // fs.watch(config.source_dir, {}, () => {
+  //   console.log('watching source');
+  //   getFiles();
+  //   generate();
+  // })
 
 });
