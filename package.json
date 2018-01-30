@@ -4,7 +4,8 @@
   "description": "A minimalist blog generator",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js && node ./lib/generate",
+    "serve": "gulp",
     "clean": "node ./utils/clean.js"
   },
   "author": "fanzhiyang",
