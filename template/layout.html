@@ -1,22 +1,13 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 {{include './include/head.html'}}
-
 <body>
+<div id="layout">
+  {{include './include/sidebar.html'}}
+  {{block 'content'}}
+  {{/block}}
+</div>
 
-{{include './include/header.html'}}
-
-{{block 'content'}}{{/block}}
-
-{{include './include/footer.html'}}
-
+<script src="/js/ui.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-

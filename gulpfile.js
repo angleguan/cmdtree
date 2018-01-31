@@ -1,9 +1,10 @@
-let gulp = require('gulp'),
+const gulp = require('gulp'),
   connect = require('gulp-connect'),
   config = require('./lib/config'),
   generate = require('./lib/generate'),
   fs = require('fs-extra'),
-  getFiles = require('./index');
+  getFiles = require('./index'),
+  sass = require('gulp-sass');
 
 gulp.task('webserver', function () {
   connect.server({
@@ -13,6 +14,12 @@ gulp.task('webserver', function () {
   });
 });
 
+gulp.task('sass', function(){
+  return gulp.src(config.static_dir + '/sass/style.scss')
+    .pipe(sass())
+    .pipe(gulp.dest(config.public_dir + '/css'))
+});
+
 gulp.task('default', ['webserver'], function () {
 
   fs.watch(config.template_dir, {}, () => {
@@ -20,12 +27,6 @@ gulp.task('default', ['webserver'], function () {
     generate();
   });
 
-  // error
-
-  // fs.watch(config.source_dir, {}, () => {
-  //   console.log('watching source');
-  //   getFiles();
-  //   generate();
-  // })
+  gulp.watch(config.static_dir + '/sass/*.scss', ['sass']);
 
 });

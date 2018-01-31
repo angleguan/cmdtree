@@ -2,12 +2,32 @@
 
 {{block 'content'}}
 
+<div id="main">
 
-{{post.title}}
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
+    <div class="header post-header">
 
-{{post.category}}
+      <h1 class="post-title">{{post.title}}</h1>
 
-{{@ post.content}}
+    </div>
+
+    <div class="content post-content" itemprop="articleBody">
+
+      <div class="post-meta">
+        <i class="fa fa-calendar fa-fw"></i>
+        <time datetime="{{post.date}}" itemprop="datePublished">{{post.date}}</time>
+      </div>
+
+      {{@ post.content}}
+
+    </div>
+
+    <div class="prev-next-post pure-g">
+
+    </div>
+
+  </article>
+</div>
 
 {{/block}}

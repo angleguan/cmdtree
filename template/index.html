@@ -2,14 +2,25 @@
 
 {{block 'content'}}
 
-<h1>Posts List</h1>
+<div id="main">
 
-<ul>
-    {{each site.posts}}
-    <li>
-        <a href="{{$value.path}}">{{$value.title}}</a>
-    </li>
-    {{/each}}
-</ul>
+  <!--<div class="header">-->
+  <!--<h1>Blackburn Theme Demo</h1>-->
+  <!--<h2>A Hugo Theme</h2>-->
+  <!--</div>-->
+
+  <div class="">
+    <h3>Posts List</h3>
+    <ul>
+      {{each site.posts}}
+      <li style="padding: 2px 0">
+        <a href="{{$value.path}}" style="font-size: 1.5em;">{{$value.title}}</a>
+        <span style="font-style: oblique">{{$value.date}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
+</div>
 
 {{/block}}
