@@ -1,5 +1,5 @@
 .home {
-  margin: 0 20px;
+  margin-left: 40px;
   h3 {
     font-size: 2.5em;
     font-weight: 300;
@@ -8,7 +8,7 @@
   .posts-list {
     li {
       padding: 2px 0;
-      list-style-type: none;
+      list-style-type: square;
       a {
         font-size: 1.5em;
       }
