@@ -23,11 +23,11 @@ function copyDirSync(sourceDirectory, targetDirectory) {
   })
 }
 
-const copyDirAsync = (function() {
+const copyDirAsync = (function () {
   let fileCount = 0;
   let copyCount = 0;
 
-  return function copyAsync(sourceDirectory, targetDirectory, callBack ) {
+  return function copyAsync(sourceDirectory, targetDirectory, callBack) {
     fs.readdir(sourceDirectory, (error, files) => {
       if (error) {
         console.log(error);
@@ -80,9 +80,11 @@ const copyDirAsync = (function() {
 })();
 
 
-function copyDir(sourceDirectory, targetDirectory, callBack = () => {}) {
+function copyDir(sourceDirectory, targetDirectory, callBack = () => {
+}) {
   copyDirAsync(sourceDirectory, targetDirectory, callBack)
 }
+
 copyDir.copyDirSync = copyDirSync;
 
 module.exports = copyDir;

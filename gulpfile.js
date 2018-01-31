@@ -6,7 +6,7 @@ const gulp = require('gulp'),
   getFiles = require('./index'),
   sass = require('gulp-sass');
 
-gulp.task('webserver', function () {
+gulp.task('webserver', () => {
   connect.server({
     port: 8080,
     root: config.public_dir,
@@ -14,13 +14,18 @@ gulp.task('webserver', function () {
   });
 });
 
-gulp.task('sass', function(){
+gulp.task('sass', () => {
   return gulp.src(config.static_dir + '/sass/style.scss')
     .pipe(sass())
     .pipe(gulp.dest(config.public_dir + '/css'))
 });
 
-gulp.task('default', ['webserver'], function () {
+gulp.task('js', () => {
+  return gulp.src(config.static_dir + '/js/**/*.js')
+    .pipe(gulp.dest(config.public_dir + '/js'))
+});
+
+gulp.task('default', ['webserver', 'sass', 'js'], () => {
 
   fs.watch(config.template_dir, {}, () => {
     console.log('watching template');
@@ -28,5 +33,7 @@ gulp.task('default', ['webserver'], function () {
   });
 
   gulp.watch(config.static_dir + '/sass/*.scss', ['sass']);
+
+  gulp.watch(config.static_dir + '/js/**/*.js', ['js'])
 
 });

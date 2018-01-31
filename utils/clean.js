@@ -1,5 +1,4 @@
 const rmrf = require('rimraf'),
-  path = require('path'),
   config = require('../lib/config');
 
 rmrf(config.public_dir, err => {

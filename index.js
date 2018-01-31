@@ -17,7 +17,7 @@ let postLink = fileName => path.join(config.post_permalink, fileName).replace("\
 function getFiles() {
 
   // 读取所有的Markdown文件
-  rd.readFileSync(config.source_dir).forEach( filePath => {
+  rd.readFileSync(config.source_post_dir).forEach( filePath => {
 
     let fileName = (path.basename(filePath).slice(0, -3));
 
