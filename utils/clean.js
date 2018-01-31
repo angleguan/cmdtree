@@ -12,3 +12,9 @@ rmrf(config.postsDb, err => {
     console.log('删除文章数据库成功')
   }
 });
+
+rmrf(config.pagesDb, err => {
+  if (!err) {
+    console.log('删除文章数据库成功')
+  }
+});

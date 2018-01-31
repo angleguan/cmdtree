@@ -14,7 +14,7 @@ moment().format();
 
 let postLink = fileName => path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
 
-function getFiles() {
+function getPosts() {
 
   // 读取所有的Markdown文章
   rd.readFileSync(config.source_post_dir).forEach( filePath => {
@@ -33,7 +33,7 @@ function getFiles() {
       path: postLink(fileName)
     };
 
-    writeDb.appendDb(post);
+    writeDb.appendPostsDb(post);
 
   });
 
@@ -41,6 +41,30 @@ function getFiles() {
 
 }
 
-getFiles();
+function getPages() {
 
-module.exports = getFiles;
+  // 读取所有的Markdown页面
+  rd.readFileSync(config.source_page_dir).forEach( filePath => {
+
+    let fileName = (path.basename(filePath).slice(0, -3));
+
+    let mdContent = fs.readFileSync(filePath, 'utf-8');
+
+    let fContent = fm(mdContent);
+
+    const page = {
+      title: fContent.attributes.title,
+      path: (fContent.attributes.path || fileName) + '.html', // fContent.attributes.path? fContent.attributes.path: fileNam
+      content: md.render(fContent.body)
+    };
+
+    writeDb.appendPagesDb(page);
+
+  })
+}
+
+getPages();
+
+getPosts();
+
+module.exports = getPosts;
