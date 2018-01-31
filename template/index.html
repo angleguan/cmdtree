@@ -4,13 +4,13 @@
 
 <div id="main">
 
-  <div class="">
+  <div class="home">
     <h3>Posts List</h3>
-    <ul>
+    <ul class="posts-list">
       {{each site.posts}}
-      <li style="padding: 2px 0">
-        <a href="{{$value.path}}" style="font-size: 1.5em;">{{$value.title}}</a>
-        <span style="font-style: oblique">{{$value.date}}</span>
+      <li>
+        <a href="{{$value.path}}">{{$value.title}}</a>
+        <span>{{$value.date}}</span>
       </li>
       {{/each}}
     </ul>

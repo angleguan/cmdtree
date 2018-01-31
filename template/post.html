@@ -4,26 +4,19 @@
 
 <div id="main">
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="page" itemscope itemtype="http://schema.org/Blogpageing">
 
-    <div class="header post-header">
-
-      <h1 class="post-title">{{page.title}}</h1>
-
-    </div>
-
-    <div class="content post-content" itemprop="articleBody">
-
-      <div class="post-meta">
+    <div class="page-header">
+      <h1 class="page-title">{{page.title}}</h1>
+      <div class="page-meta">
         <i class="fa fa-calendar fa-fw"></i>
         <time datetime="{{page.date}}" itemprop="datePublished">{{page.date}}</time>
       </div>
-
-      {{@ page.content}}
-
     </div>
 
-    <div class="prev-next-post pure-g">
+    <div class="page-content" itemprop="articleBody">
+
+      {{@ page.content}}
 
     </div>
 

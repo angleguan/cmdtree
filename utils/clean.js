@@ -7,14 +7,8 @@ rmrf(config.public_dir, err => {
   }
 });
 
-rmrf(config.postsDb, err => {
+rmrf(config.db_Dir, err => {
   if (!err) {
-    console.log('删除文章数据库成功')
+    console.log('删除数据库成功')
   }
-});
-
-rmrf(config.pagesDb, err => {
-  if (!err) {
-    console.log('删除文章数据库成功')
-  }
-});
+})

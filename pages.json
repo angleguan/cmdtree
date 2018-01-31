@@ -1,9 +1,0 @@
-{
-  "pages": [
-    {
-      "path": "about.html",
-      "title": "关于",
-      "content": "<p>这是一个关于页面。</p>\n"
-    }
-  ]
-}

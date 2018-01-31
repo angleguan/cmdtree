@@ -1,5 +1,5 @@
 node_modules/
 .idea/
-posts.json
+db/
 public/
 source/
