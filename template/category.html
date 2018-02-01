@@ -1,4 +1,21 @@
-{{each category}}
-{{$value.title}}
-{{$value.path}}
-{{/each}}
+{{extend './layout.html'}}
+
+{{block 'content'}}
+
+<div id="main">
+
+  <div class="home">
+    <div class="post-list">
+      <ul class="posts-list">
+        {{each category}}
+        <li>
+          <a href="{{$value.path}}">{{$value.title}}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+{{/block}}
