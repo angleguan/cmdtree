@@ -25,12 +25,14 @@ gulp.task('js', () => {
     .pipe(gulp.dest(config.public_dir + '/js'))
 });
 
-gulp.task('default', ['webserver', 'sass', 'js'], () => {
+gulp.task('generate', () => {
+  console.log('watching template');
+  generate();
+});
 
-  fs.watch(config.template_dir, {}, () => {
-    console.log('watching template');
-    generate();
-  });
+gulp.task('default', ['webserver', 'sass', 'js', 'generate'], () => {
+
+  gulp.watch(config.template_dir + '/**/*.html', ['generate']);
 
   gulp.watch(config.static_dir + '/sass/*.scss', ['sass']);
 
