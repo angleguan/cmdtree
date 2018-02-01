@@ -1,7 +1,7 @@
 {
-  "name": "lite-blog-generator",
-  "version": "1.0.0",
-  "description": "A minimalist blog generator",
+  "name": "fanzhiyang-blog",
+  "version": "2.0.0",
+  "description": "Fan Zhiyang's Personal Blog based on nodejs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js && node ./lib/generate",
