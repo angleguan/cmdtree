@@ -9,8 +9,16 @@
     "public_dir": "public",
     "posts_permalink": "blog"
   },
-  "category": {
+  "categories": {
+    "网络技术与安全": "network",
     "使用笔记": "use",
-    "网络技术与安全": "network"
+    "学习笔记": "learn",
+    "历史爱好者": "history",
+    "晃眼一生": "lifetime",
+    "Unix/Linux": "linux",
+    "JavaScript": "javascript",
+    "杂文": "other",
+    "观后感": "review",
+    "Python": "python"
   }
 }
