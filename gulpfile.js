@@ -34,7 +34,7 @@ gulp.task('default', ['webserver', 'sass', 'js', 'generate'], () => {
 
   gulp.watch(config.template_dir + '/**/*.html', ['generate']);
 
-  gulp.watch(config.static_dir + '/sass/*.scss', ['sass']);
+  gulp.watch(config.static_dir + '/sass/**/*.scss', ['sass']);
 
   gulp.watch(config.static_dir + '/js/**/*.js', ['js'])
 

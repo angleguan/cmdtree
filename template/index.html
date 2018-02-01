@@ -5,15 +5,16 @@
 <div id="main">
 
   <div class="home">
-    <h3>All Posts</h3>
-    <ul class="posts-list">
-      {{each site.posts}}
-      <li>
-        <a href="{{$value.path}}">{{$value.title}}</a>
-        <span>{{$value.date}}</span>
-      </li>
-      {{/each}}
-    </ul>
+    <div class="post-list">
+        <ul class="posts-list">
+          {{each site.posts}}
+          <li>
+            <a href="{{$value.path}}">{{$value.title}}</a>
+            <span>{{$value.date}}</span>
+          </li>
+          {{/each}}
+        </ul>
+    </div>
   </div>
 
 </div>
