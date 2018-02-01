@@ -14,12 +14,14 @@ moment().format();
 
 let postLink = fileName => path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
 
+let formatFileName = filePath => path.basename(filePath).slice(0, -3).replace(/ /g, '-').toLocaleLowerCase();
+
 function getPosts() {
 
   // 读取所有的Markdown文章
   rd.readFileSync(config.source_post_dir).forEach( filePath => {
 
-    let fileName = path.basename(filePath).slice(0, -3);
+    let fileName = formatFileName(filePath);
 
     let mdContent = fs.readFileSync(filePath, 'utf-8');
 
@@ -46,7 +48,7 @@ function getPages() {
   // 读取所有的Markdown页面
   rd.readFileSync(config.source_page_dir).forEach( filePath => {
 
-    let fileName = path.basename(filePath).slice(0, -3);
+    let fileName = formatFileName(filePath);
 
     let mdContent = fs.readFileSync(filePath, 'utf-8');
 
