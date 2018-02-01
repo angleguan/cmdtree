@@ -30,6 +30,11 @@ gulp.task('generate', () => {
   generate();
 });
 
+gulp.task('copyImg', () => {
+  return gulp.src(config.pics_dir + '/**/*.png')
+    .pipe(gulp.dest(config.public_dir + '/pics'))
+});
+
 gulp.task('default', ['webserver', 'sass', 'js', 'generate'], () => {
 
   gulp.watch(config.template_dir + '/**/*.html', ['generate']);
@@ -39,3 +44,5 @@ gulp.task('default', ['webserver', 'sass', 'js', 'generate'], () => {
   gulp.watch(config.static_dir + '/js/**/*.js', ['js'])
 
 });
+
+gulp.task('build', ['sass', 'js', 'generate', 'copyImg'])

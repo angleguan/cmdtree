@@ -5,6 +5,8 @@
   <title>
     {{if page.title}}
     {{page.title}} - {{ site.title }}
+    {{else if category[0]}}
+    {{category[0]}} - {{site.title}}
     {{else}}
     {{site.title}}
     {{/if}}

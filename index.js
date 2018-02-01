@@ -67,4 +67,8 @@ getPages();
 
 getPosts();
 
-module.exports = getPosts;
+module.exports = () => {
+  getPages();
+
+  getPosts();
+}

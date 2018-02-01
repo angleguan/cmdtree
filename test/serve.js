@@ -1,12 +1,5 @@
 const express = require('express'),
-  fs = require('fs-extra'),
-  path = require('path'),
-  chokidar = require('chokidar'),
-  config = require('../lib/config'),
-  tel = require('../lib/template'),
-  generate = require('../lib/generate');
-
-const aa= new tel()
+  config = require('../lib/config');
 
 const app = new express;
 
