@@ -38,6 +38,16 @@
     </ul>
   </div>
 
+  <div class="pure-menu social">
+    <ul class="pure-menu-list">
+      {{each site.categories}}
+      <li class="pure-menu-item">
+        <a class="pure-menu-link" href="{{site.url}}/{{$value.path}}">{{$value.title}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
   <div>
     <div class="small-print">
       <small>© 2018. All rights reserved.</small>
