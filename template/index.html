@@ -4,9 +4,13 @@
 
 <div id="main">
 
-  <div class="home">
-    <div class="post-list">
-        <ul class="posts-list">
+  <div class="header">
+    <h1>All Posts</h1>
+  </div>
+
+  <div class="content home">
+    <div class="posts-list">
+        <ul>
           {{each site.posts}}
           <li>
             <a href="{{$value.path}}">{{$value.title}}</a>
