@@ -1,0 +1,19 @@
+.posts-list {
+  ul {
+    li {
+      padding: 2px 0;
+      list-style-type: square;
+      a {
+       
+      }
+      span {
+        font-style: oblique;
+        float: right;
+        font-size: 14px;
+        @media screen and (max-width: 48em) {
+          display: none;
+        }
+      }
+    }
+  }
+}

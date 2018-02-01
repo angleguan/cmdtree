@@ -1,0 +1,25 @@
+{
+  "site": {
+    "title": "樊志阳的博客",
+    "url": "https://fanzhiyang.com"
+  },
+  "generator": {
+    "template_dir": "template",
+    "source_dir": "source",
+    "public_dir": "public",
+    "pic_dir": "pics",
+    "posts_permalink": "blog"
+  },
+  "categories": {
+    "网络技术与安全": "network",
+    "使用笔记": "use",
+    "学习笔记": "learn",
+    "历史爱好者": "history",
+    "晃眼一生": "lifetime",
+    "Unix/Linux": "linux",
+    "JavaScript": "javascript",
+    "杂文": "other",
+    "观后感": "review",
+    "Python": "python"
+  }
+}
