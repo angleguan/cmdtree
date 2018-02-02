@@ -2,6 +2,8 @@ const fs = require('fs-extra'),
   rd = require('rd'),
   path = require('path'),
   MarkdownIt = require('markdown-it'),
+  marked = require('marked'),
+  hljs = require('highlight.js'),
   moment = require('moment'),
   fm = require('./lib/front-matter'),
   Db = require('./lib/db'),
@@ -9,6 +11,11 @@ const fs = require('fs-extra'),
 
 const md = new MarkdownIt(),
   writeDb = new Db();
+
+// 使用highlight.js渲染代码块，效率太低，生成很慢
+marked.setOptions({
+  highlight: (code) => hljs.highlightAuto(code).value
+})
 
 moment().format();
 

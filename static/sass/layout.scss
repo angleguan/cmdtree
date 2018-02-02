@@ -1,0 +1,76 @@
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+#layout {
+  position: relative;
+  left: 0;
+  padding-left: 0;
+  &.active {
+    #menu {
+      left: 150px;
+      width: 150px;
+    }
+    .menu-link {
+      left: 150px;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  #layout {
+    padding-left: 150px;
+    left: 0;
+  }
+  #menu {
+    left: 150px;
+  }
+  .menu-link {
+    position: fixed;
+    left: 150px;
+    display: none;
+  }
+}
+
+#main {
+  margin: 0 40px;
+  @media screen and (max-width: 48em) {
+    margin: 0 10px;
+  }
+}
+
+.header {
+  margin: 0;
+  color: #333;
+  text-align: center;
+  padding: 2.5em 2em 0;
+  border-bottom: 1px solid #eee;
+  h1 {
+    margin: 0.2em 0;
+    font-size: 3em;
+    font-weight: 300;
+  }
+  h2 {
+    font-weight: 300;
+    color: #ccc;
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  padding: 0 2em;
+  max-width: 800px;
+  margin-bottom: 50px;
+  line-height: 1.6em;
+  @media screen and (max-width: 48em) {
+    padding: 0 10px;
+  }
+}
