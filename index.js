@@ -65,6 +65,9 @@ function getPages() {
   })
 }
 
+getPages();
+getPosts();
+
 module.exports = () => {
   getPages();
   getPosts();

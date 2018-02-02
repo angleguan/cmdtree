@@ -4,7 +4,7 @@
   "description": "Fan Zhiyang's Personal Blog based on nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js && node ./lib/generate",
+    "start": "node index.js",
     "serve": "gulp",
     "clean": "node ./utils/clean.js"
   },
