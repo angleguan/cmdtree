@@ -31,3 +31,5 @@ category: 杂文
 不愧是波斯人的后代，很好的继承了薛西斯的文化基因。
 
 ![](/pics/2018/02/v2-7fa7cccb5b3fd2bf44b88736c4078a3a_r.jpg)
+
+[原文链接](https://www.zhihu.com/question/266529853/answer/309715068)
