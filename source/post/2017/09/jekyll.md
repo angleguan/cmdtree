@@ -6,12 +6,11 @@ category: 使用笔记
 
 这是一篇Jekyll的入门教程，怎么定义入门我也不知道，反正就是想到什么就写什么吧
 
-
 ## 安装Jekyll
 
 我觉得无论是在任何平台安装Jekyll都是非常简单的。安装好ruby和gem就可以使用gem安装jekyll了
 
-[本站搭建笔记(一)安装本地环境](https://fanzhiyang.com/blog/2017/05/this-site-building-notes-01/)
+[本站搭建笔记(一)安装本地环境](http://fanzhiyang.com/blog/this-site-building-notes-01.html)
 
 **失败原因总结:**
 
@@ -25,9 +24,9 @@ category: 使用笔记
 
 ### Gem 源问题
 
-如果在`bundle install`中提示包含HTTP或者`SSL_connect`的字眼的错误时，请安装OpenSSL并修改源为https的源。
+如果在`bundle install`中提示包含HTTP或者`SSL_connect`的字眼的错误时，请安装OpenSSL并修改源为http的源。
 
-修改方法：[更改RubyGems源](https://fanzhiyang.com/blog/2017/05/ruby-gem-change/)
+修改方法：[更改RubyGems源](http://fanzhiyang.com/blog/ruby-gem-change.html)
 
 ## 配置Jekyll
 
@@ -39,7 +38,7 @@ Jekyll的全局配置文件在`_config.yml`.
 ```yml
 title: 樊志阳博客
 description: 这里是樊志阳的个人博客
-url: "https://www.fanzhiyang.com"
+url: "http://www.fanzhiyang.com"
 permalink: /p/:year/:month/:title.html
 markdown: kramdown
 plugins:
@@ -70,7 +69,7 @@ desc: 这里是樊志阳的个人博客
 
 Jekyll使用Liquid模板引擎，这个模板引擎非常简单，中文文档在
 
-[Liquid 模板语言中文文档](https://liquid.bootcss.com/)
+[Liquid 模板语言中文文档](http://liquid.bootcss.com/)
 
 ### 路径问题
 
@@ -83,7 +82,7 @@ Jekyll使用Liquid模板引擎，这个模板引擎非常简单，中文文档�
 - 图片资源，我建议在配置文件中定义好图片路径，如：
 
 ```yml
-images_url: "https://images.fanzhiyang.com"
+images_url: "http://images.fanzhiyang.com"
 ```
 然后这样引用图片
 
@@ -103,15 +102,15 @@ images_url: "https://images.fanzhiyang.com"
 
 ## 相关文章：
 
-[jekyll 的一些函数和技巧](https://fanzhiyang.com/blog/2017/06/jekyll-more/)
+[jekyll 的一些函数和技巧](http://fanzhiyang.com/blog/jekyll-more.html)
 
-[Jekyll error：tag was never closed](https://fanzhiyang.com/blog/2017/05/jekyll-tag-was-never-closed/)
+[Jekyll error：tag was never closed](http://fanzhiyang.com/blog/jekyll-tag-was-never-closed.html)
 
-[使用jekyll在Github上搭建博客](https://fanzhiyang.com/blog/2017/06/use-jekyll-build-blog-on-github/)
+[使用jekyll在Github上搭建博客](http://fanzhiyang.com/blog/use-jekyll-build-blog-on-github.html)
 
-[为 jekyll 博客添加静态搜索](https://fanzhiyang.com/blog/2017/04/jekyll-static-search/)
+[为 jekyll 博客添加静态搜索](http://fanzhiyang.com/blog/jekyll-static-search.html)
 
-[定制Google自定义搜索页](https://fanzhiyang.com/blog/2017/07/use-google-customize-search/)
+[定制Google自定义搜索页](http://fanzhiyang.com/blog/use-google-customize-search.html)
 
-[Github Pages绑定域名添加HTTPS（Cloudflare](https://fanzhiyang.com/blog/2017/10/github-pages-cloudflare-ssl/)
+[Github Pages绑定域名添加http（Cloudflare](http://fanzhiyang.com/blog/github-pages-cloudflare-ssl.html)
 
