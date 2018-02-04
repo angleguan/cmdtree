@@ -2,7 +2,7 @@
   <span></span>
 </a>
 <div id="menu">
-  <a class="pure-menu-heading" href="{{site.url}}">樊志阳的博客</a>
+  <a class="pure-menu-header" href="{{site.url}}">樊志阳的博客</a>
 
   <div class="pure-menu">
     <ul class="pure-menu-list">
@@ -34,7 +34,7 @@
 
     </ul>
 
-    <ul class="pure-menu-list">
+    <ul class="pure-menu-list category-list">
       {{each site.categories}}
       <li class="pure-menu-item">
         <a class="pure-menu-link" href="{{site.url}}/{{$value.path}}">{{$value.title}}</a>

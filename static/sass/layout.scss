@@ -20,6 +20,9 @@
     .menu-link {
       left: 150px;
     }
+    @media screen and (max-width: 48em) {
+      left: 150px;
+    }
   }
 }
 
