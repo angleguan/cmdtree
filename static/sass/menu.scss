@@ -15,36 +15,22 @@
   background: #191818;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  .brand {
-    font-family: Raleway;
-    font-weight: bold;
-    font-size: 1em;
-    letter-spacing: 0.1em;
-    text-transform: none;
-    background: transparent;
-    text-decoration: none;
-    margin: 0.5em 0;
-  }
-  a {
-    color: #999;
-    border: none;
-    padding: 0.6em 0 0.6em 0.6em;
-  }
-  .pure-menu {
+  ul.pure-menu-list {
+    margin: 0;
+    padding: 0;
     border: none;
     background: transparent;
+    border-top: 1px solid #333;
     font-size: 0.9em;
-    ul {
+    a.pure-menu-link {
+      position: relative;
+      list-style: none;
       margin: 0;
-      padding: 0;
-      border: none;
-      background: transparent;
-      border-top: 1px solid #333;
-    }
-    li a {
-      &:hover,
-      &:focus {
-        background: #333;
+      color: #999;
+      padding: 0.45em;
+      &:focus,
+      &:hover {
+        background-color: #333;
       }
     }
   }
@@ -54,6 +40,13 @@
     color: #fff;
     margin: 0;
     text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    text-transform: none;
+    background: transparent;
+    text-decoration: none;
+    margin: 0.5em 0;
   }
   .pure-menu {
     .menu-item-divided {
@@ -122,10 +115,6 @@
   }
 }
 
-.pure-menu {
-  box-sizing: border-box;
-}
-
 .pure-menu-item {
   position: relative;
   padding: 0;
@@ -142,19 +131,6 @@
 
 .pure-menu-heading {
   padding: .5em 1em;
-}
-
-.pure-menu-link {
-  padding: .5em 1em;
-  position: relative;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  color: #777;
-  &:focus,
-  &:hover {
-    background-color: #eee;
-  }
 }
 
 .small-print {
