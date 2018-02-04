@@ -26,9 +26,9 @@ const md = new MarkdownIt({
 
 moment().format();
 
-let postLink = fileName => path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
+const postLink = fileName => path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
 
-let formatFileName = filePath => path.basename(filePath).slice(0, -3).replace(/ /g, '-').toLocaleLowerCase();
+const formatFileName = filePath => path.basename(filePath).slice(0, -3).replace(/ /g, '-').toLocaleLowerCase();
 
 function getPosts() {
 
