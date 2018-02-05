@@ -42,9 +42,9 @@ function getPosts() {
     let fContent = fm(mdContent);
 
     const post = {
-      title: fContent.attributes.title,
+      title: fContent.attributes.title || fileName,
       date: f => moment(fContent.attributes.date).format(f || 'YYYY-MM-DD'),
-      category: fContent.attributes.category,
+      category: fContent.attributes.category || '杂文',
       conetnt: md.render(fContent.body),
       path: postLink(fileName)
     };
