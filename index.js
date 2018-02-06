@@ -8,6 +8,8 @@ const fs = require('fs-extra'),
   Db = require('./lib/db'),
   config = require('./lib/config');
 
+moment().format();
+
 const writeDb = new Db();
 
 const md = new MarkdownIt({
@@ -23,8 +25,6 @@ const md = new MarkdownIt({
     return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
   }
 });
-
-moment().format();
 
 const postLink = fileName => path.join(config.post_permalink, fileName).replace("\\", "/") + ".html";
 
@@ -69,8 +69,8 @@ function getPages() {
     let fContent = fm(mdContent);
 
     const page = {
-      title: fContent.attributes.title,
-      path: (fContent.attributes.path || fileName) + '.html', // fContent.attributes.path? fContent.attributes.path: fileNam
+      title: fContent.attributes.title || fileName,
+      path: (fContent.attributes.path || fileName) + '.html',
       content: md.render(fContent.body)
     };
 
@@ -85,4 +85,4 @@ getPosts();
 module.exports = () => {
   getPages();
   getPosts();
-}
+};

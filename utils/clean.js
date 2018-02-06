@@ -7,7 +7,7 @@ rmrf(config.public_dir, err => {
   }
 });
 
-rmrf(config.db_Dir, err => {
+rmrf(config.db_dir, err => {
   if (!err) {
     console.log('删除数据库成功')
   }
