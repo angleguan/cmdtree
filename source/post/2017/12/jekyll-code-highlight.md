@@ -6,7 +6,7 @@ category: 使用笔记
 
 要想实现对代码的高亮，首先要搞清楚Jekyll把你在文章（md文件）中的代码块都解析成什么样了。
 
-Jekyll默认使用kramdown解析器，其它解析器不作讨论，然后这里需要注意一下，在Jekyll中你可以使用两种方法来表明代码块：`{% raw %}{% highlight ruby %}{% endraw %}`或者用三个反单引号来包括代码块。
+Jekyll默认使用kramdown解析器，其它解析器不作讨论，然后这里需要注意一下，在Jekyll中你可以使用两种方法来表明代码块：`{% highlight ruby %}`或者用三个反单引号来包括代码块。
 
 但是它们解析出来的HTML结构却不同：
 

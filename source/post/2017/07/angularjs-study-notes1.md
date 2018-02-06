@@ -6,7 +6,7 @@ category: JavaScript
 
 # 一、AngularJS表达式
 
-- AngularJS的表达式写在双括号`{% raw %}{{}}{% endraw %}`内 
+- AngularJS的表达式写在双括号`{{}}`内 
 - 表达式的作用是将绑定的数据输出到HTML页面
 
 看下面这段代码
