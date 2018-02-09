@@ -18,4 +18,4 @@ script:
   - git config git-ftp.password $FTP_PASSWD
   - git add .
   - git commit -m "PUSH"
-  - git ftp push
+  - git ftp init
