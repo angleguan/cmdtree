@@ -7,16 +7,5 @@ before_script:
 script: 
   - npm start
   - gulp build
-  - git clone https://github.com/git-ftp/git-ftp.git
-  - cd git-ftp
-  - sudo make install
-  - cd ..
-  - cd public
-  - git init
-  - git config git-ftp.url $FTP_ADDRESS
-  - git config git-ftp.user $FTP_USER
-  - git config git-ftp.password $FTP_PASSWD
-  - git add .
-  - git commit -m "PUSH"
   - sudo apt-get install lftp -y
   - lftp -c "open -u $FTP_USER,$FTP_PASSWD $FTP_ADDRESS; set ssl:verify-certificate no; mirror -R ./public/ /"
