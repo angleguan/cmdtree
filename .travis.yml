@@ -4,15 +4,18 @@ install:
   - npm install
 before_script:
   - npm install -g gulp-cli
-script:
+script: 
   - npm start
   - gulp build
-deploy:
-  provider: pages
-  local_dir: public
-  repo: rhatyang/blog
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
-  target_branch: gh-pages
+  - git clone https://github.com/git-ftp/git-ftp.git
+  - cd git-ftp
+  - sudo make install
+  - cd ..
+  - cd public
+  - git init
+  - git config git-ftp.url $FTP_ADDRESS
+  - git config git-ftp.user $FTP_USER
+  - git config git-ftp.password $FTP_PASSWD
+  - git add .
+  - git commit -m "PUSH"
+  - git ftp push
