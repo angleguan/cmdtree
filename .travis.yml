@@ -18,4 +18,5 @@ script:
   - git config git-ftp.password $FTP_PASSWD
   - git add .
   - git commit -m "PUSH"
-  - git ftp push
+  - sudo apt-get install lftp -y
+  - lftp -c "open -u $FTP_USER,$FTP_PASSWD $FTP_ADDRESS; set ssl:verify-certificate no; mirror -R ./public/ /"
