@@ -13,7 +13,7 @@
         <ul>
           {{each site.posts}}
           <li>
-            <a href="{{site.url}}/{{$value.path}}">{{$value.title}}</a>
+            <a href="{{$value.url}}">{{$value.title}}</a>
             <span>{{$value.date}}</span>
           </li>
           {{/each}}
