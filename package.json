@@ -1,7 +1,7 @@
 {
-  "name": "fanzhiyang-blog",
+  "name": "cmdtree",
   "version": "2.0.0",
-  "description": "Fan Zhiyang's Personal Blog based on nodejs",
+  "description": "My Personal Blog based on nodejs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
