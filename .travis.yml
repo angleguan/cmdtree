@@ -7,5 +7,3 @@ before_script:
 script: 
   - npm start
   - gulp build
-  - sudo apt-get install lftp -y
-  - lftp -c "open -u $FTP_USER,$FTP_PASSWD $FTP_ADDRESS; set ssl:verify-certificate no; mirror -R ./public/ /"
