@@ -1,5 +1,5 @@
 ---
-date: 2017-10-12 12:01:46 +0800
+date: 2017-10-12 12:01:46
 title: "CORS跨域资源共享"
 category: JavaScript
 ---

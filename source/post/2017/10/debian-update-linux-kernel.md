@@ -1,5 +1,5 @@
 ---
-date: 2017-10-10 09:44:54 +0800
+date: 2017-10-10 09:44:54
 title: "Debian stable使用backports源升级新内核"
 category: Unix/Linux
 ---

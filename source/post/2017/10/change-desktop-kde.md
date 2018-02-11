@@ -1,5 +1,5 @@
 ---
-date: 2017-10-08 17:14:00 +0800
+date: 2017-10-08 17:14:00
 title: 从Gnome3.26转到KDE Plasma
 category: Unix/Linux
 ---

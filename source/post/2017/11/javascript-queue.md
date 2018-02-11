@@ -1,5 +1,5 @@
 ---
-date: 2017-11-09 10:14:53 +0800
+date: 2017-11-09 10:14:53
 title: JavaScript数据结构与算法——队列
 category: JavaScript
 ---

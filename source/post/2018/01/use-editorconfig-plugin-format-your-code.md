@@ -1,5 +1,5 @@
 ---
-date: 2018-1-6 18:32:39 +0800
+date: 2018-1-6 18:32:39
 title: 使用EditorConfig插件来格式化代码
 category: 使用笔记
 ---

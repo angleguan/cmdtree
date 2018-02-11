@@ -1,5 +1,5 @@
 ---
-date: 2017-10-14 15:25:36 +0800
+date: 2017-10-14 15:25:36
 title: "[笔记]在Ubuntu 16.04 LTS中配置LNMP环境"
 category: Unix/Linux
 ---

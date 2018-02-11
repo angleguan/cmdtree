@@ -1,5 +1,5 @@
 ---
-date: 2017-11-15 10:30:12 +0800
+date: 2017-11-15 10:30:12
 title: "使用VScode调试Angularjs应用"
 category: JavaScript
 ---

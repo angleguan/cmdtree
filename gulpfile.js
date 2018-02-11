@@ -1,10 +1,10 @@
-const gulp = require('gulp'),
-  connect = require('gulp-connect'),
-  config = require('./lib/config'),
-  generate = require('./lib/index'),
-  fs = require('fs-extra'),
-  getFiles = require('./index'),
-  sass = require('gulp-sass');
+const gulp = require('gulp');
+const connect = require('gulp-connect');
+const config = require('./lib/config');
+const generate = require('./lib/generate');
+const fs = require('fs-extra');
+const getFiles = require('./index');
+const sass = require('gulp-sass');
 
 gulp.task('webserver', () => {
   connect.server({
@@ -26,7 +26,6 @@ gulp.task('assets', () => {
 });
 
 gulp.task('generate', () => {
-  console.log('watching template');
   generate();
 });
 
@@ -35,7 +34,7 @@ gulp.task('copyImg', () => {
     .pipe(gulp.dest(config.public_dir + '/pics'))
 });
 
-gulp.task('copyFile', ()=>{
+gulp.task('copyFile', () => {
   return gulp.src(config.source_dir + '/raw/**/*')
     .pipe(gulp.dest(config.public_dir))
 });
@@ -50,4 +49,4 @@ gulp.task('default', ['webserver', 'sass', 'assets', 'generate'], () => {
 
 });
 
-gulp.task('build', ['sass', 'assets', 'generate', 'copyImg', 'copyFile'])
+gulp.task('build', ['sass', 'assets', 'generate', 'copyImg', 'copyFile']);

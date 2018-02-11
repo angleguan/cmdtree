@@ -1,5 +1,5 @@
 ---
-date: 2017-12-2 09:42:26 +0800
+date: 2017-12-2 09:42:26
 title: Angular5.0 英雄教程
 category: JavaScript
 ---

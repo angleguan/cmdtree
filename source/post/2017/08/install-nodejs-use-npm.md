@@ -105,7 +105,7 @@ Press ^C at any time to quit.
 name: (vue-test)    # 项目名称
 version: (1.0.0)    # 版本号
 description:    # 项目描述
-entry point: (index.js)     # 入口文件
+entry point: (generate.js)     # 入口文件
 test command:   # 测试指令
 git repository:     # git仓库
 keywords:   # 关键字
@@ -117,7 +117,7 @@ About to write to C:\Users\rhatyang\Desktop\vue-test\package.json:
   "name": "vue-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "generate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -197,5 +197,5 @@ $ npm help <command>
 - contributors - 包的其他贡献者姓名。
 - dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。
 - repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
-- main - main 字段指定了程序的主入口文件，require('moduleName') 就会加载这个文件。这个字段的默认值是模块根目录下面的 index.js。
+- main - main 字段指定了程序的主入口文件，require('moduleName') 就会加载这个文件。这个字段的默认值是模块根目录下面的 generate.js。
 - keywords - 关键字

@@ -1,5 +1,5 @@
 ---
-date: 2018-1-10 10:28:52 +0800
+date: 2018-1-10 10:28:52
 title: JavaScript数据结构与算法——字典
 category: JavaScript
 ---

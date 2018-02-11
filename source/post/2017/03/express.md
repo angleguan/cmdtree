@@ -397,7 +397,7 @@ $ express myapp
    create : myapp/public/javascripts
    create : myapp/public/images
    create : myapp/routes
-   create : myapp/routes/index.js
+   create : myapp/routes/generate.js
    create : myapp/routes/users.js
    create : myapp/public/stylesheets
    create : myapp/public/stylesheets/style.css
@@ -440,7 +440,7 @@ $ DEBUG=blog node ./bin/www(windows 下：DEBUG=blog:* npm start )
 │   └── stylesheets
 │       └── style.css
 ├── routes             ## 存放路由文件
-│   ├── index.js
+│   ├── generate.js
 │   └── users.js
 └── views              ## 存放视图文件或者说模版文件
     ├── error.jade
@@ -480,7 +480,7 @@ block content
 
 我们不难发现，其实大部分的模板引擎语法相似。
 
-再看一下`/routes/index.js`文件
+再看一下`/routes/generate.js`文件
 
 ```js
 var express = require('express');

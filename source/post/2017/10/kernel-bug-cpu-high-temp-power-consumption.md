@@ -1,6 +1,6 @@
 ---
 title: "Linux内核bug导致的CPU功耗异常"
-date: 2017-10-30 09:16:38 +0800
+date: 2017-10-30 09:16:38
 category: Unix/Linux
 ---
 

@@ -1,5 +1,5 @@
 ---
-date: 2017-12-4 14:57:04 +0800
+date: 2017-12-4 14:57:04
 title: JavaScript数据结构与算法——链表
 category: JavaScript
 ---

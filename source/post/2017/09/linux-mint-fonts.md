@@ -1,5 +1,5 @@
 ---
-date: 2017-09-14 21:14:48 +0800
+date: 2017-09-14 21:14:48
 title: "Linux mint的字体配置"
 category: Unix/Linux
 ---

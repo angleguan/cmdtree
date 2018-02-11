@@ -1,5 +1,5 @@
 ---
-date: 2017-09-16 16:39:03 +0800
+date: 2017-09-16 16:39:03
 title: "在BTRFS文件系统中使用snapper快照功能"
 category: Unix/Linux
 ---
