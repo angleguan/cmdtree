@@ -19,7 +19,8 @@ const md = new MarkdownIt({
         return '<pre><code class="hljs ' + lang + '">' +
           hljs.highlight(lang, str, true).value +
           '</code></pre>';
-      } catch (__) {}
+      } catch (__) {
+      }
     }
 
     return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
@@ -30,9 +31,27 @@ const postLink = fileName => path.join(config.post_permalink, fileName).replace(
 
 const formatFileName = filePath => path.basename(filePath).slice(0, -3).replace(/ /g, '-').toLocaleLowerCase();
 
-function getPosts() {
+function getPages() {
 
-  // 读取所有的Markdown文章
+  rd.readFileSync(config.source_page_dir).forEach(filePath => {
+
+    let fileName = formatFileName(filePath);
+
+    let mdContent = fs.readFileSync(filePath, 'utf-8');
+
+    let fContent = fm(mdContent);
+
+    const page = {
+      title: fContent.attributes.title || fileName,
+      path: (fContent.attributes.path || fileName) + '.html',
+      content: md.render(fContent.body),
+      url: config.site_url + '/' + (fContent.attributes.path || fileName) + '.html'
+    };
+
+    writeDb.appendPagesDb(page);
+
+  });
+
   rd.readFileSync(config.source_post_dir).forEach(filePath => {
 
     let fileName = formatFileName(filePath);
@@ -52,7 +71,7 @@ function getPosts() {
       YEAR: moment(fContent.attributes.date).format('YYYY'),
       MONTH: moment(fContent.attributes.date).format('MM'),
       DAY: moment(fContent.attributes.date).format('DD')
-    }
+    };
 
     post.path = postLink(path.join(__POST_DATE.YEAR, __POST_DATE.MONTH, fileName));
     post.url = config.site_url + '/' + post.path;
@@ -65,33 +84,8 @@ function getPosts() {
 
 }
 
-function getPages() {
-
-  // 读取所有的Markdown页面
-  rd.readFileSync(config.source_page_dir).forEach(filePath => {
-
-    let fileName = formatFileName(filePath);
-
-    let mdContent = fs.readFileSync(filePath, 'utf-8');
-
-    let fContent = fm(mdContent);
-
-    const page = {
-      title: fContent.attributes.title || fileName,
-      path: (fContent.attributes.path || fileName) + '.html',
-      content: md.render(fContent.body),
-      url: config.site_url + '/' + (fContent.attributes.path || fileName) + '.html'
-    };
-
-    writeDb.appendPagesDb(page);
-
-  })
-}
-
 getPages();
-getPosts();
 
 module.exports = () => {
   getPages();
-  getPosts();
 };

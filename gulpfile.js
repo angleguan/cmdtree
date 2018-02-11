@@ -1,7 +1,7 @@
 const gulp = require('gulp'),
   connect = require('gulp-connect'),
   config = require('./lib/config'),
-  generate = require('./lib/generate'),
+  generate = require('./lib/index'),
   fs = require('fs-extra'),
   getFiles = require('./index'),
   sass = require('gulp-sass');
@@ -38,7 +38,7 @@ gulp.task('copyImg', () => {
 gulp.task('copyFile', ()=>{
   return gulp.src(config.source_dir + '/raw/**/*')
     .pipe(gulp.dest(config.public_dir))
-})
+});
 
 gulp.task('default', ['webserver', 'sass', 'assets', 'generate'], () => {
 
