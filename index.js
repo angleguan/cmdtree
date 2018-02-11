@@ -79,7 +79,8 @@ function getPages() {
     const page = {
       title: fContent.attributes.title || fileName,
       path: (fContent.attributes.path || fileName) + '.html',
-      content: md.render(fContent.body)
+      content: md.render(fContent.body),
+      url: config.site_url + '/' + (fContent.attributes.path || fileName) + '.html'
     };
 
     writeDb.appendPagesDb(page);
