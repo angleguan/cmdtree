@@ -1,6 +1,6 @@
 # Fan Zhiyang's Personal Blog
 
-[![Build Status](https://www.travis-ci.org/rhatyang/blog.svg?branch=master)](https://www.travis-ci.org/rhatyang/blog)
+[![Build Status](https://www.travis-ci.org/rhatyang/cmdtree.svg?branch=master)](https://www.travis-ci.org/rhatyang/cmdtree)
 
 个人博客&&静态博客生成器
 
@@ -11,7 +11,7 @@
 一、克隆我这个仓库
 
 ```
-git clone https://github.com/rhatyang/blog.git
+git clone https://github.com/rhatyang/cmdtree.git
 ```
 
 二、修改信息
