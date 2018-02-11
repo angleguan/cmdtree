@@ -71,9 +71,9 @@ update
 
 unset GIT_DIR
 
-mkdir -p /www/blog ## 服务器上的另一个库
-cd /www/blog
+cd /www
 git clone /git/blog.git ## 克隆裸仓库
+cd blog
 npm install ## 安装依赖
 npm run build
 ```
