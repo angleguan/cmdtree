@@ -8,8 +8,6 @@ const fm = require('./utils/front-matter');
 const writeDb = require('./lib/db');
 const config = require('./lib/config');
 
-moment().format();
-
 const md = new MarkdownIt({
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
@@ -17,8 +15,7 @@ const md = new MarkdownIt({
         return '<pre><code class="hljs ' + lang + '">' +
           hljs.highlight(lang, str, true).value +
           '</code></pre>';
-      } catch (__) {
-      }
+      } catch (__) {}
     }
     return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
   }
@@ -28,7 +25,7 @@ const postLink = fileName => path.join(config.post_permalink, fileName).replace(
 
 const formatFileName = filePath => path.basename(filePath).slice(0, -3).replace(/ /g, '-').toLocaleLowerCase();
 
-function get() {
+module.exports = () => {
 
   rd.readFileSync(config.source_page_dir).forEach(filePath => {
 
@@ -80,5 +77,3 @@ function get() {
   writeDb.sortDb();
 
 }
-
-module.exports = get;
