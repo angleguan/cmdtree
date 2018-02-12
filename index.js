@@ -9,7 +9,7 @@ const writeDb = require('./lib/db');
 const config = require('./lib/config');
 
 const md = new MarkdownIt({
-  highlight: function (str, lang) {
+  highlight: (str, lang) => {
     if (lang && hljs.getLanguage(lang)) {
       try {
         return '<pre><code class="hljs ' + lang + '">' +
@@ -29,11 +29,9 @@ module.exports = () => {
 
   rd.readFileSync(config.source_page_dir).forEach(filePath => {
 
-    let fileName = formatFileName(filePath);
+    const fileName = formatFileName(filePath);
 
-    let mdContent = fs.readFileSync(filePath, 'utf-8');
-
-    let fContent = fm(mdContent);
+    const fContent = fm(fs.readFileSync(filePath, 'utf-8'));
 
     const page = {
       title: fContent.attributes.title || fileName,
@@ -48,27 +46,24 @@ module.exports = () => {
 
   rd.readFileSync(config.source_post_dir).forEach(filePath => {
 
-    let fileName = formatFileName(filePath);
+    const fileName = formatFileName(filePath);
 
-    let mdContent = fs.readFileSync(filePath, 'utf-8');
+    const fContent = fm(fs.readFileSync(filePath, 'utf-8'));
 
-    let fContent = fm(mdContent);
-
-    const post = {
-      title: fContent.attributes.title || fileName,
-      date: f => moment(fContent.attributes.date).format(f || 'YYYY-MM-DD'),
-      category: fContent.attributes.category || '杂文',
-      conetnt: md.render(fContent.body)
-    };
-
-    let __POST_DATE = {
+    const __POST_DATE = {
       YEAR: moment(fContent.attributes.date).format('YYYY'),
       MONTH: moment(fContent.attributes.date).format('MM'),
       DAY: moment(fContent.attributes.date).format('DD')
     };
 
-    post.path = postLink(path.join(__POST_DATE.YEAR, __POST_DATE.MONTH, fileName));
-    post.url = config.site_url + '/' + post.path;
+    const post = {
+      title: fContent.attributes.title || fileName,
+      date: f => moment(fContent.attributes.date).format(f || 'YYYY-MM-DD'),
+      category: fContent.attributes.category || '杂文',
+      conetnt: md.render(fContent.body),
+      path: postLink(path.join(__POST_DATE.YEAR, __POST_DATE.MONTH, fileName)),
+      url: config.site_url + '/' + post.path
+    };
 
     writeDb.appendPostsDb(post);
 
