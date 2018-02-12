@@ -1,10 +1,10 @@
-# Fan Zhiyang's Personal Blog
+# 沉默的大树（cmdtree）
 
 [![Build Status](https://www.travis-ci.org/rhatyang/cmdtree.svg?branch=master)](https://www.travis-ci.org/rhatyang/cmdtree)
 
 个人博客&&静态博客生成器
 
-这是一个基于Node.js的Markdown静态博客生成器，使用Travis CI自动部署到Github Pages。
+这是一个基于Node.js的Markdown静态博客生成器。
 
 ## 使用方法
 
@@ -26,4 +26,3 @@ git clone https://github.com/rhatyang/cmdtree.git
 
 本博客系统使用[art-template](https://github.com/aui/art-template)模板系统解析，可使用传统模板语法`{{ }}`或者高级语法`<%- %>`（类似EJS）编写主题，具体变量可参考`lib/template/data.js`文件，自己写一款主题相当方便！
 
-五、如果以上步骤你看不懂，请使用Jekyll或者Hexo。
