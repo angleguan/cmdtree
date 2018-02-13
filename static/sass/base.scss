@@ -38,3 +38,19 @@ pre {
 small {
   font-size: 80%;
 }
+
+table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+  tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  th,td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+  }
+}
