@@ -3,7 +3,6 @@ const connect = require('gulp-connect');
 const config = require('./lib/config');
 const generate = require('./lib/generate');
 const fs = require('fs-extra');
-const getFiles = require('./index');
 const sass = require('gulp-sass');
 
 gulp.task('webserver', () => {
