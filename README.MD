@@ -26,3 +26,8 @@ git clone https://github.com/rhatyang/cmdtree.git
 
 本博客系统使用[art-template](https://github.com/aui/art-template)模板系统解析，可使用传统模板语法`{{ }}`或者高级语法`<%- %>`（类似EJS）编写主题，具体变量可参考`lib/template/data.js`文件，自己写一款主题相当方便！
 
+## 五、部署
+
+生成为静态文件后，随便你部署在哪都行。
+
+最省钱也是推荐的方法是部署在Githb Pages。[使用Travis CI自动部署Github Pages - 沉默的大树](https://cmdtree.com/blog/2018/01/travis-ci-auto-deploy-github-pages.html)
