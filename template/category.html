@@ -1,27 +1,18 @@
 {{extend './layout.html'}}
-
 {{block 'content'}}
-
-
-<div id="main">
-
-  <div class="header">
-    <h1>{{category[0]}}</h1>
-  </div>
-
-  <div class="content category">
-    <div class="posts-list">
-      <ul>
-        {{each category[1]}}
-        <li>
-          <a href="{{$value.url}}">{{$value.title}}</a>
-          <span>{{$value.date}}</span>
-        </li>
-        {{/each}}
-      </ul>
-    </div>
-  </div>
-
+<div class="header">
+  <h1>{{category[0]}}</h1>
 </div>
-
+<div class="content category">
+  <div class="posts-list">
+    <ul>
+      {{each category[1]}}
+      <li>
+        <a href="{{$value.url}}">{{$value.title}}</a>
+        <span>{{$value.date}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
 {{/block}}

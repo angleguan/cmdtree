@@ -4,8 +4,10 @@
 <body>
 <div id="layout">
   {{include './include/sidebar.html'}}
+  <div id="main">
   {{block 'content'}}
   {{/block}}
+  </div>
 </div>
 
 <script src="/js/ui.js"></script>
