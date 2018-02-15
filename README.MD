@@ -30,4 +30,4 @@ git clone https://github.com/rhatyang/cmdtree.git
 
 生成为静态文件后，随便你部署在哪都行。
 
-最省钱也是推荐的方法是部署在Githb Pages。[使用Travis CI自动部署Github Pages - 沉默的大树](https://cmdtree.com/blog/2018/01/travis-ci-auto-deploy-github-pages.html)
+最省钱也是推荐的方法是部署在Github Pages。[使用Travis CI自动部署Github Pages - 沉默的大树](https://cmdtree.com/blog/2018/01/travis-ci-auto-deploy-github-pages.html)
