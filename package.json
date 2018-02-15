@@ -4,8 +4,8 @@
   "description": "My Personal Blog based on nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "serve": "gulp",
+    "start": "gulp",
+    "build": "gulp build",
     "clean": "node ./utils/clean.js"
   },
   "author": "fanzhiyang",
@@ -25,9 +25,7 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.20.1",
     "rd": "^1.1.2",
-    "rimraf": "^2.6.2"
-  },
-  "devDependencies": {
+    "rimraf": "^2.6.2",
     "gulp": "^3.9.1",
     "gulp-watch": "^5.0.0"
   }

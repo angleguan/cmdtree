@@ -43,13 +43,15 @@ gulp.task('copyFile', () => {
     .pipe(gulp.dest(config.public_dir))
 });
 
-gulp.task('default', ['webserver', 'sass', 'assets', 'generate'], () => {
+gulp.task('default', ['webserver', 'sass', 'copyJS','copyImg', 'generate'], () => {
 
   gulp.watch(config.template_dir + '/**/*.html', ['generate']);
 
   gulp.watch(config.static_dir + '/sass/**/*.scss', ['sass']);
 
-  gulp.watch(config.static_dir + '/**/*', ['assets'])
+  gulp.watch(config.static_dir + '/img/**/*', ['copyImg']);
+
+  gulp.watch(config.static_dir + '/js/**/*', ['copyJS']);
 
 });
 
