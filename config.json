@@ -7,8 +7,7 @@
     "template_dir": "template",
     "source_dir": "source",
     "public_dir": "public",
-    "pic_dir": "pics",
-    "posts_permalink": "blog"
+    "pic_dir": "pics"
   },
   "categories": {
     "网络技术与安全": "network",
