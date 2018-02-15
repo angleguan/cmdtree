@@ -44,7 +44,7 @@ calc()函数使用标准的数学运算优先级规则；
 
 这时的效果很简单，`content`完全遮住了`wrapper`。
 
-![](pics/2018/01/2101.png)
+![](/pics/2018/01/2101.png)
 
 第二步，在content上添加`border`和`padding`
 
@@ -81,13 +81,13 @@ calc()函数使用标准的数学运算优先级规则；
 }
 ```
 
-![](pics/2018/01/2102.png)
+![](/pics/2018/01/2102.png)
 
 我们发现，content的总长度（width+border+padding)超过了容器wrapper的长度，content出来了。
 
 但是我们给content的width设定为100%是不想让他撑破父容器的，这个时候我们可以给content加个[box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)，设定为`border-box`。
 
-![](pics/2018/01/2103.gif)
+![](/pics/2018/01/2103.gif)
 
 但是今天我们不谈这个，我们用calc去实现。
 
