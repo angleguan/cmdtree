@@ -1,6 +1,6 @@
 ---
 title: 'MySQL学习笔记（3）简单SELECT语句'
-Caregory: 学习笔记
+category: 学习笔记
 date: 2018-2-14 20:26:41
 ---
 
