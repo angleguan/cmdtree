@@ -4,9 +4,9 @@ title: Jekyll和Hexo详细对比
 category: 使用笔记
 ---
 
-我一直是使用的Jekyll，这个博客就是使用Jekyll搭建的，源码在[rhatyang/blog: Fan Zhiyang's personal blog , built using jekyll](https://github.com/rhatyang/blog)，使用Github Pages自动部署，所以你可以在我的博客找到很多关于Jekyll的内容——[Jekyll最全使用指南 - 樊志阳](https://fanzhiyang.com/blog/jekyll/)，我之前曾经尝试过使用Hexo，但最后也是不了了之，现在来详细的对比一下这两者的优劣。
+我一直是使用的Jekyll，这个博客就是使用Jekyll搭建的，源码在[rhatyang/blog: Fan Zhiyang's personal blog , built using jekyll](https://github.com/rhatyang/blog)，使用Github Pages自动部署，所以你可以在我的博客找到很多关于Jekyll的内容——[Jekyll最全使用指南 - 樊志阳](https://cmdtree.com/blog/2017/09/jekyll.html)，我之前曾经尝试过使用Hexo，但最后也是不了了之，现在来详细的对比一下这两者的优劣。
 
-首先，Jekyll和Hexo可以说是最受欢迎、用户都非常多的两个**静态博客生成系统**。Jekyll使用Ruby语言编写，使用gem安装，而Hexo使用js编写，使用npm安装，类似的还有很多其它的静态博客生成器（如使用Golang编写的Hugo，[使用Hugo 搭建静态博客 - 樊志阳](https://fanzhiyang.com/blog/hugo/)）可以在[Top Open-Source Static Site Generators - StaticGen](https://www.staticgen.com/)找到。
+首先，Jekyll和Hexo可以说是最受欢迎、用户都非常多的两个**静态博客生成系统**。Jekyll使用Ruby语言编写，使用gem安装，而Hexo使用js编写，使用npm安装，类似的还有很多其它的静态博客生成器（如使用Golang编写的Hugo，[使用Hugo 搭建静态博客 - 樊志阳](https://cmdtree.com/blog/2017/09/hugo.html)）可以在[Top Open-Source Static Site Generators - StaticGen](https://www.staticgen.com/)找到。
 
 我从以下几个方面展开对比：
 

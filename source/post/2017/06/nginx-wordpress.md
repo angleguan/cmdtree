@@ -81,7 +81,7 @@ systemctl enable nginx.service
 yum install mysql-server -y
 ```
 
-对于最新的centos 7+，会提示没有这个软件包，解决办法参考[centos7 mysql数据库安装和配置 - 樊志阳的个人博客](https://fanzhiyang.com/blog/centos-mysqlserver/)
+对于最新的centos 7+，会提示没有这个软件包，解决办法参考[centos7 mysql数据库安装和配置 - 樊志阳的个人博客](https://cmdtree.com/blog/2017/06/centos-mysqlserver/)
 
 - 安装完成后，启动 MySQL 服务：
 

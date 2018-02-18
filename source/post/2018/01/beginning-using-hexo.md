@@ -4,7 +4,7 @@ date: 2018-1-14 20:15:55
 category: 使用笔记
 ---
 
-昨天开始把博客迁移到Hexo了，我在不久前刚写过一篇[Jekyll和Hexo详细对比](https://fanzhiyang.com/blog/2017/11/jekyll-and-hexo-detailed-comparison/)，其中我提到我在这之前不想迁移到hexo有两点原因
+昨天开始把博客迁移到Hexo了，我在不久前刚写过一篇[Jekyll和Hexo详细对比](https://cmdtree.com/blog/2017/11/jekyll-and-hexo-detailed-comparison.html)，其中我提到我在这之前不想迁移到hexo有两点原因
 
 - 模板语言不熟
 

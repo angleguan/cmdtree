@@ -57,7 +57,7 @@ $ git clone git@github.com:yourname/yourname.github.io.git
 
 ### 安装Jekyll
 
-使用ruby gem安装，如果在这里遇到什么问题，可以看一下这里[Jekyll最全使用指南 - 樊志阳](https://fanzhiyang.com/blog/jekyll/)
+使用ruby gem安装，如果在这里遇到什么问题，可以看一下这里[Jekyll最全使用指南 - 樊志阳](https://cmdtree.com/blog/2017/09/jekyll.html)
 
 ```
 $ gem install jekyll
@@ -83,7 +83,7 @@ $ bundle install
 $ bundle exec jekyll s
 ```
 
-然后在浏览器访问`127.0.0.1:4000`就可以看到网站了，关于Jekyll的更多使用技巧访问[Jekyll最全使用指南 - 樊志阳](https://fanzhiyang.com/blog/jekyll/)
+然后在浏览器访问`127.0.0.1:4000`就可以看到网站了，关于Jekyll的更多使用技巧访问[Jekyll最全使用指南 - 樊志阳](https://cmdtree.com/2017/09/jekyll.html)
 
 ## Jekyll主题
 
@@ -145,11 +145,11 @@ category: Jekyll
 1）在你的仓库中新建一个名为CNAME的文件，往里面写入你的网站域名（不带HTTPS/HTTP）
 2）在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME类型，指向YOURNAME.github.io即可。
 
-绑定域名后如何开启HTTPS，参考[Github Pages绑定域名添加HTTPS（Cloudflare） - 樊志阳](https://fanzhiyang.com/blog/github-pages-cloudflare-ssl/)
+绑定域名后如何开启HTTPS，参考[Github Pages绑定域名添加HTTPS（Cloudflare） - 樊志阳](https://cmdtree.com/blog/2017/10/github-pages-cloudflare-ssl.html)
 
 参考及相关资料：
 
-* <http://pages.github.com/>
-* <https://github.com/mojombo/jekyll/wiki>
-* <http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/>
-* <http://daringfireball.net/projects/markdown/syntax>
+- <http://pages.github.com/>
+- <https://github.com/mojombo/jekyll/wiki>
+- <http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/>
+- <http://daringfireball.net/projects/markdown/syntax>

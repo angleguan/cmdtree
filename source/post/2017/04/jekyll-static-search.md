@@ -55,7 +55,7 @@ DOM 结构保存在同一个页面。
 在 **jekyll** 博客的根目录下的 `config.yml` 添加你的博客的全局基本地址。
 
 ```
-url: http://fanzhiyang.com
+url: http://cmdtree.com
 ```
 
 ## 四、通过 Javascript 实现搜索功能

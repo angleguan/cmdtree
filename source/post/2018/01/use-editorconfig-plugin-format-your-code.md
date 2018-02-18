@@ -107,11 +107,11 @@ end_of_line = cr	# 回车（Mac）
 end_of_line = crlf	# 回车 换行（WINDOWS)
 ```
 
-不了解这个的朋友默认就好了（lf），我在[这里](https://fanzhiyang.com/blog/git-warning-lf-crlf/#%E4%B8%80crlfcrlf%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB)有提到过
+不了解这个的朋友默认就好了（lf），我在[这里](https://cmdtree.com/blog/2017/05/git-warning-lf-crlf.html)有提到过
 
 5）`charset`
 
-这个就不用多说了，默认utf-8即可，详见[理解计算机字符编码 - 樊志阳的个人博客](https://fanzhiyang.com/blog/understanding-computer-character-encoding/)
+这个就不用多说了，默认utf-8即可，详见[理解计算机字符编码 - 樊志阳的个人博客](https://cmdtree.com/blog/2017/10/understanding-computer-character-encoding.html)
 
 6）`trim_trailing_whitespace`、`insert_final_newline`
 
