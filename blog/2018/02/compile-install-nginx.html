@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Ubuntu编译安装Nginx及常用操作说明 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Ubuntu编译安装Nginx及常用操作说明</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-10" itemprop="datePublished">日期：2018年02月10日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>为什么要编译安装？</h2>
+<ul>
+<li>默认软件源中的包都不是最新的（Centos、Debian等都是如此）</li>
+<li>编译安装更加稳定</li>
+<li>自定义程度高</li>
+</ul>
+<h2>安装方法</h2>
+<p>编译安装十分简单，我之前在Ubuntu 16.04上面通过apt安装的nginx1.10版本，太老了，如果你之前也安装过，直接卸载即可。</p>
+<pre><code class="hljs">apt-get purge nginx
+rm -rf /etc/nginx
+</code></pre>
+<p>接着安装：</p>
+<pre><code class="hljs sh"><span class="hljs-comment">## 目前最新的正式版是1.13.8，好像还有测试版到1.15了，这里安装正式版，当然还有稳定版是1.12</span>
+wget http://nginx.org/download/nginx-1.13.8.tar.gz
+tar zxvf nginx-1.13.8.tar.gz
+<span class="hljs-built_in">cd</span> nginx-1.13.8
+<span class="hljs-comment">## ./configure有很多自定义选项，可查看文档</span>
+./configure
+make
+make install
+<span class="hljs-comment">## 启动nginx，如果你安装到其它位置还需要加c参数指定配置文件</span>
+/usr/<span class="hljs-built_in">local</span>/nginx/sbin/nginx
+</code></pre>
+<h2>配置systemctl</h2>
+<p>当然那样子启动不够方便，我们可以将nginx添加到systemd服务中去</p>
+<p>新建<code>/lib/systemd/system/nginx.service</code>文件，加入如下内容：</p>
+<pre><code class="hljs">[Unit]
+Description=nginx - high performance web server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>其中以Exec开头的命令，如果你是安装到其它路径，需要更改</p>
+<p>接着就可以像使用包管理安装一样来愉快的使用systemctl了</p>
+<p>例如加入开机自启</p>
+<pre><code class="hljs">systemctl enable nginx
+</code></pre>
+<p>重启服务</p>
+<pre><code class="hljs">systemctl restart nginx
+</code></pre>
+<p>enjoy！</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

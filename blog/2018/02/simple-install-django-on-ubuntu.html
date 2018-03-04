@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     在Ubuntu 16.04上简单安装Django - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">在Ubuntu 16.04上简单安装Django</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-13" itemprop="datePublished">日期：2018年02月13日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h3>安装Django</h3>
+<p>在Ubuntu上面很方便的一个是你可以直接使用apt安装django：</p>
+<pre><code class="hljs"># apt-get install python-django   ## python2
+# apt-get install python3-django  ## python3
+</code></pre>
+<p>当然更推荐的方法是使用pip安装</p>
+<p>首先安装pip</p>
+<pre><code class="hljs"># apt-get install python-pip  ## pip2
+# apt-get install python3-pip ## pip3
+</code></pre>
+<p>接着安装django</p>
+<pre><code class="hljs"># pip install django
+# pip3 install django
+</code></pre>
+<p>如果在安装过程中报错，你可能需要升级一下pip</p>
+<pre><code class="hljs"># pip3 install --upgrade pip
+</code></pre>
+<p>安装完成后可以查看一下版本：</p>
+<pre><code class="hljs"># django-admin --version
+</code></pre>
+<p>我这里是python3.5+django2.0.2版本</p>
+<p>下面也使用python3作为演示</p>
+<h3>初始化项目</h3>
+<p>我们可以使用<code>django-admin</code>命令快速的初始化一个项目</p>
+<pre><code class="hljs"># django-admin startproject hellodjango
+# cd hellodjango
+</code></pre>
+<p>接着更新django的数据库</p>
+<pre><code class="hljs"># python3 manage.py migrate
+</code></pre>
+<p>接着需要创建一下管理员信息</p>
+<pre><code class="hljs"># python3 manage.py createsuperuser
+</code></pre>
+<h4>配置主机信息</h4>
+<p>接着需要设置一下可以连接到django的主机或域名地址，编辑<code>hellodjango/hellodjango/settings.py</code>文件</p>
+<p>这里面有个<code>ALLOWED_HOSTS</code>配置项，将你的公网IP地址或者你的域名加入进去</p>
+<pre><code class="hljs">ALLOWED_HOSTS = ['165.227.10.164', 'setint.com']
+</code></pre>
+<p>接着你就可以运行服务了：</p>
+<pre><code class="hljs"># python3 manage.py runserver 0.0.0.0:8000
+</code></pre>
+<p>打开浏览器输入<code>ip:8000</code>或者<code>域名:8000</code>，就可以看到如下内容</p>
+<p><img src="/pics/2018/02/1301.png" alt=""></p>
+<p>在地址后面加上admin还可以进入到自带的管理界面</p>
+<p><img src="/pics/2018/02/1302.png" alt=""></p>
+<p><img src="/pics/2018/02/1303.png" alt=""></p>
+<blockquote>
+<p>基于django可以很简单的开发出一个网站或者博客。enjoy</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     本站搭建笔记(二)修改默认主题 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">本站搭建笔记(二)修改默认主题</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-05-25" itemprop="datePublished">日期：2017年05月25日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>自定义默认minima主题</h2>
+<p>jekyll是一个非常受欢迎的静态博客生成程序，它的主题也是非常的多，有兴趣的同学可以到<a href="http://jekyllthemes.org">jekylltheme</a>上查看。</p>
+<p>使用jekyll自动生成的站点默认使用minima主题，相关内容我们可以在文件夹下的Gemfile.lock文件中查看的到</p>
+<blockquote>
+<p>DEPENDENCIES&lt;br/&gt;
+jekyll (= 3.4.3)&lt;br/&gt;
+jekyll-feed (~&gt; 0.6)&lt;br/&gt;
+minima (~&gt; 2.0)&lt;br/&gt;
+tzinfo-data&lt;br/&gt;</p>
+</blockquote>
+<p><strong>关于如何修改默认主题，在<a href="https://jekyllrb.com/docs/themes/#overriding-theme-defaults">jekyll.com</a>中有说明</strong></p>
+<p>这里补充一下</p>
+<ul>
+<li>在本地查找主题文件</li>
+</ul>
+<blockquote>
+<p>Run bundle show followed by the name of the theme’s gem, e.g., bundle show minima for default Jekyll’s theme.</p>
+</blockquote>
+<blockquote>
+<p>This returns the location of the gem-based theme files. For example, Minima theme’s files are located in /usr/local/lib/ruby/gems/2.3.0/gems/minima-2.1.0 on macOS.</p>
+</blockquote>
+<p>这里的<code>bundle show minima</code>需要在当前的jekyll站点文件夹下执行才可以得到返回信息</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

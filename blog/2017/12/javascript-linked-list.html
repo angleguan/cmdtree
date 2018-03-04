@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript数据结构与算法——链表 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript数据结构与算法——链表</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-04" itemprop="datePublished">日期：2017年12月04日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>什么是链表</h2>
+<p>链表是一种非连续、非顺序的数据结构。数据结构的逻辑顺序是通过每个元素的指针指向下一个节点来实现的。对于很多数组是固定长度的编程语言来说，链表具有插入或删除更加快速的特点，而在JavaScript中，虽然不存在上述问题，但数组被实现成了对象，这样它的效率也会低很多</p>
+<h2>定义一个链表</h2>
+<p>链接是一组不连续的节点的集合，也就是说在内存中的地址不是连续的，所以如果想找到某一个节点，则必须先找到上一个节点。“上一个”节点的<code>next</code>属性就指向“下一个”节点，最后一个节点的next属性为null。</p>
+<p>为了更好的识别出起始节点，许多链接都在链表的最前面特地定义一个<code>头节点</code>。</p>
+<p>当需要向链表中添加元素时：只要把要添加元素的位置的“上一个”节点的next属性指向新元素，然后将新元素的next属性指向原先要添加元素的位置的“下一个”节点即可。</p>
+<p>当需要删除一个元素时：只需要将要删除的元素的“上一个”节点的next属性指向要删除的元素的“下一个”节点，再将要删除的元素的next属性改为null即可。</p>
+<h3>Node类</h3>
+<p>首先需要定义一个用来表示节点的类。</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Node</span>(<span class="hljs-params">element</span>) </span>{
+    <span class="hljs-keyword">this</span>.element = element;
+    <span class="hljs-keyword">this</span>.next = <span class="hljs-literal">null</span>;
+}
+</code></pre>
+<p><code>element</code>属性用来保存节点上的数据，<code>next</code>属性设为null，当要添加元素的时候再修改即可</p>
+<h3>查找节点</h3>
+<p>之前说过，链表不是连续的，想要查找一个节点就必须要先找到它的上一个节点。所以我们需要先定义一个<code>find()</code>方法来查找节点，然后返回这个节点的信息。</p>
+<p>具体做法就是先声明一个新的节点，然后将待查找的链表的头节点赋给这个新建的节点，然后这个新声明的节点就具有要查找的链表的头节点的next属性，然后在这个链表上循环找到要查找的节点返回即可。</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">find</span>(<span class="hljs-params">item</span>) </span>{
+    <span class="hljs-keyword">var</span> currNode = <span class="hljs-keyword">this</span>.head;
+    <span class="hljs-keyword">while</span> (currNode.element != item) {
+        currNode = currNode.next;
+    }
+    <span class="hljs-keyword">return</span> currNode;
+}
+</code></pre>
+<h3>添加节点</h3>
+<p>使用之前定义的<code>find()</code>方法找到节点后，再声明一个<code>insert()</code>方法，该方法接受两个参数，要插入的节点的内容和插入的地方（即“上一个”节点）。找到要插入的地方后，把新节点的next属性设为原“下一个”节点的属性，再将原“上一个”节点的next属性指向新节点。</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">insert</span>(<span class="hljs-params">newElement, item</span>) </span>{
+    <span class="hljs-keyword">var</span> newNode = <span class="hljs-keyword">new</span> Node(newElement);
+    <span class="hljs-keyword">var</span> current = <span class="hljs-keyword">this</span>.find(item);
+    newNode.next = current.next;
+    current.next = newNode;
+}
+</code></pre>
+<h3>删除节点</h3>
+<p>之前说过，在链表中删除一个节点也很简单，只要找到待删除节点的“上一个”节点，然后将这个节点的next属性改为待删除节点的“下一个”节点，再将这个要删除的节点的next属性改为null即可。</p>
+<p>所以我们先要定义一个方法来查找要删除节点的“上一个”节点，然后返回此节点：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findPrevious</span>(<span class="hljs-params">item</span>) </span>{
+    <span class="hljs-keyword">var</span> currNode = <span class="hljs-keyword">this</span>.head;
+    <span class="hljs-keyword">while</span> (!(currNode.next == <span class="hljs-literal">null</span>) &amp;&amp;
+        (currNode.next.element != item)) {
+        currNode = currNode.next;
+    }
+    <span class="hljs-keyword">return</span> currNode;
+}
+</code></pre>
+<p>接着写<code>remove()</code>方法，只需要把用<code>findPrevious()</code>方法找到的节点的next属性改为待删除的节点的“下一个”节点即可</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span>(<span class="hljs-params">item</span>) </span>{
+    <span class="hljs-keyword">var</span> prevNode = <span class="hljs-keyword">this</span>.findPrevious(item);
+    <span class="hljs-keyword">if</span> (!(prevNode.next == <span class="hljs-literal">null</span>)) {
+        prevNode.next = prevNode.next.next;
+    }
+}
+</code></pre>
+<h2>构造函数</h2>
+<p>然后可以声明一个构造函数来方便的使用这些方法</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LList</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.head = <span class="hljs-keyword">new</span> Node(<span class="hljs-string">"head"</span>);
+    <span class="hljs-keyword">this</span>.find = find;
+    <span class="hljs-keyword">this</span>.insert = insert;
+    <span class="hljs-keyword">this</span>.findPrevious = findPrevious;
+    <span class="hljs-keyword">this</span>.remove = remove;
+}
+</code></pre>
+<p>至此，我们可以很简单的创建一个链表了</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> newLList = <span class="hljs-keyword">new</span> LList();
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

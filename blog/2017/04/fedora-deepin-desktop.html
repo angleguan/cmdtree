@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     在Fedora 系统中使用 Deepin 桌面环境 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">在Fedora 系统中使用 Deepin 桌面环境</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-04-14" itemprop="datePublished">日期：2017年04月14日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p><strong>Fedora和Ubuntu可以说是Linux distribution中最受欢迎的两个桌面发行版，其社区相当活跃，现在，我们可以在 Fedora 系统中使用 Deepin 桌面环境。</strong></p>
+<p>安装方法：</p>
+<pre><code class="hljs zsh">sudo dnf install http://download1.rpmfusion.org/free/fedora/releases/$(rpm -E %fedora)/Everything/$(uname -i)/os/Packages/r/rpmfusion-free-release-$(rpm -E %fedora)-1.noarch.rpm
+sudo dnf copr <span class="hljs-built_in">enable</span> mosquito/deepin
+sudo dnf update
+sudo dnf install deepin-desktop deepin-session-ui deepin-launcher deepin-screenshot deepin-terminal
+sudo systemctl <span class="hljs-built_in">disable</span> gdm.service &amp;&amp; sudo systemctl <span class="hljs-built_in">enable</span> lightdm.service (optional, gdm also available)
+sudo sed -i <span class="hljs-string">"/SELINUX=/s|enforcing|disabled|"</span> /etc/selinux/config
+</code></pre>
+<p>执行完重启后即可使用！</p>
+<p>此项目由FZUG Fedora中文社区软件源开源在Github ——&lt;a href=&quot;https://github.com/FZUG/repo/tree/master/rpms/deepin_project&quot;&gt;deepin_project&lt;/a&gt;</p>
+<p>These files are based on &lt;a href=&quot;https://github.com/cz-guardian/fedora-deepin/&quot;&gt;cz-guardian/fedora-deepin&lt;/a&gt; and &lt;a href=&quot;https://www.archlinux.org/packages/?q=deepin&quot;&gt;Arch packages&lt;/a&gt;. You can visit the &lt;a href=&quot;https://copr.fedorainfracloud.org/coprs/mosquito/deepin/&quot;&gt;Deepin Copr&lt;/a&gt; to install them. Thanks for all of the community developers and packagers.
+&lt;h2&gt;&lt;a id=&quot;user-content-installation-instructions&quot; class=&quot;anchor&quot; href=&quot;https://github.com/FZUG/repo/tree/master/rpms/deepin_project#installation-instructions&quot;&gt;&lt;/a&gt;Installation instructions&lt;/h2&gt;</p>
+<pre><code class="hljs">sudo dnf install http://download1.rpmfusion.org/free/fedora/releases/$(rpm -E %fedora)/Everything/$(uname -i)/os/Packages/r/rpmfusion-free-release-$(rpm -E %fedora)-1.noarch.rpm
+sudo dnf copr enable mosquito/deepin
+sudo dnf update
+sudo dnf install deepin-desktop deepin-session-ui deepin-launcher deepin-screenshot deepin-terminal
+sudo systemctl disable gdm.service &amp;amp;&amp;amp; sudo systemctl enable lightdm.service (optional, gdm also available)
+sudo sed -i &quot;/SELINUX=/s|enforcing|disabled|&quot; /etc/selinux/config
+</code></pre>
+<p>After this is done, simply reboot into your new nice environment.
+&lt;h2&gt;&lt;a id=&quot;user-content-fedora-deepin-repository-content&quot; class=&quot;anchor&quot; href=&quot;https://github.com/FZUG/repo/tree/master/rpms/deepin_project#fedora-deepin-repository-content&quot;&gt;&lt;/a&gt;fedora-deepin repository content&lt;/h2&gt;
+This repository contains the following .specs for integrating the deepin desktop environment into Fedora. You can simply compile them in order.
+&lt;ul&gt;
+&lt;li&gt;deepin-gsettings&lt;/li&gt;
+&lt;li&gt;python2-javascriptcore&lt;/li&gt;
+&lt;li&gt;deepin-gettext-tools&lt;/li&gt;
+&lt;li&gt;python2-deepin-ui&lt;/li&gt;
+&lt;li&gt;python2-deepin-util&lt;/li&gt;
+&lt;li&gt;deepin-music&lt;/li&gt;
+&lt;li&gt;python2-xpybutil&lt;/li&gt;
+&lt;li&gt;deepin-screenshot&lt;/li&gt;
+&lt;li&gt;deepin-go-lib&lt;/li&gt;
+&lt;li&gt;deepin-dbus-generator&lt;/li&gt;
+&lt;li&gt;deepin-dbus-factory&lt;/li&gt;
+&lt;li&gt;deepin-movie&lt;/li&gt;
+&lt;li&gt;deepin-menu&lt;/li&gt;
+&lt;li&gt;deepin-qml-widgets&lt;/li&gt;
+&lt;li&gt;python2-ass&lt;/li&gt;
+&lt;li&gt;python3-dae&lt;/li&gt;
+&lt;li&gt;python2-pysrt&lt;/li&gt;
+&lt;li&gt;python2-deepin-storm&lt;/li&gt;
+&lt;li&gt;gsettings-qt&lt;/li&gt;
+&lt;li&gt;golang-github-*&lt;/li&gt;
+&lt;li&gt;deepin-tool-kit&lt;/li&gt;
+&lt;li&gt;deepin-sound-theme&lt;/li&gt;
+&lt;li&gt;deepin-social-sharing&lt;/li&gt;
+&lt;li&gt;deepin-shortcut-viewer&lt;/li&gt;
+&lt;li&gt;deepin-notifications&lt;/li&gt;
+&lt;li&gt;deepin-nautilus-properties&lt;/li&gt;
+&lt;li&gt;deepin-cogl&lt;/li&gt;
+&lt;li&gt;deepin-mutter&lt;/li&gt;
+&lt;li&gt;deepin-metacity&lt;/li&gt;
+&lt;li&gt;deepin-image-viewer&lt;/li&gt;
+&lt;li&gt;deepin-icon-theme&lt;/li&gt;
+&lt;li&gt;deepin-gtk-theme&lt;/li&gt;
+&lt;li&gt;deepin-grub2-themes&lt;/li&gt;
+&lt;li&gt;deepin-gir-generator&lt;/li&gt;
+&lt;li&gt;deepin-game&lt;/li&gt;
+&lt;li&gt;deepin-desktop-schemas&lt;/li&gt;
+&lt;li&gt;deepin-desktop-base&lt;/li&gt;
+&lt;li&gt;deepin-artwork-themes&lt;/li&gt;
+&lt;li&gt;deepin-calendar&lt;/li&gt;
+&lt;li&gt;deepin-account-faces&lt;/li&gt;
+&lt;li&gt;deepin-terminal&lt;/li&gt;
+&lt;li&gt;deepin-wallpapers&lt;/li&gt;
+&lt;li&gt;deepin-qt-dbus-factory&lt;/li&gt;
+&lt;li&gt;deepin-file-manager&lt;/li&gt;
+&lt;li&gt;deepin-qt5integration&lt;/li&gt;
+&lt;li&gt;deepin-dock&lt;/li&gt;
+&lt;li&gt;deepin-desktop&lt;/li&gt;
+&lt;li&gt;deepin-launcher&lt;/li&gt;
+&lt;li&gt;deepin-wm-switcher&lt;/li&gt;
+&lt;li&gt;deepin-wm&lt;/li&gt;
+&lt;li&gt;deepin-manual&lt;/li&gt;
+&lt;li&gt;deepin-api&lt;/li&gt;
+&lt;li&gt;startdde&lt;/li&gt;
+&lt;li&gt;deepin-file-manager-backend&lt;/li&gt;
+&lt;li&gt;deepin-control-center&lt;/li&gt;
+&lt;li&gt;deepin-daemon&lt;/li&gt;
+&lt;li&gt;deepin-session-ui&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a id=&quot;user-content-resources&quot; class=&quot;anchor&quot; href=&quot;https://github.com/FZUG/repo/tree/master/rpms/deepin_project#resources&quot;&gt;&lt;/a&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/linuxdeepin/&quot;&gt;Deepin Github&lt;/a&gt;, &lt;a href=&quot;https://www.deepin.org/en/&quot;&gt;Official site&lt;/a&gt;, &lt;a href=&quot;https://my.oschina.net/ManateeLazyCat/blog/831104&quot;&gt;Deepin OS Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://copr.fedorainfracloud.org/coprs/mosquito/deepin/packages/&quot;&gt;fedora-deepin repository list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cz-guardian/fedora-deepin/&quot;&gt;fedora-deepin (jstepanek)&lt;/a&gt;: thanks @cz-guardian&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/fasheng/arch-deepin/&quot;&gt;arch-deepin&lt;/a&gt;: &lt;a href=&quot;https://bbs.archlinux.org/viewtopic.php?id=181861&quot;&gt;Deepin Desktop Environment on Arch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/manjaro/packages-community/&quot;&gt;manjaro-deepin&lt;/a&gt;: &lt;a href=&quot;https://github.com/fasheng/arch-deepin/issues/98&quot;&gt;issue 98&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/debiancn/repo/issues/31&quot;&gt;debian-deepin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zhtengw/deepin-overlay/&quot;&gt;gentoo-deepin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

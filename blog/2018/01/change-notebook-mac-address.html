@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     修改笔记本无线网卡MAC地址 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">修改笔记本无线网卡MAC地址</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-01-04" itemprop="datePublished">日期：2018年01月04日</time></p>
+      <span class="post-category">分类：网络技术与安全</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h3>WIFI黑名单</h3>
+<p>突然发现电脑不能连上隔壁家WIFI了，但是手机却可以连上，很明显，电脑被别人拉黑，通常这种路由器的黑名单是将设备MAC地址屏蔽了，所以修改一下电脑的MAC地址即可解决。</p>
+<h3>MAC地址</h3>
+<p>MAC地址，又叫物理地址，位于OSI模型的第三层，负责设备的网络地址，在路由器后台或者各种WIFI管理软件中设置黑白名单都是通过屏蔽某些地址或者只允许某些地址访问来实现的。</p>
+<p>一般来说，所有设备的MAC地址都可以修改。</p>
+<p>但是对于很多笔记本电脑来说，自带的无线网卡都不具备这个功能，需要自己手动修改注册表来修改MAC地址和添加修改途径。</p>
+<h2>修改步骤</h2>
+<p>我这里以WIN10为例。</p>
+<p>右键单击【WIFI】图标，选择【打开网络和共享中心】</p>
+<p><img src="/pics/2018/01/0401.png" alt=""></p>
+<p>选择左侧的【更改适配器设置】</p>
+<p><img src="/pics/2018/01/0402.png" alt=""></p>
+<p>可以在这里找到无线网卡和本地光缆的连接状况，在这里记住你要修改的设备的型号。</p>
+<p><img src="/pics/2018/01/0408.png" alt=""></p>
+<p>右键单击你想要修改的设备，打开【属性】，【配置】，【高级】</p>
+<p><img src="/pics/2018/01/0403.png" alt=""></p>
+<p><img src="/pics/2018/01/0409.png" alt=""></p>
+<p>我这里打开了【以太网】的配置情况，可以看到是可以修改网络地址（Network Address）的，但是你打开无线网卡的属性里却不可以修改。</p>
+<p>这里就需要修改一下注册表选项，在里面添加一个供修改的选项。</p>
+<p>【WIN + R】键打开运行，输入【regedit】回车打开注册表。</p>
+<p>依次打开<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002BE10318}\</code>。</p>
+<p>这里面有很多个项，单击每个项然后找到你需要修改的无线网卡的项</p>
+<p><img src="/pics/2018/01/0404.png" alt=""></p>
+<p>这个【0001】就是我的无线网卡了，接着找到本地光缆的项，我的是【0002】。</p>
+<p><img src="/pics/2018/01/0405.png" alt=""></p>
+<p>打开你的本地光缆的项的【Ndi/params/】下，这个就是刚才在【更改适配器设置】中可供修改的选项了，你会发现在无线网卡的项的同样目录下是没有这个【Network Address】项的，所以需要自己加一个这样的项。</p>
+<p><img src="/pics/2018/01/0406.png" alt=""></p>
+<p>里面的内容全部和本地光缆中的【Ndi/params/Network Address】的内容一致，唯一要修改的就是这个【default】的值，修改为你想修改的MAC地址。</p>
+<p><img src="/pics/2018/01/0407.png" alt=""></p>
+<p>MAC地址为12位16进制字符串，比如我改成这样</p>
+<pre><code class="hljs">8278733DA992
+</code></pre>
+<p>你可以随便填写地址，但别忘记16进制中字母只能有【ABCDEF】，然后第二位地址为2，然后记住这个地址。</p>
+<p>接着回到无线网卡主键中，添加一个【NetworkAddress】字符串值为你刚才设置的MAC地址。</p>
+<p><img src="/pics/2018/01/0410.png" alt=""></p>
+<p>接着需要重启才能生效。</p>
+<h3>参考</h3>
+<ul>
+<li><a href="https://jingyan.baidu.com/article/0320e2c180b5471b87507bc0.html">怎样修改无线网卡的MAC码</a></li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

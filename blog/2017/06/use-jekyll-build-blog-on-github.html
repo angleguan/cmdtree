@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Jekyll在Github上搭建博客 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Jekyll在Github上搭建博客</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-06-16" itemprop="datePublished">日期：2017年06月16日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>使用Github Pages</h2>
+<p>开启Github Pages可以把你的仓库变成一个类似虚拟主机一样的东西，用来托管网站的源文件。</p>
+<p>首先，我们创建一个仓库，官方推荐使用这种 <code>yourname.github.io</code>命名格式（你也可以使用其它名称）</p>
+<p>然后clone到本地</p>
+<pre><code class="hljs">$ git clone git@github.com:yourname/yourname.github.io.git
+</code></pre>
+<p>在<code>yourname.github.io</code>文件夹内，你可以新建一个文件，像这样</p>
+<pre><code class="hljs">    &lt;!doctype html&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Hello&lt;/title&gt;
+      &lt;/head&gt;
+
+      &lt;body&gt;
+        &lt;h1&gt;Hello!&lt;/h1&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<p>然后推送到Github</p>
+<pre><code class="hljs">    $ git add .
+    $ git commit -a -m 'init commit.'
+    $ git push origin master
+</code></pre>
+<p>一般如果按照<code>yourname.github.io</code>这种格式创建的仓库会默认开启Pages服务，如果没有，或者你使用了其它名称的仓库，需要在仓库的【Setting】下找到这个Github Pages设置并选择你的分支即可。</p>
+<p><img src="/pics/2017/11/Screenshot_20171102_104929.png" alt=""></p>
+<p>现在你打开 <code>yourname.github.io</code> 就可以看到刚才新建的页面了。<strong>这就是Github Pages服务</strong></p>
+<h2>使用Jekyll</h2>
+<p><img src="/pics/2017/11/a3861d0800a231783e7ae74a2815132e.png" alt=""></p>
+<blockquote>
+<p>jekyll是一个使用Ruby编写的静态站点生成工具，使用Liquid模板渲染引擎，支持Markdown和Textile标记语言，并且可以为所有以 .html、.markdown、.textile扩展名结尾的文件使用YAML配置，内置语法高亮功能。</p>
+</blockquote>
+<p>而Github的Pages服务可以为每个Github主机上的仓库提供静态页面服务，并且Github Pages服务支持Jekyll自动编译，也就说你可以将未生成的Jekyll源代码push到仓库由Github替你完成生成服务，这是Jekyll相对于其它静态博客生成系统的一大优点。</p>
+<p><strong>说白了Jekyll就是一个可以把你用Markdown写的文章变成HTML的工具，而Github Pages来帮你执行这个任务自动部署</strong></p>
+<h3>安装Jekyll</h3>
+<p>使用ruby gem安装，如果在这里遇到什么问题，可以看一下这里<a href="https://cmdtree.com/blog/2017/09/jekyll.html">Jekyll最全使用指南 - 樊志阳</a></p>
+<pre><code class="hljs">$ gem install jekyll
+</code></pre>
+<p>然后生成一个站点</p>
+<pre><code class="hljs">$ jekyll new newsite
+</code></pre>
+<p>进入这个站点并输入</p>
+<pre><code class="hljs">$ jekyll s
+</code></pre>
+<p>如果报错，你可以尝试下面的方法</p>
+<pre><code class="hljs">$ gem install bundler
+$ bundle install
+$ bundle exec jekyll s
+</code></pre>
+<p>然后在浏览器访问<code>127.0.0.1:4000</code>就可以看到网站了，关于Jekyll的更多使用技巧访问<a href="https://cmdtree.com/2017/09/jekyll.html">Jekyll最全使用指南 - 樊志阳</a></p>
+<h2>Jekyll主题</h2>
+<p>你可以前往<a href="http://jekyllthemes.org/">Jekyll Themes</a>找到很多Jekyll主题。</p>
+<p>下面是一个Jekyll主题（站点）标准的目录结构：</p>
+<pre><code class="hljs">.
+|-- _includes
+|-- _plugins 
+|-- _layout 
+|   |-- default.html
+|   `-- post.html
+|-- _post
+|   |-- yyyy-mm-dd-title.markdown
+|   `-- yyyy-mm-dd-title.markdown
+|-- _site
+|-- _sass
+    |-- base.scss
+|-- _config.yml
+`-- index.html
+</code></pre>
+<p><strong>_includes</strong>文件夹存放你需要在模板文件中包含的文件，如<code>hader.html</code>你可以使用Liquid标签 <code>{‰ include header.html ‰}</code>来引用相应的文件。</p>
+<p><strong>_plugins</strong>文件夹用来存放插件文件（.rb文件)。</p>
+<p><strong>_layout</strong>文件夹存放布局模板，如<code>post.html</code>。</p>
+<p><strong>_posts</strong>文件夹用来存放文章文件，文件命名遵循 <code>yyyy-mm-dd-title.md</code> 规则。</p>
+<p><strong>_site</strong>自动生成的，所以可以忽略，如果你有在本地安装jekyll并预览了的话，可以在.gitignore文件里设置Git停止对本目录的跟踪。</p>
+<p><strong>_config.yml</strong>文件储存配置选项，这样在本地启动预览时就不用每次都手动输入了。</p>
+<p><strong>index.html 和所有的 HTML/Markdown/Textile 文件</strong> 所有的HTML/Markdown/Textile文件都可以包含 YAML 配置，这类文件都会被jekyll解析并生成网页。</p>
+<p>现在你可以在自己的仓库中配置好你自己的目录及文件，也可以<code>clone</code>我的仓库，然后修改。</p>
+<pre><code class="hljs">$ git clone https://github.com/rhatyang/rhatyang.github.io.git
+</code></pre>
+<h2>撰写文章</h2>
+<p>所有的文章都储存在<code>_posts</code>里，使用Markdown语法，每篇文章都需要撰写YAML头信息，像这样，说明这篇博文的信息：</p>
+<hr>
+<h2>title: 使用Jekyll在Github上搭建博客
+date: 2017-06-16T22:10:39+00:00
+category: Jekyll</h2>
+<h2>绑定域名</h2>
+<p>默认的<code>yourname.github.io</code> 域名不好看，你可以自己购买一个域名并绑定到Github Pages：</p>
+<p>1）在你的仓库中新建一个名为CNAME的文件，往里面写入你的网站域名（不带HTTPS/HTTP）
+2）在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME类型，指向YOURNAME.github.io即可。</p>
+<p>绑定域名后如何开启HTTPS，参考<a href="https://cmdtree.com/blog/2017/10/github-pages-cloudflare-ssl.html">Github Pages绑定域名添加HTTPS（Cloudflare） - 樊志阳</a></p>
+<p>参考及相关资料：</p>
+<ul>
+<li><a href="http://pages.github.com/">http://pages.github.com/</a></li>
+<li><a href="https://github.com/mojombo/jekyll/wiki">https://github.com/mojombo/jekyll/wiki</a></li>
+<li><a href="http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/">http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

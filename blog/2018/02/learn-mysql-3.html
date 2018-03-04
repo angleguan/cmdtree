@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     MySQL学习笔记（3）简单SELECT语句 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">MySQL学习笔记（3）简单SELECT语句</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-14" itemprop="datePublished">日期：2018年02月14日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>本文用来总结，推荐阅读</p>
+<ul>
+<li>
+<p><a href="http://www.w3school.com.cn/sql/sql_select.asp">SQL SELECT 语句</a></p>
+</li>
+<li>
+<p><a href="https://www.shiyanlou.com/courses/9/labs/74/document">基础篇 - SELECT 语句详解 - 实验楼</a></p>
+</li>
+</ul>
+<hr>
+<p><strong>SELECT 语句用于从表中选取数据。</strong></p>
+<p>结果被存储在一个结果表中（称为结果集）。</p>
+<p>用法:</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> 要查询的列名 <span class="hljs-keyword">FROM</span> 表名字 <span class="hljs-keyword">WHERE</span> 限制条件;
+</code></pre>
+<p>可用*代替可输出所有的列</p>
+<h3>数学符号条件</h3>
+<p>where限制条件可加入数学符号<code>=,&lt;,&gt;,&gt;=,&lt;=</code>。</p>
+<p>例如：</p>
+<pre><code class="hljs">SELECT * FROM sstud WHERE age&gt;=25;
+
+SELECT * FROM sstud WHERE name='join';
+</code></pre>
+<h3>AND OR</h3>
+<p>WHERE后面可以有不止一条限制，而根据条件之间的逻辑关系，可以用<code>OR(||)</code>和<code>AND(&amp;&amp;)</code>连接：</p>
+<p>例如：</p>
+<pre><code class="hljs">SELECT * FROM sstud WHERE age&gt;=23 AND age&lt;=25 ;
+SELECT * FROM sstud WHERE age=23 OR age=25;
+
+SELECT * FROM sstud WHERE age BETWEEN 23 AND 25;
+</code></pre>
+<h3>IN 和 NOT IN</h3>
+<p><code>IN</code>、<code>NOT IN</code>表示在或不在。例如下面的语句用来查询在in_dpt是dpt3或dpt4中的数据。</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>,age,phone,in_dpt <span class="hljs-keyword">FROM</span> employee <span class="hljs-keyword">WHERE</span> in_dpt <span class="hljs-keyword">IN</span> (<span class="hljs-string">'dpt3'</span>,<span class="hljs-string">'dpt4'</span>);
+</code></pre>
+<p>而<code>NOT IN</code>相反，用来查询某值不为某值中的数据。</p>
+<h3>通配符</h3>
+<p>关键字<code>LIKE</code>在SQL语句中和通配符一起使用，通配符代表未知字符。SQL中的通配符是<code>_</code>和<code>%</code>。其中<code>_</code>代表一个未指定字符，<code>%</code>代表不定个未指定字符。</p>
+<p>比如，要只记得电话号码前四位数为1101，而后两位忘记了，则可以用<strong>两个</strong><code>_</code>通配符代替：</p>
+<pre><code class="hljs">SELECT name,age,phone  FROM employee WHERE phone LIKE '1101__';
+</code></pre>
+<h3>排序</h3>
+<p>SQL可以使用<code>ORDER BY</code>关键词对表进行排序。默认情况下，<code>ORDER BY</code>的结果是升序排列，而使用关键词<code>ASC</code>和<code>DESC</code>可指定升序或降序排序。</p>
+<p>比如，我们按salary降序排列，SQL语句为：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>,age,salary,phone <span class="hljs-keyword">FROM</span> employee <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> salary <span class="hljs-keyword">DESC</span>;
+</code></pre>
+<h3>内置函数和计算</h3>
+<p>SQL 允许对表中的数据进行计算。对此，SQL 有 5 个内置函数，这些函数都对<code>SELECT</code>的结果做操作：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名：</th>
+<th style="text-align:left">COUNT</th>
+<th style="text-align:left">SUM</th>
+<th style="text-align:left">AVG</th>
+<th style="text-align:left">MAX</th>
+<th style="text-align:left">MIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">作用：</td>
+<td style="text-align:left">计数</td>
+<td style="text-align:left">求和</td>
+<td style="text-align:left">求平均值</td>
+<td style="text-align:left">最大值</td>
+<td style="text-align:left">最小值</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>其中 COUNT 函数可用于任何数据类型(因为它只是计数)，而 SUM 、AVG 函数都只能对数字类数据类型做计算，MAX 和 MIN 可用于数值、字符串或是日期时间数据类型。</p>
+</blockquote>
+<pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(Code) <span class="hljs-keyword">FROM</span> Car 查询Car表中有多少条数据
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(Price) <span class="hljs-keyword">FROM</span> Car  取Car表中价格的最大值
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">min</span>(Price) <span class="hljs-keyword">FROM</span> Car  取Car表中价格的最小值
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">sum</span>(Price) <span class="hljs-keyword">FROM</span> Car  取Car表中价格的总和
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">avg</span>(Price) <span class="hljs-keyword">FROM</span> Car  取Car表中价格的平均值
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

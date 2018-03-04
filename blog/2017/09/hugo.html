@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Hugo 搭建静态博客 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Hugo 搭建静态博客</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-04" itemprop="datePublished">日期：2017年09月04日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>Hugo是一个用Go语言编写的，和Jekyll一样，都是静态博客生成系统，将markdown转换为静态网页。同样的，我们也可以将生成的网页托管到Github Pages。</p>
+<h1>安装 Hugo</h1>
+<p>官网介绍的安装方法是mac平台的，但是在其它平台安装也是非常简单的，我们只需要在 <a href="https://github.com/gohugoio/hugo/releases">Releases · gohugoio/hugo</a>下载对应的版本：</p>
+<p>1）Windows版本，下载ZIP压缩包</p>
+<p><img src="/pics/2017/09/Screenshot_20170905_133648.png" alt=""></p>
+<p>然后将下载的压缩包解压至任意路径，再将此路径添加至系统环境变量<code>Path</code>即可，</p>
+<p><img src="/pics/2018/01/1201.png" alt=""></p>
+<p>2）Linux平台就更加简单了，比Jekyll和Hexo都更加容易，对于大部分的发行版，都在官方源添加了Hugo，可以直接使用包管理器安装它们：</p>
+<p>对于Ubuntu:</p>
+<pre><code class="hljs"># apt-get install hugo
+</code></pre>
+<p>但是这样安装可以会安装到旧的版本，例如我在Ubuntu 16.04上直接安装，查询版本</p>
+<pre><code class="hljs">$ hugo version
+Hugo Static Site Generator v0.16-DEV BuildDate: 2016-02-07T01:14:17+08:00
+</code></pre>
+<p>安装到了0.16版本，所以我推荐到Github下载最新版本：<a href="https://github.com/gohugoio/hugo/releases">Releases · gohugoio/hugo</a></p>
+<p><img src="/pics/2017/09/Screenshot_20170905_131620.png" alt=""></p>
+<p>可以直接下载deb包安装。</p>
+<p>对于Archer，直接就可以安装到最新版本</p>
+<pre><code class="hljs"># pacman -S hugo
+$ hugo version
+Hugo Static Site Generator v0.26 linux/amd64 BuildDate: 2017-08-07T18:27:14+02:00
+</code></pre>
+<h1>如何使用</h1>
+<p>使用如下命令创建一个不包含主题的站点</p>
+<pre><code class="hljs">$ hugo new site quickstart
+</code></pre>
+<p>目录结构</p>
+<pre><code class="hljs">quickstart
+├── archetypes
+├── config.toml        ##配置文件
+├── content            ##文章放置文件夹
+├── data
+├── layouts
+├── static
+└── themes             ##主题文件夹
+</code></pre>
+<p>进入到站点目录下并安装主题</p>
+<pre><code class="hljs">$ cd quickstart
+$ git init
+$ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+</code></pre>
+<p>编辑配置文件，设置主题</p>
+<pre><code class="hljs">$ echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
+</code></pre>
+<h2>创建一篇文章</h2>
+<pre><code class="hljs">hugo new posts/my-first-post.md
+</code></pre>
+<p>my-first-post.md 自动生成到了 content/my-first-post.md ，打开 my-first-post.md 看下：</p>
+<pre><code class="hljs">+++
+date = &quot;2015-10-25T08:36:54-07:00&quot;
+draft = true
+title = &quot;about&quot;
+
++++
+
+正文内容
+
+</code></pre>
+<p>内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以查询官方文档换成 YAML 格式（使用 --- 标记）或者 JSON 格式。</p>
+<p>OK～</p>
+<h2>运行站点</h2>
+<pre><code class="hljs">$ hugo server -D
+Started building sites ...
+Built site for language en:
+0 draft content
+0 future content
+0 expired content
+0 regular pages created
+6 other pages created
+0 non-page files copied
+0 paginator pages created
+0 categories created
+0 tags created
+total in 7 ms
+Watching for changes in /home/rhatyang/Desktop/hugo-demo/quickstart/{data,content,layouts,static,themes}
+Serving pages from memory
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+
+</code></pre>
+<p>打开浏览器，输入<a href="http://localhost:1313/">http://localhost:1313/</a>，即可看到站点已经运行了</p>
+<p><img src="/pics/2017/09/Screenshot_20170905_140949.png" alt=""></p>
+<h1>部署</h1>
+<p>可以通过下面的命令生成静态页面</p>
+<pre><code class="hljs">$ hugo --theme=hyde --baseUrl=&quot;http://YOURNAME.github.io/&quot;
+</code></pre>
+<p>所有的静态文件会生成到public文件夹内，然后推送到仓库</p>
+<pre><code class="hljs">$ cd public
+$ git init
+$ git remote add origin https://github.com/YOURNAME/YOURNAME.github.io.git
+$ git add -A
+$ git commit -m &quot;first commit&quot;
+$ git push -u origin master
+</code></pre>
+<p>然后即可通过<code>YOURNAME.github.io</code>访问到站点啦。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

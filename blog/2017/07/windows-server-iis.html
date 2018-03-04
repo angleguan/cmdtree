@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Windows IIS服务器搭建 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Windows IIS服务器搭建</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-20" itemprop="datePublished">日期：2017年07月20日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>测试环境：Windows Server 2008 R2 数据中心版 64位 、IIS 7.5</p>
+</blockquote>
+<h2>安装IIS服务</h2>
+<p>安装好系统后，打开【开始】【所有程序】【管理工具】选择【服务器管理器】</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720124248.png" alt=""></p>
+<p>打开之后，如图所示</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720124324.png" alt=""></p>
+<p>选择【角色】【添加角色】</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720124358.png" alt=""></p>
+<p>然后选择【Web服务器（IIS）】</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720124518.png" alt=""></p>
+<p>然后勾选自己所需要的功能</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720124656.png" alt=""></p>
+<p>然后【安装】，完成之后关闭当前窗口</p>
+<p>这时候我们就算是安装完成了</p>
+<p>这时候可以在服务器内浏览器地址栏输入<code>127.0.0.1</code>就可以看到IIS的默认主页了</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720130452.png" alt=""></p>
+<p>然后我们也可以在自己电脑浏览器上输入服务器的公网IP也可以看到相同内容</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720130634.png" alt=""></p>
+<p>我们还可以看到这个站点用的服务有</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720132447.png" alt=""></p>
+<h2>二、配置服务器</h2>
+<p>接着在【开始】【管理工具】【Internet信息服务（iis）服务器】</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720125015.png" alt=""></p>
+<p>可以在【网站】下面看到【Default Web Site】，这个就是我们刚才所浏览到的网站</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720131007.png" alt=""></p>
+<p>点击右边【操作】【浏览】可以打开网站源文件目录，我们可以在这里进行我们想要的操作，换成我们的网站源码等</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720131141.png" alt=""></p>
+<p>比如我这里把默认文件删了，新建一个index.html，然后输入<code>Hello Fan ZhiYang!</code></p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720131628.png" alt=""></p>
+<p>然后浏览器输入IP地址，就可以看到</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170720131813.png" alt=""></p>
+<p>（完）</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

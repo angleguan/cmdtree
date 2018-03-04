@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Jekyll最全使用指南 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Jekyll最全使用指南</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-11" itemprop="datePublished">日期：2017年09月11日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>这是一篇Jekyll的入门教程，怎么定义入门我也不知道，反正就是想到什么就写什么吧</p>
+<h2>安装Jekyll</h2>
+<p>我觉得无论是在任何平台安装Jekyll都是非常简单的。安装好ruby和gem就可以使用gem安装jekyll了</p>
+<p><a href="http://cmdtree.com/blog/2017/05/this-site-building-notes-01.html">本站搭建笔记(一)安装本地环境</a></p>
+<p><strong>失败原因总结:</strong></p>
+<p>1.Ubuntu系列需要安装<code>ruby-dev</code></p>
+<p>2.必须安装有编译工具（make，gcc，g++等）或者安装<code>ruby-build</code>(windows不需要)</p>
+<p>3.在安装前安装先安装<code>bundle</code></p>
+<p>4.某些Linux平台（fedora、arch）：可以先使用系统包管理命令安装jekyll（如fedora中的rubygem-jekyll、arch中的ruby-jekyll）这样安装的不是最新版本，然后再使用<code>gem update</code>升级到最新版本即可！</p>
+<h3>Gem 源问题</h3>
+<p>如果在<code>bundle install</code>中提示包含HTTP或者<code>SSL_connect</code>的字眼的错误时，请安装OpenSSL并修改源为http的源。</p>
+<p>修改方法：<a href="http://cmdtree.com/blog/2017/05/ruby-gem-change.html">更改RubyGems源</a></p>
+<h2>配置Jekyll</h2>
+<p>Jekyll的全局配置文件在<code>_config.yml</code>.</p>
+<p>例如：</p>
+<pre><code class="hljs yml"><span class="hljs-attr">title:</span> <span class="hljs-string">樊志阳博客</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">这里是樊志阳的个人博客</span>
+<span class="hljs-attr">url:</span> <span class="hljs-string">"http://cmdtree.com"</span>
+<span class="hljs-attr">permalink:</span> <span class="hljs-string">/blog/:year/:month/:title.html</span>
+<span class="hljs-attr">markdown:</span> <span class="hljs-string">kramdown</span>
+<span class="hljs-attr">plugins:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">jekyll-sitemap</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">jekyll-feed</span>
+<span class="hljs-comment"># 从3.5.2开始，以前对于插件的配置是使用gem字段现在改成了plugins</span>
+</code></pre>
+<p>这是一份简单的配置文件，这里<strong>每个值都不是必须的</strong>，也就是说，你删掉这个文件也能运行Jekyll，你可以简单理解这里只是<strong>定义了一些全局变量</strong>，当你需要重复引用某个部分时，你就可以自己添加一个变量。</p>
+<p>比如<code>title</code>，你肯定不只一次的需要输出它，但是记住，这并不代表<code>_config.yml</code>中的<code>title</code>就是必须的，但是为了修改方便，我们都会在<code>_config.yml</code>中预先设定好这些<strong>规则</strong>，同样的站点描述<code>description</code>，我嫌她太长了，我可以把他改成</p>
+<pre><code class="hljs yml"><span class="hljs-attr">desc:</span> <span class="hljs-string">这里是樊志阳的个人博客</span>
+</code></pre>
+<p>只要在引用的时候使用<code>{{ site.desc }}</code>，每一个在<code>_config.yml</code>中定义的变量都是这样使用。</p>
+<pre><code class="hljs">{{ site.valueName }}
+</code></pre>
+<p><code>{{ }}</code>双大括号的作用就是输出里面变量的值，而<code>{% %}</code>大括号里用双引号就是进行逻辑运算。使用模板引擎语法时就要使用<code>{% %}</code>。</p>
+<h2>模板引擎</h2>
+<p>Jekyll使用Liquid模板引擎，这个模板引擎非常简单，中文文档在</p>
+<p><a href="http://liquid.bootcss.com/">Liquid 模板语言中文文档</a></p>
+<h3>路径问题</h3>
+<p>一般情况下，我推荐：</p>
+<ul>
+<li>
+<p>在配置文件中设置好文章固定链接：<a href="http://jekyll.com.cn/docs/permalinks/">永久链接</a></p>
+</li>
+<li>
+<p>尽量使用域名根目录作为站点根目录，如果非得要用域名/目录的形式，可以将<code>index.md</code>文件放到你想要显示主页的目录中。</p>
+</li>
+<li>
+<p>图片资源，我建议在配置文件中定义好图片路径，如：</p>
+</li>
+</ul>
+<pre><code class="hljs yml"><span class="hljs-attr">images_url:</span> <span class="hljs-string">"http://images.cmdtree.com"</span>
+</code></pre>
+<p>然后这样引用图片</p>
+<pre><code class="hljs">![]({{ site.images_url }}/path/pic.png)
+</code></pre>
+<p>这样的好处是，你在想换图床的时候改一下链接就好了</p>
+<h2>部署</h2>
+<p>如果你使用Coding pages或者Github pages，直接将未生成的源码push上去就好了，他们会自动生成并部署。</p>
+<p>如果你使用虚拟主机，你可以使用sync同步工具或者git-ftp来进行同步生成好的源码。</p>
+<p>如果你使用服务器或者VPS，你可以将网站生成好再同步上去，或者直接在服务器搭建好jekyll环境，使用nginx或者ruby的web服务都可以。</p>
+<h2>相关文章：</h2>
+<p><a href="http://cmdtree.com/blog/2017/06/jekyll-more.html">jekyll 的一些函数和技巧</a></p>
+<p><a href="http://cmdtree.com/blog/2017/05/jekyll-tag-was-never-closed.html">Jekyll error：tag was never closed</a></p>
+<p><a href="http://cmdtree.com/blog/2017/06use-jekyll-build-blog-on-github.html">使用jekyll在Github上搭建博客</a></p>
+<p><a href="http://cmdtree.com/blog/2017/04/jekyll-static-search.html">为 jekyll 博客添加静态搜索</a></p>
+<p><a href="http://cmdtree.com/blog/2017/07/use-google-customize-search.html">定制Google自定义搜索页</a></p>
+<p><a href="http://cmdtree.com/blog/2017/10/github-pages-cloudflare-ssl.html">Github Pages绑定域名添加http（Cloudflare</a></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

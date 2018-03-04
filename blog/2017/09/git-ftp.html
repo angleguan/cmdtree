@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Git代替FTP管理虚拟主机文件 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Git代替FTP管理虚拟主机文件</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-20" itemprop="datePublished">日期：2017年09月20日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>如果我们把网站程序托管在虚拟主机中，我们都需要一款工具来管理主机中的源代码，一般我们都是使用FTP来管理，但是这种方式有很大的缺陷，例如当我们不知道哪些文件做了修改的时候，我们只能把全部文件都上传一遍，FTP协议每次只能传输一个文件，而且每次传输完之后又要再次握手，每次握手的时间比上传一个文件的时间都要长，如果要重新全部上传一个源码，对于大量的小文件来说，这种方式简直让人崩溃。</p>
+<p>一般来说，大部分人都会使用Sync工具来进行传输，每次只传输变更的文件，但是这种方法还是感觉有点不方便。后来我了解到可以使用Git来进行传输，而且还拥有版本控制的功能，这样就不用担心操作失误，每次都可以进行回滚，确实很方便。</p>
+<h2>git-ftp</h2>
+<p>这里是这个项目的地址：<a href="https://github.com/git-ftp/git-ftp">git-ftp/git-ftp: Uses Git to upload only changed files to FTP servers.</a></p>
+<h2>使用方法</h2>
+<p>一.首先你得有安装Git，这个就不多加阐述了。</p>
+<p>二.安装git-ftp</p>
+<p>１）对于所有的Unix/Linux系统，全都可以采用源代码安装，在<a href="https://github.com/git-ftp/git-ftp/releases">Releases · git-ftp/git-ftp</a>下载最新的压缩包，解压然后</p>
+<pre><code class="hljs"># make install
+</code></pre>
+<p>这样就安装好了</p>
+<p>２）Windows系统，打开git安装目录，默认在<code>C:\Program Files (x86)\Git</code>，然后在安装目录下打开git bash输入：</p>
+<pre><code class="hljs">curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp &gt; /bin/git-ftp
+chmod 755 /bin/git-ftp
+</code></pre>
+<p>３）Mac OS X</p>
+<p>使用brew:</p>
+<pre><code class="hljs">brew install git
+brew install curl --with-ssl --with-libssh2
+brew install git-ftp
+</code></pre>
+<p>检查是否安装成功：</p>
+<pre><code class="hljs">$ git-ftp   
+git-ftp &lt;action&gt; [&lt;options&gt;] &lt;url&gt;
+</code></pre>
+<p>三.初始化目录</p>
+<p>首先需要初始化Git目录</p>
+<pre><code class="hljs">$ git init
+</code></pre>
+<p>然后配置你的主机信息：</p>
+<pre><code class="hljs">$ git config git-ftp.url &quot;ftp://ftp.example.net:21/public_html&quot;
+$ git config git-ftp.user &quot;ftp-user&quot;
+$ git config git-ftp.password &quot;secr3t&quot;
+</code></pre>
+<p>第一项是你主机的地址，一般如果购买的虚拟主机，就会是IP地址，端口可以省略，然后跟上你的目录路径</p>
+<p>第二项是用户名</p>
+<p>第三项密码</p>
+<p>使用时跟平时使用git一样：</p>
+<pre><code class="hljs">$ git add .
+$ git commit -m &quot;description&quot;
+</code></pre>
+<p><strong>PUSH命令不同</strong></p>
+<p>使用下面的命令推送代码：</p>
+<pre><code class="hljs">$ git ftp push
+</code></pre>
+<p>这样就可以了！</p>
+<p>是不是发现比使用FTP快多了，当然，git-ftp能做的肯定不止这些，想解锁更多新姿势可以查看
+<a href="https://github.com/git-ftp/git-ftp/blob/master/man/git-ftp.1.md">git-ftp/git-ftp.1.md at master · git-ftp/git-ftp</a></p>
+<p>或者输入</p>
+<pre><code class="hljs">$ git-ftp -h
+</code></pre>
+<p>来查看帮助。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

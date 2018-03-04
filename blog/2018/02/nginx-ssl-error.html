@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Nginx配置SSL踩坑日记 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Nginx配置SSL踩坑日记</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-10" itemprop="datePublished">日期：2018年02月10日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>仅以此贴记录一下我在配置Nginx HTTPS时遇到的坑</p>
+<p><strong>所有问题的报错信息均来自systemctl status nginx</strong></p>
+<h3>unknown directive &quot;ssl&quot;</h3>
+<p>这个问题是由于你在nginx.conf中配置<code>ssl on</code>所致</p>
+<p>原因：你没有给nginx安装https ssl模块</p>
+<p>解决办法：重新安装一次你的当前版本</p>
+<p>举例：我在上一篇文章中直接使用<code>./configure</code>生成的配置信息，你需要回到你的nginx源码解压目录，再次运行，并加上https模块</p>
+<pre><code class="hljs">cd nginx-1.13.8
+./configure --with-http_ssl_module
+make
+cp objs/nginx /usr/local/nginx/sbin/nginx
+/usr/local/nginx/sbin/nginx
+</code></pre>
+<p>感谢<a href="https://www.jianshu.com/p/a2bd2c82ce3d">Nginx如何安装https-ssl证书 - 简书</a></p>
+<h3>checking for OpenSSL library ... not found</h3>
+<p>接着，如果你在运行<code>./configure --with-http_ssl_module</code>之后，得到报错信息</p>
+<pre><code class="hljs">checking for OpenSSL library ... not found
+
+./configure: error: SSL modules require the OpenSSL library. You can either do not enable the modules, or install the OpenSSL library into the system, or build the OpenSSL library statically from the source with nginx by using --with-openssl= option.
+</code></pre>
+<p>解决办法：安装<code>libssl-dev</code>包（如果你没安装<code>openssl</code>，你需要安装一下）</p>
+<p>感谢<a href="https://serverfault.com/questions/416571/cant-compile-nginx-with-ssl-support-openssl-not-found">ubuntu - Can't compile nginx with SSL support, OpenSSL not found - Server Fault</a></p>
+<h3>[emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use)</h3>
+<p>接着，如果你debug了半天你的nginx，然后重新启动，发现启动不了，查看status信息看到类似如下信息</p>
+<pre><code class="hljs">Feb 11 02:45:44 ubuntu-s-1vcpu-1gb-sfo2-01 nginx[9635]: nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+Feb 11 02:45:45 ubuntu-s-1vcpu-1gb-sfo2-01 nginx[9635]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Feb 11 02:45:45 ubuntu-s-1vcpu-1gb-sfo2-01 nginx[9635]: nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+Feb 11 02:45:45 ubuntu-s-1vcpu-1gb-sfo2-01 nginx[9635]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Feb 11 02:45:45 ubuntu-s-1vcpu-1gb-sfo2-01 nginx[9635]: nginx: [emerg] bind() to 0.0.0.0:443 failed (98: Address already in use)
+</code></pre>
+<p>原因：你的80/443端口被占用了</p>
+<p>解决办法：杀死占用进程</p>
+<pre><code class="hljs">fuser -k 80/tcp
+fuser -k 443/tcp
+</code></pre>
+<p>感谢<a href="https://easyengine.io/tutorials/nginx/troubleshooting/emerg-bind-failed-98-address-already-in-use/">[emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use) - EasyEngine</a></p>
+<h3>总结</h3>
+<p>遇事多google！</p>
+<p>感谢google!</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

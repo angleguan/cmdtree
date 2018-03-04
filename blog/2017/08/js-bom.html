@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript BOM（浏览器对象模型）总结 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript BOM（浏览器对象模型）总结</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-25" itemprop="datePublished">日期：2017年08月25日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>JavaScript有三大组成部分，即<code>ECMAScript</code>、<code>BOM（Browser Object Model浏览器对象模型）</code>、<code>DOM（Document Object Model，文档对象模型）</code>，而对于Web应用，BOM无疑是真正的核心。BOM提供了一系列的对象用来访问浏览器的功能，这些功能与用DOM操作的任何网页内容无关。</p>
+<p><img src="/pics/2017/08/2501.jpg" alt=""></p>
+<h2>Window 对象</h2>
+<p>Window对象是BOM的核心，它表示浏览器的一个实例。在网页中定义的一切对象、变量或者是函数，都以window作为其<code>Glbal</code>对象，而由于window对象同时扮演着ECMAScript中Global对象的角色，因此在全局作用域中声明的变量或者函数，都会变成window对象的属性或者方法。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">"fanzhiyang"</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">satName</span>(<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-keyword">this</span>.age);
+}
+
+alert(<span class="hljs-built_in">window</span>.name); <span class="hljs-comment">// fanzhiyang</span>
+sayName();      <span class="hljs-comment">// fanzhiyang</span>
+<span class="hljs-built_in">window</span>.sayName();   <span class="hljs-comment">// fanzhiyang</span>
+</code></pre>
+<p>因为直接声明的全局变量有[[Configurable]]特性，这个特性的值被设置为false，所以这样的全局变量（Window属性）不可以通过delete操作符删除。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">"fanzhiyang"</span>;
+<span class="hljs-built_in">window</span>.windowName = <span class="hljs-string">"fanzhiyang"</span>;
+
+<span class="hljs-keyword">delete</span> <span class="hljs-built_in">window</span>.name; <span class="hljs-comment">// flase</span>
+<span class="hljs-keyword">delete</span> <span class="hljs-built_in">window</span>.windowName;   <span class="hljs-comment">// true</span>
+</code></pre>
+<p>尝试访问未声明的变量会抛错，但是通过查询window对象，可以知道某个未声明的变量是否存在。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> newValue = oldValue; <span class="hljs-comment">// 出错，oldValue未定义</span>
+
+<span class="hljs-keyword">var</span> newValue = <span class="hljs-built_in">window</span>.oldValue; <span class="hljs-comment">// 返回undefined，因为这是一次属性查询</span>
+</code></pre>
+<h3>iframe</h3>
+<p>如果页面中包含框架，那么每个框架都有自己的window对象，且这些框架保存在<code>iframes</code>集合中，<code>window.iframes</code>就表示该页面所有框架的集合，我们可以通过索引来访问相应的window对象，也可以通过框架的名称（window.name）来访问，例如</p>
+<pre><code class="hljs">window.frames[&quot;frameName&quot;]; 
+window.frames.frameName 
+window.frames[index]
+</code></pre>
+<h3>窗口位置</h3>
+<p>我们有很多的方式来获取和修改窗体的位置，IE，Safari，Opera和Chrome都提供了<code>screenLeft</code>和<code>screenTop</code>属性，分别表示window的相对于屏幕左边和上边的位置。但是Firefox提供的两个对应的属性为<code>screenX</code>和<code>screenY</code>，Safari和Chrome同时支持这两个属性。</p>
+<p>我们可以通过判断<code>screenLeft</code>和<code>screenTop</code>两个属性是否存在，从而确定使用这两个属性或者（在Firefox中）使用<code>screenX</code>和<code>screenY</code>来取得窗口的位置。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> leftPos = (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span>.screenLeft == <span class="hljs-string">"number"</span>) ? 
+    <span class="hljs-built_in">window</span>.screenLeft : <span class="hljs-built_in">window</span>.screenX;
+<span class="hljs-keyword">var</span> topPos = (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span>.screenTop == <span class="hljs-string">"number"</span>) ? 
+    <span class="hljs-built_in">window</span>.screenTop : <span class="hljs-built_in">window</span>.screenY;
+</code></pre>
+<h3>间歇调用与超时调用</h3>
+<p>我们可以使用<code>setTimeout()</code>和<code>setInterval()</code>两个方法来设置超时调用和间歇调用两种功能。</p>
+<p><strong>setTimeout()</strong></p>
+<p>setTimeout()方法接受两个参数：要执行的代码和以毫秒计的时间。</p>
+<p>例如：</p>
+<pre><code class="hljs js">setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ 
+    alert(<span class="hljs-string">"Hello world!"</span>); 
+}, <span class="hljs-number">1000</span>);
+</code></pre>
+<p>setTimeout()执行玩后会返回一个数值ID，表示超时调用。我们可以这样把他取消掉：</p>
+<pre><code class="hljs js">cleaarTimeout(timeoutId);
+</code></pre>
+<p><strong>setInterval()</strong></p>
+<p>setInterval()方法接受的参数与setTimeout()相同：要执行的代码和以毫秒计的时间。</p>
+<p>例子：</p>
+<pre><code class="hljs js">setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ 
+    alert(<span class="hljs-string">"Hello world!"</span>); 
+}, <span class="hljs-number">1000</span>);       
+</code></pre>
+<p>调用setInterval()方法也会返回一个ID，用来取消间歇调用。</p>
+<pre><code class="hljs js">clearInterval(intervalId);
+
+</code></pre>
+<h2>location 对象</h2>
+<p><code>location</code>对象提供了当前URL的信息。</p>
+<p>一些常用属性及说明。</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash</td>
+<td>设置或返回从井号 (#) 开始的 URL（锚）。</td>
+</tr>
+<tr>
+<td>host</td>
+<td>设置或返回主机名和当前 URL 的端口号。</td>
+</tr>
+<tr>
+<td>hostname</td>
+<td>设置或返回当前 URL 的主机名。</td>
+</tr>
+<tr>
+<td>href</td>
+<td>设置或返回完整的 URL。</td>
+</tr>
+<tr>
+<td>pathname</td>
+<td>设置或返回当前 URL 的路径部分。</td>
+</tr>
+<tr>
+<td>port</td>
+<td>设置或返回当前 URL 的端口号。</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>设置或返回当前 URL 的协议。</td>
+</tr>
+<tr>
+<td>search</td>
+<td>设置或返回从问号 (?) 开始的 URL（查询部分）。</td>
+</tr>
+</tbody>
+</table>
+<h3>查询字符串参数</h3>
+<p>这是一个非常使用广泛的一个传递参数的方法——通过URL来传递参数，虽然可以通过<code>location.search</code>来返回从问号 (?) 开始到URL末尾的内容，但是没有办法逐个返回某个要查询的字符串参数，所以我们可以使用如下代码来具体返回一个要查询的字符串参数：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getQuery</span>(<span class="hljs-params">name</span>)</span>{
+    <span class="hljs-keyword">var</span> reg=<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"(^|&amp;)"</span>+name+<span class="hljs-string">"=([^&amp;]*)(&amp;|$)"</span>);
+    <span class="hljs-keyword">var</span> r=<span class="hljs-built_in">window</span>.location.search.substr(<span class="hljs-number">1</span>).match(reg);
+    <span class="hljs-keyword">if</span>(r!=<span class="hljs-literal">null</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">unescape</span>(r[<span class="hljs-number">2</span>]);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+}
+
+alert(getQuery(<span class="hljs-string">"ie"</span>));   <span class="hljs-comment">// UTF-8</span>
+
+</code></pre>
+<h2>navigator 对象</h2>
+<p><code>navigator</code> 对象是一个查询浏览器客户端信息的方法。</p>
+<p>属性及说明：</p>
+<p><img src="/pics/2017/08/2601.png" alt="">
+<img src="/pics/2017/08/2602.png" alt=""></p>
+<h2>screen 对象</h2>
+<p><code>screen</code> 对象主要用来查询浏览器的一些像素颜色等信息，用处不大。</p>
+<h2>history 对象</h2>
+<p><code>history</code>对象顾名思义，保存着用户上网的历史记录。</p>
+<h3>go() 方法</h3>
+<p>使用<code>go()</code>方法可以在用户的历史浏览中进行跳转，可以向前也可以向后，这个方法接受一个参数，表示要跳转的整数页数（负数表示向后跳转）。</p>
+<pre><code class="hljs">history.go(-1); // 后退一页
+history.go(1);  // 前进一页
+
+history.go(2);  // 前进两页
+</code></pre>
+<blockquote>
+<p>参考 ： 《JavaScript高级程序设计（第3版）》</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

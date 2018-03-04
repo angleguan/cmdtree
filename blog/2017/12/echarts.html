@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JS图表库 Echarts - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JS图表库 Echarts</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-24" itemprop="datePublished">日期：2017年12月24日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p><a href="http://echarts.baidu.com/index.html">Echarts</a>是百度开源的一个JS图标库，兼容大部分现代浏览器，包括折线图、饼图、柱状图等。</p>
+<h1>使用教程</h1>
+<h2>安装Echarts</h2>
+<p>最直接的方法就是直接在页面中像引用其它JS文件一样直接引用Echarts：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcss.com/echarts/3.8.5/echarts.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>如果在Node项目中使用，也可以使用npm安装</p>
+<pre><code class="hljs">npm install echarts --save
+</code></pre>
+<h2>绘制图表</h2>
+<p>首先需要给Echarts图表绘制一个具备高宽的DOM容器：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"echarts"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 600px;height:400px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>然后使用<code>echarts.init</code>方法初始化一个Echarts实例，下面是一个简单的柱状图实例：</p>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>ECharts<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 引入 echarts.js --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcss.com/echarts/3.8.5/echarts.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 600px;height:400px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="hljs-comment">// 基于准备好的dom，初始化echarts实例</span>
+    <span class="hljs-keyword">var</span> myChart = echarts.init(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'main'</span>));
+
+    <span class="hljs-comment">// 指定图表的配置项和数据</span>
+    <span class="hljs-keyword">var</span> option = {
+      <span class="hljs-attr">title</span>: {
+        <span class="hljs-attr">text</span>: <span class="hljs-string">'ECharts 入门示例'</span>
+      },
+      <span class="hljs-attr">tooltip</span>: {},
+      <span class="hljs-attr">legend</span>: {
+        <span class="hljs-attr">data</span>: [<span class="hljs-string">'销量'</span>]
+      },
+      <span class="hljs-attr">xAxis</span>: {
+        <span class="hljs-attr">data</span>: [<span class="hljs-string">"衬衫"</span>, <span class="hljs-string">"羊毛衫"</span>, <span class="hljs-string">"雪纺衫"</span>, <span class="hljs-string">"裤子"</span>, <span class="hljs-string">"高跟鞋"</span>, <span class="hljs-string">"袜子"</span>]
+      },
+      <span class="hljs-attr">yAxis</span>: {},
+      <span class="hljs-attr">series</span>: [{
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'销量'</span>,
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
+        <span class="hljs-attr">data</span>: [<span class="hljs-number">5</span>, <span class="hljs-number">20</span>, <span class="hljs-number">36</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>]
+      }]
+    };
+
+    <span class="hljs-comment">// 使用刚指定的配置项和数据显示图表。</span>
+    myChart.setOption(option);
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>效果如下：</p>
+<p><img src="/pics/2017/12/2501.png" alt=""></p>
+<h1>定制</h1>
+<p><a href="http://echarts.baidu.com/download.html">Echarts下载页</a>提供了不同的版本下载：</p>
+<ul>
+<li>完整版：包含所有图表组件</li>
+<li>常用版：包含常用的图表组件</li>
+<li>精简版：包含基础图表（折 柱 饼）</li>
+</ul>
+<p>但是一般来说，我们可能只想下载需要用到的图表类型，这时候就可以定制使用：</p>
+<h2>在线定制</h2>
+<p>这是最简单直观的方法，在<a href="http://echarts.baidu.com/builder.html">ECharts 在线构建</a>页可以自助选择需要使用的图表进行打包下载</p>
+<p><img src="/pics/2017/12/2502.png" alt=""></p>
+<p>然后引用定制好的文件即可。</p>
+<h2>在项目中定制</h2>
+<h3>使用构建脚本</h3>
+<p>echarts自带有一个可以自定义构建的文件在<code>echarts/build/build.js</code>，需要在Node.js项目中运行，假如你已经在项目中安装好了echarts，你可以执行命令</p>
+<pre><code class="hljs">node node_modules/echarts/build/build.js --help
+</code></pre>
+<p>来查看帮助，下面是只生成饼图的echarts文件的例子：</p>
+<pre><code class="hljs">node node_modules/echarts/build/build.js --min -i echarts.custom.js -o lib/echarts.custom.min.js
+</code></pre>
+<p>这样就会生成<code>/lib/echarts.custom.min.js</code>文件，你可以在HTML文件中像上面那样运行。</p>
+<h2>打包工具</h2>
+<p>按照上面的使用脚本来定制的方法和在线构建的结果是一样的，都是打包出一个JS文件供引用，还有一种利于维护的方法就是和项目中所有的代码打包在一起，例如Webpack。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> echarts = <span class="hljs-built_in">require</span>(<span class="hljs-string">'echarts'</span>);
+
+<span class="hljs-comment">// 基于准备好的dom，初始化echarts实例</span>
+<span class="hljs-keyword">var</span> myChart = echarts.init(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'main'</span>));
+<span class="hljs-comment">// 绘制图表</span>
+myChart.setOption({
+    <span class="hljs-attr">title</span>: {
+        <span class="hljs-attr">text</span>: <span class="hljs-string">'ECharts 入门示例'</span>
+    },
+    <span class="hljs-attr">tooltip</span>: {},
+    <span class="hljs-attr">xAxis</span>: {
+        <span class="hljs-attr">data</span>: [<span class="hljs-string">'衬衫'</span>, <span class="hljs-string">'羊毛衫'</span>, <span class="hljs-string">'雪纺衫'</span>, <span class="hljs-string">'裤子'</span>, <span class="hljs-string">'高跟鞋'</span>, <span class="hljs-string">'袜子'</span>]
+    },
+    <span class="hljs-attr">yAxis</span>: {},
+    <span class="hljs-attr">series</span>: [{
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'销量'</span>,
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
+        <span class="hljs-attr">data</span>: [<span class="hljs-number">5</span>, <span class="hljs-number">20</span>, <span class="hljs-number">36</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>]
+    }]
+});
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

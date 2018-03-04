@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Windows中的超级终端——Cmder - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Windows中的超级终端——Cmder</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-01" itemprop="datePublished">日期：2017年07月01日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>Cmder是一个Windows上的一个很好的CMD的替代品，但是现在Win10也自带了PowerShell，也是非常强大的一款官方推出的CMD替代品，同时也支持Git，我是两者都用。</p>
+<p>来看看官方对于cmder的解释:</p>
+<blockquote>
+<p>Cmder is a software package created out of pure frustration over the absence of nice console emulators on Windows. It is based on amazing software, and spiced up with the Monokai color scheme and a custom prompt layout, looking sexy from the start.</p>
+</blockquote>
+<p>Cmder是一个开源项目<a href="https://github.com/cmderdev/cmder">cmderdev / cmder：可爱的控制台模拟器包的Windows</a></p>
+<p>现在来说一下如何安装配置Cmder</p>
+<h2>一、安装Cmder</h2>
+<p>打开<a href="http://cmder.net">Cmder官网</a></p>
+<p><img src="/pics/2017/07/TIMscreenshot20170701203059.png" alt=""></p>
+<p>在下载选项中有两个选择，一个是mini版，一个full版，full版相对更加强大，例如加入Git和vim等。</p>
+<p>虽然我已经安装了Git for windows，但是我还是选择了full版，两者都是压缩包形式，解压完直接就能打开cmder.exe，我推荐使用full版，并且如果你选择full版，我推荐你到<a href="https://github.com/cmderdev/cmder/releases">Releases · cmderdev/cmder</a>下载7z压缩包，我在官网下载的是zip，7z格式的要小一半。</p>
+<h2>二、配置Cmder</h2>
+<p>这里我将它解压到c盘的根目录，然后<strong>使用管理员身份</strong>打开cmd或者powershell并定位到解压完的目录</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170701204523.png" alt=""></p>
+<p>执行</p>
+<pre><code class="hljs">.\cmder.exe /REGISTER ALL
+</code></pre>
+<p><strong>这样就将cmder添加到了右键打开菜单：</strong></p>
+<p><img src="/pics/2017/07/TIMscreenshot20170701210239.png" alt=""></p>
+<h3>我们还可以将Cmder的解压目录添加到path环境变量</h3>
+<p><img src="/pics/2017/07/TIMscreenshot20170702131546.png" alt=""></p>
+<p>这样我们就可以在<code>win + R</code>的运行命令中打开cmder</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170702131712.png" alt=""></p>
+<p>cmder还可以在一个窗口下新建多个tab页</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170702131932.png" alt=""></p>
+<p>有多种模式可供选择</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170702133434.png" alt=""></p>
+<p>更多使用技巧自行摸索。</p>
+<p>(完)</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

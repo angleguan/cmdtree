@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     值得收藏的Jquery笔记 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">值得收藏的Jquery笔记</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-23" itemprop="datePublished">日期：2017年03月23日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h4>1、关于页面元素的引用</h4>
+<p>通过jquery的$()引用元素包括通过id、class、元素名以及元素的层级关系及dom或者xpath条件等方法，且返回的对象为jquery对象（集合对象），不能直接调用dom定义的方法。</p>
+<h4>2、jQuery对象与dom对象的转换</h4>
+<p>只有jquery对象才能使用jquery定义的方法。注意dom对象和jquery对象是有区别的，调用方法时要注意操作的是dom对象还是jquery对象。</p>
+<p>普通的dom对象一般可以通过$()转换成jquery对象。</p>
+<p>如：<code>$(document.getElementById(&quot;msg&quot;))</code>则为jquery对象，可以使用jquery的方法。</p>
+<p>由于jquery对象本身是一个集合。所以如果jquery对象要转换为dom对象则必须取出其中的某一项，一般可通过索引取出。</p>
+<p>如：<code>$(&quot;#msg&quot;)[0]</code>，<code>$(&quot;div&quot;).eq(1)[0]</code>，<code>$(&quot;div&quot;).get()[1]</code>，$(&quot;td&quot;)[5]这些都是dom对象，可以使用dom中的方法，但不能再使用Jquery的方法。</p>
+<p>以下几种写法都是正确的：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"#msg"</span>).html();
+$(<span class="hljs-string">"#msg"</span>)[<span class="hljs-number">0</span>].innerHTML;
+$(<span class="hljs-string">"#msg"</span>).eq(<span class="hljs-number">0</span>)[<span class="hljs-number">0</span>].innerHTML;
+$(<span class="hljs-string">"#msg"</span>).get(<span class="hljs-number">0</span>).innerHTML;
+</code></pre>
+<h4>3、如何获取jQuery集合的某一项</h4>
+<p>对于获取的元素集合，获取其中的某一项（通过索引指定）可以使用eq或get(n)方法或者索引号获取，要注意，eq返回的是jquery对象，而get(n)和索引返回的是dom元素对象。对于jquery对象只能使用jquery的方法，而dom对象只能使用dom的方法，如要获取第三个&lt;div&gt;元素的内容。</p>
+<p>有如下两种方法：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"div"</span>).eq(<span class="hljs-number">2</span>).html(); <span class="hljs-comment">//调用jquery对象的方法</span>
+$(<span class="hljs-string">"div"</span>).get(<span class="hljs-number">2</span>).innerHTML; <span class="hljs-comment">//调用dom的方法属性</span>
+</code></pre>
+<h4>4、同一函数实现set和get</h4>
+<p>Jquery中的很多方法都是如此，主要包括如下几个：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"#msg"</span>).html(); <span class="hljs-comment">//返回id为msg的元素节点的html内容。</span>
+
+$(<span class="hljs-string">"#msg"</span>).html(<span class="hljs-string">"&lt;b&gt;new content&lt;/b&gt;"</span>);
+
+<span class="hljs-comment">//将“&lt;b&gt;new content&lt;/b&gt;” 作为html串写入id为msg的元素节点内容中,页面显示b加粗的new content</span>
+$(<span class="hljs-string">"#msg"</span>).text(); <span class="hljs-comment">//返回id为msg的元素节点的文本内容。</span>
+
+$(<span class="hljs-string">"#msg"</span>).text(<span class="hljs-string">"&lt;b&gt;new content&lt;/b&gt;"</span>); <span class="hljs-comment">//将“&lt;b&gt;new content&lt;/b&gt;” 作为普通文本串写入id为msg的元素节点内容中,页面显示&lt;b&gt;new content&lt;/b&gt;</span>
+
+$(<span class="hljs-string">"#msg"</span>).height(); <span class="hljs-comment">//返回id为msg的元素的高度</span>
+
+
+$(<span class="hljs-string">"#msg"</span>).height(<span class="hljs-string">"300"</span>); <span class="hljs-comment">//将id为msg的元素的css高度设为300</span>
+
+$(<span class="hljs-string">"#msg"</span>).width(); <span class="hljs-comment">//返回id为msg的元素的css宽度</span>
+
+$(<span class="hljs-string">"#msg"</span>).width(<span class="hljs-string">"300"</span>); <span class="hljs-comment">//将id为msg的元素的宽度设为300</span>
+
+$(<span class="hljs-string">"input"</span>).val(<span class="hljs-string">"); //返回表单输入框的value值
+
+$("</span>input<span class="hljs-string">").val("</span>test<span class="hljs-string">"); //将表单输入框的value值设为test
+
+$("</span>#msg<span class="hljs-string">").click(); //触发id为msg的元素的单击事件
+
+$("</span>#msg<span class="hljs-string">").click(fn); //为id为msg的元素单击事件添加函数
+// 同样blur,focus,select,submit事件都可以有着两种调用方法
+</span></code></pre>
+<h4>5、集合处理功能</h4>
+<p>对于jquery返回的集合内容无需我们自己循环遍历并对每个对象分别做处理，jquery已经为我们提供的很方便的方法进行集合的处理。</p>
+<p>包括两种形式：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"p"</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{<span class="hljs-keyword">this</span>.style.color=[<span class="hljs-string">'#f00'</span>,<span class="hljs-string">'#0f0'</span>,<span class="hljs-string">'#00f'</span>][ i ]}) <span class="hljs-comment">//为索引分别为0，1，2的p元素分别设定不同的字体颜色。</span>
+
+$(<span class="hljs-string">"tr"</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{<span class="hljs-keyword">this</span>.style.backgroundColor=[<span class="hljs-string">'#ccc'</span>,<span class="hljs-string">'#fff'</span>][i%<span class="hljs-number">2</span>]}) <span class="hljs-comment">//实现表格的隔行换色效果</span>
+
+$(<span class="hljs-string">"p"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{alert($(<span class="hljs-keyword">this</span>).html())}) <span class="hljs-comment">//为每个p元素增加了click事件，单击某个p元素则弹出其内容</span>
+</code></pre>
+<h4>6、扩展我们需要的功能</h4>
+<pre><code class="hljs js">$.extend({<span class="hljs-attr">min</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>{<span class="hljs-keyword">return</span> a &lt; b?a:b; },
+<span class="hljs-attr">max</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>{<span class="hljs-keyword">return</span> a &gt; b?a:b; } });
+
+<span class="hljs-comment">//为jquery扩展了min,max两个方法使用扩展的方法（通过“$.方法名”调用）：</span>
+
+alert(<span class="hljs-string">"a=10,b=20,max="</span>+$.max(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>)+<span class="hljs-string">",min="</span>+$.min(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>));
+
+</code></pre>
+<h4>7、支持方法的连写</h4>
+<p>所谓连写，即可以对一个jquery对象连续调用各种不同的方法。</p>
+<p>例如：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"p"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    alert($(<span class="hljs-keyword">this</span>).html())
+})
+.mouseover(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">'mouse over event'</span>)
+})
+.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
+    <span class="hljs-keyword">this</span>.style.color = [<span class="hljs-string">'#f00'</span>, <span class="hljs-string">'#0f0'</span>, <span class="hljs-string">'#00f'</span>][i]
+});
+</code></pre>
+<h4>8、操作元素的样式</h4>
+<p>主要包括以下几种方式：</p>
+<pre><code class="hljs js">
+$(<span class="hljs-string">"#msg"</span>).css(<span class="hljs-string">"background"</span>); <span class="hljs-comment">//返回元素的背景颜色</span>
+
+$(<span class="hljs-string">"#msg"</span>).css(<span class="hljs-string">"background"</span>,<span class="hljs-string">"#ccc"</span>) <span class="hljs-comment">//设定元素css背景为灰色</span>
+
+$(<span class="hljs-string">"#msg"</span>).height(<span class="hljs-number">300</span>); $(<span class="hljs-string">"#msg"</span>).width(<span class="hljs-string">"200"</span>); <span class="hljs-comment">//设定width和height</span>
+
+$(<span class="hljs-string">"#msg"</span>).css({ <span class="hljs-attr">color</span>: <span class="hljs-string">"red"</span>, <span class="hljs-attr">background</span>: <span class="hljs-string">"blue"</span> });<span class="hljs-comment">//以名值对的形式设定样式</span>
+
+$(<span class="hljs-string">"#msg"</span>).addClass(<span class="hljs-string">"select"</span>); <span class="hljs-comment">//为元素增加名称为select的class</span>
+
+$(<span class="hljs-string">"#msg"</span>).removeClass(<span class="hljs-string">"select"</span>); <span class="hljs-comment">//删除元素名称为select的class</span>
+
+$(<span class="hljs-string">"#msg"</span>).toggleClass(<span class="hljs-string">"select"</span>); <span class="hljs-comment">//如果存在（不存在）就删除（添加）名称为select的class</span>
+</code></pre>
+<h4>9、完善的事件处理功能</h4>
+<p>Jquery已经为我们提供了各种事件处理方法，我们无需在html元素上直接写事件，而可以直接为通过jquery获取的对象添加事件。</p>
+<p>如：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"#msg"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{alert(<span class="hljs-string">"good"</span>)})
+<span class="hljs-comment">//为元素添加了单击事件</span>
+
+$(<span class="hljs-string">"p"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{<span class="hljs-keyword">this</span>.style.color=[<span class="hljs-string">'#f00'</span>,<span class="hljs-string">'#0f0'</span>,<span class="hljs-string">'#00f'</span>][ i ]})
+<span class="hljs-comment">//为三个不同的p元素单击事件分别设定不同的处理</span>
+</code></pre>
+<p><strong>jQuery中几个自定义的事件：</strong></p>
+<h5>（1）hover(fn1,fn2)：</h5>
+<p>一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。当鼠标移动到一个匹配的元素上面时，会触发指定的第一个函数。当鼠标移出这个元素时，会触发指定的第二个函数。</p>
+<pre><code class="hljs js"><span class="hljs-comment">//当鼠标放在html表格的某行上时将class置为over，离开时置为out。</span>
+$(<span class="hljs-string">"tr"</span>).hover(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">"over"</span>);
+},
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">"out"</span>);
+});
+</code></pre>
+<h5>（2）ready(fn):</h5>
+<p>当DOM载入就绪可以查询及操纵时绑定一个要执行的函数。</p>
+<pre><code class="hljs">$(document).ready(function () {
+    alert(&quot;Load Success&quot;)
+})
+//页面加载完毕提示“Load Success”,相当于onload事件。与$(fn)等价
+</code></pre>
+<h5>（3）toggle(evenFn,oddFn):</h5>
+<p>每次点击时切换要调用的函数。</p>
+<p>如果点击了一个匹配的元素，则触发指定的第一个函数，当再次点击同一元素时，则触发指定的第二个函数。随后的每次点击都重复对这两个函数的轮番调用。</p>
+<pre><code class="hljs js"><span class="hljs-comment">//每次点击时轮换添加和删除名为selected的class。</span>
+$(<span class="hljs-string">"p"</span>).toggle(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">"selected"</span>);
+}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-keyword">this</span>).removeClass(<span class="hljs-string">"selected"</span>);
+});
+</code></pre>
+<h5>（4）trigger(eventtype):</h5>
+<p>在每一个匹配的元素上触发某类事件。例如：</p>
+<pre><code class="hljs">$(&quot;p&quot;).trigger(&quot;click&quot;); //触发所有p元素的click事件
+</code></pre>
+<h5>（5）bind(eventtype,fn)，unbind(eventtype):</h5>
+<p>事件的绑定与反绑定从每一个匹配的元素中（添加）删除绑定的事件。</p>
+<p>例如：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"p"</span>).bind(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert($(<span class="hljs-keyword">this</span>).text());
+});
+</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">//为每个p元素添加单击事件</span>
+$(<span class="hljs-string">"p"</span>).unbind(); <span class="hljs-comment">//删除所有p元素上的所有事件</span>
+$(<span class="hljs-string">"p"</span>).unbind(<span class="hljs-string">"click"</span>) <span class="hljs-comment">//删除所有p元素上的单击事件</span>
+</code></pre>
+<h4>10、几个实用特效功能</h4>
+<p>其中<code>toggle()</code>和<code>slidetoggle()</code>方法提供了状态切换功能。</p>
+<p>如<code>toggle()</code>方法包括了<code>hide()</code>和<code>show()</code>方法。</p>
+<p><code>slideToggle()</code>方法包括了<code>slideDown()</code>和<code>slideUp</code>方法。</p>
+<h4>11、几个有用的jQuery方法</h4>
+<ul>
+<li>
+<p>$.browser：浏览器类型：检测浏览器类型。有效参数：safari, opera, msie, mozilla。如检测是否ie：$.browser.isie，是ie浏览器则返回true。</p>
+</li>
+<li>
+<p>$.each(obj, fn)：通用的迭代函数。可用于近似地迭代对象和数组（代替循环）。如:</p>
+</li>
+</ul>
+<pre><code class="hljs js">$.each([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, n</span>) </span>{
+    alert(<span class="hljs-string">"Item #"</span> + i + <span class="hljs-string">": "</span> + n);
+});
+</code></pre>
+<p>等价于：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> tempArr=[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>];
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;tempArr.length;i++){
+    alert(<span class="hljs-string">"Item #"</span>+i+<span class="hljs-string">": "</span>+tempArr[ i ]);
+}
+</code></pre>
+<p>也可以处理json数据，</p>
+<p>如</p>
+<pre><code class="hljs js">$.each({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>,
+    <span class="hljs-attr">lang</span>: <span class="hljs-string">"JS"</span>
+},
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, n</span>) </span>{
+    alert(<span class="hljs-string">"Name: "</span> + i + <span class="hljs-string">", Value: "</span> + n);
+});
+</code></pre>
+<p>结果为：</p>
+<pre><code class="hljs">Name:name, Value:
+JohnName:lang, Value:JS
+$.extend(target,prop1,propN)：用一个或多个其他对象来扩展一个对象，返回这个被扩展的对象。这是jquery实现的继承方式。
+</code></pre>
+<p>如：</p>
+<pre><code class="hljs js">$.extend(settings, options); 
+<span class="hljs-comment">//合并settings和options，并将合并结果返回settings中，相当于options继承setting并将继承结果保存在setting中。</span>
+
+<span class="hljs-keyword">var</span> settings = $.extend({}, defaults, options);
+<span class="hljs-comment">//合并defaults和options，并将合并结果返回到setting中而不覆盖default内容。可以有多个参数（合并多项并返回）</span>
+
+$.map(array, fn)：数组映射。把一个数组中的项目(处理转换后)保存到到另一个新数组中，并返回生成的新数组。
+</code></pre>
+<p>如：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> tempArr = $.map([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
+    <span class="hljs-keyword">return</span> i + <span class="hljs-number">4</span>;
+});
+</code></pre>
+<p>tempArr内容为：</p>
+<pre><code class="hljs js">[<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+<span class="hljs-keyword">var</span> tempArr = $.map([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
+    <span class="hljs-keyword">return</span> i &gt; <span class="hljs-number">0</span> ? i + <span class="hljs-number">1</span> : <span class="hljs-literal">null</span>;
+});
+</code></pre>
+<p>tempArr内容为：</p>
+<pre><code class="hljs js">[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]$.merge(arr1,arr2):合并两个数组并删除其中重复的项目。
+</code></pre>
+<p>如：</p>
+<pre><code class="hljs js">$.merge( [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>] ) <span class="hljs-comment">//返回[0,1,2,3,4]</span>
+$.trim(str)：删除字符串两端的空白字符。
+</code></pre>
+<p>如：</p>
+<pre><code class="hljs js">$.trim(<span class="hljs-string">" hello, how are you? "</span>); <span class="hljs-comment">//返回"hello,how are you? "</span>
+</code></pre>
+<h4>12、解决自定义方法或其他类库与jQuery的冲突</h4>
+<p>很多时候我们自己定义了$(id)方法来获取一个元素，或者其他的一些js类库如prototype也都定义了$方法，如果同时把这些内容放在一起就会引起变量方法定义冲突，Jquery对此专门提供了方法用于解决此问题。</p>
+<p>使用jquery中的<code>jQuery.noConflict();</code>方法即可把变量$的控制权让渡给第一个实现它的那个库或之前自定义的$方法。之后应用Jquery的时候只要将所有的$换成jQuery即可，如原来引用对象方法<code>$(&quot;#msg&quot;)</code>改为jQuery(&quot;#msg&quot;)。</p>
+<p>如：</p>
+<pre><code class="hljs js">jQuery.noConflict();
+<span class="hljs-comment">// 开始使用jQuery</span>
+jQuery(<span class="hljs-string">"div p"</span>).hide();
+<span class="hljs-comment">// 使用其他库的 $()</span>
+$(<span class="hljs-string">"content"</span>).style.display = <span class="hljs-string">'none'</span>;
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

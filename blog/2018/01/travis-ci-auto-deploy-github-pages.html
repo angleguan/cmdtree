@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Travis CI自动部署Github Pages - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Travis CI自动部署Github Pages</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-01-15" itemprop="datePublished">日期：2018年01月15日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>Travis CI是一款免费的用在开源项目上的持续集成化服务，与Github绑定后，每次当项目进行提交之后都会自动对项目进行构建or测试，甚至部署。</p>
+<p>现在要说的就是Travis的其中一项功能——自动部署Github Pages，注意，这貌似是Travis新推出的服务，网上大部分使用Travis进行部署Pages的方法还是使用SSH协议来推送到部署分支，而现在可以直接在配置文件<code>travis.yml</code>中配置pages服务。</p>
+<h2>前提条件</h2>
+<p>这里假定你有使用过Travis的经历，如果没有请先去了解一下Travis的基本操作方法。</p>
+<h2>操作方法</h2>
+<h3>一、获取Github Token</h3>
+<p>Github Token是一个供你可以在第三方服务或API中操作仓库的令牌，所以这里先获取到Github Token然后给Travis，其部署的时候才能将生成的网页推送到你的仓库。</p>
+<p>在任何页面的右上角，点击你的个人资料照片，然后点击<strong>设置</strong>。</p>
+<p><img src="/pics/2018/01/1501.png" alt=""></p>
+<p>在左侧边栏中，点击<strong>开发者设置</strong>。</p>
+<p><img src="/pics/2018/01/1502.png" alt=""></p>
+<p>点击个人令牌，然后点击<strong>生成新令牌</strong></p>
+<p><img src="/pics/2018/01/1503.png" alt=""></p>
+<p>在这里输入令牌描述，然后勾选权限，把所有权限都勾上</p>
+<p><img src="/pics/2018/01/1504.png" alt=""></p>
+<p>然后你就可以得到一串token，复制好，因为你以后也无法再查看这串token了。</p>
+<h3>二、配置环境变量</h3>
+<p>在travis网站中打开你的项目，点击右上角的更多选项，选择设置</p>
+<p><img src="/pics/2018/01/1505.png" alt=""></p>
+<p>看到下面的环境变量</p>
+<p><img src="/pics/2018/01/1506.png" alt=""></p>
+<p>在第一栏填入名称，第二栏填入刚才复制的Github Token值，第三项<strong>绝对不能勾选</strong>，因为这样会把你的token值完全暴露给别人，这是很危险的。</p>
+<h3>三、配置travis.yml</h3>
+<p>在你的<code>travis.yml</code>文件的<strong>最下面</strong>添加如下内容</p>
+<pre><code class="hljs yml"><span class="hljs-attr">deploy:</span>
+<span class="hljs-attr">  provider:</span> <span class="hljs-string">pages</span> <span class="hljs-comment"># Github Pages服务</span>
+<span class="hljs-attr">  local_dir:</span> <span class="hljs-string">public</span> <span class="hljs-comment"># 要推送的目录</span>
+<span class="hljs-attr">  skip-cleanup:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 必须为true</span>
+<span class="hljs-attr">  github-token:</span> <span class="hljs-string">$GITHUB_TOKEN</span>  <span class="hljs-comment"># 你刚才在设置中填入的变量名</span>
+<span class="hljs-attr">  keep-history:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 是否保留历史记录</span>
+<span class="hljs-attr">  on:</span>
+<span class="hljs-attr">    branch:</span> <span class="hljs-string">master</span>
+<span class="hljs-attr">  target_branch:</span> <span class="hljs-string">gh-pages</span> <span class="hljs-comment"># 提交到的分支</span>
+</code></pre>
+<p>需要注意：</p>
+<ul>
+<li>
+<p>local_dir：这里应该填你使用的程序生成的网页的目录，若是Jekyll应为<code>_site</code></p>
+</li>
+<li>
+<p>keep-history：因为travis使用<code>git push --force</code>推送代码会覆盖历史，当然其实这样更好，反正都是生成的网页，留着也没用反而会占仓库空间。</p>
+</li>
+</ul>
+<h4>配置生成程序命令</h4>
+<p>这里想一下还是稍微提一下，你应该在<code>delpoy</code>命令之前先配置好你使用的程序的生成命令或者你自定义的其它任务（感觉是废话）。</p>
+<p>travis在<code>deploy</code>阶段之前有<code>install</code>和<code>script</code>阶段供你来自定义任务，你还需要在最前面选择你的项目语言和版本，这些基本操作就不多说了。</p>
+<h2>了解更多</h2>
+<p>更多关于Pages部署的内容可以浏览官方文档<a href="https://docs.travis-ci.com/user/deployment/pages/">GitHub Pages Deployment - Travis CI</a>。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

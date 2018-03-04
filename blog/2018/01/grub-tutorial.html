@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     GRUB简单入门教程 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">GRUB简单入门教程</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-01-19" itemprop="datePublished">日期：2018年01月19日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>GRUB2</h2>
+<p>GRUB全称GRand Unified Bootloader，是GNU项目中一个支持多系统启动的系统引导程序。GRUB目前分为两个版本，0.9版本以前称为<code>GRUB legacy</code>，1.x以后的版本称为GRUB2，本文描述的是GRUB2。</p>
+<p><img src="/pics/2018/01/1901.png" alt=""></p>
+<h3>区别</h3>
+<p>GRUB2较于GRUB的一些变化：</p>
+<ul>
+<li>
+<p>grub2的配置文件是命令生成的</p>
+</li>
+<li>
+<p>增加了rescue模式，可用来修复引导</p>
+</li>
+<li>
+<p>支持多种文件系统</p>
+</li>
+<li>
+<p>添加模块机制，可动态加载模块</p>
+</li>
+<li>
+<p>分区编号使用1开头</p>
+</li>
+</ul>
+<h2>设备命名方式</h2>
+<p>GRUB2的设备命令方式：</p>
+<p>我们知道，在linux系统中，IDE硬盘使用hd开头，SATA硬盘使用sd开头，例如/dev/sda1表示第一块硬盘的第一个分区、/dev/sdb3表示第二块硬盘的第三个分区。</p>
+<p>但是在GRUB中不同，硬盘都使用hd（Hard disk）表示，设备从0开始标号，分区从1开始标号。例如(hd0,1)表示第一块硬盘的第一个分区，在Windows中可以理解为C盘。</p>
+<h2>安装方法</h2>
+<p>通常情况下，大部分的Linux版本都不需要我们手动安装。</p>
+<p>你也可以克隆源代码编译安装</p>
+<pre><code class="hljs"># git clone git://git.savannah.gnu.org/grub.git
+# ./configure
+# make
+# sudo make install
+</code></pre>
+<h2>配置文件</h2>
+<p>GRUB的主要配置文件是/boot/grub/grub.cfg，该配置文件根据/etc/default/grub和/etc/grub.d/目录下的文件生成，所以不可以直接编辑，如果想修改启动项或者添加自定义启动项应该编辑<code>/etc/grub.d/</code>下的脚本。</p>
+<p>下面是已经生成的双系统电脑中的<code>grub.cfg</code>文件中两个系统的引导信息：</p>
+<p><strong>Ubuntu 16.04</strong></p>
+<pre><code class="hljs">menuentry 'Ubuntu, with Linux 4.13.0-26-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-4.13.0-26-generic-advanced-3c909df0-784e-4b1c-890b-b1e971c84d47' {
+    recordfail
+    load_video
+    gfxmode $linux_gfx_mode
+    insmod gzio
+    if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+    insmod part_gpt
+    insmod ext2
+    set root='hd1,gpt5'
+    if [ x$feature_platform_search_hint = xy ]; then
+      search --no-floppy --fs-uuid --set=root --hint-bios=hd1,gpt5 --hint-efi=hd1,gpt5 --hint-baremetal=ahci1,gpt5  3c909df0-784e-4b1c-890b-b1e971c84d47
+    else
+      search --no-floppy --fs-uuid --set=root 3c909df0-784e-4b1c-890b-b1e971c84d47
+    fi
+    echo  'Loading Linux 4.13.0-26-generic ...'
+    linux  /boot/vmlinuz-4.13.0-26-generic.efi.signed root=UUID=3c909df0-784e-4b1c-890b-b1e971c84d47 ro  quiet splash $vt_handoff
+    echo  'Loading initial ramdisk ...'
+    initrd  /boot/initrd.img-4.13.0-26-generic
+  }
+</code></pre>
+<p><strong>Windows 10</strong></p>
+<pre><code class="hljs">menuentry 'Windows Boot Manager (on /dev/sdb2)' --class windows --class os $menuentry_id_option 'osprober-efi-18E3-6B87' {
+  insmod part_gpt
+  insmod fat
+  set root='hd1,gpt2'
+  if [ x$feature_platform_search_hint = xy ]; then
+    search --no-floppy --fs-uuid --set=root --hint-bios=hd1,gpt2 --hint-efi=hd1,gpt2 --hint-baremetal=ahci1,gpt2  18E3-6B87
+  else
+    search --no-floppy --fs-uuid --set=root 18E3-6B87
+  fi
+  chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+}
+</code></pre>
+<p>如果你想添加自定义启动项，你可以编辑<code>/etc/grub.d/40_custom</code>文件，仿照上面的格式添加启动项：</p>
+<h3>添加linux启动项</h3>
+<pre><code class="hljs">menuentry &quot;Linux Name&quot; {
+  set root=(hd0,2) # 系统所在位置
+  linux /boot/vmlinuz # 引导内核
+  initrd /boot/initrd.img # 临时内核
+}
+</code></pre>
+<h3>添加Windows启动项</h3>
+<pre><code class="hljs">menuentry &quot;Windows&quot; {
+  insmod part_gpt # 载入模块，下同
+  insmod fat
+  set root='hd1,gpt2' # 系统所在位置
+  chainloader /EFI/Microsoft/Boot/bootmgfw.efi # UEFI启动的Windows的efi引导文件
+}
+</code></pre>
+<h3>添加‘关机’项</h3>
+<pre><code class="hljs">menuentry &quot;System shutdown&quot; {
+  echo &quot;System shutting down...&quot;
+  halt
+}
+</code></pre>
+<h3>添加‘重启’项</h3>
+<pre><code class="hljs">menuentry &quot;System restart&quot; {
+  echo &quot;System rebooting...&quot;
+  reboot
+}
+</code></pre>
+<p>每当你修改了这些配置文件，都需要输入下面的命令来重新生成grub.cfg文件</p>
+<pre><code class="hljs">$ grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<h2>UEFI启动</h2>
+<p>现在大部分的电脑都支持UEFI启动，如果你使用UEFI启动且磁盘使用GPT分区表，你需要安装软件包<code>efibootmgr</code>来生成<code>.efi</code>文件，默认位于/boot/EFI/grubx64.efi。</p>
+<p>使用下面的命令来生成UEFI模块在/boot/grub/x86_64-efi目录下</p>
+<pre><code class="hljs"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
+</code></pre>
+<blockquote>
+<p>如果你想在Windows系统中编辑或添加UEFI启动项，你可以使用EasyUEFI软件（在非企业版系统中免费），EasyBCD只能在传统（legacy）启动中使用。</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

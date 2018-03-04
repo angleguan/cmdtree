@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript数据结构与算法——什么是栈 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript数据结构与算法——什么是栈</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-11-02" itemprop="datePublished">日期：2017年11月02日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>之前说到数组操作的时候有提到<code>push()</code>方法和<code>pop()</code>方法，他们分别可以往一个数组最后推送一个元素或者移除一个元素。而这两个方法其实就是对栈操作的两种主要操作</p>
+<p>栈是一种常见的线性数据结构，栈内的元素只能从一端访问，如下图所示，进栈和出栈都是从一端进行，这一端叫做栈顶。</p>
+<p><img src="/pics/2017/11/Screenshot_20171102_142241.png" alt=""></p>
+<p>因为栈结构只有一端能访问，所以你只能操作离栈顶最近的那个元素，这种数据结构被称为后入先出（LIFO）。</p>
+<p>下图演示了使用<code>push()</code>方法和<code>pop()</code>方法操作栈的过程。</p>
+<p><img src="/pics/2017/11/Screenshot_20171102_142824.png" alt=""></p>
+<p>push()方法表示进栈，pop()方法表示出栈。</p>
+<h2>实现一个栈</h2>
+<p>来简单实现一个栈吧</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Stack</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.dataStore = [];
+    <span class="hljs-keyword">this</span>.top = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.push = push;
+    <span class="hljs-keyword">this</span>.pop = pop;
+    <span class="hljs-keyword">this</span>.peek = peek;
+}
+</code></pre>
+<p>定义一个构造函数，然后其中初始化一个空数组，top表示栈顶元素的位置，当有元素进入栈时就会代替top的位置，然后top加一。</p>
+<p>声明一个实例，下面都用这个实例来演示：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> stack = <span class="hljs-keyword">new</span> Stack()
+</code></pre>
+<p>然后实现一些方法：</p>
+<h4>实现push方法</h4>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">push</span>(<span class="hljs-params">element</span>) </span>{
+    <span class="hljs-keyword">this</span>.dataStore[<span class="hljs-keyword">this</span>.top++] = element;
+}
+</code></pre>
+<p>实现一个push方法用来往栈中加入元素，并将其储存在当前的top值的位置，然后再给top+1。</p>
+<pre><code class="hljs js">stack.push(<span class="hljs-string">"good man"</span>)
+stack.top       <span class="hljs-comment">// 1</span>
+</code></pre>
+<h4>实现pop方法</h4>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pop</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.dataStore[--<span class="hljs-keyword">this</span>.top];
+}
+
+</code></pre>
+<p>实现pop方法来给top值-1，即移除栈顶元素并返回移除的这个值</p>
+<p>看这个例子：</p>
+<pre><code class="hljs js">stack.pop()     <span class="hljs-comment">// "good man"</span>
+stack.top       <span class="hljs-comment">// 0</span>
+</code></pre>
+<h4>实现peek方法</h4>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">peek</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.dataStore[<span class="hljs-keyword">this</span>.top<span class="hljs-number">-1</span>];
+}
+</code></pre>
+<p>peek()方法用来<strong>返回</strong>栈顶元素，即栈的第top-1个元素，</p>
+<pre><code class="hljs js">stack.peek()    <span class="hljs-comment">// undefined</span>
+</code></pre>
+<p>因为现在stack是空的，没有元素，所有会返回undefined。</p>
+<h4>实现clear方法</h4>
+<p>可以设置一个clear方法来把top设置为0，即清空栈内所有的元素。</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clear</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.top = <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2>使用栈</h2>
+<p>栈的用处很多，这里写一个例子，判断一个字符串是否回文，我前两天有用c写了一个，下面用上面实现的那个栈来实现一遍。</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isPalindrome</span>(<span class="hljs-params">word</span>) </span>{
+    <span class="hljs-keyword">var</span> s = <span class="hljs-keyword">new</span> Stack();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; word.length; ++i) {
+        s.push(word[i]);
+    }
+    <span class="hljs-keyword">var</span> rword = <span class="hljs-string">""</span>;
+    <span class="hljs-keyword">while</span> (s.top &gt; <span class="hljs-number">0</span>) {
+        rword += s.pop();
+    }
+    <span class="hljs-keyword">if</span> (word == rword) {
+        <span class="hljs-keyword">return</span> (word + <span class="hljs-string">" is a palindrome."</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> (word + <span class="hljs-string">" is not a palindrome."</span>);
+    }
+}
+</code></pre>
+<p>非常简单，只要把这个字符串依次放入一个栈中，再依次拿出来，按照栈的LIFO特性，拿出来的这个字符串就会是之前反转的字符串了，再一比较，完事。</p>
+<pre><code class="hljs js">&gt; isPalindrome(<span class="hljs-string">"mmm"</span>)
+&lt; <span class="hljs-string">"mmm is a palindrome."</span>
+
+&gt; isPalindrome(<span class="hljs-string">"good"</span>)
+&lt; <span class="hljs-string">"good is not a palindrome."</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

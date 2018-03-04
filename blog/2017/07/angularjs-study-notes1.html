@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     AngularJS入门学习（一）表达式与指令 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">AngularJS入门学习（一）表达式与指令</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-08" itemprop="datePublished">日期：2017年07月08日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h1>一、AngularJS表达式</h1>
+<ul>
+<li>AngularJS的表达式写在双括号<code>{{}}</code>内</li>
+<li>表达式的作用是将绑定的数据输出到HTML页面</li>
+</ul>
+<p>看下面这段代码</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 表达式写在双大括号内 数据绑定 --&gt;</span>
+  <span class="hljs-comment">&lt;!-- angluarjs的表达式类似于js的表达式 可以包含文字 运算符 变量 --&gt;</span>
+  {{ 5+5 }} // 输出： 10
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>表达式可以输出数字：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"quantity=1;cost=5"</span>&gt;</span>
+ 
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>总价： {{ quantity * cost }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</code></pre>
+<p>也可以输出字符串：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"firstName='John';lastName='Doe'"</span>&gt;</span>
+ 
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>姓名： {{ firstName + " " + lastName }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</code></pre>
+<p>也可以输出对象：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"person={firstName:'John',lastName:'Doe'}"</span>&gt;</span>
+ 
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>姓为 {{ person.lastName }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>输出数组：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"points=[1,15,19,2,40]"</span>&gt;</span>
+ 
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>第三个值为 {{ points[2] }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h1>二、AngularJS指令</h1>
+<ul>
+<li>AngularJS 指令是扩展的 HTML 属性，带有前缀<code>ng-</code>。</li>
+<li>ng-app 指令初始化一个 AngularJS 应用程序。</li>
+<li>ng-init 指令初始化应用程序数据。</li>
+<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。</li>
+</ul>
+<p>看一个数据绑定的实例:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"firstName='John'"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>在输入框中尝试输入：<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>姓名：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"firstName"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>你输入的为： {{ firstName }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>上面实例中的 <code>{{ firstName }}</code> 表达式是一个 AngularJS 数据绑定表达式。</p>
+<p>AngularJS 中的数据绑定，同步了 AngularJS 表达式与 AngularJS 数据。</p>
+<p><code>{{ firstName }}</code> 是通过 <code>ng-model=&quot;firstName&quot;</code> 进行同步。</p>
+<h2>重复 HTML 元素</h2>
+<p>ng-repeat 指令会重复一个 HTML 元素：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"names=['Jani','Hege','Kai']"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>使用 ng-repeat 来循环数组<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">"x in names"</span>&gt;</span>
+    {{ x }}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>ng-repeat 指令用在一个对象数组上：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"names=[
+{name:'Jani',country:'Norway'},
+{name:'Hege',country:'Sweden'},
+{name:'Kai',country:'Denmark'}]"</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>循环对象：<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">"x  in names"</span>&gt;</span>
+  {{ x.name + ', ' + x.country }}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2>创建自定义的指令</h2>
+<p>除了 AngularJS 内置的指令外，我们还可以创建自定义指令。</p>
+<p>你可以使用 .directive 函数来添加自定义的指令。</p>
+<p>要调用自定义指令，HTML 元素上需要添加自定义指令名。</p>
+<p>使用驼峰法来命名一个指令， customizeDirective, 但在使用它时需要以 - 分割, customize-directive:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myApp"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">customize-directive</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">customize-directive</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">"myApp"</span>, []);
+    app.directive(<span class="hljs-string">"customizeDirective"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> {
+        template : <span class="hljs-string">"&lt;h1&gt;自定义指令!&lt;/h1&gt;"</span>
+      };
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

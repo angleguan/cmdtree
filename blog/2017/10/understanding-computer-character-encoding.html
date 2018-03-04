@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     理解计算机字符编码 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">理解计算机字符编码</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-10-17" itemprop="datePublished">日期：2017年10月17日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>字符编码（英语：Character encoding）也称字集码，是把字符集中的字符编码为指定集合中某一对象（例如：比特模式、自然数序列、8位组或者电脉冲），以便文本在计算机中存储和通过通信网络的传递。说通俗点就是把你能看得懂的字符（字母、符号等）变成计算机能够读懂的一种形式。</p>
+<h2>ASCII字符集</h2>
+<p>谈到ASCII，肯定很多人都很眼熟，在《C Primer Plus》的封面后面就印着有这样的ASCII字符集的对照表。</p>
+<p><img src="/pics/2017/10/1801.jpg" alt=""></p>
+<p><strong>ASCII</strong>全称American Standard Code for Information Interchange（美国信息交换标准代码），是由ASNI（美国国家标准学会）制定的一套单字节字符编码方案。供不同计算机在互相通信时用作共同遵守的字符编码标准，被ISO（国际标准化组织）定为国际标准，一直沿用至今。</p>
+<p><strong>ASCII字符集</strong>包括了控制字符（回车键、退格、换行等）以及各种可显示的字符。</p>
+<p><strong>ASCII编码</strong>就是将ASCII字符集转换为计算机可以读懂的（二进制，0和1）的一套规则。</p>
+<p>1个字节（byte）=8个二进制位（bit），而1个bit可以是0和1两个状态，所以一个字节（byte）就可以有<strong>256</strong>种状态。如图是用十进制（DEC）对比的字符集。</p>
+<p><img src="/pics/2017/10/1802.jpg" alt=""></p>
+<p>虽然ASCII如今被广泛采用，但是因为其只能显示26个拉丁字母、阿拉伯数字和半角标点符号，因此它最多只能用于显示现代美国英语。而像世界上很多国家或地区都有其特定的文字和书写方式，例如法语、俄文以及我们中国的汉字还包括简体和繁体等等，用ASCII表示肯定是不够的，所以当时就有对于特定地区所使用的特定的字符编码，例如我们中国的GBK字符集（GBK2312）就包含有20000个以上的简体汉字，但这还是远远不够的，要知道汉字的数量将近十万字。</p>
+<h2>Unicode</h2>
+<p>为了解决上述一难题，由ISO制定的Unicode标准就诞生了。Unicode又称统一码，万国码，包括字符集、编码方案等，其中包括了世界上所有的一切可表示的符号，是一个非常庞大的字符集。但是它并不是一套完善的字符编码，譬如说，一个汉字可能需要2-3个字节来表示，这是可以接受的，但是一个字母，有可能仅需一个字节就能表示，这造成了一种资源浪费。</p>
+<h3>UTF-8</h3>
+<p>为了解决上述的，不同的字符使用Unicode来表示所占字节数的巨大不同，UTF-8字符编码就诞生了。UTF-8可以用1-4个字节来表示一个任何一个Unicode字符（UTF-32用4个字符、UTF-16用2-4个字符），UTF-8用于不同的字符所需的字节数：</p>
+<ul>
+<li>128个US-ASCII字符只需一个字节编码（Unicode范围由U+0000至U+007F）。</li>
+<li>其他<a href="http://zh.wikipedia.org/wiki/%E5%9F%BA%E6%9C%AC%E5%A4%9A%E6%96%87%E7%A8%AE%E5%B9%B3%E9%9D%A2">基本多文种平面</a>（BMP）中的字符（这包含了大部分常用字）使用三个字节编码。</li>
+<li>其他极少使用的Unicode<a href="http://zh.wikipedia.org/wiki/%E8%BC%94%E5%8A%A9%E5%B9%B3%E9%9D%A2">辅助平面</a>的字符使用四字节编码。</li>
+</ul>
+<p>这就是为什么现如今所有的数据储存方案或者是表示‘、各种网页、信息都会采用UTF-8来编码的原因，它不会像UTF-32那样，无论什么字符都会用4个字节来表示，也不会像传统的ASCII那样，只能表示128个字符，也不会像GBK那样，只能用于某个地区。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

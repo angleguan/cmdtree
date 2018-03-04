@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JSON快速上手 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JSON快速上手</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-09" itemprop="datePublished">日期：2017年08月09日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>JSON（JavaScript Object Notation，JavaScript 对象表示法）是一种存储和交换文本信息的语法。类似于XML。</p>
+<h2>实例</h2>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JSON Object Creation in JavaScript<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Name:
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jname"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> Age:
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jage"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> Address:
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jstreet"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> Phone:
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jphone"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> JSONObject = {
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"John Johnson"</span>,
+        <span class="hljs-string">"street"</span>: <span class="hljs-string">"Oslo West 555"</span>,
+        <span class="hljs-string">"age"</span>: <span class="hljs-number">33</span>,
+        <span class="hljs-string">"phone"</span>: <span class="hljs-string">"555 1234567"</span>
+    };
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"jname"</span>).innerHTML = JSONObject.name
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"jage"</span>).innerHTML = JSONObject.age
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"jstreet"</span>).innerHTML = JSONObject.street
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"jphone"</span>).innerHTML = JSONObject.phone
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h1>JSON 语法</h1>
+<p>JSON 语法是 JavaScript 对象表示法语法的子集。</p>
+<ul>
+<li>数据在名称/值对中</li>
+<li>数据由逗号分隔</li>
+<li>花括号保存对象</li>
+<li>方括号保存数组</li>
+</ul>
+<h2>JSON 名称/值对</h2>
+<p>JSON 数据的书写格式是：名称/值对。</p>
+<p>名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：</p>
+<pre><code class="hljs json"><span class="hljs-string">"firstName"</span> : <span class="hljs-string">"John"</span>
+</code></pre>
+<p>这很容易理解，等价于这条 JavaScript 语句：</p>
+<pre><code class="hljs json">firstName = <span class="hljs-string">"John"</span>
+</code></pre>
+<h2>JSON 值</h2>
+<p>JSON 值可以是：</p>
+<ul>
+<li>数字（整数或浮点数）</li>
+<li>字符串（在双引号中）</li>
+<li>逻辑值（true 或 false）</li>
+<li>数组（在方括号中）</li>
+<li>对象（在花括号中）</li>
+<li>null</li>
+</ul>
+<h2>JSON 对象</h2>
+<p>JSON 对象在花括号中书写：</p>
+<p>对象可以包含多个名称/值对：</p>
+<pre><code class="hljs json">{ <span class="hljs-attr">"firstName"</span>:<span class="hljs-string">"John"</span> , <span class="hljs-attr">"lastName"</span>:<span class="hljs-string">"Doe"</span> }
+</code></pre>
+<p>这一点也容易理解，与这条 JavaScript 语句等价：</p>
+<pre><code class="hljs json">firstName = <span class="hljs-string">"John"</span>
+lastName = <span class="hljs-string">"Doe"</span>
+</code></pre>
+<h2>JSON 数组</h2>
+<p>JSON 数组在方括号中书写：</p>
+<p>数组可包含多个对象：</p>
+<pre><code class="hljs json">{
+    <span class="hljs-attr">"employees"</span>: [{
+            <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"John"</span>,
+            <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Doe"</span>
+        },
+        {
+            <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Anna"</span>,
+            <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Smith"</span>
+        },
+        {
+            <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Peter"</span>,
+            <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Jones"</span>
+        }
+    ]
+}
+</code></pre>
+<p>在上面的例子中，对象 &quot;employees&quot; 是包含三个对象的数组。每个对象代表一条关于某人（有姓和名）的记录。</p>
+<h2>JSON 使用 JavaScript 语法</h2>
+<p>因为 JSON 使用 JavaScript 语法，所以无需额外的软件就能处理 JavaScript 中的 JSON。</p>
+<p>通过 JavaScript，您可以创建一个对象数组，并像这样进行赋值：</p>
+<pre><code class="hljs json">var employees = [{
+        <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"John"</span>,
+        <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Doe"</span>
+    },
+    {
+        <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Anna"</span>,
+        <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Smith"</span>
+    },
+    {
+        <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Peter"</span>,
+        <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Jones"</span>
+    }
+];
+</code></pre>
+<p>可以像这样访问 JavaScript 对象数组中的第一项：</p>
+<pre><code class="hljs json">employees[<span class="hljs-number">0</span>].lastName;
+</code></pre>
+<p>返回的内容是：</p>
+<pre><code class="hljs">Doe
+</code></pre>
+<p>可以像这样修改数据：</p>
+<pre><code class="hljs json">employees[<span class="hljs-number">0</span>].firstName = <span class="hljs-string">"Jonatan"</span>;
+</code></pre>
+<p>在下面的章节，您将学到如何把 JSON 文本转换为 JavaScript 对象。</p>
+<h2>JSON 文件</h2>
+<p>JSON 文件的文件类型是 &quot;.json&quot;</p>
+<p>JSON 文本的 MIME 类型是 &quot;application/json&quot;</p>
+<h1>JSON 使用</h1>
+<h2>JSON - 转换为 JavaScript 对象</h2>
+<p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。</p>
+<p>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 <code>eval()</code> 函数，用 JSON 数据来生成原生的 JavaScript 对象。</p>
+<h2>把 JSON 文本转换为 JavaScript 对象</h2>
+<p>JSON 最常见的用法之一，是从 web 服务器上读取 JSON 数据（作为文件或作为 HttpRequest），将 JSON 数据转换为 JavaScript 对象，然后在网页中使用该数据。</p>
+<p>为了更简单地讲解，我们使用字符串作为输入进行演示（而不是文件）。</p>
+<h2>JSON 实例 - 来自字符串的对象</h2>
+<p>创建包含 JSON 语法的 JavaScript 字符串：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> txt = <span class="hljs-string">'{ "employees" : ['</span> +
+    <span class="hljs-string">'{ "firstName":"John" , "lastName":"Doe" },'</span> +
+    <span class="hljs-string">'{ "firstName":"Anna" , "lastName":"Smith" },'</span> +
+    <span class="hljs-string">'{ "firstName":"Peter" , "lastName":"Jones" } ]}'</span>;
+</code></pre>
+<p>由于 JSON 语法是 JavaScript 语法的子集，JavaScript 函数 eval() 可用于将 JSON 文本转换为 JavaScript 对象。
+eval() 函数使用的是 JavaScript 编译器，可解析 JSON 文本，然后生成 JavaScript 对象。必须把文本包围在括号中，这样才能避免语法错误：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = <span class="hljs-built_in">eval</span> (<span class="hljs-string">"("</span> + txt + <span class="hljs-string">")"</span>);
+</code></pre>
+<p>在网页中使用 JavaScript 对象：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+First Name: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"fname"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> 
+Last Name: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"lname"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> 
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"fname"</span>).innerHTML = obj.employees[<span class="hljs-number">1</span>].firstName 
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"lname"</span>).innerHTML = obj.employees[<span class="hljs-number">1</span>].lastName 
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h2>JSON 解析器</h2>
+<p>tips: eval() 函数可编译并执行任何 JavaScript 代码。在旧版本的浏览器中，使用eval()对JSON数据结构求值存在风险，因为这可能会执行一些恶意代码。</p>
+<p>JSON对象有两个办法：stringift()和parse()。在最简单的情况下，这两个方法分别把javascript对象序列化为JSON字符串和把JSON字符串解析为原生javascript值。</p>
+<p><strong>实例</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> book = {
+    <span class="hljs-string">"title"</span>: <span class="hljs-string">"Professional JavaScript"</span>,
+    <span class="hljs-string">"authors"</span>: [
+        <span class="hljs-string">"Nicholas C. Zakas"</span>
+    ],
+    <span class="hljs-attr">edition</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">year</span>: <span class="hljs-number">2011</span>
+};
+
+<span class="hljs-keyword">var</span> jsonText = <span class="hljs-built_in">JSON</span>.stringify(book);
+alert(jsonText);
+
+</code></pre>
+<p>上面的例子将一个javascript对象转化为一个JSON字符串，默认情况下，JSON.stringift()输出的JSON字符串是不带任何空格缩进的，所以jsonText中的字符串是这样的：</p>
+<pre><code class="hljs js">{<span class="hljs-string">"title"</span>:<span class="hljs-string">"Professional JavaScript"</span>,<span class="hljs-string">"authors"</span>:[<span class="hljs-string">"Nicholas C. Zakas"</span>],<span class="hljs-string">"edition"</span>:<span class="hljs-number">3</span>,<span class="hljs-string">"year"</span>:<span class="hljs-number">2011</span>}
+</code></pre>
+<p>然后将JSON字符串直接传递给JSON.parse()就可以得到相应的javascript对象，</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> bookCopy = <span class="hljs-built_in">JSON</span>.parse(jsonText);
+</code></pre>
+<p>如上代码可以创建一个类似book的对象</p>
+<pre><code class="hljs js">alert(bookCopy.title);  <span class="hljs-comment">//Professional JavaScript</span>
+</code></pre>
+<h1>Ajax请求JSON数据</h1>
+<h2>原生javascript请求实例</h2>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btn"</span>&gt;</span>请求数据<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"list"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> btn=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'btn'</span>);
+    <span class="hljs-keyword">var</span> list=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'list'</span>);
+    btn.onclick=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+        <span class="hljs-comment">// 1.创建XMLHttpRequest对象</span>
+        <span class="hljs-keyword">var</span> xhr=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.XMLHttpRequest) {
+            xhr=<span class="hljs-keyword">new</span> XMLHttpRequest();
+        } <span class="hljs-keyword">else</span>{
+            xhr=<span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">'Microsoft.XMLHTTP'</span>);
+        };
+        xhr.open(<span class="hljs-string">'get'</span>,<span class="hljs-string">'test.json'</span>,<span class="hljs-literal">true</span>);
+        xhr.send(<span class="hljs-literal">null</span>);
+        xhr.onreadystatechange=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">if</span> (xhr.readyState==<span class="hljs-number">4</span>) {
+                <span class="hljs-keyword">if</span> (xhr.status==<span class="hljs-number">200</span>) {
+                    <span class="hljs-keyword">var</span> json=<span class="hljs-built_in">JSON</span>.parse(xhr.responseText);
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; json.length; i++) {
+                        list.innerHTML+=<span class="hljs-string">'&lt;li&gt;姓名:'</span>+json[i].name+<span class="hljs-string">'， 性别:'</span>+json[i].sex+<span class="hljs-string">'， 年龄:'</span>+json[i].age+<span class="hljs-string">'， 成绩:'</span>+json[i].score+<span class="hljs-string">'&lt;/li&gt;'</span>;
+                    };
+                } <span class="hljs-keyword">else</span>{
+                    alert(xhr.status);
+                };
+            };
+        }
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><strong>test.json</strong></p>
+<pre><code class="hljs json">[
+    {<span class="hljs-attr">"name"</span>:<span class="hljs-string">"老王"</span>,<span class="hljs-attr">"sex"</span>:<span class="hljs-string">"女"</span>,<span class="hljs-attr">"age"</span>:<span class="hljs-number">19</span>,<span class="hljs-attr">"score"</span>:<span class="hljs-number">66</span>},
+    {<span class="hljs-attr">"name"</span>:<span class="hljs-string">"老刘"</span>,<span class="hljs-attr">"sex"</span>:<span class="hljs-string">"男"</span>,<span class="hljs-attr">"age"</span>:<span class="hljs-number">22</span>,<span class="hljs-attr">"score"</span>:<span class="hljs-number">72</span>},
+    {<span class="hljs-attr">"name"</span>:<span class="hljs-string">"老李"</span>,<span class="hljs-attr">"sex"</span>:<span class="hljs-string">"女"</span>,<span class="hljs-attr">"age"</span>:<span class="hljs-number">24</span>,<span class="hljs-attr">"score"</span>:<span class="hljs-number">85</span>},
+    {<span class="hljs-attr">"name"</span>:<span class="hljs-string">"老张"</span>,<span class="hljs-attr">"sex"</span>:<span class="hljs-string">"男"</span>,<span class="hljs-attr">"age"</span>:<span class="hljs-number">30</span>,<span class="hljs-attr">"score"</span>:<span class="hljs-number">96</span>}
+]
+</code></pre>
+<p><img src="/pics/2017/08/fzy_screenshot20170810110911.png" alt=""></p>
+<h2>JQuery 的getJSON()方法</h2>
+<p>使用JQuery的getJSON()可以快速的获取后台的JSON数据</p>
+<p><strong>用法</strong></p>
+<pre><code class="hljs js">$(selector).getJSON(url,data,success(data,status,xhr))
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>必需。规定将请求发送的哪个 URL。</td>
+</tr>
+<tr>
+<td>data</td>
+<td>可选。规定连同请求发送到服务器的数据。</td>
+</tr>
+<tr>
+<td>success(data,status,xhr)</td>
+<td>可选。规定当请求成功时运行的函数。</td>
+</tr>
+</tbody>
+</table>
+<p>该函数是简写的 Ajax 函数，等价于：</p>
+<pre><code class="hljs js">$.ajax({
+  <span class="hljs-attr">url</span>: url,
+  <span class="hljs-attr">data</span>: data,
+  <span class="hljs-attr">success</span>: callback,
+  <span class="hljs-attr">dataType</span>: json
+});
+
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

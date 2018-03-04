@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     AngularJS入门学习（二）模型与作用域 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">AngularJS入门学习（二）模型与作用域</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-10" itemprop="datePublished">日期：2017年07月10日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h1>一、AngularJS模型</h1>
+<ul>
+<li>AngularJS<code>ng-model</code>指令可以将输入域的值与 AngularJS 创建的变量绑定。</li>
+<li><code>ng-model</code>的绑定是双向绑定，即在一方修改变量，另一方也会立即同步。</li>
+</ul>
+<p>来看一个双向绑定的实例</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myapp"</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"myCtrl"</span>&gt;</span>
+  输入：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"name"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+  当前name值是:<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ name }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+  <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">'myapp'</span>,[]);
+   app.controller(<span class="hljs-string">'myCtrl'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope)</span></span>{
+
+     <span class="hljs-comment">// 将输入域的值与 AngularJS 创建的变量绑定</span>
+    $scope.name = <span class="hljs-string">'John Doe'</span>;
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>Angular先是定义了<code>name</code>的值，并与<code>input</code>绑定，当你修改<code>input</code>的值时，Angular属性的值也会相应改变。</p>
+<h2>验证用户输入</h2>
+<p>来看一个实例，使用Angularjs自带的组件验证输入的邮箱地址是否合法</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myForm"</span>&gt;</span>
+  Email:
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myAddress"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ng-show</span>=<span class="hljs-string">"myForm.myAddress.$error.email"</span>&gt;</span>不是一个合法的邮箱地址<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>以上实例中，提示信息会在 ng-show 属性返回 true 的情况下显示。</p>
+<h2>应用状态</h2>
+<p>ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myForm"</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">"myText = 'test@runoob.com'"</span>&gt;</span>
+  Email:
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myAddress"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"myText"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>状态<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  {{myForm.myAddress.$valid}}
+  {{myForm.myAddress.$dirty}}
+  {{myForm.myAddress.$touched}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<h2>CSS 类</h2>
+<p>ng-model 指令基于它们的状态为 HTML 元素提供了 CSS 类：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-tag">input</span><span class="hljs-selector-class">.ng-invalid</span> {
+    <span class="hljs-attribute">background-color</span>: lightblue;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myForm"</span>&gt;</span>
+    输入你的名字:
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myAddress"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">required</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>上面的实例，设置了input框未输入的背景颜色</p>
+<p><strong>ng-model 指令根据表单域的状态添加/移除以下类：</strong>（具体参考：<a href="https://docs.angularjs.org/api/ng/directive/form">AngularJS: API: form</a>）</p>
+<ul>
+<li>ng-empty</li>
+<li>ng-not-empty</li>
+<li>ng-touched</li>
+<li>ng-untouched</li>
+<li>ng-valid</li>
+<li>ng-invalid</li>
+<li>ng-dirty</li>
+<li>ng-pending</li>
+<li>ng-pristine</li>
+</ul>
+<h1>二、AngularJS作用域</h1>
+<ul>
+<li>Scope(作用域) 是应用在 HTML (视图) 和 JavaScript (控制器)之间的纽带。</li>
+<li>Scope 是一个对象，有可用的方法和属性。</li>
+<li>Scope 可应用在视图和控制器上。</li>
+</ul>
+<h2>如何使用 Scope</h2>
+<p>当你在 AngularJS 创建控制器时，你可以将 $scope 对象当作一个参数传递:</p>
+<pre><code class="hljs html">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myApp"</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"myCtrl"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{carname}}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">'myApp'</span>, []);
+
+    app.controller(<span class="hljs-string">'myCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($scope)</span> </span>{
+      $scope.carname = <span class="hljs-string">"Volvo"</span>;
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>当在控制器中添加 $scope 对象时，视图 (HTML) 可以获取了这些属性。</p>
+<p>视图中，你不需要添加 $scope 前缀, 只需要添加属性名即可，如： {{carname}}。</p>
+<h2>Scope 概述</h2>
+<p>AngularJS 应用组成如下：</p>
+<ul>
+<li>View(视图), 即 HTML。</li>
+<li>Model(模型), 当前视图中可用的数据。</li>
+<li>Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。</li>
+</ul>
+<p>scope 是模型。</p>
+<p>scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。</p>
+<pre><code class="hljs html">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myApp"</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"myCtrl"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"name"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{greeting}}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">'sayHello()'</span>&gt;</span>点我<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">'myApp'</span>, []);
+    app.controller(<span class="hljs-string">'myCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($scope)</span> </span>{
+      $scope.name = <span class="hljs-string">"Runoob"</span>;
+      $scope.sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        $scope.greeting = <span class="hljs-string">'Hello '</span> + $scope.name + <span class="hljs-string">'!'</span>;
+      };
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h2>Scope 作用范围</h2>
+<p>了解你当前使用的 scope 是非常重要的。</p>
+<p>在以上两个实例中，只有一个作用域 scope，所以处理起来比较简单，但在大型项目中， HTML DOM 中有多个作用域，这时你就需要知道你使用的 scope 对应的作用域是哪一个。</p>
+<pre><code class="hljs html">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myApp"</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"myCtrl"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">"x in names"</span>&gt;</span>{{x}}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">'myApp'</span>, []);
+
+    app.controller(<span class="hljs-string">'myCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($scope)</span> </span>{
+      $scope.names = [<span class="hljs-string">"Emil"</span>, <span class="hljs-string">"Tobias"</span>, <span class="hljs-string">"Linus"</span>];
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>每个 &lt;li&gt; 元素可以访问当前的重复对象，这里对应的是一个字符串， 并使用变量 x 表示。</p>
+<h2>根作用域</h2>
+<p>所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。</p>
+<p>$rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。</p>
+<pre><code class="hljs html">   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myApp"</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"myCtrl"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{lastname}} 家族成员:<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">"x in names"</span>&gt;</span>{{x}} {{lastname}}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">'myApp'</span>, []);
+
+    app.controller(<span class="hljs-string">'myCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($scope, $rootScope)</span> </span>{
+      $scope.names = [<span class="hljs-string">"Emil"</span>, <span class="hljs-string">"Tobias"</span>, <span class="hljs-string">"Linus"</span>];
+      $rootScope.lastname = <span class="hljs-string">"Refsnes"</span>;
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

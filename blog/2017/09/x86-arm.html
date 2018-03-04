@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     了解X86结构和ARM结构 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">了解X86结构和ARM结构</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-24" itemprop="datePublished">日期：2017年09月24日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h1>CPU</h1>
+<p><img src="/pics/2017/09/2402.jpg" alt=""></p>
+<p>CPU（中央处理器）是一台计算器的核心组件，是你设备的“大脑”，它的工作就是处理来自内存中的一系列的指令来控制你设备上的一切硬件，包括显示器、声卡、网卡等，将这一切的塑料和金属转变为一台智能设备或者电脑。</p>
+<h1>CPU架构</h1>
+<p>CPU架构是用于区分各类CPU的一个标准，目前来说，CPU有两种标准：</p>
+<ul>
+<li>
+<p>一种是以Inter和AMD为首的复杂指令集（CISC）CPU</p>
+</li>
+<li>
+<p>一种主要应用于移动设备的精简指令集（RISC）CPU，有高通、联发科等</p>
+</li>
+</ul>
+<p>从生产两种架构的CPU的厂商就可以看的出，Inter和AMD这种是主要服务于个人PC平台，而像高通等都是主要在移动设备，智能设备上，代表有高通骁龙（Qualcomm Technologies）系列和联发科系列，一种是使用的CISC（复杂指令集计算机），后者是RISC（精简指令集计算机）。</p>
+<p><img src="/pics/2017/09/2403.jpg" alt=""></p>
+<p>从名称就可以看出来，RISC架构的指令集数量较CISC更少，指令集数量少可以简化硬件逻辑的设计，减少晶体管数量，减少功耗，从而<strong>降低能源消耗</strong>（省电），比如手机在待机时可以以极低的主频来运行，甚至可以关闭闲置的核心，协处理器来更加的降低功耗。</p>
+<p><strong>X86结构截然不同</strong>，X86是英特尔Intel首先开发制造的一种微处理器体系结构的泛称，Inter以增加处理器本身的复杂度作为代价来换区<strong>更高的性能</strong>，同时对于硬件的负荷也越大，功耗更大。</p>
+<h2>各自优劣</h2>
+<h3>ARM</h3>
+<p>由于两种架构本身的设计理念不同，服务方向不同，所以拿ARM处理器来处理一些高性能计算是不合适的，但是它在移动设备上的优势也是X86结构不可比的：</p>
+<p>1）功耗：这是ARM最大的一个优点，ARM机构的功耗极低，一般在1W以下，很多的x86CPU在待机时都快达到了2W。</p>
+<p>2）发热：ARM主板一般不会发热，无需配备风扇，主板温度一般维持在常温下，但也有很多的平板电脑为了降低成本，使用低档次的CPU或者主板设计粗糙，也会有使用一段时间感到明显发热的情况。而X86CPU必须配备风扇，否则主板产生的温度会让CPU整体的性能降低。</p>
+<p><img src="/pics/2017/09/2404.jpg" alt=""></p>
+<p>3）开机时间：ARM主板的开机速度相对x86要更快。</p>
+<p>4）价格：基于ARM的CPU价格也很低。</p>
+<p>5）安全：ARM主板都采用高度集成方式，数据一般都放在Flash内部，都是二进制格式，外部无法直接拷贝内部数据。</p>
+<h4>X86结构</h4>
+<p>1）性能：X86结构的电脑无论如何都比ARM结构在性能方面要快得多，强的多，随便就是2、3G以上，通常使用45nm以上的工艺。</p>
+<p>2）可拓展性：X86结构的电脑使用“桥”的方式与其它设备（内存、硬盘等）进行连接，所以X86结构的电脑很轻易的就可以增加硬盘或者内存，这是X86结构的主要特点之一。</p>
+<p>3）系统兼容性：这点几乎是无可厚非的，在Inter和微软的联手下，垄断了个人电脑操作系统近30年，拥有庞大的用户群，几乎所有的X86硬件都可以直接使用Windows操作系统，包括各种工具软件等。而ARM结构几乎都采用Linux的操作系统（安卓），而且很多软件都不能互相兼容，需要重新编译。</p>
+<p><img src="/pics/2017/09/2401.jpg" alt=""></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

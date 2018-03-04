@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JS中的设备事件 —— deviceorientation、orientation、devicemotion - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JS中的设备事件 —— deviceorientation、orientation、devicemotion</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-23" itemprop="datePublished">日期：2017年09月23日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>智能手机和平板电脑的诞生，为用户与浏览器的交互带来了一种新的方式，一系列新的特性随之诞生。<strong>设备事件</strong>让开发人员可以确定用户是在怎样的使用设备，W3C从2011年开始便在制定一份新的关于设备的草案，为不同的设备定义相关的事件。</p>
+<h2>orientationchange事件</h2>
+<p><code>orientationchange</code>事件是苹果公司发布的用于检测iOS设备是以哪种方式来浏览设备的一种事件，移动Safari的<code>window.orientation</code>属性可能包含3个值：</p>
+<ul>
+<li>0表示肖像模式</li>
+<li>90表示向左旋转的横向模式</li>
+<li>-90表示向右旋转的横向模式</li>
+</ul>
+<p><img src="/pics/2017/09/2301.png" alt=""></p>
+<p>只要用户改变了设备的查看模式,就会触发 orientationchange 事件。此时的 event 对象不包
+含任何有价值的信息,因为唯一相关的信息可以通过 window.orientation 访问到。下面是使用这个
+事件的典型示例。</p>
+<pre><code class="hljs js">EventUtil.addHandler(<span class="hljs-built_in">window</span>, <span class="hljs-string">"load"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+    <span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myDiv"</span>);
+    div.innerHTML = <span class="hljs-string">"Current orientation is "</span> + <span class="hljs-built_in">window</span>.orientation;
+    EventUtil.addHandler(<span class="hljs-built_in">window</span>, <span class="hljs-string">"orientationchange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+        div.innerHTML = <span class="hljs-string">"Current orientation is "</span> + <span class="hljs-built_in">window</span>.orientation;
+    });
+});
+</code></pre>
+<p>在这个例子中,当触发 load 事件时会显示最初的方向信息。然后,添加了处理 <code>orientationchange</code>
+事件的处理程序。只要发生这个事件,就会有表示新方向的信息更新页面中的消息。</p>
+<h2>MozOrientation 事件</h2>
+<p>Firefox 3.6 为检测设备的方向引入了一个名为 <code>MozOrientation</code> 的新事件。当设备的加速计检测到设备方向改变时,就会触发这个事件。但这个事件与 iOS 中的 orientationchange 事件不同,该事件只能提供一个平面的方向变化。由于 MozOrientation 事件是在 window 对象上触发的,所以可以使用以下代码来处理。</p>
+<pre><code class="hljs js">
+EventUtil.addHandler(<span class="hljs-built_in">window</span>, <span class="hljs-string">"MozOrientation"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>{
+<span class="hljs-comment">//响应事件</span>
+});
+</code></pre>
+<p>此时的 event 对象包含三个属性: x 、 y 和 z 。这几个属性的值都介于 1 到-1 之间,表示不同坐标轴上的方向。在静止状态下, x 值为 0, y 值为 0, z 值为 1(表示设备处于竖直状态)。</p>
+<pre><code class="hljs">x表示设备倾斜度：
+设备右倾:  x 值会减小
+向左倾斜:  x 值会增大
+
+y表示设备离用户远近：
+设备向远离用户的方向倾斜:  y 值会减小
+向接近用户的方向倾斜, y 值会增大
+
+z 轴检测垂直加速度度:
+1 表示静止不动,在设备移动时值会减小
+失重状态下值为 0。
+
+</code></pre>
+<p>以下是输出这三个值的一个简单的例子。</p>
+<pre><code class="hljs js">EventUtil.addHandler(<span class="hljs-built_in">window</span>, <span class="hljs-string">"MozOrientation"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+    <span class="hljs-keyword">var</span> output = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"output"</span>);
+    output.innerHTML = <span class="hljs-string">"X="</span> + event.x + <span class="hljs-string">", Y="</span> + event.y + <span class="hljs-string">", Z="</span> + event.z + <span class="hljs-string">"&lt;br&gt;"</span>;
+});
+</code></pre>
+<p>只有带加速计的设备才支持 MozOrientation 事件,包括 Macbook、Thinkpad、Windows
+Mobile 和 Android 设备。</p>
+<h2>deviceorientation 事件</h2>
+<p><code>deviceorientation</code>事件与<code>MozOrientation</code>事件类似，也是检测设备设备方向变化。但是deviceorientation事件的意图是告诉开发人员设备在空间中朝向哪儿,而不是如何移动。</p>
+<p>目前这种功能用的较广泛的就是在各种的摇一摇功能里，如微信中的摇一摇找好友，QQ音乐中的摇一摇换歌等。它们都是利用了手机加速传感器提供的API，当监听到手机加速变化的事件时，根据获取的加速值来执行不同的动作。</p>
+<p>设备在三维空间中是靠x、y和z轴来定位的。当设备静止放在水平表面上时,这三个值都是0。</p>
+<ul>
+<li>东（X）在地面上，垂直于北轴，向东为正。</li>
+<li>北（Y）在地面上，向正北为正（指向北极）。</li>
+<li>上（Z）垂直于地面，向上为正。</li>
+</ul>
+<p><img src="/pics/2017/09/2302.png" alt=""></p>
+<p>对于一个移动设备，例如电话或平板，设备坐标系的定义于屏幕的标准方向相关。这意味着类似于键盘的滑动元素没有展开、类似于显示器的选择元素折叠至其默认位置。如果在设备旋转或展开滑动键盘时屏幕方向发生变化，这不会影响关于设备的坐标系的方向。用户希望获得这些屏幕方向的变化可以使用现有的<code>orientationchange</code>事件。对于膝上电脑，设备的坐标系定义于集成键盘。</p>
+<ul>
+<li>x在屏幕或键盘平面上，屏幕或键盘的右侧为正。</li>
+<li>y在屏幕或键盘屏幕上，屏幕或键盘的上方为正。</li>
+<li>z垂直于屏幕或键盘屏幕，离开屏幕或键盘为正。</li>
+</ul>
+<p>从地球坐标系到设备坐标系的转变必须按照下列系统转换。</p>
+<p><em>旋转必须使用右手规则，即正向沿一个轴旋转为从该轴的方向看顺时针旋转。从两个系重合开始，旋转应用下列规则：</em></p>
+<ul>
+<li>以设备坐标系z轴为轴，旋转alpha度。alpha的作用域为[0, 360)。</li>
+<li>以设备坐标系x轴为轴，旋转beta度。beta的作用域为[-180, 180)。</li>
+<li>已设备坐标系y轴为轴，旋转gamma度。gamma的作用域为[-90, 90)。</li>
+</ul>
+<p>触发 deviceorientation 事件时,事件对象中包含着每个轴相对于设备静止状态下发生变化的信
+息。事件对象包含以下 5 个属性。</p>
+<ul>
+<li>alpha:在围绕 z 轴旋转时(即左右旋转时),y 轴的度数差;是一个介于 0 到 360 之间的浮点数。</li>
+<li>beta:在围绕 x 轴旋转时(即前后旋转时), z 轴的度数差;是一个介于180 到 180 之间的浮点数。</li>
+<li>gamma:在围绕 y 轴旋转时(即扭转设备时),z 轴的度数差;是一个介于90 到 90 之间的浮点数。</li>
+<li>absolute:布尔值,表示设备是否返回一个绝对值。</li>
+<li>compassCalibrated:布尔值,表示设备的指南针是否校准过。</li>
+</ul>
+<p>下面是一个输出alpha,beta和gamma值的例子。</p>
+<pre><code class="hljs js">EventUtil.addHandler(<span class="hljs-built_in">window</span>, <span class="hljs-string">"deviceorientation"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+    <span class="hljs-keyword">var</span> output = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"output"</span>);
+    output.innerHTML = <span class="hljs-string">"Alpha="</span> + event.alpha + <span class="hljs-string">", Beta="</span> + event.beta +
+        <span class="hljs-string">", Gamma="</span> + event.gamma + <span class="hljs-string">"&lt;br&gt;"</span>;
+});
+
+</code></pre>
+<p>目前这个功能在除了IE内核中的移动浏览器都可以使用</p>
+<h2>devicemotion 事件</h2>
+<p><code>DeviceOrientation Event</code>规范还定义了一个<code>devicemotion</code>事件。这个事件是要告诉开发人员设备什么时候移动,而不仅仅是设备方向如何改变。例如,通过<code>devicemotion</code>能够检测到设备是不是正在往下掉,或者是不是被走着的人拿在手里。</p>
+<p>触发<code>devicemotion</code>事件时,事件对象包含以下属性。</p>
+<ul>
+<li>
+<p><code>acceleration</code>:一个包含x、y和z属性的对象,在不考虑重力的情况下,告诉你在每个方向
+上的加速度。</p>
+</li>
+<li>
+<p><code>accelerationIncludingGravity</code>:一个包含x、y和z属性的对象,在考虑z轴自然重力加速度的情况下,告诉你在每个方向上的加速度。</p>
+</li>
+<li>
+<p><code>interval</code>:以毫秒表示的时间值,必须在另一个<code>devicemotion</code>事件触发前传入。这个值在每
+个事件中应该是一个常量。</p>
+</li>
+<li>
+<p><code>rotationRate</code>:一个包含表示方向的alpha、beta和gamma属性的对象。</p>
+</li>
+</ul>
+<p>如果读取不到<code>acceleration</code>、<code>accelerationIncludingGravity</code>和<code>rotationRate</code>值,则它们的值为null。因此,在使用这三个属性之前,应该先检测确定它们的值不是<code>null</code>。例如:</p>
+<pre><code class="hljs js">EventUtil.addHandler(<span class="hljs-built_in">window</span>, <span class="hljs-string">"devicemotion"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+    <span class="hljs-keyword">var</span> output = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"output"</span>);
+    <span class="hljs-keyword">if</span> (event.rotationRate !== <span class="hljs-literal">null</span>) {
+        output.innerHTML += <span class="hljs-string">"Alpha="</span> + event.rotationRate.alpha + <span class="hljs-string">", Beta="</span> +
+            event.rotationRate.beta + <span class="hljs-string">", Gamma="</span> +
+            event.rotationRate.gamma;
+    }
+});
+
+</code></pre>
+<p>与<code>deviceorientation</code>事件类似,只有iOS中的Safari、Chrome和Android版WebKit实现了devicemotion事件。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

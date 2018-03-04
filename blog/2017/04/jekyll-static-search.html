@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     为 jekyll 博客添加静态搜索 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">为 jekyll 博客添加静态搜索</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-04-14" itemprop="datePublished">日期：2017年04月14日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>今晚吃完饭后，为博客做了简单的搜索功能，因为做的大多是前台方面的工作，所以我个人将其称之为静态搜索。简单介绍下。</p>
+<h2>一、生成 search.xml</h2>
+<p>遍历 <strong>jekyll</strong> 博客中的所有文章，获取其标题、日期和文章链接，整合
+到一个 <strong>xml</strong> 文件中。这个 <strong>xml</strong> 文件我们可将其命名为 <code>search.xml</code>，以便我们后续的工作。</p>
+<p>具体的写法如下：</p>
+<pre><code class="hljs html"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">articles</span>&gt;</span>
+{% for post in site.posts %}
+<span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>{{ post.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>{{ site.url }}{{ post.url }}<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">date</span>&gt;</span>{{ post.date | date_to_utc | date: '%Y-%m-%d'}}<span class="hljs-tag">&lt;/<span class="hljs-name">date</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+{% endfor %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">articles</span>&gt;</span>
+</code></pre>
+<h2>二、添加 DOM 结构</h2>
+<p>DOM 结构就是 HTML 代码啦。</p>
+<p>你可以添加到你希望的地方，但要注意一点，就是你添加 DOM结构的地方要有相应的 CSS 链接和 JS 链接。</p>
+<p>添加 <strong>Jquery UI</strong> 样式和 <strong>JS</strong> 链接。</p>
+<p>我在这里采用的是 jquery-ui-1.8.18.custom 版本。</p>
+<p>DOM 结构保存在同一个页面。</p>
+<pre><code class="hljs html">//样式表
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/css/jquery-ui-1.8.18.custom.css"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span>
+
+//js
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/js/jquery-ui-1.8.18.custom.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+//添加 DOM
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"J_search"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Simple Search"</span>/&gt;</span>
+</code></pre>
+<h2>三、设置全局地址</h2>
+<p>在 <strong>jekyll</strong> 博客的根目录下的 <code>config.yml</code> 添加你的博客的全局基本地址。</p>
+<pre><code class="hljs">url: http://cmdtree.com
+</code></pre>
+<h2>四、通过 Javascript 实现搜索功能</h2>
+<p>简单说明下原理：通过在输入框输入关键词，<strong>Ajax</strong> 匹配 search.xml 中的文章标题里面的词语，
+若是，在输入框下方显示出标题。通过选择标题，跳转到搜索到的文章页面。</p>
+<p>我的实现方式是这样的，你也可以通过修改 <code>autocomplete</code>的实例来实现不同的展现效果。</p>
+<pre><code class="hljs js">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+	$.ajax({
+		<span class="hljs-attr">url</span>: <span class="hljs-string">"search.xml"</span>,
+		<span class="hljs-attr">dataType</span>: <span class="hljs-string">"xml"</span>,
+		<span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">xmlResponse</span>) </span>{
+			<span class="hljs-keyword">var</span> data = $(<span class="hljs-string">"article"</span>, xmlResponse).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+				<span class="hljs-keyword">return</span> {
+					<span class="hljs-attr">value</span>: $(<span class="hljs-string">"title"</span>, <span class="hljs-keyword">this</span>).text() + <span class="hljs-string">", "</span> +
+						($.trim($(<span class="hljs-string">"date"</span>, <span class="hljs-keyword">this</span>).text())),
+					<span class="hljs-attr">desc</span>: $(<span class="hljs-string">"description"</span>, <span class="hljs-keyword">this</span>).text(),
+					<span class="hljs-attr">url</span>: $(<span class="hljs-string">"url"</span>, <span class="hljs-keyword">this</span>).text()
+				};
+			}).get();
+
+			$(<span class="hljs-string">"#J_search"</span>).autocomplete({
+				<span class="hljs-attr">source</span>: data,
+				<span class="hljs-attr">minLength</span>: <span class="hljs-number">0</span>,
+				<span class="hljs-attr">select</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, ui</span>) </span>{
+					<span class="hljs-built_in">window</span>.location.href = ui.item.url;
+				}
+			});
+		}
+	});
+});
+</code></pre>
+<h2>五、测试</h2>
+<p>在输入框中输入你所知道的一些关键词，如果输入框下拉菜单有内容，选中它，成功跳转到对应的文章页面。那么，你成功了。</p>
+<h2>六、总结</h2>
+<p>这是一个很简单的实现方法，因为就今晚几个小时做出来的，所以可能还有很多不适用性。兼容性方面还没做好测试，只兼容 Firefox 和 Chrome ，还没完善的一个方面是出错处理，有空再补上。</p>
+<p>遗憾的是暂时只支持英文关键词搜索，后续，恩，中英文。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

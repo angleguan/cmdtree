@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript 当中的代码嗅探 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript 当中的代码嗅探</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-27" itemprop="datePublished">日期：2017年03月27日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>除非有特殊需要，否则不要试图扩展原生对象和原型（prototype）：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 不要这样做</span>
+<span class="hljs-built_in">Array</span>.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// 一些代码</span>
+};
+</code></pre>
+<p>除非这样做是值得的。例如，向一些旧的浏览器中添加一些 ECMAScript5 中的方法。</p>
+<p>在这种情况下，我们一般这样做：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Array</span>.prototype.map) {
+  <span class="hljs-built_in">Array</span>.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 一些代码</span>
+  };
+}
+</code></pre>
+<p>如果我们比较偏执，为了防止别人将 map 定义为其它意想不到的值——比如 <code>true</code> 或其他，我们可以将检测代码改为下面这样：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Array</span>.prototype.map !== <span class="hljs-string">"function"</span>) {
+  <span class="hljs-built_in">Array</span>.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 一些代码</span>
+  };
+}
+</code></pre>
+<p>显然，这样做将破坏其它开发者的 map 定义，并影响他们功能的实现。</p>
+<p>但是，在一个充满敌意和残酷竞争的环境下（换句话说，但你提供或者使用一个 js 库时），你不应该相信任何人。</p>
+<p>如果其他人的 js 代码先于你的 js 代码加载，并且以某种方式定义了一个不完全兼容 ES5 的 <code>map()</code> 方法，导致你的代码不能正常运行，该怎么办呢？</p>
+<p>不过，你可以相信浏览器，如果 Webkit 内核实现了 <code>map()</code> 方法，你可以放心，这个方法肯定会正常运行。
+否则的话，你就要用你的代码进行检测了。</p>
+<p>幸运的是，这在 JavaScript 当中很容易实现，当你调用原生函数的 toString 方法的时候，
+会返回一个函数的字符串，该函数的函数体是 <code>[native code]</code>。</p>
+<p>例如在 Chrome 的控制台下：</p>
+<pre><code class="hljs js">&gt; <span class="hljs-built_in">Array</span>.prototype.map.toString();
+<span class="hljs-string">"function map() { [native code] }"</span>
+</code></pre>
+<p>编写一个适当的代码检查向来就是一件令人不快的事，因为不同浏览器对空格和换行处理的太过轻率。
+测试如下：</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">Array</span>.prototype.map.toString().replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">'*'</span>);
+<span class="hljs-comment">// "*function*map()*{*****[native*code]*}*"  // IE</span>
+<span class="hljs-comment">// "function*map()*{*****[native*code]*}" // FF</span>
+<span class="hljs-comment">// "function*map()*{*[native*code]*}" // Chrome</span>
+</code></pre>
+<p>只简单的去掉 <code>\s</code> 会得到更实用的字符串：</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">Array</span>.prototype.map.toString().replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">''</span>);
+<span class="hljs-comment">// "functionmap(){[nativecode]}"</span>
+</code></pre>
+<p>你可以将它封装成一个可以重用的 <code>shim()</code> 函数，这样以来你就没有必要去重复所有的类似 <code>!Array.prototype...</code> 这样的操作了。
+这个函数会接受一个对象作为参数（例如，<code>Array.prototype</code>），一个将要添加的属性（例如 'map'）和一个要添加的函数。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shim</span>(<span class="hljs-params">o, prop, fn</span>) </span>{
+  <span class="hljs-keyword">var</span> nbody = <span class="hljs-string">"function"</span> + prop + <span class="hljs-string">"(){[nativecode]}"</span>;
+  <span class="hljs-keyword">if</span> (o.hasOwnProperty(prop) &amp;&amp; 
+      o[prop].toString().replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">''</span>) === nbody) {
+    <span class="hljs-comment">// 表名是原生的！ </span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+  <span class="hljs-comment">// 新添加的 </span>
+  o[prop] = fn;
+}
+</code></pre>
+<p>测试：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 这是原生的方法</span>
+shim(
+  <span class="hljs-built_in">Array</span>.prototype, <span class="hljs-string">'map'</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<span class="hljs-comment">/*...*/</span>}
+); <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// 这是新添加的方法</span>
+shim(
+  <span class="hljs-built_in">Array</span>.prototype, <span class="hljs-string">'mapzer'</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{alert(<span class="hljs-keyword">this</span>)}
+);
+
+[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].mapzer(); <span class="hljs-comment">// alerts 1,2,3</span>
+</code></pre>
+<p>（完）</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

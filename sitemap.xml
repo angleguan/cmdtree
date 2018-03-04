@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- home -->
+
+  <url>
+    <loc>https://cmdtree.com</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pages -->
+
+  
+  <url>
+    <loc>https://cmdtree.com/404.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+
+  <!-- Post -->
+
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/03/digitalocean的洛杉矶机房已经不能用了.html</loc>
+    <lastmod>2018-03-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/03/my-favorite-lyrics.html</loc>
+    <lastmod>2018-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/工作之后就没那么多时间写东西了.html</loc>
+    <lastmod>2018-02-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/npm-scripts.html</loc>
+    <lastmod>2018-02-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/python-iterable-iterator-iter.html</loc>
+    <lastmod>2018-02-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/连别人家wifi被限速.html</loc>
+    <lastmod>2018-02-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/learn-mysql-5.html</loc>
+    <lastmod>2018-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/大年初一我一个人去了广州.html</loc>
+    <lastmod>2018-02-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/javascript-each-object-ways.html</loc>
+    <lastmod>2018-02-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/learn-mysql-4.html</loc>
+    <lastmod>2018-02-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/learn-mysql-3.html</loc>
+    <lastmod>2018-02-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/simple-install-django-on-ubuntu.html</loc>
+    <lastmod>2018-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/learn-mysql-2.html</loc>
+    <lastmod>2018-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/learn-mysql-1.html</loc>
+    <lastmod>2018-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/nginx-ssl-error.html</loc>
+    <lastmod>2018-02-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/using-git-hooks-autodeploy-web-app.html</loc>
+    <lastmod>2018-02-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/compile-install-nginx.html</loc>
+    <lastmod>2018-02-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/维多利亚女王其子女.html</loc>
+    <lastmod>2018-02-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/develop-a-static-blog-generator-2.html</loc>
+    <lastmod>2018-02-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/develop-a-static-blog-generator-1.html</loc>
+    <lastmod>2018-02-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/some-funny-and-powerful-weapon.html</loc>
+    <lastmod>2018-02-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/02/merge-two-git-repositories.html</loc>
+    <lastmod>2018-02-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/python-generator.html</loc>
+    <lastmod>2018-01-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/agents-shield-s5e9.html</loc>
+    <lastmod>2018-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/bitcoin-and-mining.html</loc>
+    <lastmod>2018-01-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/agents-shield-s5e8.html</loc>
+    <lastmod>2018-01-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/google-maps-back-china.html</loc>
+    <lastmod>2018-01-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/basic-structure-of-neurosis.html</loc>
+    <lastmod>2018-01-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/grub-tutorial.html</loc>
+    <lastmod>2018-01-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/use-infinality-beautify-debian-font.html</loc>
+    <lastmod>2018-01-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/travis-ci-auto-deploy-github-pages.html</loc>
+    <lastmod>2018-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/beginning-using-hexo.html</loc>
+    <lastmod>2018-01-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/choose-traffic-card.html</loc>
+    <lastmod>2018-01-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/javascript-dictionary.html</loc>
+    <lastmod>2018-01-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/how-i-create-category-page.html</loc>
+    <lastmod>2018-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/use-editorconfig-plugin-format-your-code.html</loc>
+    <lastmod>2018-01-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/change-notebook-mac-address.html</loc>
+    <lastmod>2018-01-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2018/01/firest-time-shave.html</loc>
+    <lastmod>2018-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/use-uncss-remove-unused-css.html</loc>
+    <lastmod>2017-12-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/echarts.html</loc>
+    <lastmod>2017-12-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/israel-and-palestine.html</loc>
+    <lastmod>2017-12-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/bulma.html</loc>
+    <lastmod>2017-12-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/electron-quick-start.html</loc>
+    <lastmod>2017-12-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/jekyll-code-highlight.html</loc>
+    <lastmod>2017-12-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/wappalyzer.html</loc>
+    <lastmod>2017-12-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/detail-extend-and-mixin.html</loc>
+    <lastmod>2017-12-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/javascript-linked-list.html</loc>
+    <lastmod>2017-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/12/angularjs-heroes-tutorial-demo.html</loc>
+    <lastmod>2017-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/jekyll-and-hexo-detailed-comparison.html</loc>
+    <lastmod>2017-11-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/some-sentences-i-like.html</loc>
+    <lastmod>2017-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/again-painful-insomnia.html</loc>
+    <lastmod>2017-11-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/use-vscode-debug-angularjs-app.html</loc>
+    <lastmod>2017-11-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/my-desting-is-like-a-mule.html</loc>
+    <lastmod>2017-11-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/how-to-change-username-github-io.html</loc>
+    <lastmod>2017-11-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/sublime-3143-license.html</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/javascript-queue.html</loc>
+    <lastmod>2017-11-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/how-like-listening-to-music.html</loc>
+    <lastmod>2017-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/11/javascript-what-is-stack.html</loc>
+    <lastmod>2017-11-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/kernel-bug-cpu-high-temp-power-consumption.html</loc>
+    <lastmod>2017-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/detailed-event-bubbling-and-event-capture.html</loc>
+    <lastmod>2017-10-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/be-better.html</loc>
+    <lastmod>2017-10-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/ram-crazy-price-increases.html</loc>
+    <lastmod>2017-10-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/github-pages-cloudflare-ssl.html</loc>
+    <lastmod>2017-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/xulizhi.html</loc>
+    <lastmod>2017-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/js-array-operation.html</loc>
+    <lastmod>2017-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/linux-choice-of-desktop-distribution.html</loc>
+    <lastmod>2017-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/understanding-computer-character-encoding.html</loc>
+    <lastmod>2017-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/what-about-hiccups.html</loc>
+    <lastmod>2017-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/open-webstorm-scss-watchers.html</loc>
+    <lastmod>2017-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/ubuntu-lnmp-configure.html</loc>
+    <lastmod>2017-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/hello-gulp.html</loc>
+    <lastmod>2017-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/cors.html</loc>
+    <lastmod>2017-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/debian-update-linux-kernel.html</loc>
+    <lastmod>2017-10-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/change-desktop-kde.html</loc>
+    <lastmod>2017-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/create-simple-node-module.html</loc>
+    <lastmod>2017-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/difference-array-list.html</loc>
+    <lastmod>2017-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/anxious-fear.html</loc>
+    <lastmod>2017-10-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/python-ftp-permeation-web.html</loc>
+    <lastmod>2017-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/10/the-neurotic-personality-of-our-time-read-2.html</loc>
+    <lastmod>2017-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/the-neurotic-personality-of-our-time-read-1.html</loc>
+    <lastmod>2017-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/cant-start-apache.html</loc>
+    <lastmod>2017-09-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/x86-arm.html</loc>
+    <lastmod>2017-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/js-device-event.html</loc>
+    <lastmod>2017-09-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/git-ftp.html</loc>
+    <lastmod>2017-09-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/btrfs-snapper.html</loc>
+    <lastmod>2017-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/linux-mint-fonts.html</loc>
+    <lastmod>2017-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/hard-alone.html</loc>
+    <lastmod>2017-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/jekyll.html</loc>
+    <lastmod>2017-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/sadness-nodejs.html</loc>
+    <lastmod>2017-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/hugo.html</loc>
+    <lastmod>2017-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/how-install-jekyll-archlinux.html</loc>
+    <lastmod>2017-09-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/09/archlinux-install-lamp.html</loc>
+    <lastmod>2017-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/alias.html</loc>
+    <lastmod>2017-08-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/js-bom.html</loc>
+    <lastmod>2017-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/sublime-vue-highlight.html</loc>
+    <lastmod>2017-08-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/bem.html</loc>
+    <lastmod>2017-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/install-nodejs-use-npm.html</loc>
+    <lastmod>2017-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/python-assignment-copy.html</loc>
+    <lastmod>2017-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/nmap.html</loc>
+    <lastmod>2017-08-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/json.html</loc>
+    <lastmod>2017-08-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/angularjs-route.html</loc>
+    <lastmod>2017-08-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/php-opcache.html</loc>
+    <lastmod>2017-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/es6-arrow-function.html</loc>
+    <lastmod>2017-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/wordpress-rewriterule.html</loc>
+    <lastmod>2017-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/08/angularjs-forms.html</loc>
+    <lastmod>2017-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/js-private-variable.html</loc>
+    <lastmod>2017-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/learning-sockets.html</loc>
+    <lastmod>2017-07-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/closure-memory-leak.html</loc>
+    <lastmod>2017-07-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/linux-command-civilization.html</loc>
+    <lastmod>2017-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/use-install-nginx.html</loc>
+    <lastmod>2017-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/angularjs-study-notes5.html</loc>
+    <lastmod>2017-07-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/windows-server-iis.html</loc>
+    <lastmod>2017-07-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/build-git-server.html</loc>
+    <lastmod>2017-07-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/angularjs-study-notes4.html</loc>
+    <lastmod>2017-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/angularjs-study-notes3.html</loc>
+    <lastmod>2017-07-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/angularjs-study-notes2.html</loc>
+    <lastmod>2017-07-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/angularjs-study-notes1.html</loc>
+    <lastmod>2017-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/use-google-customize-search.html</loc>
+    <lastmod>2017-07-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/how-use-iconfont.html</loc>
+    <lastmod>2017-07-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/07/windows-cmder-use.html</loc>
+    <lastmod>2017-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/nginx-wordpress.html</loc>
+    <lastmod>2017-06-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/centos-mysqlserver.html</loc>
+    <lastmod>2017-06-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/xampp-error.html</loc>
+    <lastmod>2017-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/javascript-typeof.html</loc>
+    <lastmod>2017-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/how-to-use-adobe.html</loc>
+    <lastmod>2017-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/use-jekyll-build-blog-on-github.html</loc>
+    <lastmod>2017-06-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/raspberry-pi-tutorial.html</loc>
+    <lastmod>2017-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/understanding-bandwidth.html</loc>
+    <lastmod>2017-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/jekyll-more.html</loc>
+    <lastmod>2017-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/06/js-prototype.html</loc>
+    <lastmod>2017-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/this-site-building-notes-02.html</loc>
+    <lastmod>2017-05-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/css-function-calc.html</loc>
+    <lastmod>2017-05-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/this-site-building-notes-01.html</loc>
+    <lastmod>2017-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/git-warning-lf-crlf.html</loc>
+    <lastmod>2017-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/git-command.html</loc>
+    <lastmod>2017-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/ruby-gem-change.html</loc>
+    <lastmod>2017-05-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/intranet-extranet.html</loc>
+    <lastmod>2017-05-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/htaccess.html</loc>
+    <lastmod>2017-05-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/sublime-text-license.html</loc>
+    <lastmod>2017-05-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/05/jekyll-tag-was-never-closed.html</loc>
+    <lastmod>2017-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/how-to-use-font-awesome.html</loc>
+    <lastmod>2017-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/phpstorm-cant-pinyin.html</loc>
+    <lastmod>2017-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/javascript-enforcing-the-function-tostring.html</loc>
+    <lastmod>2017-04-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/archlinux-install.html</loc>
+    <lastmod>2017-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/jekyll-static-search.html</loc>
+    <lastmod>2017-04-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/fedora-deepin-desktop.html</loc>
+    <lastmod>2017-04-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/use-github-pages-make-blog.html</loc>
+    <lastmod>2017-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/top-javascript-mistakes.html</loc>
+    <lastmod>2017-04-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/04/javascript-quirk-two-non-values-undefined-and-null.html</loc>
+    <lastmod>2017-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/arguments-a-javascript-oddity.html</loc>
+    <lastmod>2017-03-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/design-defects-in-javascript.html</loc>
+    <lastmod>2017-03-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/shim-sniffing-in-javascript.html</loc>
+    <lastmod>2017-03-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/html5-prefetch.html</loc>
+    <lastmod>2017-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/crypt.html</loc>
+    <lastmod>2017-03-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/jquery-notes.html</loc>
+    <lastmod>2017-03-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/european-king-name.html</loc>
+    <lastmod>2017-03-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/what-is-javascripts-typeof-operator-used-for.html</loc>
+    <lastmod>2017-03-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/js-object-oriented.html</loc>
+    <lastmod>2017-03-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/git-usage-aliases.html</loc>
+    <lastmod>2017-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/javascript-values-not-everything-is-an-object.html</loc>
+    <lastmod>2017-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/express.html</loc>
+    <lastmod>2017-03-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/use-typedef.html</loc>
+    <lastmod>2017-03-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/ten-minutes-konw-dns.html</loc>
+    <lastmod>2017-03-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/http-protocol.html</loc>
+    <lastmod>2017-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmdtree.com/blog/2017/03/tcp-ip.html</loc>
+    <lastmod>2017-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+</urlset>

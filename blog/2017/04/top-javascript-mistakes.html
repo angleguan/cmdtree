@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript开发者容易犯的13个错误 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript开发者容易犯的13个错误</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-04-04" itemprop="datePublished">日期：2017年04月04日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>开发者最容易犯的 JavaScript 错误，总结出 13 个。</p>
+<p>这些当中可能少不了你犯的错误。</p>
+<p>我们描述了这些陋习，并列出来解决办法，希望对开发者有帮助。</p>
+<h2>一、for… 数组迭代的用法</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myArray = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> myArray) {
+    <span class="hljs-built_in">console</span>.log(myArray[i]);
+}
+</code></pre>
+<p><strong>注</strong>：原文为：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myArray = [ “a”, “b”, “c” ];
+<span class="hljs-keyword">var</span> totalElements = myArray.length;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; totalElements; i++) {
+    <span class="hljs-built_in">console</span>.log(myArray[i]);
+}
+</code></pre>
+<p>这里主要的问题是语句中的 &quot;for…&quot; 不能保证顺序，这意味着你将获得不同的执行结果。</p>
+<p>此外，如果有人增加一些其他自定义功能的函数 <code>Array.prototype</code>，你的循环将重复遍历这些函数，就像原数组项。</p>
+<p>解决办法：一直使用规则的 <code>for</code> 循环来遍历数组。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myArray = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;myArray.length; i++) {
+    <span class="hljs-built_in">console</span>.log(myArray[i]);
+}
+</code></pre>
+<h2>二、数组维度</h2>
+<p>举例</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myArray = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">10</span>);
+</code></pre>
+<p>第二个问题是开发者使用数组构成器来创建数组，技术上是正确的，然而会比文字符号（literal notation）慢解决办法：使用文字符号来初始化数组，不要预定义数组长度。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myArray = [];
+</code></pre>
+<h2>三、未定义属性</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObject = {
+    <span class="hljs-attr">someProperty</span>: “value”,
+    <span class="hljs-attr">someOtherProperty</span>: <span class="hljs-literal">undefined</span>
+}
+</code></pre>
+<p>未定义属性，将在对象中创建元素（键 <code>someOtherProperty</code> 和值 <code>undefined</code>.）。</p>
+<p>如果你遍历数组，检测已存在的元素，那么下面的语句将都返回 &quot;undefined&quot;。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">typeof</span> myObject[<span class="hljs-string">'someOtherProperty'</span>] <span class="hljs-comment">// undefined</span>
+<span class="hljs-keyword">typeof</span> myObject[<span class="hljs-string">'unknownProperty'</span>] <span class="hljs-comment">// undefined</span>
+</code></pre>
+<p>解决办法：如果你想明确声明对象中的未初始化的属性，标记它们为 <code>null</code>。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObject = {
+    <span class="hljs-attr">someProperty</span>: “value”,
+    <span class="hljs-attr">someOtherProperty</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h2>四、闭包的滥用</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c</span>) </span>{
+    <span class="hljs-keyword">var</span> d = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.getElementById(‘myID’);
+    element.onclick = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c, d</span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            alert (a + b + c + d);
+        }
+    })(a, b, c, d);
+}
+</code></pre>
+<p>这里开发者使用两个函数来传递参数 <code>a</code>、<code>b</code>、<code>c</code> 到 <code>onclick</code>。</p>
+<p>双函数根本不需要，徒增代码的复杂性。</p>
+<p>变量 <code>a</code>、<code>b</code>、<code>c</code> 已经在局部函数中被定义，因为他们已经在主函数中作为参数被声明。</p>
+<p>局部函数中的任何函数都可创建主函数中定义的所有变量的闭包。</p>
+<p>因此不需要再次传递它们。</p>
+<p>看看这里 <a href="http://jibbering.com/faq/notes/closures/">JavaScript Closures FAQ</a> 了解更多。</p>
+<p>解决办法：使用闭环来简化你的代码。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b, c</span>) </span>{
+    <span class="hljs-keyword">var</span> d = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.getElementById(‘myID’);
+    element.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//a, b, and c come from the outer function arguments.</span>
+        <span class="hljs-comment">//d come from the outer function variable declarations.</span>
+        <span class="hljs-comment">//and all of them are in my closure</span>
+        alert (a + b + c + d);
+    };
+}
+</code></pre>
+<h2>五、循环中的闭包</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> elements = <span class="hljs-built_in">document</span>.getElementByTagName(‘div’);
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i&lt;elements.length; i++) {
+    elements[i].onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        alert(“Div number “ + i);
+    }
+}
+</code></pre>
+<p>在这里例子里面，当用户点击不同的 <code>divs</code> 时，我们想触发一个动作(显示 &quot;Div number 1&quot;, &quot;Div number 2&quot;… 等) 。</p>
+<p>然而，如果你在页面有 10 个 <code>divs</code>，他们全部都会显示 &quot;Div number 10&quot;。</p>
+<p>问题是当我们使用局部函数创建一个闭包时，函数中的代码可以访问变量 <code>i</code>。</p>
+<p>关键是函数内部 <code>i</code> 和函数外部 <code>i</code> 涉及同样的变量。</p>
+<p>当我们的循环结束，<code>i</code> 指向了值 <code>10</code>，所以局部函数中的 <code>i</code> 的值将是 <code>10</code>。</p>
+<p>解决办法：使用第二函数来传递正确的值。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> elements = <span class="hljs-built_in">document</span>.getElementsByTagName(‘div’);
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i&lt;elements.length; i++) {
+    elements[i].onclick = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx</span>) </span>{ <span class="hljs-comment">//Outer function</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">//Inner function</span>
+            alert(“Div number “ + idx);
+        }
+    })(i);
+}
+</code></pre>
+<blockquote>
+<p>这个错误经常在面试中被考到</p>
+</blockquote>
+<h2>六、DOM 对象的内测泄漏</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">attachEvents</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.getElementById(‘myID’);
+    element.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        alert(“Element clicked”);
+    }
+};
+attachEvents();
+</code></pre>
+<p>该代码创建了一个引用循环。</p>
+<p>变量元素包含函数的引用（归于 <code>onclick</code> 属性）。</p>
+<p>同时，函数保持一个 DOM 元素的引用（提示函数内部可以访问元素，因为闭包。）。</p>
+<p>所以 JavaScript 垃圾收集器不能清除元素或是函数，因为他们被相互引用。</p>
+<p>大部分的 JavaScript 引擎对于清除循环应用都不够聪明。</p>
+<p>解决办法：避免那些闭包，或者不去做函数内的循环引用。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">attachEvents</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.getElementById(‘myID’);
+    element.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//Remove element, so function can be collected by GC</span>
+        <span class="hljs-keyword">delete</span> element;
+        alert(“Element clicked”);
+    }
+};
+attachEvents();
+</code></pre>
+<h2>七、区别整数数字和浮点数字</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myNumber = <span class="hljs-number">3.5</span>;
+<span class="hljs-keyword">var</span> myResult = <span class="hljs-number">3.5</span> + <span class="hljs-number">1.0</span>; <span class="hljs-comment">//We use .0 to keep the result as float</span>
+</code></pre>
+<p>在 JavaScript 中，没有浮点与整数之分。</p>
+<p>事实上，JavaScript 中的每个数字都表示使用双精度 64 位格式 IEEE 754。</p>
+<p>简单理解，所有数字都是浮点，两者没有区别，所以下面的代码和上面的是一回事，虽然在其它很多语言中并不能这样做。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myNumber = <span class="hljs-number">3.5</span>;
+<span class="hljs-keyword">var</span> myResult = <span class="hljs-number">3.5</span> + <span class="hljs-number">1</span>; <span class="hljs-comment">//Result is 4.5, as expected</span>
+</code></pre>
+<h2>八、with() 作为快捷方式的用法</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript">team.attackers.myWarrior = { <span class="hljs-attr">attack</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">speed</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">magic</span>: <span class="hljs-number">5</span>};
+<span class="hljs-keyword">with</span> (team.attackers.myWarrior){
+    <span class="hljs-built_in">console</span>.log ( “Your warrior power is ” + (attack * speed));
+}
+</code></pre>
+<p>讨论 <code>with()</code> 之前，要明白 JavaScript contexts 如何工作的。</p>
+<p>每个函数都有一个执行 context（语句），简单来说，包括函数可以访问的所有的变量。</p>
+<p>因此 context 包含 arguments 和定义变量。</p>
+<p><code>with()</code> 真正是做什么？是插入对象到 context 链，它在当前 context 和父级 context 间植入。</p>
+<p>就像你看到的 <code>with()</code> 的快捷方式会非常慢。</p>
+<p>解决办法：不要使用 with() for shortcuts，仅 for context injection，如果你确实需要时。</p>
+<pre><code class="hljs javascript">team.attackers.myWarrior = { <span class="hljs-attr">attack</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">speed</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">magic</span>: <span class="hljs-number">5</span>};
+<span class="hljs-keyword">var</span> sc = team.attackers.myWarrior;
+<span class="hljs-built_in">console</span>.log(“Your warrior power is ” + (sc.attack * sc.speed));
+</code></pre>
+<h2>九、setTimeout/setInterval 字符串的用法</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log1</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>.location); }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log2</span>(<span class="hljs-params">arg</span>) </span>{ <span class="hljs-built_in">console</span>.log(arg); }
+<span class="hljs-keyword">var</span> myValue = “test”;
+setTimeout(“log1()”, <span class="hljs-number">100</span>);
+setTimeout(“log2(” + myValue + “)”, <span class="hljs-number">200</span>);
+</code></pre>
+<p><code>setTimeout()</code> 和 <code>setInterval()</code> 可被或一个函数或一个字符串作为首个参数。</p>
+<p>如果你传递一个字符串，引擎将创建一个新函数（使用函数构造器），这在一些浏览器中会非常慢。</p>
+<p>相反，传递函数本身作为首个参数，更快、更强大、更干净。</p>
+<p>解决办法：一定不要使用 strings for setTimeout() 或 setInterval()。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log1</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>.location); }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log2</span>(<span class="hljs-params">arg</span>) </span>{ <span class="hljs-built_in">console</span>.log(arg); }
+<span class="hljs-keyword">var</span> myValue = “test”;
+setTimeout(log1, <span class="hljs-number">100</span>); <span class="hljs-comment">//Reference to a function</span>
+setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">//Get arg value using closures</span>
+        log2(arg);
+    }, <span class="hljs-number">200</span>);
+</code></pre>
+<h2>十、setInterval() 的用法</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">domOperations</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//Heavy DOM operations, takes about 300ms</span>
+}
+setInterval(domOperations, <span class="hljs-number">200</span>);
+</code></pre>
+<p><code>setInterval()</code> 将一函数列入计划被执行，仅是在没有另外一个执行在主执行队列中等待。</p>
+<p>JavaScript 引擎只增加下一个执行到队列如果没有另外一个执行已在队列。</p>
+<p>这可能导致跳过执行或者运行 2 个不同的执行，没有在它们之间等待 200ms 的情况下。</p>
+<p>一定要搞清，<code>setInterval()</code> 没有考虑进多长时间 <code>domOperations()</code> 来完成任务。</p>
+<p>解决办法：避免 <code>setInterval()</code>，使用 <code>setTimeout()</code></p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">domOperations</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//Heavy DOM operations, takes about 300ms</span>
+    <span class="hljs-comment">//After all the job is done, set another timeout for 200 ms</span>
+    setTimeout(domOperations, <span class="hljs-number">200</span>);
+}
+setTimeout(domOperations, <span class="hljs-number">200</span>);
+</code></pre>
+<h2>十一、&quot;this&quot; 的滥用</h2>
+<p>这个常用错误，没有例子，因为非常难创建来演示。</p>
+<p>this 的值在 JavaScript 中与其他语言有很大的不同。</p>
+<p>函数中的 this 值被定义是在当函数被调用时，而非声明的时间，这一点非常重要。</p>
+<p>下面的案例中，函数内 this 有不同的含义。</p>
+<ul>
+<li>Regular function: myFunction('arg1');</li>
+</ul>
+<p>this points to the global object, wich is window for all browers.</p>
+<ul>
+<li>Method: someObject.myFunction('arg1');</li>
+</ul>
+<p>this points to object before the dot, someObject in this case.</p>
+<ul>
+<li>Constructor: var something = new myFunction('arg1');</li>
+</ul>
+<p>this points to an empty Object.</p>
+<ul>
+<li>Using call()/apply(): myFunction.call(someObject, 'arg1');</li>
+</ul>
+<p>this points to the object passed as first argument.</p>
+<h2>十二、eval() 访问动态属性的用法</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObject = { <span class="hljs-attr">p1</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">p2</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">p3</span>: <span class="hljs-number">3</span>};
+<span class="hljs-keyword">var</span> i = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> myResult = <span class="hljs-built_in">eval</span>(‘myObject.p’+i);
+</code></pre>
+<p>主要问题在于使用 <code>eval()</code> 开始一个新的执行语句，会非常的慢。</p>
+<p>解决办法：使用方括号表示法（square bracket notation）代替 <code>eval()</code>。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObject = { <span class="hljs-attr">p1</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">p2</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">p3</span>: <span class="hljs-number">3</span>};
+<span class="hljs-keyword">var</span> i = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> myResult = myObject[“p”+i];
+</code></pre>
+<h2>十三、未定义(undefined)作为变量的用法</h2>
+<p>举例：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">if</span> ( myVar === <span class="hljs-literal">undefined</span> ) {
+    <span class="hljs-comment">//Do something</span>
+}
+</code></pre>
+<p>在上面的例子中，未定义实际上是一变量。</p>
+<p>所有的 JavaScript 引擎会创建初始化的变量 <code>window.undefined</code> 给未定义作为值。</p>
+<p>然而 注意的是变量不仅是可读，任何其他的代码可以刚改它的值。</p>
+<p>很奇怪能找到 <code>window.undefined</code> 有来自未定义的不同的值的场景，但是为什么冒险呢？</p>
+<p>解决办法：检查未定义时，使用 <code>typeof</code>。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> myVar === “<span class="hljs-literal">undefined</span>” ) {
+    <span class="hljs-comment">//Do something</span>
+}
+</code></pre>
+<hr>
+<p>原文：<a href="http://corporate.tuenti.com/dev/blog/top-13-javascript-mistakes">Top 13 JavaScript Mistakes</a></p>
+<p>译文：<a href="http://justjavac.com/javascript/2012/04/05/top-13-javascript-mistakes.html">开发者最容易犯的 13 个 JavaScript 错误</a></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

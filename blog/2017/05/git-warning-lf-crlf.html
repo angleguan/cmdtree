@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     git commit警告 LF will be replaced by CRLF - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">git commit警告 LF will be replaced by CRLF</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-05-23" itemprop="datePublished">日期：2017年05月23日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>之前在使用git时就经常遇到这样的报错，起初并没有太在意，并没有影响到工作，但是今天在进行仓库分离的时候，使用jekyll build编译网站的时候</p>
+<p><img src="/pics/2017/06/TIMscreenshot20170623201424.png" alt=""></p>
+<p>如上图，满屏幕的warning，一看到warning都不舒服的我看到这么多warning瞬间都起鸡皮疙瘩了，于是google了一下，整理出如下内容</p>
+<h1>一、CR、LF、CRLF之间的关系</h1>
+<p>其实这是一个历史原因，有兴趣的同学可以google一下，这里只简要说一下他们之间的关系</p>
+<p><strong>这三种都是三类系统中对于回车换行的含义：</strong></p>
+<pre><code class="hljs">Linux/Unix  &gt; Line Feed       &gt; LF &gt; 换行
+Mac         &gt; Carriage Return &gt; CR &gt; 回车
+Windows/Dos &gt; CR LF  &gt; 回车 换行
+</code></pre>
+<p>所以windows的换行符是CRLF，正如我在写这篇文章的时候，vscode的右下角已经标出这个使用CRLF换行</p>
+<p><img src="/pics/2017/06/TIMscreenshot20170623203125.png" alt=""></p>
+<p>也就说，你在windows系统上创建的文件都是CRLF换行的，但是我在使用bash命令生成文件时，bash是GNU shell啊，GNU又是类UNIX啊，所以追踪溯源，他生成的文件肯定是LF换行的。</p>
+<p>但是这里其实也是很奇怪的，git起初也是linux上专属的，但是人家挺有责任心的，你在windows上运行我，我就有义务给你把LF换成你的CRLF，故此就生出这满屏幕的wraning了。</p>
+<h1>二、如何关闭这个警告</h1>
+<p>其实很简单，我们只需要在git bash中执行</p>
+<pre><code class="hljs">git config --global core.autocrlf false
+
+</code></pre>
+<p>这样就把他的自动转换关闭了。</p>
+<p>但是这是不需要担心的，因为现在的各种IDE都支持多种换行风格，即使在windows系统中也能正常显示LF换行的文件。</p>
+<p>（完）</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

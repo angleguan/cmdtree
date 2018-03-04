@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript遍历对象的几种方法 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript遍历对象的几种方法</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-15" itemprop="datePublished">日期：2018年02月15日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>一、for ... in ...</h2>
+<blockquote>
+<p>for...in 循环只遍历可枚举属性。像 Array和 Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如 String 的 indexOf()  方法或 Object的toString()方法。循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性（更接近原型链中对象的属性覆盖原型属性）。</p>
+</blockquote>
+<p>示例：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = {<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">2</span>, <span class="hljs-attr">c</span>:<span class="hljs-number">3</span>};
+    
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> obj) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"obj."</span> + prop + <span class="hljs-string">" = "</span> + obj[prop]);
+}
+
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// "obj.a = 1"</span>
+<span class="hljs-comment">// "obj.b = 2"</span>
+<span class="hljs-comment">// "obj.c = 3"</span>
+</code></pre>
+<p>这也是我们经常使用的一种方法，就不多说了。</p>
+<h2>二、Object.keys()</h2>
+<blockquote>
+<p>Object.keys 返回一个所有元素为字符串的数组，其元素来自于从给定的对象上面可直接枚举的属性。这些属性的顺序与手动遍历该对象属性时的一致。</p>
+</blockquote>
+<p>Object.keys()方法返回一个可枚举的对象的'key'值组成的数组</p>
+<p>若传入的是对象是数组，只会返回每个元素的索引（index）值：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> arr = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>];
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.keys(arr)); 
+<span class="hljs-comment">// ['0', '1', '2']</span>
+</code></pre>
+<p>Object对象：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> obj = { <span class="hljs-attr">foo</span>: <span class="hljs-string">"bar"</span>, <span class="hljs-attr">baz</span>: <span class="hljs-number">42</span> }, 
+    keys = <span class="hljs-built_in">Object</span>.keys(obj);
+<span class="hljs-built_in">console</span>.log(keys); 
+<span class="hljs-comment">// ["foo","baz"]</span>
+</code></pre>
+<p>若想得到值，通常我们会跟<code>foreach()</code>搭配使用，例如：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">Object</span>.keys(config.categories).forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> {
+  site_categories.push({
+    <span class="hljs-string">'title'</span>: item,
+    <span class="hljs-string">'path'</span>: config.categories[item] + <span class="hljs-string">'.html'</span>
+  })
+});
+</code></pre>
+<h2>Object.getOwnPropertyNames()</h2>
+<blockquote>
+<p>Object.getOwnPropertyNames() 返回一个数组，该数组对元素是 obj自身拥有的枚举或不可枚举属性名称字符串。 数组中枚举属性的顺序与通过 for...in 循环（或 Object.keys）迭代该对象属性时一致。数组中不可枚举属性的顺序未定义。</p>
+</blockquote>
+<p>Object.getOwnPropertyNames()方法与Object.keys()相似，除了返回'key'值之外还会加上该对象的其它属性，例如length</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>];
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getOwnPropertyNames(arr).sort()); <span class="hljs-comment">// ["0", "1", "2", "length"]</span>
+</code></pre>
+<p>该方法通常也跟foreach搭配使用</p>
+<h2>for ... of ...</h2>
+<blockquote>
+<p>for...of语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句。</p>
+</blockquote>
+<p>例子：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Array</span>
+<span class="hljs-keyword">let</span> iterable = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>];
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value <span class="hljs-keyword">of</span> iterable) {
+    value += <span class="hljs-number">1</span>;
+    <span class="hljs-built_in">console</span>.log(value);
+}
+<span class="hljs-comment">// 11</span>
+<span class="hljs-comment">// 21</span>
+<span class="hljs-comment">// 31</span>
+
+<span class="hljs-comment">// String </span>
+<span class="hljs-keyword">let</span> iterable = <span class="hljs-string">"boo"</span>;
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value <span class="hljs-keyword">of</span> iterable) {
+  <span class="hljs-built_in">console</span>.log(value);
+}
+<span class="hljs-comment">// "b"</span>
+<span class="hljs-comment">// "o"</span>
+<span class="hljs-comment">// "o"</span>
+
+<span class="hljs-comment">// map</span>
+<span class="hljs-keyword">let</span> iterable = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([[<span class="hljs-string">"a"</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">"b"</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">"c"</span>, <span class="hljs-number">3</span>]]);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> entry <span class="hljs-keyword">of</span> iterable) {
+  <span class="hljs-built_in">console</span>.log(entry);
+}
+<span class="hljs-comment">// ["a", 1]</span>
+<span class="hljs-comment">// ["b", 2]</span>
+<span class="hljs-comment">// ["c", 3]</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [key, value] <span class="hljs-keyword">of</span> iterable) {
+  <span class="hljs-built_in">console</span>.log(value);
+}
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 3</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

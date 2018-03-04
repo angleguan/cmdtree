@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     SCSS @extend与@mixin - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">SCSS @extend与@mixin</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-08" itemprop="datePublished">日期：2017年12月08日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>@extend</h2>
+<p><code>@extend</code>可以让一个样式包含另一个样式，就是可以让选择器继承另一个选择器下的所有样式。让原本需要设置多个class的标签只需要设置一个class</p>
+<p>简单演示：</p>
+<pre><code class="hljs scss"><span class="hljs-selector-class">.class1</span> {
+    <span class="hljs-attribute">color</span>: red;
+}
+
+<span class="hljs-selector-class">.class2</span> {
+    @<span class="hljs-keyword">extend</span> .class1;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+}
+</code></pre>
+<p>编译出来的结果为：</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.class1</span>, <span class="hljs-selector-class">.class2</span> {
+  <span class="hljs-attribute">color</span>: red; }
+
+<span class="hljs-selector-class">.class2</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>; }
+
+</code></pre>
+<p>这样一来，比如原来需要这样写的html</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class1 class2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>就可以这样写了</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3>其它选择器</h3>
+<p>所有的选择器都可以使用extend进行继承</p>
+<p>比如<code>:hover</code>:</p>
+<pre><code class="hljs scss"><span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
+    &amp;:hover {
+        <span class="hljs-attribute">text-decoration</span>: underline;
+    }
+}
+
+<span class="hljs-selector-class">.link</span> {
+    @<span class="hljs-keyword">extend</span> a:hover;
+    <span class="hljs-attribute">font-weight</span>: bold;
+}
+
+</code></pre>
+<p>编译结果为：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>; }
+  <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span>, <span class="hljs-selector-class">.link</span> {
+    <span class="hljs-attribute">text-decoration</span>: underline; }
+
+<span class="hljs-selector-class">.link</span> {
+  <span class="hljs-attribute">font-weight</span>: bold; }
+
+</code></pre>
+<h3>多重继承</h3>
+<p>一个选择器可以继承多个其它选择器的所有样式，如：</p>
+<pre><code class="hljs scss"><span class="hljs-selector-class">.class3</span> {
+    @<span class="hljs-keyword">extend</span> .class1;
+    @<span class="hljs-keyword">extend</span> .class2;
+    <span class="hljs-attribute">font-weight</span>: bold;
+}
+</code></pre>
+<p>编译结果为：</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.class1</span>, <span class="hljs-selector-class">.class2</span>, <span class="hljs-selector-class">.class3</span> {
+  <span class="hljs-attribute">color</span>: red; }
+
+<span class="hljs-selector-class">.class2</span>, <span class="hljs-selector-class">.class3</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>; }
+
+<span class="hljs-selector-class">.class3</span> {
+  <span class="hljs-attribute">font-weight</span>: bold; }
+
+</code></pre>
+<h3>延续继承</h3>
+<p>当一个选择器继承一个选择器时，那个选择器所继承的选择器也会一同继承，如</p>
+<pre><code class="hljs scss"><span class="hljs-selector-class">.class1</span> {
+    <span class="hljs-attribute">color</span>: red;
+}
+
+<span class="hljs-selector-class">.class2</span> {
+    @<span class="hljs-keyword">extend</span> .class1;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+}
+
+<span class="hljs-selector-class">.class3</span> {
+    @<span class="hljs-keyword">extend</span> .class2;
+    <span class="hljs-attribute">font-weight</span>: bold;
+}
+</code></pre>
+<p>结果依然是：</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.class1</span>, <span class="hljs-selector-class">.class2</span>, <span class="hljs-selector-class">.class3</span> {
+  <span class="hljs-attribute">color</span>: red; }
+
+<span class="hljs-selector-class">.class2</span>, <span class="hljs-selector-class">.class3</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>; }
+
+<span class="hljs-selector-class">.class3</span> {
+  <span class="hljs-attribute">font-weight</span>: bold; }
+
+</code></pre>
+<h2>@mixin</h2>
+<p><code>@mixin</code>为混合定义指定，使用时需要先定义样式，如：</p>
+<pre><code class="hljs scss">@<span class="hljs-keyword">mixin</span> media-query(<span class="hljs-variable">$device</span>) {
+  @<span class="hljs-keyword">media</span> screen and (max-width: <span class="hljs-variable">$device</span>) {
+    @<span class="hljs-keyword">content</span>;
+  }
+}
+</code></pre>
+<p>使用时需要使用<code>@include</code>引用：</p>
+<pre><code class="hljs scss"><span class="hljs-selector-class">.class4</span> {
+    @<span class="hljs-keyword">include</span> media-query(<span class="hljs-number">800px</span>) {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">85%</span>;
+    }
+}
+</code></pre>
+<p>上面的例子中使用了参数和<code>@content</code>，<code>@mixin</code>允许使用参数，还可以设置多个参数即缺省值，如：</p>
+<pre><code class="hljs scss">@<span class="hljs-keyword">mixin</span> sexy-border(<span class="hljs-variable">$color</span>, <span class="hljs-variable">$width</span>) {
+  <span class="hljs-attribute">border</span>: {
+    color: <span class="hljs-variable">$color</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$width</span>;
+    <span class="hljs-selector-tag">style</span>: dashed;
+  }
+}
+
+<span class="hljs-selector-tag">p</span> {
+    @<span class="hljs-keyword">include</span> sexy-border(blue, 1in); 
+}
+</code></pre>
+<pre><code class="hljs scss"><span class="hljs-comment">// 为参数指定缺省值</span>
+@<span class="hljs-keyword">mixin</span> left(<span class="hljs-variable">$value</span>: 10px) {
+    <span class="hljs-attribute">float</span>: left;
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-variable">$value</span>;
+}
+</code></pre>
+<p><code>@content</code>用于添加混合样式，在<code>@include</code>中出现的其它样式将会出现在@content的位置。</p>
+<p>更多内容可以浏览<a href="https://www.sass.hk/docs/">Sass教程 Sass中文文档</a></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

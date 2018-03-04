@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     AngularJS入门学习（四）常用服务 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">AngularJS入门学习（四）常用服务</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-17" itemprop="datePublished">日期：2017年07月17日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>AngularJS Service是一个函数或对象，可以使用在Angular应用中。</p>
+<p>AngularJS有很多内置服务，我们也可以按照自己的需要来创建服务，这里讲一下几个常用的服务。</p>
+<h1>$HTTP</h1>
+<p>$http服务是所有Angular服务中最为常用的内置服务之一。</p>
+<p>$http服务封装了浏览器原生的XMLHttpRequest对象。它只能接受一个参数，且这个参数是一个对象，包含了用来生成HTTP请求的配置内容。它返回一个Promise对象（一个原生的ES6对象，表示即将发生的事件），具有两个方法（success和error）。</p>
+<pre><code class="hljs js">$http({
+  <span class="hljs-attr">url</span>:<span class="hljs-string">'data.json'</span>,
+  <span class="hljs-attr">method</span>:<span class="hljs-string">'GET'</span>
+}).success(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
+  <span class="hljs-comment">//响应成功</span>
+  
+}).error(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
+  <span class="hljs-comment">//处理响应失败</span>
+});
+</code></pre>
+<h3>使用than方法来处理回调</h3>
+<pre><code class="hljs js">$http({
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">'data.js'</span>
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successCallback</span>(<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-comment">//响应成功</span>
+  }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorCallback</span>(<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-comment">//处理响应失败</span>
+});
+</code></pre>
+<h3>快捷的GET/POST请求</h3>
+<pre><code class="hljs js">$http.get(<span class="hljs-string">'date.json'</span>, config).then(successCallback, errorCallback);
+
+$http.post(<span class="hljs-string">'date.json'</span>, data, config).then(successCallback, errorCallback);
+</code></pre>
+<h1>$location</h1>
+<p>Angular中使用内置的$location服务来监听、操作URL，包括如下功能：</p>
+<ul>
+<li>获取、监听、改变地址栏的URL</li>
+<li>与URL实现双向数据绑定（地址栏变动、前进后退或者点击页面的链接均会触发）</li>
+<li>将URL对象封装成了一套方法（protocol、host、port、path、search和hash）</li>
+</ul>
+<p>$location服务的具体行为取决于它初始化时的配置。默认设置对大多数应用都是适合的，你也可以自定义配置来增加些新特性。</p>
+<p>$location服务初始化好以后，你就可以使用jquery风格的读写器和它交互了，你可以获取或者改变当前URL。</p>
+<h2>$location服务的配置</h2>
+<p>要配置$location服务，检索$locationProvider并把参数设置成以下这样：</p>
+<pre><code class="hljs">html5Mode(模式): {boolean}
+  strue - 参阅HTML5模式
+  false - 参阅Hashbang模式
+  default: false
+
+hashPrefix(前缀): {string}
+  Hashbang URLs的前缀 (在Hashbang模式中或者低级浏览器中使用)
+  default: '!'
+</code></pre>
+<p><strong>配置示例</strong></p>
+<pre><code class="hljs js">$locationProvider.html5Mode(<span class="hljs-literal">true</span>).hashPrefix(<span class="hljs-string">'!'</span>);
+</code></pre>
+<h2>Hashbang和HTML5模式</h2>
+<p>$location服务有两种用来控制地址栏URL格式的配置：Hashbang模式（默认）和HTML5模式（使用HTML5历史API）。应用会使用两种模式中相同的API。</p>
+<h2>示例</h2>
+<h3>Hashbang模式(默认mode)</h3>
+<p>使用这个模式的话，$location会在所有浏览器中使用Hashbang URLs。</p>
+<pre><code class="hljs js">it(<span class="hljs-string">'should show example'</span>, inject(
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$locationProvider</span>) </span>{
+  $locationProvider.html5mode = <span class="hljs-literal">false</span>;
+  $locationProvider.hashPrefix = <span class="hljs-string">'!'</span>;
+  },
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$location</span>) </span>{
+  <span class="hljs-comment">// open http://host.com/base/index.html#!/a</span>
+  $location.absUrl() == <span class="hljs-string">'http://host.com/base/index.html#!/a'</span>
+  $location.path() == <span class="hljs-string">'/a'</span>
+
+  $location.path(<span class="hljs-string">'/foo'</span>)
+  $location.absUrl() == <span class="hljs-string">'http://host.com/base/index.html#!/foo'</span>
+
+  $location.search() == {}
+  $location.search({<span class="hljs-attr">a</span>: <span class="hljs-string">'b'</span>, <span class="hljs-attr">c</span>: <span class="hljs-literal">true</span>});
+  $location.absUrl() == <span class="hljs-string">'http://host.com/base/index.html#!/foo?a=b&amp;c'</span>
+
+  $location.path(<span class="hljs-string">'/new'</span>).search(<span class="hljs-string">'x=y'</span>);
+  $location.absUrl() == <span class="hljs-string">'http://host.com/base/index.html#!/new?x=y'</span>
+  }
+));
+</code></pre>
+<p><strong>支持网络爬虫</strong></p>
+<p>你需要添加特别的meta标记在你的文档的头部才能支持对你的AJAX应用的索引。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fragment"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"!"</span> /&gt;</span>
+</code></pre>
+<p>这能让网络爬虫请求带有<code>_escaped_fragment_</code>形式的参数链接，这样你就能识别爬虫并且返回一个HTML的快照了。更多信息请参考 <strong>Making AJAX Applications Crawlable</strong>。</p>
+<h3>HTML5模式</h3>
+<p>在HTML5模式中，$location服务的读写器和浏览器的URL地址通过HTML5历史API交互，这使你能用regular URL path并且搜索各组成部分，和hashbang是等效的。 如果浏览器不支持HTML5 历史API， $location服务会自动回退成使用hashbang URLs。你就不用担心浏览器的支持性了。$location服务总是会用最好的选择。</p>
+<ul>
+<li>在低级浏览器中使用了regular URL -&gt; 重定向成hashbang URL</li>
+<li>在现代浏览器中打开了一个hashbang URL -&gt; 重写成regular URL</li>
+</ul>
+<pre><code class="hljs js">it(<span class="hljs-string">'should show example'</span>, inject(
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$locationProvider</span>) </span>{
+  $locationProvider.html5mode = <span class="hljs-literal">true</span>;
+  $locationProvider.hashPrefix = <span class="hljs-string">'!'</span>;
+  },
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$location</span>) </span>{
+  <span class="hljs-comment">// in browser with HTML5 history support:</span>
+  <span class="hljs-comment">// open http://host.com/#!/a -&gt; rewrite to http://host.com/a</span>
+  <span class="hljs-comment">// (replacing the http://host.com/#!/a history record)</span>
+  $location.path() == <span class="hljs-string">'/a'</span>
+
+  $location.path(<span class="hljs-string">'/foo'</span>);
+  $location.absUrl() == <span class="hljs-string">'http://host.com/foo'</span>
+
+  $location.search() == {}
+  $location.search({<span class="hljs-attr">a</span>: <span class="hljs-string">'b'</span>, <span class="hljs-attr">c</span>: <span class="hljs-literal">true</span>});
+  $location.absUrl() == <span class="hljs-string">'http://host.com/foo?a=b&amp;c'</span>
+
+  $location.path(<span class="hljs-string">'/new'</span>).search(<span class="hljs-string">'x=y'</span>);
+  $location.url() == <span class="hljs-string">'new?x=y'</span>
+  $location.absUrl() == <span class="hljs-string">'http://host.com/new?x=y'</span>
+
+  <span class="hljs-comment">// in browser without html5 history support:</span>
+  <span class="hljs-comment">// open http://host.com/new?x=y -&gt; redirect to http://host.com/#!/new?x=y</span>
+  <span class="hljs-comment">// (again replacing the http://host.com/new?x=y history item)</span>
+  $location.path() == <span class="hljs-string">'/new'</span>
+  $location.search() == {<span class="hljs-attr">x</span>: <span class="hljs-string">'y'</span>}
+
+  $location.path(<span class="hljs-string">'/foo/bar'</span>);
+  $location.path() == <span class="hljs-string">'/foo/bar'</span>
+  $location.url() == <span class="hljs-string">'/foo/bar?x=y'</span>
+  $location.absUrl() == <span class="hljs-string">'http://host.com/#!/foo/bar?x=y'</span>
+  }
+));
+</code></pre>
+<h1>$cacheFactory</h1>
+<p>$cacheFactory是应用程序一个会话（Session）中的缓存服务，以key-value对的方法存储一些临时数据。它跟浏览器本地缓存localStorage是不一样的。$cacheFactory在用户删除当前会话（比如强制刷新页面）之后，缓存的数据就被清空了。</p>
+<h2>用法</h2>
+<p>首先，要得到一个缓存实例，用id来区分，比如我想取id为’firstCache’的缓存：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> cache = $cacheFactory(<span class="hljs-string">'firstCache'</span>);
+</code></pre>
+<p>添加kv对，put方法：</p>
+<pre><code class="hljs js">cache.put(key, value);
+</code></pre>
+<p>获取，get方法：</p>
+<pre><code class="hljs js">cache.get(key); <span class="hljs-comment">// 如果不存在这个key的话，会返回undefined</span>
+</code></pre>
+<p>添加kv对，put方法：</p>
+<pre><code class="hljs js">cache.put(key, value);
+</code></pre>
+<p>删除，remove和removeAll：</p>
+<pre><code class="hljs js">cache.remove(key); <span class="hljs-comment">// 删除某个kv对</span>
+cache.removeAll(); <span class="hljs-comment">// 删除该缓存的全部kv对</span>
+</code></pre>
+<p>删除该缓存实例，destroy：</p>
+<pre><code class="hljs js">cache.destroy(); <span class="hljs-comment">// 把当前缓存删除掉</span>
+cache.put(key, value); <span class="hljs-comment">// 错误！不能再访问该缓存，要重新生产一个实例出来</span>
+</code></pre>
+<h1>$timeout、$interval</h1>
+<p>$timeout和$interval是AngularJS自带的服务，跟原生js中的setTimeout和setInterval函数的用法基本是一样的。但是有两个不一样的地方需要注意一下：</p>
+<p>区别一：</p>
+<p>原生js中的两个函数，如果在AngularJS中使用并且在回调函数中需要使用$scope服务的话，我们需要用$angular.$apply把回调函数包起来，因为这里setTimeout函数被AngularJS当作是外部函数了。就像这样：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// 错误的写法示例（使用setTimeout却没有用$apply）：</span>
+angular.module(<span class="hljs-string">'myDemo'</span>, [])
+
+  .controller(<span class="hljs-string">'firstController'</span>, [<span class="hljs-string">'$scope'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+
+  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'before'</span>);  <span class="hljs-comment">// 正常输出before</span>
+    $scope.name = <span class="hljs-string">"My name have been changed."</span>; <span class="hljs-comment">// 这一句不被执行</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'after'</span>);   <span class="hljs-comment">// 正常输出after</span>
+  }, <span class="hljs-number">2000</span>);
+  }]);
+</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// 正确的写法示例</span>
+angular.module(<span class="hljs-string">'myDemo'</span>, [])
+
+  .controller(<span class="hljs-string">'firstController'</span>, [<span class="hljs-string">'$scope'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+
+  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'before'</span>);  <span class="hljs-comment">// 正常输出before</span>
+    $scope.$apply(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $scope.name = <span class="hljs-string">"My name have been changed."</span>;  <span class="hljs-comment">// 正确显示</span>
+    });
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'after'</span>);   <span class="hljs-comment">// 正常输出after</span>
+  }, <span class="hljs-number">2000</span>);
+  }]);
+</code></pre>
+<p>所以，在AngularJS中，最好不要用setTimeout或setInterval，而是用那两个AngularJS系统服务。</p>
+<p>区别二:</p>
+<p>取消的方式不大一样，比如timeout：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// setTimeout</span>
+<span class="hljs-keyword">var</span> id = setTimeout(func, <span class="hljs-number">2000</span>); <span class="hljs-comment">// 返回该timeout的id</span>
+clearTimeout(id); <span class="hljs-comment">// 使用clearTimeout</span>
+</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// $timeout服务</span>
+<span class="hljs-keyword">var</span> promise = $timeout(f, <span class="hljs-number">2000</span>); <span class="hljs-comment">// 返回一个promise对象</span>
+$timeout.cancel(promise); <span class="hljs-comment">// 还是要使用服务，它的cancel方法</span>
+</code></pre>
+<h1>$sce</h1>
+<p>sce指的是<code>Strict Contextual Escaping</code>，它是默认开启的，负责拒绝一些不安全的行为，比如加载不同源的资源等等。但是有时候，我们又需要加载一些特定的资源，我们就得使用$sce的一些方法，来为这些资源和AngularJS系统之间建立信任。</p>
+<h2>用法</h2>
+<p>$sce有以下常用方法：</p>
+<ul>
+<li>$sce.trustAsHtml(…)：将一段html文本视为安全</li>
+<li>$sce.trustAsUrl(…)</li>
+<li>$sce.trustAsResourceUrl(…)</li>
+<li>$sce.trustAsJs(…)</li>
+</ul>
+<p>举个例子，假如我要显示（可以理解成渲染，相当于android SDK中的WebView）一段html文本表示的内容，我们需要遵循以下步骤：</p>
+<p>1.在html模板中用“ng-bind-html”属性来绑定一个model（变量）；</p>
+<p>2.在js中注入$sce服务，并且使用方法$sce.trustAsHtml(…)，把信任后的值赋给该model。</p>
+<h2>示例</h2>
+<p>HTML：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"LogController"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!--这里不能用ng-bind，因为是渲染一段html文本，而不是显示简单的数据--&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-bind-html</span>=<span class="hljs-string">"results"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>JS：</p>
+<pre><code class="hljs js">angular.module(<span class="hljs-string">'myDemo'</span>, [])
+  .controller(<span class="hljs-string">'LogController'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope, $http, $sce</span>) </span>{
+
+  <span class="hljs-comment">// 随便定义一段html文本</span>
+  <span class="hljs-keyword">var</span> txt = <span class="hljs-string">"&lt;h1&gt;Hello world!&lt;/h1&gt;"</span>;
+
+  <span class="hljs-comment">// 这里不能直接$scope.results = txt，否则会报错显示“不安全”</span>
+  $scope.results = $sce.trustAsHtml(txt);
+  });
+</code></pre>
+<p>此时浏览器就会输出Hello world!</p>
+<p>（完）</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Python Generator - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Python Generator</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-01-28" itemprop="datePublished">日期：2018年01月28日</time></p>
+      <span class="post-category">分类：Python</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>生成器（Generator）是Python语言中一个很独特的特性，生成器可以是一个函数，这个generator函数一定会包含<code>yield</code>语句，我们知道，在一般函数中，遇到return语句时就会终止执行返回结果，而在generator中，当for对一组可迭代项目进行迭代时，一旦generator函数运行到yield语句处就会停止执行，然后从项目中获取一个新值再从yield处继续执行。</p>
+<h3>生成器表达式</h3>
+<p>跟列表生成式一样，生成器也可以用类似表达式的形式写出来，只需要把<code>[]</code>改成<code>()</code>就可以创建一个generator。</p>
+<pre><code class="hljs py">iterator = (i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>))
+</code></pre>
+<p>你可以使用<code>next()</code>函数来获取generator的下一个值，就像这样</p>
+<pre><code class="hljs py"><span class="hljs-meta">&gt;&gt;&gt; </span>next(iterator)
+<span class="hljs-number">0</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(iterator)
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(iterator)
+<span class="hljs-number">2</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(iterator)
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;stdin&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+StopIteration
+</code></pre>
+<p>当next()第一次被调用时，执行从函数体的开始处开始并继续，直到yield处返回结果，随后的调用next()从上次yield语句处继续到函数的结尾，直到没有值的时候就会抛出StopIteration错误。</p>
+<p>但是事实上我们不可能一直调用next函数，如果要打印generator所有的值，可以使用for循环，就像这样</p>
+<pre><code class="hljs py"><span class="hljs-meta">&gt;&gt;&gt; </span>iterator = (i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> iterator:
+<span class="hljs-meta">... </span>    print(item)
+...
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+</code></pre>
+<h3>generator函数</h3>
+<p>生成器表达式可以用来表达一些比较简单的迭代，但是遇到较复杂的条件就没办法写了，所以这个时候就可以用generator函数来表示比较复杂的逻辑关系。</p>
+<p>比如斐波拉契数列，从第三个数开始每个数等于前两个数之和，如果用函数来表示我们可以这样写</p>
+<pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fib</span><span class="hljs-params">(max)</span>:</span>
+    n, a, b = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> n &lt; max:
+        print(b)
+        a, b = b, a + b
+        n = n + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'done'</span>
+</code></pre>
+<p>上面是一个一般函数，如果要把它变成generator函数我们只需要把输出语句print(b)改成yield语句即可，就像这样</p>
+<pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gen_fib</span><span class="hljs-params">(max)</span>:</span>
+    n, a, b = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> n &lt; max:
+        <span class="hljs-keyword">yield</span> b
+        a, b = b, a + b
+        n = n + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'done'</span>
+</code></pre>
+<p>同样的，刚开始说过，一个函数包含了yield语句那它就是一个generator函数</p>
+<pre><code class="hljs py"><span class="hljs-meta">&gt;&gt;&gt; </span>fib(<span class="hljs-number">10</span>)
+<span class="hljs-number">1</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">13</span>
+<span class="hljs-number">21</span>
+<span class="hljs-number">34</span>
+<span class="hljs-number">55</span>
+<span class="hljs-string">'done'</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>gen_fib(<span class="hljs-number">10</span>)
+&lt;generator object gen_fib at <span class="hljs-number">0x0000024A02DC5B48</span>&gt;
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>f = gen_fib(<span class="hljs-number">10</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(f)
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(f)
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(f)
+<span class="hljs-number">2</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(f)
+<span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(f)
+<span class="hljs-number">5</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

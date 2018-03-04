@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Jekyll生成单个分类页面 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Jekyll生成单个分类页面</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-01-08" itemprop="datePublished">日期：2018年01月08日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>Jekyll有提供生成分类或者标签页面的插件——<a href="https://github.com/jekyll/jekyll-archives">jekyll-archives</a>，只需简单配置即可使用，但是在Github Pages中不允许使用，所以我只能手动生成分类页了。</p>
+<p>具体方法如下：</p>
+<h2>输出单个分类文章</h2>
+<p>输出分类<code>CATEGORY</code>下的所有文章：</p>
+<pre><code class="hljs">{% for post in site.categories.CATEGORY %}
+  {{ post.title }}
+{% endfor %}
+</code></pre>
+<p>但是这里的分类只能为英文，中文会报错，但是我又想显示为中文，怎么办呢？</p>
+<h3>使用YAML储存分类信息</h3>
+<p>我想到的解决办法就是使用YAML（或者任何一种数据储存格式，如JSON）<strong>把英文分类对应的中文储存起来</strong>，然后再需要显示的地方<strong>循环出对应的中文分类</strong>。</p>
+<p>储存的文件需要放在<code>_data</code>文件夹下，我新建了一个<code>category.yml</code>文件如下</p>
+<pre><code class="hljs yml"><span class="hljs-attr">- value:</span> <span class="hljs-string">"learn"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"学习笔记"</span>
+
+<span class="hljs-attr">- value:</span> <span class="hljs-string">"linux"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"Unix/Linux"</span>
+
+<span class="hljs-attr">- value:</span> <span class="hljs-string">"js"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"JavaScript"</span>
+<span class="hljs-attr">  link:</span> <span class="hljs-string">"javascript"</span>
+
+<span class="hljs-attr">- value:</span> <span class="hljs-string">"history"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"历史爱好者"</span>
+
+<span class="hljs-attr">- value:</span> <span class="hljs-string">"use"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"使用笔记"</span>
+
+<span class="hljs-attr">- value:</span> <span class="hljs-string">"network"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"网络技术与安全"</span>
+
+<span class="hljs-attr">- value:</span> <span class="hljs-string">"lifetime"</span>
+<span class="hljs-attr">  title:</span> <span class="hljs-string">"晃眼一生"</span>
+</code></pre>
+<p>然后循环英文分类，输出对应的中文名</p>
+<pre><code class="hljs">{% for category in post.categories %}
+  {% for c in site.data.category %}
+    {% if category == c.value %}
+      {{ c.title }}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+</code></pre>
+<p>所以事实上在站点的分类变量中，都是英文名，我只是将他输出为中文，如果对此不在意的人可以跳过。</p>
+<h2>生成分类页</h2>
+<p>这里的分类页<strong>必须</strong>自己手动新建好，这个是没办法的，除了使用Ruby插件，但是我将其简化到容易维护的办法就是，将HTML全部放到一个<code>layout</code>文件里，我在<code>_layouts</code>文件夹下新建了一个<code>category.html</code>文件:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"category-title"</span>&gt;</span>分类：{{ page.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 将分类页的分类赋给变量page_category --&gt;</span>
+{% assign page_category = page.category %}
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 因为无法直接在categories后面跟新建的变量,所以只能通过循环判断的方式来确定当前分类 --&gt;</span>
+  <span class="hljs-comment">&lt;!-- 循环所有分类 --&gt;</span>
+  {% for category in site.categories %}
+
+  <span class="hljs-comment">&lt;!-- 如果分类页面的分类与变量中的分类相同 --&gt;</span>
+  {% if page_category == category[0] %}
+
+  <span class="hljs-comment">&lt;!-- 循环此分类中所有文章 --&gt;</span>
+  {% for post in category[1] %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"post-date"</span>&gt;</span>{{ post.date | date:"%Y-%m-%d" }}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"category-post-title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ post.url }}"</span>&gt;</span>
+      {{ post.title }}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<p>然后新建一个<code>category</code>文件夹，在里面分别创建好每个分类文件，这些文件只需要定义一些头信息即可</p>
+<pre><code class="hljs yml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">category</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">学习笔记</span>
+<span class="hljs-attr">category:</span> <span class="hljs-string">学习笔记</span>
+<span class="hljs-meta">---</span>
+</code></pre>
+<p>这样就会生成<code>/category/learn/</code>页面了。</p>
+<h2>总结</h2>
+<p>总的来说还是不太复杂的，因为我的分类比较少而且很少会创建新的分类，所以这样可以一直用下去，如果你的分类很多而且经常创建新建新分类就很麻烦了。</p>
+<p><em>对于我来说这个方法比使用插件更好，因为插件生成的页面如果使用中文名的话它生成的路径也是中文的。</em></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Nodejs的安装与npm的使用 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Nodejs的安装与npm的使用</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-19" itemprop="datePublished">日期：2017年08月19日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。</p>
+</blockquote>
+<h2>一、下载安装NodeJS</h2>
+<p>下载地址<a href="https://nodejs.org/en/download/">Download Node.js</a></p>
+<h3>Linux平台</h3>
+<p>Linux平台安装NodeJS的传统方法是编译安装：</p>
+<pre><code class="hljs">$ git clone https://github.com/nodejs/node.git // 从Github获取最新源代码
+$ sudo chmod -R 755 node // 修改目录权限
+// 使用 ./configure 创建编译文件
+$ cd node
+$ sudo ./configure
+$ sudo make
+$ sudo make install
+</code></pre>
+<p>还有一种方法是通过Linux发行版的包管理工具进行安装：</p>
+<pre><code class="hljs"># apt-get install nodejs npm    // Debian系列
+</code></pre>
+<p>安装完成后：</p>
+<pre><code class="hljs"># 查看当前安装的Node的版本 
+node -v 
+v7.4.0
+
+# 查看NPM版本
+npm -v
+4.0.5
+
+# 更新 npm
+sudo npm install -g npm
+</code></pre>
+<h3>Windows平台</h3>
+<p>Windows下安装NodeJS十分简单，在官网下载安装包（msi格式）打开即可。</p>
+<h3>Mac平台</h3>
+<p>使用<code>brew</code>安装即可：</p>
+<pre><code class="hljs">brew install node
+</code></pre>
+<h3>安装cnpm</h3>
+<p>安装完NodeJS会自带包管理工具npm，但是速度较慢，我们可以使用国内的阿里镜像</p>
+<p>安装命令</p>
+<pre><code class="hljs">npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
+<h1>NPM（Node Package Manager）</h1>
+<blockquote>
+<p>NPM是随同NodeJS一起安装的包管理工具。</p>
+</blockquote>
+<p>我们平常也就是使用它来安装和卸载一些依赖包。</p>
+<h3>NPM的安装</h3>
+<p>npm一般会跟随NodeJS一起安装，也有情况是要单独使用命令来安装：</p>
+<pre><code class="hljs"># apt-get install npm
+</code></pre>
+<h2>常用命令</h2>
+<p>初始化项目（创建package.json）</p>
+<pre><code class="hljs">$ npm init
+</code></pre>
+<pre><code class="hljs">λ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install &lt;pkg&gt; --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+name: (vue-test)    # 项目名称
+version: (1.0.0)    # 版本号
+description:    # 项目描述
+entry point: (generate.js)     # 入口文件
+test command:   # 测试指令
+git repository:     # git仓库
+keywords:   # 关键字
+author:     #作者
+license: (ISC)      # 开源协议
+About to write to C:\Users\rhatyang\Desktop\vue-test\package.json:
+
+{
+  &quot;name&quot;: &quot;vue-test&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;generate.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+
+
+Is this ok? (yes)    # 是否确定
+</code></pre>
+<p>一键安装项目中所需要的包（从package.json中读取依赖列表）</p>
+<pre><code class="hljs">$ npm install
+</code></pre>
+<p>单独安装某个模块</p>
+<pre><code class="hljs">$ npm install &lt;express&gt;     //本地安装
+
+$ npm install &lt;express&gt; -g  //全局安装
+</code></pre>
+<p><strong>本地安装与全局安装的区别</strong></p>
+<p>1、本地安装将安装包放在 <code>./node_modules</code> 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 <code>node_modules</code> 目录；全局安装将安装包放在 <code>/usr/local</code> 下或者你 node 的安装目录。</p>
+<p>2、本地安装可以通过 <code>require()</code> 来引入本地安装的包；全局安装可以直接在命令行里使用。</p>
+<p>查看所有全局安装的模块：</p>
+<pre><code class="hljs">$ npm list -g
+</code></pre>
+<p>查看<code>./node_modules</code>下的模块</p>
+<pre><code class="hljs">$ npm ls
+
+</code></pre>
+<p>更新模块</p>
+<pre><code class="hljs">$ npm update &lt;express&gt;
+</code></pre>
+<p>搜索模块</p>
+<pre><code class="hljs">$ npm search &lt;express&gt;
+</code></pre>
+<p>查看某个模块的版本号</p>
+<pre><code class="hljs">$ npm list grunt
+</code></pre>
+<p>查看某条命令的帮助</p>
+<pre><code class="hljs">$ npm help &lt;command&gt; 
+</code></pre>
+<h3>package.json属性说明</h3>
+<ul>
+<li>name - 包名。</li>
+<li>version - 包的版本号。</li>
+<li>description - 包的描述。</li>
+<li>homepage - 包的官网 url 。</li>
+<li>author - 包的作者姓名。</li>
+<li>contributors - 包的其他贡献者姓名。</li>
+<li>dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。</li>
+<li>repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。</li>
+<li>main - main 字段指定了程序的主入口文件，require('moduleName') 就会加载这个文件。这个字段的默认值是模块根目录下面的 generate.js。</li>
+<li>keywords - 关键字</li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

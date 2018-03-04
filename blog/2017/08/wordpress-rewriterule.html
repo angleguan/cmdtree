@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     WordPress 伪静态规则（IIS/Apache/Nginx） - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">WordPress 伪静态规则（IIS/Apache/Nginx）</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-05" itemprop="datePublished">日期：2017年08月05日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>不少朋友总是询问 WordPress 如何添加伪静态规则，今天倡萌就总结一下 IIS/Apache/Nginx 三种环境下的伪静态规则，希望对大家有所帮助。</p>
+<p>检测主机是否支持伪静态的方法：在WP后台 &gt; 设置 &gt; 固定链接，设置为 非默认带?的那种结构，然后访问任何一篇文章，如果出现 404 错误，说明你的主机当前不支持 WordPress 伪静态。</p>
+<h1>IIS伪静态规则</h1>
+<p>IIS 环境是 Windows 主机常用的服务器环境，新建一个 txt 文件，将下面的代码添加到文件中：</p>
+<pre><code class="hljs">[ISAPI_Rewrite]
+# Defend your computer from some worm attacks
+#RewriteRule .*(?:global.asa|default\.ida|root\.exe|\.\.).* . [F,I,O]
+# 3600 = 1 hour
+
+CacheClockRate 3600
+RepeatLimit 32
+ 
+# Protect httpd.ini and httpd.parse.errors files
+# from accessing through HTTP
+# Rules to ensure that normal content gets through
+
+RewriteRule /tag/(.*) /index\.php\?tag=$1
+RewriteRule /software-files/(.*) /software-files/$1 [L]
+RewriteRule /images/(.*) /images/$1 [L]
+RewriteRule /sitemap.xml /sitemap.xml [L]
+RewriteRule /favicon.ico /favicon.ico [L]
+# For file-based wordpress content (i.e. theme), admin, etc.
+RewriteRule /wp-(.*) /wp-$1 [L]
+# For normal wordpress content, via index.php
+RewriteRule ^/$ /index.php [L]
+RewriteRule /(.*) /index.php/$1 [L]
+</code></pre>
+<p>然后另存为 httpd.ini 文件，上传到WordPress站点的根目录即可。</p>
+<h1>Apache伪静态规则</h1>
+<p>Apache是 Linux 主机下常见的环境，现在一般的 Linux 虚拟主机都采用这种环境。新建一个 htaccess.txt 文件，添加下面的代码：</p>
+<pre><code class="hljs apache"><span class="hljs-section">&lt;IfModule mod_rewrite.c&gt;</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteEngine</span></span> <span class="hljs-literal">On</span>
+<span class="hljs-attribute">RewriteBase</span> /
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteRule</span></span> ^index\.php$ -<span class="hljs-meta"> [L]</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-variable">%{REQUEST_FILENAME}</span> !-f
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-variable">%{REQUEST_FILENAME}</span> !-d
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteRule</span></span> . /index.php<span class="hljs-meta"> [L]</span>
+<span class="hljs-section">&lt;/IfModule&gt;</span>
+
+</code></pre>
+<p>然后上传到 WordPress 站点的根目录，重命名为 .htaccess 即可</p>
+<h1>Nginx伪静态规则</h1>
+<p>Nginx环境一般是Linux 主机 VPS或服务器用户用的比较多，这些用户一般都会自己配置Nginx，或者有专门的人帮你配置，打开 nginx.conf 或者某个站点的配置环境，比如 wpdaxue.com.conf（不同人配置的不一样），在  server   { } 大括号里面添加下面的代码：</p>
+<pre><code class="hljs nginx"><span class="hljs-attribute">location</span> / {
+<span class="hljs-attribute">if</span> (-f <span class="hljs-variable">$request_filename</span>/index.html){
+                <span class="hljs-attribute">rewrite</span> (.*) <span class="hljs-variable">$1</span>/index.html <span class="hljs-literal">break</span>;
+        }
+<span class="hljs-attribute">if</span> (-f <span class="hljs-variable">$request_filename</span>/index.php){
+                <span class="hljs-attribute">rewrite</span> (.*) <span class="hljs-variable">$1</span>/index.php;
+        }
+<span class="hljs-attribute">if</span> (!-f <span class="hljs-variable">$request_filename</span>){
+                <span class="hljs-attribute">rewrite</span> (.*) /index.php;
+        }
+}
+
+</code></pre>
+<p>保存，重启 Nginx 即可。</p>
+<p>题外话：倡萌一直不推荐在 windows 的IIS服务器下安装 WordPress，因为 IIS 环境运行php程序的效率，相对同等配置下 Linux 的 Apache 和 Nginx 环境，要低的多，具体可以看看https://www.wpdaxue.com/wordpress-hosting.html</p>
+<blockquote>
+<p>转载于https://www.wpdaxue.com/wordpress-rewriterule.html</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

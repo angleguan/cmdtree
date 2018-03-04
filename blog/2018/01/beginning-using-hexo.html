@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     开始使用Hexo - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">开始使用Hexo</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-01-14" itemprop="datePublished">日期：2018年01月14日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>昨天开始把博客迁移到Hexo了，我在不久前刚写过一篇<a href="https://cmdtree.com/blog/2017/11/jekyll-and-hexo-detailed-comparison.html">Jekyll和Hexo详细对比</a>，其中我提到我在这之前不想迁移到hexo有两点原因</p>
+<ul>
+<li>
+<p>模板语言不熟</p>
+</li>
+<li>
+<p>使用Github Pages更加方便</p>
+</li>
+</ul>
+<p>第一点，hexo默认使用<a href="http://www.embeddedjs.com/">ejs</a>语言，之前尝试过写hexo主题，因为对这款模板不熟都中途放弃了，昨天下了几个hexo主题参考，终于把我现在这款主题从Jekyll迁到Hexo了</p>
+<p>第二点，因为Github Pages默认会自动部署Jekyll，我也图个方便，直接把源码PUSH上去就好了，不过现在我使用<a href="https://www.travis-ci.org/">travis CI</a>，可以自动部署Github Pages服务，只需要把hexo站点源码推送到Github即可，travis会按照自定义代码编译好文件再部署到gh-pages分支，非常方便。</p>
+<h2>遇到的坑</h2>
+<p>其实熟悉hexo再写个主题昨天一天就好了，最让我头疼的是我写过很多文章都有用到双大括号<code>{{ }}</code>或者<code>{% %}</code>，原本在Jekyll中，我都会在要写这两种语法的文章开始和结尾直接加个<code>{% raw %}</code>(因为我实在不知道怎么输出raw标签，只能加两个反斜杠了)，但是在hexo中，raw会导致markdown语法也无法解析，所以我只能在要转义的字符两端加raw标签了，而有的时候输出双大括号却不需要加raw转义标签，而hexo的报错信息遇到这种问题却还是unknown path，我只能一篇一篇文章排错了，花了一个上午。</p>
+<h2>好处</h2>
+<p>hexo的优点还是非常多的，要不然我也不会大费周章的迁移过来，其中最让我舒服的一个好处就是开启本地服务，重新加载一次的速度非常快，虽然hugo号称是最快的静态博客生成器，但我感觉两者还是差不多的，就看以后文章更多的时候还能不能这么快了，还有的一个优点就是插件非常丰富吧，当然大部分我也是不需要的。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

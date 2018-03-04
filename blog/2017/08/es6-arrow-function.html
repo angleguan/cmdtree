@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     ES6箭头函数详解 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">ES6箭头函数详解</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-07" itemprop="datePublished">日期：2017年08月07日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>箭头函数是ES6新增的非常有意思的特性，初次写起来，可能会觉得别扭，习惯之后，会发现很精简。</p>
+<h2>什么是箭头函数?</h2>
+<p>箭头函数是一种使用箭头( =&gt; )定义函数的新语法, 主要有以下特性:</p>
+<ul>
+<li>不能通过new关键字调用</li>
+<li>没有原型, 因为不能通过new调用，所以没有原型</li>
+<li>没有this, super，arguments和new.target绑定, new.target和super关键字是es6新增的</li>
+<li>箭头函数中的this，取决于他的上层非箭头函数的this指向</li>
+<li>没有arguments对象，但是可以获取到外层函数的arguments</li>
+<li>call,apply,bind不能改变箭头函数的this指向</li>
+<li>箭头函数语法由函数参数、箭头、函数体组成.</li>
+</ul>
+<p><strong>第一种形式: 没有参数的写法</strong></p>
+<pre><code class="hljs js"> <span class="hljs-comment">/*
+     (): 空括号代表: 没有传递参数
+     函数体： console.log( 'zhiyang' ),  只有这一句话,可以不加花括号{}
+ */</span>
+
+ <span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log( <span class="hljs-string">'zhiyang'</span> );
+ show();     <span class="hljs-comment">// zhiyang</span>
+</code></pre>
+<pre><code class="hljs js">  <span class="hljs-comment">//函数体只有一句话，当然也可以加花括号</span>
+
+ <span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log( <span class="hljs-string">'zhiyang'</span> ); }
+ show();    <span class="hljs-comment">// zhiyang</span>
+
+</code></pre>
+<p><strong>第二种形式: 带一个参数的写法</strong></p>
+<pre><code class="hljs js"> <span class="hljs-comment">/*
+     第一个a 表示 参数a
+     第二个a 表示函数体a, 相当于 return a
+ */</span>
+
+ <span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> a;
+ <span class="hljs-built_in">console</span>.log( show( <span class="hljs-number">10</span> ) );    <span class="hljs-comment">// 10</span>
+</code></pre>
+<pre><code class="hljs js">  <span class="hljs-comment">//如果函数体加了花括号，要用return</span>
+
+  <span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> { <span class="hljs-keyword">return</span> a; };
+  <span class="hljs-built_in">console</span>.log( show( <span class="hljs-number">10</span> ) );    <span class="hljs-comment">// 10</span>
+
+  <span class="hljs-comment">// 当然也可以加小括号</span>
+
+  <span class="hljs-keyword">let</span> show = <span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> { <span class="hljs-keyword">return</span> a; };
+  <span class="hljs-built_in">console</span>.log( show( <span class="hljs-number">10</span> ) );    <span class="hljs-comment">// 10</span>
+</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// let show = ( a ) =&gt; console.log( a );</span>
+<span class="hljs-comment">// show( 100 );     //100</span>
+
+<span class="hljs-comment">// 当函数体有return的时候，必须要加花括号</span>
+
+<span class="hljs-keyword">let</span> show = <span class="hljs-function">(<span class="hljs-params"> a </span>) =&gt;</span> <span class="hljs-keyword">return</span> a;     <span class="hljs-comment">//错误</span>
+</code></pre>
+<p><strong>第三种形式: 带2个以上参数的写法</strong></p>
+<pre><code class="hljs js"><span class="hljs-comment">//当函数有2个以上参数的时候，一定要用小括号</span>
+
+<span class="hljs-keyword">let</span> add = <span class="hljs-function">(<span class="hljs-params"> a, b </span>) =&gt;</span> a + b;
+<span class="hljs-built_in">console</span>.log( add( <span class="hljs-number">10</span>, <span class="hljs-number">20</span> ) );     <span class="hljs-comment">//30</span>
+
+<span class="hljs-keyword">let</span> add = a, b =&gt; a + b;     <span class="hljs-comment">// 错误，没有小括号</span>
+
+<span class="hljs-keyword">let</span> add = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> <span class="hljs-keyword">return</span> a + b;    <span class="hljs-comment">// 错误，有return需要加花括号</span>
+
+<span class="hljs-comment">// 你也可以这样写</span>
+<span class="hljs-keyword">let</span> add = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log( a + b );
+add( <span class="hljs-number">10</span>, <span class="hljs-number">20</span> );     <span class="hljs-comment">//30</span>
+
+<span class="hljs-comment">// 或者这样写</span>
+<span class="hljs-keyword">let</span> add = <span class="hljs-function">(<span class="hljs-params"> a, b </span>) =&gt;</span> { <span class="hljs-keyword">return</span> a + b; };
+<span class="hljs-built_in">console</span>.log( add( <span class="hljs-number">10</span>, <span class="hljs-number">20</span> ) );     <span class="hljs-comment">//30</span>
+</code></pre>
+<p>返回值如果是对象:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> ( { <span class="hljs-string">'user'</span> : name } );    <span class="hljs-comment">//返回值是对象，为了以示区分，用小括号</span>
+<span class="hljs-keyword">let</span> oUser = show( <span class="hljs-string">'zhiyang'</span> );
+<span class="hljs-built_in">console</span>.log( oUser.user );    <span class="hljs-comment">// zhiyang</span>
+
+<span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> { <span class="hljs-keyword">return</span> { <span class="hljs-string">'user'</span> : name } };    <span class="hljs-comment">//用了return关键字，要用花括号{}</span>
+<span class="hljs-keyword">let</span> oUser = show( <span class="hljs-string">'zhiyang'</span> );
+<span class="hljs-built_in">console</span>.log( oUser.user );
+
+<span class="hljs-comment">//对象与传参用法</span>
+<span class="hljs-keyword">let</span> show = <span class="hljs-function">(<span class="hljs-params"> name, age </span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-string">'uName'</span> : name,
+        <span class="hljs-string">'uAge'</span> : age                
+    };
+}
+
+<span class="hljs-keyword">let</span> oUser = show( <span class="hljs-string">'zhiyang'</span>, <span class="hljs-number">22</span> );
+<span class="hljs-built_in">console</span>.log( oUser.uName , oUser.uAge ); <span class="hljs-comment">//zhiyang, 22</span>
+</code></pre>
+<p>立即表达式的写法:</p>
+<pre><code class="hljs js"> <span class="hljs-comment">//立即表达式的写法</span>
+ 
+ <span class="hljs-keyword">let</span> oUser = <span class="hljs-function">(<span class="hljs-params">(name, age</span>)=&gt;</span>{
+     <span class="hljs-keyword">return</span> {
+         <span class="hljs-string">"uName"</span> : name,
+         <span class="hljs-string">"uAge"</span> : age
+     }
+ })(<span class="hljs-string">'zhiyang'</span>, <span class="hljs-number">16</span> );
+ <span class="hljs-built_in">console</span>.log( oUser.uName , oUser.uAge );
+</code></pre>
+<p>箭头函数不能new</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> User = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">'zhiyang'</span>;
+<span class="hljs-built_in">console</span>.log( User() );
+<span class="hljs-built_in">console</span>.log( <span class="hljs-keyword">new</span> User() );     <span class="hljs-comment">//报错，箭头函数不能new</span>
+</code></pre>
+<p>箭头函数中的this，取决于他的上层非箭头函数的this指向</p>
+<pre><code class="hljs js"><span class="hljs-comment">//this指向他的外层window</span>
+
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">let</span> user = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-keyword">this</span>.a );     <span class="hljs-comment">//this-&gt;window</span>
+ }
+user(); <span class="hljs-comment">//10</span>
+</code></pre>
+<pre><code class="hljs js">    <span class="hljs-comment">// 箭头函数中的this取决于外层函数的this</span>
+   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">User</span>(<span class="hljs-params"> name </span>) </span>{
+       <span class="hljs-keyword">this</span>.name = name;
+       <span class="hljs-keyword">this</span>.getName = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>); <span class="hljs-comment">//this指向oUser</span>
+           <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+       };
+   }
+    <span class="hljs-keyword">var</span> oUser = <span class="hljs-keyword">new</span> User( <span class="hljs-string">'zhiyang'</span> );
+    <span class="hljs-built_in">console</span>.log( oUser.getName() );
+</code></pre>
+<p>箭头函数可以简化数组的处理</p>
+<pre><code class="hljs js"> <span class="hljs-comment">//箭头函数简化数组处理</span>
+
+<span class="hljs-keyword">let</span> arr = [<span class="hljs-number">10</span>,<span class="hljs-number">100</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">-5</span>];
+arr.sort( <span class="hljs-function">(<span class="hljs-params"> a, b </span>) =&gt;</span> a - b );
+arr.sort( <span class="hljs-function">(<span class="hljs-params"> a, b </span>) =&gt;</span> b - a );
+<span class="hljs-built_in">console</span>.log( arr );
+</code></pre>
+<p>箭头函数取到的是外层的arguments</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> show = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> name </span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>];     <span class="hljs-comment">// zhiyang, 箭头函数获取到的是外层的arguments</span>
+}
+
+<span class="hljs-keyword">let</span> fn = show( <span class="hljs-string">'zhiyang'</span> );
+<span class="hljs-built_in">console</span>.log( fn() );
+</code></pre>
+<p>call,bind,apply都不能改变箭头函数中this的指向</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> n1 = <span class="hljs-number">100</span>;
+<span class="hljs-keyword">var</span> n2 = <span class="hljs-number">200</span>;
+<span class="hljs-keyword">let</span> add = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.n1 + <span class="hljs-keyword">this</span>.n2;
+};
+<span class="hljs-built_in">console</span>.log(add.call(<span class="hljs-literal">null</span>)); <span class="hljs-comment">//300</span>
+<span class="hljs-built_in">console</span>.log(add.apply(<span class="hljs-literal">null</span>)); <span class="hljs-comment">//300</span>
+<span class="hljs-built_in">console</span>.log(add.bind(<span class="hljs-literal">null</span>)()); <span class="hljs-comment">//300</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Python中的赋值和深浅拷贝 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Python中的赋值和深浅拷贝</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-17" itemprop="datePublished">日期：2017年08月17日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>python中，<code>A object = B object</code> 是一种赋值操作，赋的值不是一个对象在内存中的空间，而只是这个对象在内存中的位置。</p>
+<p>此时当B对象里面的内容发生更改的时候，A对象也自然而然的会跟着更改。</p>
+<pre><code class="hljs py">name = [<span class="hljs-string">"root"</span>,<span class="hljs-string">"admin"</span>]
+cp_name = name  <span class="hljs-comment"># 对cp_name进行赋值操作</span>
+
+<span class="hljs-comment"># 对name列表进行插入</span>
+name.append(<span class="hljs-string">'root_temp'</span>)
+print(name,cp_name) <span class="hljs-comment"># ['root', 'admin', 'root_temp'] ['root', 'admin', 'root_temp']</span>
+print(id(name),id(cp_name)) <span class="hljs-comment"># 23991960 23991960 </span>
+</code></pre>
+<p>而想要进行浅拷贝或者深拷贝，就需要引入copy模块 。</p>
+<p>首先来说下浅拷贝，当进行浅拷贝时，使用<code>copy.copy</code>方法。</p>
+<pre><code class="hljs py"><span class="hljs-keyword">import</span> copy
+name = [<span class="hljs-string">"root"</span>,<span class="hljs-string">"admin"</span>]
+<span class="hljs-comment"># 进行浅拷贝操作</span>
+cp_name = copy.copy(name)
+<span class="hljs-comment"># 查看cp_name,name</span>
+print(name,cp_name) <span class="hljs-comment"># ['root', 'admin'] ['root', 'admin'] 拷贝成功</span>
+<span class="hljs-comment">#查看地址</span>
+print(id(name),id(cp_name)) <span class="hljs-comment"># 21146920 21147160 内存地址并不相同</span>
+<span class="hljs-comment"># 尝试对name进行更改</span>
+name.append(<span class="hljs-string">'root_temp'</span>)
+<span class="hljs-comment"># 查看cp_name是否更改</span>
+print(cp_name) <span class="hljs-comment"># ['root', 'admin'] 内容并没有更改</span>
+</code></pre>
+<p><code>A = copy.copy(B)</code> 此时A对象相当于把B对象中的内容给完成的拷贝了一份，存储在了一份新的内存地址当中。</p>
+<p>其中有一点需要注意，如下：</p>
+<pre><code class="hljs py"><span class="hljs-keyword">import</span> copy
+
+name = [<span class="hljs-string">'root'</span>,<span class="hljs-string">'admin'</span>,[<span class="hljs-string">'root_temp'</span>,<span class="hljs-string">'admin_temp'</span>]]
+cp_name = copy.copy(name)
+<span class="hljs-comment"># 查看两个对象的地址</span>
+print(id(name),id(cp_name)) <span class="hljs-comment"># 24358504 24428952 二者的地址并不相同</span>
+<span class="hljs-comment"># 对name 进行更改</span>
+name.append(<span class="hljs-string">'test'</span>)
+<span class="hljs-comment"># 查看cp_name是否更改</span>
+print(cp_name) <span class="hljs-comment"># ['root', 'admin', ['root_temp', 'admin_temp']] cp_name并未更改</span>
+<span class="hljs-comment"># 在来对name中的列表对象进行更改</span>
+name[<span class="hljs-number">2</span>].append(<span class="hljs-string">'ttttt'</span>)
+print(cp_name) <span class="hljs-comment"># ['root', 'admin', ['root_temp', 'admin_temp', 'ttttt']] 发现cp_name内容发生了变化</span>
+</code></pre>
+<p>在上面的代码中，通过copy.copy()方法把name对象浅拷贝给了cp_name，此时二者的内容相同，但是地址不同，说明通过浅拷贝后，<code>cp_name</code>相当于重新开辟了一块内存空间用来存储拷贝过来的内容。所以说，当<code>name.append()</code>第一次插入值的时候，cp_name对象没有变化，因为<code>cp_name</code>和<code>name</code>处于两个不同的内存空间，是独立的。</p>
+<p>而浅拷贝的问题在于，只能够拷贝第一层的内容，至于说第二层以及第三层或者第n层，对于浅拷贝来说都是无能为力的，只能简单的拷贝一份内存地址。</p>
+<p>所以说，对于name这个对象中，列表第一层发生更改，是不会影响<code>cp_name</code>的，而一旦更改了第二层或者第n层的内容，<code>cp_name</code>都会被影响，因为此时的<code>cp_name</code>对象里面子列表是与name的子列表共享相同的内存空间。</p>
+<p>而如果想要对第一层以及第二层甚至第n层都进行彻底的拷贝，那么就需要使用深层拷贝。</p>
+<p>深层拷贝需要使用copy模块的<code>deepcopy()</code>方法。</p>
+<pre><code class="hljs py"><span class="hljs-keyword">import</span> copy
+
+name = [<span class="hljs-string">'root'</span>,<span class="hljs-string">'admin'</span>,[<span class="hljs-string">'root_temp'</span>,<span class="hljs-string">'admin_temp'</span>]]
+cp_name = copy.deepcopy(name)
+<span class="hljs-comment"># 查看二者的id</span>
+print(id(name),id(cp_name)) <span class="hljs-comment"># 29863528 29933976 地址不同，说明开辟了处于两块不同的空间</span>
+<span class="hljs-comment"># 对name 第一层以及第二层进行更改</span>
+name.append(<span class="hljs-string">'t1'</span>)
+name[<span class="hljs-number">2</span>].append(<span class="hljs-string">'t2'</span>)
+<span class="hljs-comment"># 查看cp_name是否内容发生变化</span>
+print(cp_name) <span class="hljs-comment"># ['root', 'admin', ['root_temp', 'admin_temp']] 内容并未发生更改  </span>
+</code></pre>
+<p>此时，cp_name对象并不会被name所影响，无论name对象的第一层列表还是第n层的更改和变化，都不会影响<code>cp_name</code>，因为此时通过深层拷贝，两个对象已经完全的处于两个不同的独立内存空间，而这也就是深层拷贝。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

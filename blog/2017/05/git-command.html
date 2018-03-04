@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Git常用命令 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Git常用命令</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-05-23" itemprop="datePublished">日期：2017年05月23日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>首先我们要生成SSH</h2>
+<pre><code class="hljs"> $ ssh-keygen -t rsa -C &quot;fanzhiyang2001@gmail.com&quot;
+</code></pre>
+<p>将生成的文件夹下的.ssh/id_rsa.pub文件里的内容复制到SSH keys</p>
+<h2>设置用户名和邮箱</h2>
+<pre><code class="hljs">$ git config --global user.name &quot;rhatyang&quot;
+$ git config --global user.email &quot;fanzhiyang2001@gmail.com&quot;
+</code></pre>
+<h2>初始化当前目录的项目</h2>
+<pre><code class="hljs">git init
+</code></pre>
+<p>在项目的根目录会生成.git文件夹</p>
+<h2>在该项目文件夹下新建一个文件，然后把该文件送到暂存区</h2>
+<pre><code class="hljs">echo &quot;# test&quot; &gt;&gt; README.md
+git add .  //将工作区所有修改添加到暂存区
+git add filename //将指定文件添加到暂存区
+git status  //列出变更文件
+</code></pre>
+<h2>将暂存区修改添加到本地仓库</h2>
+<pre><code class="hljs">git commit -m '备注信息'
+</code></pre>
+<h2>添加远程仓库，并将上述改动push到远程仓库</h2>
+<pre><code class="hljs">git remote add origin https://github.com/rhatyang/test.git
+git push -u origin master
+</code></pre>
+<p><strong>一般情况下，自己的项目都是添加ssh连接</strong></p>
+<pre><code class="hljs">git remote rm origin   //移除之前添加的origin
+git remote add origin git@github.com:rhatyang/test.git       //使用ssh添加新的origin
+</code></pre>
+<h2>放弃暂存区修改</h2>
+<pre><code class="hljs">git checkout -- filename  //放弃暂存区修改（修改不在）
+git rm --cached filename  //放弃add（修改还在，但产生一条delete记录）
+git reset HEAD filename   //同上（没有delete记录）
+git stash     //暂时放弃未提交的修改
+git stash pop  //恢复
+</code></pre>
+<h2>分支操作</h2>
+<pre><code class="hljs">/*查看分支*/
+git branch     //所有本地分支
+git branch -r  //所有远程分支
+git branch -a  //所有远程分支和本地分支
+
+/*创建分支*/
+git branch branchName     //留在当前分支
+git checkout -b branchName   //创建并切换分支
+git branch --set-upstream-to=&lt;remote&gt;/branchName  //建立本地分支与远程分支的追踪关系
+git branch --track branchName  [remote branch]   //新建一个分支，并与远程建立追踪关系
+git checkout branchName  //切到指定分支
+
+/*分支合并*/
+git pull origin branch   //取回远程更新并与本地分支合并
+git fetch origin branch //取回远程更新
+git merge branch  //合并指定分支到当前分支(产生提交记录)
+git rebase branch  //合并指定分支到当前分支(不产生提交记录，比较适合有强迫症的)
+
+git cherry-pick commitId  //将与commitId对应的提交合进当前分支
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

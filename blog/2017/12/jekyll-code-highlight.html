@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     浅谈Jekyll代码高亮 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">浅谈Jekyll代码高亮</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-15" itemprop="datePublished">日期：2017年12月15日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>要想实现对代码的高亮，首先要搞清楚Jekyll把你在文章（md文件）中的代码块都解析成什么样了。</p>
+<p>Jekyll默认使用kramdown解析器，其它解析器不作讨论，然后这里需要注意一下，在Jekyll中你可以使用两种方法来表明代码块：<code>{% highlight ruby %}</code>或者用三个反单引号来包括代码块。</p>
+<p>但是它们解析出来的HTML结构却不同：</p>
+<p>如果你是使用这种方法标注代码块（Jekyll增强功能，Liquid标签）</p>
+<pre><code class="hljs">{% highlight ruby %}
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
+</code></pre>
+<p>那么它解析出来的HTML是这样的：</p>
+<p><img src="/pics/2017/12/1502.png" alt=""></p>
+<p>即</p>
+<pre><code class="hljs js">figure.highlight &gt; pre &gt; code.language-ruby &gt; 一大堆span
+</code></pre>
+<p>如果你是这样标注代码的：（这是markdown语法）</p>
+<p><img src="/pics/2017/12/1501.png" alt=""></p>
+<p>（因为我在markdown文件中打出这样很麻烦，所以截图了）</p>
+<p>那么它解析出来的HTML是这样的：</p>
+<p><img src="/pics/2017/12/1503.png" alt=""></p>
+<p>即：</p>
+<pre><code class="hljs js">div.highlighter-rouge &gt; div.highlight &gt; pre.highlight &gt; code &gt; 一大堆span
+</code></pre>
+<p>当你没有标注是什么语言的时候，它将会直接解析出一个code标签而不会再解析出关键字</p>
+<p><img src="/pics/2017/12/1504.png" alt=""></p>
+<p>虽然这两者解析出的<code>HTML结构</code>不同，但他们最后解析出的关键字样式是相同的，这就是因为它们使用的高亮器都是<code>Rouge</code>，所以你可以<strong>直接使用rouge生成高亮样式文件引用</strong>即可。</p>
+<pre><code class="hljs">rougify style monokai.sublime &gt; rouge.css
+</code></pre>
+<p><code>monokai.sublime</code>是高亮样式，但是我一直没找到在哪里可以查看到具体有哪些样式和预览。</p>
+<p>还有一种高亮生成方案是<code>Pygments</code>，这里不作讨论，但是它俩解析出来的小标签是一样的，所以你完全也可以用Pygments生成样式给rouge用。</p>
+<pre><code class="hljs">pygmentize -S default -f html -a .highlight &gt; default.css
+</code></pre>
+<p>这里<code>default</code>也是代码样式，您可以换成其它样式，具体可以到<a href="http://pygments.org/demo/">Pygments — Pygments</a>查看到一些样式预览，我现在是使用的Pygments生成的tango主题。</p>
+<p>还有其它的方法就是使用<code>highlightjs</code>，利用js自动解析出<code>pre code</code>中的代码给他们加上span标签，可以在<a href="https://highlightjs.org/download/">Getting highlight.js</a>进行下载，解压下载的压缩包里面有个style文件夹里面是样式文件，只要在页面中引入highlight.js文件和样式文件就就可以了，具体样式的预览可以在<a href="https://highlightjs.org/static/demo/">highlight.js demo</a>看到。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript 并非所有的东西都是对象 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript 并非所有的东西都是对象</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-20" itemprop="datePublished">日期：2017年03月20日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>添加了第四节，解释了和类型密切相关的两个运算：<code>typeof</code> 和 <code>instanceof</code>。</p>
+<p>虽然很多语言宣称：“一切皆是对象”，但是 javascript 中，并不是所有的值都是对象。</p>
+<p>这篇博文解释了 javascript 中的两种值类型：原始值（primitive）和对象（object），以及混合使用两种类型时的注意事项。</p>
+<h2>原始值 vs 对象</h2>
+<p>javascript 中的值可以被划分为两大类：原始值（primitive）和对象（object）。</p>
+<h3>定义</h3>
+<p>javascript 的两种值的定义：</p>
+<p><strong>下面的值是原始值</strong>。</p>
+<ul>
+<li>
+<p>字符串</p>
+</li>
+<li>
+<p>数字：在 JavaScript 中所有的数字都是浮点数</p>
+</li>
+<li>
+<p>布尔值</p>
+</li>
+<li>
+<p><code>null</code></p>
+</li>
+<li>
+<p><code>undefined</code></p>
+</li>
+</ul>
+<p><strong>所有其它的值都是对象（object）</strong>。对象可以进一步划分：</p>
+<p>一、原始值的包装器：<code>Boolean</code>, <code>Number</code>, <code>String</code>。很少直接使用。</p>
+<p>二、用字面量创建的对象。</p>
+<p>下面的字面量产生对象，也可以通过构造函数创建对象。您可以使用字面量创建对象。</p>
+<ul>
+<li><code>[]</code> 就是 <code>new Array()</code></li>
+<li><code>{}</code> 就是 <code>new Object()</code></li>
+<li><code>function() {}</code> 就是 <code>new Function()</code></li>
+<li><code>/\s*/</code> 就是  <code>new RegExp(&quot;\\s*&quot;)</code></li>
+</ul>
+<p>三、日期：<code>new Date(&quot;2011-12-24&quot;)</code></p>
+<h3>区别</h3>
+<p>你可以通过枚举的原语和定义对象非原语定义原语和对象。</p>
+<p>但你也可以描述的原语和对象是什么。</p>
+<p>下面是对象：</p>
+<p>1）对象是可变的：</p>
+<pre><code class="hljs">&gt; var obj = {};
+&gt; obj.foo = 123;  // 添加属性和值
+123
+&gt; obj.foo  // 读属性，返回属性的值
+123
+</code></pre>
+<p>2）每个对象都有自己唯一的标识符，因此通过字面量或构造函数创建的对象和任何其他对象都不相等，我们可以通过 === 进行比较。</p>
+<pre><code class="hljs">&gt; {} === {}
+false
+</code></pre>
+<p><strong>对象是通过引用来比较的，只有两个对象有相同的标识，才认为这个对象是相等的</strong>。</p>
+<pre><code class="hljs">&gt; var obj = {};
+&gt; obj === obj
+true
+</code></pre>
+<p>3）变量保存了对象的引用，因此，如果两个变量应用了相同的对象——我们改变其中一个变量时，两一个也会随之改变。</p>
+<pre><code class="hljs">&gt; var var1 = {};
+&gt; var var2 = var1;
+
+&gt; var1.foo = 123;   // 修改变量 val1 的属性
+123
+
+&gt; var2.foo  // val2 也改变了
+123
+</code></pre>
+<p>原始值和对象不一样，下面是原始值：</p>
+<p>1）原始值是不可变的;你不能给它们添加属性:</p>
+<pre><code class="hljs">&gt; var str = &quot;abc&quot;;
+&gt; str.foo = 123;  // 添加属性（此操作将被忽略）
+123
+&gt; str.foo  // 读属性的值，返回 undefined
+undefined
+</code></pre>
+<p>2）原始值没有内部标识，<strong>原始值是按值比较的</strong>：
+比较两个原始值的依据是他们的内容，如果两个原始值的内容相同，这认为这两个原始值相同。</p>
+<pre><code class="hljs"> &gt; &quot;abc&quot; === &quot;abc&quot;
+true
+</code></pre>
+<p>这意味着，一个原始值的标识就是它的值，javascript 引擎没有为原始值分配唯一标识。</p>
+<p>最后两个事实结合起来的意思是：我们无法区分一个变量到底是对象的引用，还是原始值的副本。</p>
+<h3>陷阱：原始值和它们的包装类型</h3>
+<p>规则：忽略尽可能多的包装类型。</p>
+<p>在其他编程语言如Java，你很少会注意到他们。</p>
+<p>原始值类型 boolean, number 以及 string 都有自己对应的包装类型 Boolean, Number 和 String。</p>
+<p>包装类型的实例都是对象值，两种类型之间的转换也很简单：</p>
+<ul>
+<li>
+<p>转换为包装类型：<code>new String(&quot;abc&quot;)</code></p>
+</li>
+<li>
+<p>转换为原始类型：<code>new String(&quot;abc&quot;).valueOf()</code></p>
+</li>
+</ul>
+<p>原始值类型以及它们相应的包装器类型有很多不同点，例如：</p>
+<pre><code class="hljs">&gt; typeof &quot;abc&quot;
+'string'
+&gt; typeof new String(&quot;abc&quot;)
+'object'
+
+&gt; &quot;abc&quot; instanceof String
+false
+&gt; new String(&quot;abc&quot;) instanceof String
+true
+
+&gt; &quot;abc&quot; === new String(&quot;abc&quot;)
+false
+</code></pre>
+<p>包装类型的实例是一个对象，因此和 JavaScript 和对象一样，包装类型也无法进行值的比较（只能比较引用）。</p>
+<pre><code class="hljs">&gt; var a = new String(&quot;abc&quot;);
+&gt; var b = new String(&quot;abc&quot;);
+&gt; a == b
+false   // 虽然 a 和 b 有相同的内容，但是依然返回 false
+&gt; a == a
+true
+</code></pre>
+<h3>原始值没有自己的方法</h3>
+<p>包装对象类型很少被直接使用，但它们的原型对象定义了许多其对应的原始值也可以调用的方法。</p>
+<p>例如，<code>String.prototype</code> 是包装类型 <code>String</code> 的原型对象。</p>
+<p>它的所有方法都可以使用在字符串原始值上。</p>
+<p>包装类型的方法 <code>String.prototype.indexOf</code> 在字符串原始值上也有，它们并不是两个拥有相同名称的方法，而的的确确就是同一个方法：</p>
+<pre><code class="hljs">&gt; &quot;abc&quot;.charAt === String.prototype.charAt
+true
+</code></pre>
+<p>在数字的包装类型 <code>Number</code> 的原型对象有 <code>toFixed</code> 方法，即 <code>Number.prototype.toFixed</code>，但是当我们写如下代码时却发生错误：</p>
+<pre><code class="hljs">&gt; 5.toFixed(3)
+SyntaxError: Unexpected token ILLEGAL
+</code></pre>
+<p>此错误是解析错误（SyntaxError），5 后面跟着一个点号（.），这个点被当作了小数点，而小数点后面应该是一个数，以下代码可以正常运行：</p>
+<pre><code class="hljs">&gt; (5).toFixed(3)
+&quot;5.000&quot;
+&gt; 5..toFixed(3)
+&quot;5.000&quot;
+</code></pre>
+<h2>值的分类：<code>typeof</code> 和 <code>instanceof</code></h2>
+<p>如果你想要对值进行分类，你需要注意原始值和对象之间的区别。</p>
+<p><code>typeof</code> 运算可以用来区分原始值和对象。</p>
+<p><code>instanceof</code> 可以用来区分对象，而且，<code>instanceof</code> 对于所有的原始值都返回 <code>false</code>。</p>
+<h3>typeof</h3>
+<p><code>typeof</code> 可以用来判断原始值的类型，以及区分对象值和原始值：</p>
+<pre><code class="hljs">&gt; typeof &quot;abc&quot;
+'string'
+&gt; typeof 123
+'number'
+&gt; typeof {}
+'object'
+&gt; typeof []
+'object'
+</code></pre>
+<p><code>typeof</code> 返回以下字符串：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-bordered"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>参数<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>结果<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>undefined<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"undefined"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>null<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"object"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>布尔值<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"boolean"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>数字<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"number"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>字符串<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"string"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>函数<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"function"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>其他<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>"object"<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>注释：</p>
+<ul>
+<li>
+<p><code>typeof</code> 在操作 <code>null</code> 时会返回 <code>&quot;object&quot;</code>，这是 JavaScript 语言本身的 bug。不幸的是，这个 bug 永远不可能被修复了，因为太多已有的代码已经依赖了这样的表现。这并不意味着，<code>null</code> 实际上就是一个对象[4] 。</p>
+</li>
+<li>
+<p><code>typeof</code> 还可以让检查一个变量是否已声明，而不会抛出异常。
+没有任何一个函数可以实现此功能，因为你不能把一个未声明的变量传递给函数的参数。</p>
+</li>
+</ul>
+<pre><code class="hljs">&gt; typeof undeclaredVariable
+'undefined'
+&gt; undeclaredVariable
+ReferenceError: undeclaredVariable is not defined
+</code></pre>
+<ul>
+<li>
+<p>函数也是对象类型；这可能是很多人无法理解的，但有时候却是非常有用的。</p>
+</li>
+<li>
+<p>数组是一个对象。</p>
+</li>
+</ul>
+<p>更多关于 <code>typeof</code> 的信息 [5] 和 [6]。</p>
+<h3>instanceof</h3>
+<p><code>instanceof</code> 可以检测一个值是否是某个构造函数的实例：</p>
+<pre><code class="hljs javascript">value <span class="hljs-keyword">instanceof</span> Constructor
+</code></pre>
+<p>如果上面的表达式返回 <code>true</code>，则表示 <code>value</code> 是 <code>Constructor</code> 的一个实例。它等价于：</p>
+<pre><code class="hljs javascript">Constructor.prototype.isPrototypeOf(value)
+</code></pre>
+<p>大多数对象是 <code>Object</code> 的实例，因为原型链的末端（prototype chain）是 <code>Object.prototype</code>。
+原始值不是任何对象的实例:</p>
+<pre><code class="hljs">&gt; &quot;abc&quot; instanceof Object
+false
+&gt; &quot;abc&quot; instanceof String
+false
+</code></pre>
+<hr>
+<p>原文：<a href="http://justjavac.com/javascript/2012/12/22/javascript-values-not-everything-is-an-object.html">JavaScript 并非所有的东西都是对象</a>，略有修改</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

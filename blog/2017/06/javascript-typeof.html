@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript中对变量类型的判断 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript中对变量类型的判断</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-06-20" itemprop="datePublished">日期：2017年06月20日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>在JavaScript中，有5种基本数据类型和1种复杂数据类型，基本数据类型有：<strong>Undefined</strong>, <strong>Null</strong>, <strong>Boolean</strong>, <strong>Number</strong>和<strong>String</strong>；复杂数据类型是<strong>Object</strong>，Object中还细分了很多具体的类型，比如：Array, Function, Date等等。今天我们就来探讨一下，使用什么方法判断一个出一个变量的类型。</p>
+<p>在讲解各种方法之前，我们首先定义出几个测试变量，看看后面的方法究竟能把变量的类型解析成什么样子，以下几个变量差不多包含了我们在实际编码中常用的类型。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> num  = <span class="hljs-number">123</span>;
+<span class="hljs-keyword">var</span> str  = <span class="hljs-string">'abcdef'</span>;
+<span class="hljs-keyword">var</span> bool = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">var</span> arr  = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">var</span> json = {<span class="hljs-string">"name"</span>:<span class="hljs-string">'wenzi'</span>, <span class="hljs-string">"age"</span>:<span class="hljs-number">25</span>};
+<span class="hljs-keyword">var</span> func = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'this is function'</span>); }
+<span class="hljs-keyword">var</span> und  = <span class="hljs-literal">undefined</span>;
+<span class="hljs-keyword">var</span> nul  = <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+<span class="hljs-keyword">var</span> reg  = <span class="hljs-regexp">/^[a-zA-Z]{5,20}$/</span>;
+<span class="hljs-keyword">var</span> error= <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>();
+</code></pre>
+<h2>一、使用typeof检测</h2>
+<p>我们平时用的最多的就是用<code>typeof</code>检测变量类型了。这次，我们也使用typeof检测变量的类型：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(
+  <span class="hljs-keyword">typeof</span> num, 
+  <span class="hljs-keyword">typeof</span> str, 
+  <span class="hljs-keyword">typeof</span> bool, 
+  <span class="hljs-keyword">typeof</span> arr, 
+  <span class="hljs-keyword">typeof</span> json, 
+  <span class="hljs-keyword">typeof</span> func, 
+  <span class="hljs-keyword">typeof</span> und, 
+  <span class="hljs-keyword">typeof</span> nul, 
+  <span class="hljs-keyword">typeof</span> date, 
+  <span class="hljs-keyword">typeof</span> reg, 
+  <span class="hljs-keyword">typeof</span> error
+);
+<span class="hljs-comment">// number string boolean object  object function undefined object object object object</span>
+</code></pre>
+<p>从输出的结果来看，<code>arr, json, nul, date, reg, error</code> 全部被检测为object类型，其他的变量能够被正确检测出来。当需要变量是否是<code>number, string, boolean, function, undefined, json</code>类型时，可以使用typeof进行判断。其他变量是判断不出类型的，包括<code>null</code>。</p>
+<p>还有，<code>typeof</code>是区分不出<code>array</code>和<code>json</code>类型的。因为使用<code>typeof</code>这个变量时，<code>array</code>和<code>json</code>类型输出的都是<code>object</code>。</p>
+<h2>二、使用instance检测</h2>
+<p>在 JavaScript 中，判断一个变量的类型尝尝会用 <code>typeof</code> 运算符，在使用 typeof 运算符时采用引用类型存储值会出现一个问题，无论引用的是什么类型的对象，它都返回 “object”。ECMAScript 引入了另一个 Java 运算符 <code>instanceof</code> 来解决这个问题。</p>
+<p><code>instanceof</code> 运算符与 <code>typeof</code> 运算符相似，用于识别正在处理的对象的类型。与 typeof 方法不同的是，<code>instanceof</code> 方法要求开发者明确地确认对象为某特定类型。例如：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{ }
+<span class="hljs-keyword">var</span> Tom = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-built_in">console</span>.log(Tom <span class="hljs-keyword">instanceof</span> Person); <span class="hljs-comment">// true</span>
+</code></pre>
+<p>我们再看看下面的例子：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{ }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Student</span>(<span class="hljs-params"></span>)</span>{ }
+Student.prototype = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-keyword">var</span> John = <span class="hljs-keyword">new</span> Student();
+<span class="hljs-built_in">console</span>.log(John <span class="hljs-keyword">instanceof</span> Student); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(John instancdof Person);  <span class="hljs-comment">// true</span>
+</code></pre>
+<p><code>instanceof</code>还能检测出多层继承的关系。</p>
+<p>好了，我们来使用<code>instanceof</code>检测上面的那些变量：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(
+  num <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>,
+  str <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">String</span>,
+  bool <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Boolean</span>,
+  arr <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>,
+  json <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>,
+  func <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>,
+  und <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>,
+  nul <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>,
+  date <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Date</span>,
+  reg <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">RegExp</span>,
+  error <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>
+)
+<span class="hljs-comment">// num : false </span>
+<span class="hljs-comment">// str : false </span>
+<span class="hljs-comment">// bool : false </span>
+<span class="hljs-comment">// arr : true </span>
+<span class="hljs-comment">// json : true </span>
+<span class="hljs-comment">// func : true </span>
+<span class="hljs-comment">// und : false </span>
+<span class="hljs-comment">// nul : false </span>
+<span class="hljs-comment">// date : true </span>
+<span class="hljs-comment">// reg : true </span>
+<span class="hljs-comment">// error : true</span>
+</code></pre>
+<p>从上面的运行结果我们可以看到，<code>num, str</code>和<code>bool</code>没有检测出他的类型，但是我们使用下面的方式创建num，是可以检测出类型的：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> num = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>(<span class="hljs-number">123</span>);
+<span class="hljs-keyword">var</span> str = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">'abcdef'</span>);
+<span class="hljs-keyword">var</span> boolean = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">true</span>);
+</code></pre>
+<p>同时，我们也要看到，und和nul是检测不成Object类型的，其他的类型也不对，因此，若要使用instanceof进行变量检测时，需要首先判断是否是<code>undefined</code>和<code>null</code>。</p>
+<h2>三、使用constructor检测</h2>
+<p>在使用instanceof检测变量类型时，我们是检测不到number, ‘string’, bool的类型的。因此，我们需要换一种方式来解决这个问题。
+constructor本来是原型对象上的属性，指向构造函数。但是根据实例对象寻找属性的顺序，若实例对象上没有实例属性或方法时，就去原型链上寻找，因此，实例对象也是能使用constructor属性的。</p>
+<p>我们先来输出一下num.constructor的内容，即数字类型的变量的构造函数是什么样子的：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Number</span>(<span class="hljs-params"></span>) </span>{ [native code] }
+</code></pre>
+<p>我们可以看到它指向了Number的构造函数，因此，我们可以使用<code>num.constructor==Number</code>来判断num是不是Number类型的，其他的变量也类似：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{ }
+<span class="hljs-keyword">var</span> Tom = <span class="hljs-keyword">new</span> Person();
+
+<span class="hljs-comment">// undefined和null没有constructor属性</span>
+<span class="hljs-built_in">console</span>.log(
+  Tom.constructor==Person,
+  num.constructor==<span class="hljs-built_in">Number</span>,
+  str.constructor==<span class="hljs-built_in">String</span>,
+  bool.constructor==<span class="hljs-built_in">Boolean</span>,
+  arr.constructor==<span class="hljs-built_in">Array</span>,
+  json.constructor==<span class="hljs-built_in">Object</span>,
+  func.constructor==<span class="hljs-built_in">Function</span>,
+  date.constructor==<span class="hljs-built_in">Date</span>,
+  reg.constructor==<span class="hljs-built_in">RegExp</span>,
+  error.constructor==<span class="hljs-built_in">Error</span>
+);
+<span class="hljs-comment">// 所有结果均为true</span>
+</code></pre>
+<p>从输出的结果我们可以看出，除了<code>undefined</code>和<code>null</code>，其他类型的变量均能使用constructor判断出类型。</p>
+<p>不过使用<code>constructor</code>也不是保险的，因为constructor属性是可以被修改的，会导致检测出的结果不正确，例如：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{ }
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Student</span>(<span class="hljs-params"></span>)</span>{ }
+
+Student.prototype = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-keyword">var</span> John = <span class="hljs-keyword">new</span> Student();
+<span class="hljs-built_in">console</span>.log(John.constructor==Student); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(John.constructor==Person);  <span class="hljs-comment">// true</span>
+</code></pre>
+<p>在上面的例子中，Student原型中的constructor被修改为指向到Person，导致检测不出实例对象John真实的构造函数。</p>
+<p>同时，使用instaceof和construcor,被判断的array必须是在当前页面声明的！比如，一个页面（父页面）有一个框架，框架中引用了一个页面（子页面），在子页面中声明了一个array，并将其赋值给父页面的一个变量，这时判断该变量，<code>Array == object.constructor;</code>会返回<code>false</code>； 原因：</p>
+<p>1、array属于引用型数据，在传递过程中，仅仅是引用地址的传递。</p>
+<p>2、每个页面的Array原生对象所引用的地址是不一样的，在子页面声明的array，所对应的构造函数，是子页面的Array对象；父页面来进行判断，使用的Array并不等于子页面的Array；切记，不然很难跟踪问题！</p>
+<h2>四、使用Object.prototype.toString.call</h2>
+<p>我们先不管这个是什么，先来看看他是怎么检测变量类型的：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(num),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(str),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(bool),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(arr),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(json),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(func),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(und),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(nul),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(date),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(reg),
+  <span class="hljs-built_in">Object</span>.prototype.toString.call(error)
+);
+<span class="hljs-comment">// '[object Number]' '[object String]' '[object Boolean]' '[object Array]' '[object Object]'</span>
+<span class="hljs-comment">// '[object Function]' '[object Undefined]' '[object Null]' '[object Date]' '[object RegExp]' '[object Error]'</span>
+</code></pre>
+<p>从输出的结果来看，<code>Object.prototype.toString.call(变量)</code>输出的是一个字符串，字符串里有一个数组，第一个参数是Object，第二个参数就是这个变量的类型，而且，所有变量的类型都检测出来了，我们只需要取出第二个参数即可。</p>
+<p>或者可以使用<code>Object.prototype.toString.call(arr)==&quot;object Array&quot;</code>来检测变量arr是不是数组。</p>
+<p>我们现在再来看看ECMA里是是怎么定义Object.prototype.toString.call的：</p>
+<pre><code class="hljs">&gt; Object.prototype.toString( ) When the toString method is called, the following steps are taken:
+&gt; Get the [[Class]] property of this object.
+&gt; Compute a string value by concatenating the three strings “[object “, Result (1), and “]”.
+&gt; Return Result (2)
+</code></pre>
+<p>上面的规范定义了<code>Object.prototype.toString</code>的行为：首先，取得对象的一个内部属性<code>[[Class]]</code>，然后依据这个属性，返回一个类似于<code>[object Array]</code>的字符串作为结果（看过ECMA标准的应该都知道，<code>[[]]</code>用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”）。利用这个方法，再配合call，我们可以取得任何对象的内部属性<code>[[Class]]</code>，然后把类型检测转化为字符串比较，以达到我们的目的。</p>
+<h2>五、jquery中$.type的实现</h2>
+<p>在jquery中提供了一个$.type的接口，来让我们检测变量的类型：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(
+  $.type(num),
+  $.type(str),
+  $.type(bool),
+  $.type(arr),
+  $.type(json),
+  $.type(func),
+  $.type(und),
+  $.type(nul),
+  $.type(date),
+  $.type(reg),
+  $.type(error)
+);
+<span class="hljs-comment">// number string boolean array object function undefined null date regexp error</span>
+
+</code></pre>
+<p>看到输出结果，有没有一种熟悉的感觉？对，他就是上面使用Object.prototype.toString.call(变量)输出的结果的第二个参数呀。</p>
+<p>我们这里先来对比一下上面所有方法检测出的结果，横排是使用的检测方法， 竖排是各个变量：</p>
+<pre><code class="hljs js">类型判断  <span class="hljs-keyword">typeof</span>  <span class="hljs-keyword">instanceof</span>  <span class="hljs-keyword">constructor</span>  toString.call  $.type
+num  number  false  true  [object Number]  number
+str  string  false  true  [object String]  string
+bool  boolean  false  true  [object Boolean]  boolean
+arr  object  true  true  [object Array]  array
+json  object  true  true  [object Object]  object
+func  function  true  true  [object Function]  function
+und  undefined  false  -  [object Undefined]  undefined
+nul  object  false  -  [object Null]  null
+date  object  true  true  [object Date]  date
+reg  object  true  true  [object RegExp]  regexp
+error  object  true  true  [object Error]  error
+</code></pre>
+<p>优点：使用简单，能直接输出结果。能检测出复杂的类型。基本能检测出所有的类型。检测出所有的类型</p>
+<p>缺点：检测出的类型太少。基本类型检测不出，且不能跨iframe。不能跨iframe，且constructor易被修改  IE6下undefined,null均为Object</p>
+<p>这样对比一下，就更能看到各个方法之间的区别了，而且Object.prototype.toString.call和$type输出的结果真的很像。我们来看看jquery（2.1.2版本）内部是怎么实现$.type方法的：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// 实例对象是能直接使用原型链上的方法的</span>
+<span class="hljs-keyword">var</span> class2type = {};
+<span class="hljs-keyword">var</span> toString = class2type.toString;
+
+<span class="hljs-comment">// 省略部分代码...</span>
+
+type: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> obj </span>) </span>{
+  <span class="hljs-keyword">if</span> ( obj == <span class="hljs-literal">null</span> ) {
+    <span class="hljs-keyword">return</span> obj + <span class="hljs-string">""</span>;
+  }
+  <span class="hljs-comment">// Support: Android&lt;4.0, iOS&lt;6 (functionish RegExp)</span>
+  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">"object"</span> || <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">"function"</span>) ?
+    (class2type[ toString.call(obj) ] || <span class="hljs-string">"object"</span>) :
+    <span class="hljs-keyword">typeof</span> obj;
+},
+
+<span class="hljs-comment">// 省略部分代码... </span>
+
+<span class="hljs-comment">// Populate the class2type map</span>
+jQuery.each(<span class="hljs-string">"Boolean Number String Function Array Date RegExp Object Error"</span>.split(<span class="hljs-string">" "</span>), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i, name</span>) </span>{
+  class2type[ <span class="hljs-string">"[object "</span> + name + <span class="hljs-string">"]"</span> ] = name.toLowerCase();
+});
+</code></pre>
+<p>我们先来看看jQuery.each的这部分：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Populate the class2type map</span>
+jQuery.each(<span class="hljs-string">"Boolean Number String Function Array Date RegExp Object Error"</span>.split(<span class="hljs-string">" "</span>), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i, name</span>) </span>{
+  class2type[ <span class="hljs-string">"[object "</span> + name + <span class="hljs-string">"]"</span> ] = name.toLowerCase();
+});
+
+<span class="hljs-comment">//循环之后，`class2type`的值是： </span>
+class2type = {
+  <span class="hljs-string">'[object Boolean]'</span> : <span class="hljs-string">'boolean'</span>, 
+  <span class="hljs-string">'[object Number]'</span>  : <span class="hljs-string">'number'</span>,
+  <span class="hljs-string">'[object String]'</span>  : <span class="hljs-string">'string'</span>,
+  <span class="hljs-string">'[object Function]'</span>: <span class="hljs-string">'function'</span>,
+  <span class="hljs-string">'[object Array]'</span>   : <span class="hljs-string">'array'</span>,
+  <span class="hljs-string">'[object Date]'</span>  : <span class="hljs-string">'date'</span>,
+  <span class="hljs-string">'[object RegExp]'</span>  : <span class="hljs-string">'regExp'</span>,
+  <span class="hljs-string">'[object Object]'</span>  : <span class="hljs-string">'object'</span>,
+  <span class="hljs-string">'[object Error]'</span>   : <span class="hljs-string">'error'</span>
+}
+</code></pre>
+<p>再来看看type方法：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// type的实现</span>
+type: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> obj </span>) </span>{
+  <span class="hljs-comment">// 若传入的是null或undefined，则直接返回这个对象的字符串</span>
+  <span class="hljs-comment">// 即若传入的对象obj是undefined，则返回"undefined"</span>
+  <span class="hljs-keyword">if</span> ( obj == <span class="hljs-literal">null</span> ) {
+    <span class="hljs-keyword">return</span> obj + <span class="hljs-string">""</span>;
+  }
+  <span class="hljs-comment">// Support: Android&lt;4.0, iOS&lt;6 (functionish RegExp)</span>
+  <span class="hljs-comment">// 低版本regExp返回function类型；高版本已修正，返回object类型</span>
+  <span class="hljs-comment">// 若使用typeof检测出的obj类型是object或function，则返回class2type的值，否则返回typeof检测的类型</span>
+  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">"object"</span> || <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">"function"</span>) ?
+    (class2type[ toString.call(obj) ] || <span class="hljs-string">"object"</span>) :
+    <span class="hljs-keyword">typeof</span> obj;
+}
+</code></pre>
+<p>当<code>typeof obj === &quot;object&quot; || typeof obj === &quot;function&quot;</code>时，就返回<code>class2type[ toString.call(obj)</code>。</p>
+<p>到这儿，我们就应该明白为什么<code>Object.prototype.toString.call</code>和<code>$.type</code>那么像了吧，其实jquery中就是用<code>Object.prototype.toString.call</code>实现的，把<code>[object Boolean]</code>类型转成<code>boolean</code>类型并返回。若class2type存储的没有这个变量的类型，那就返回<code>object</code>。</p>
+<p>除了<code>object</code>和<code>function</code>类型，其他的类型则使用typeof进行检测。即<code>number, string, boolean</code>类型的变量，使用<code>typeof</code>即可。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

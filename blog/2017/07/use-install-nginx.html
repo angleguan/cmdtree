@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Nginx的安装及配置 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Nginx的安装及配置</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-23" itemprop="datePublished">日期：2017年07月23日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>测试环境：Centos 7.2</p>
+</blockquote>
+<h1>一、安装依赖库</h1>
+<pre><code class="hljs">$ sudo yum install gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl--devel -y
+</code></pre>
+<h1>二、安装Nginx</h1>
+<pre><code class="hljs">$ cd /usr/local/
+$ wget http://nginx.org/download/nginx-1.8.0.tar.gz
+$ tar -zxvf nginx-1.8.0.tar.gz
+$ cd nginx-1.8.0  
+$ ./configure --prefix=/usr/local/nginx 
+$ make
+$ make install
+</code></pre>
+<h1>三、启动</h1>
+<pre><code class="hljs">$ /usr/local/nginx/sbin/nginx
+</code></pre>
+<p>打开浏览器访问此机器的 IP，如果浏览器出现 Welcome to nginx! 则表示 Nginx 已经安装并运行成功。</p>
+<p><img src="/pics/2017/07/fzy_screenshot20170723115712.png" alt=""></p>
+<p>部分命令如下：</p>
+<p>重启：</p>
+<pre><code class="hljs">$ /usr/local/nginx/sbin/nginx –s reload
+</code></pre>
+<p>停止：</p>
+<pre><code class="hljs">$ /usr/local/nginx/sbin/nginx –s stop
+</code></pre>
+<p>测试配置文件是否正常：</p>
+<pre><code class="hljs">$ /usr/local/nginx/sbin/nginx –t
+</code></pre>
+<p>强制关闭：</p>
+<pre><code class="hljs">$ pkill nginx
+</code></pre>
+<h1>四、配置</h1>
+<p>以上安装方法nginx的配置文件位于</p>
+<pre><code class="hljs">/usr/local/nginx/conf/nginx.conf
+</code></pre>
+<p>Nginx配置文件常见结构的从外到内依次是「http」「server」「location」等等，缺省的继承关系是从外到内，也就是说内层块会自动获取外层块的值作为缺省值。</p>
+<h2>Server</h2>
+<p>接收请求的服务器需要将不同的请求按规则转发到不同的后端服务器上，在 nginx 中我们可以通过构建虚拟主机（server）的概念来将这些不同的服务配置隔离。</p>
+<pre><code class="hljs">server {
+    listen       80;
+    server_name  localhost;
+    root   html;
+    index  index.html index.htm;
+}
+</code></pre>
+<p>这里的 listen 指监听端口，server_name 用来指定IP或域名，多个域名对应统一规则可以空格分开，index 用于设定访问的默认首页地址，root 指令用于指定虚拟主机的网页跟目录，这个地方可以是相对地址也可以是绝对地址。</p>
+<p>通常情况下我们可以在 nginx.conf 中配置多个server，对不同的请求进行设置。就像这样：</p>
+<pre><code class="hljs">server {
+    listen       80;
+    server_name  host1;
+    root   html;
+    index  index.html index.htm;
+}
+server {
+    listen       80;
+    server_name  host2;
+    root   /data/www/html;
+    index  index.html index.htm;
+}
+</code></pre>
+<p>但是当 server 超过2个时，建议将不同对虚拟主机的配置放在另一个文件中，然后通过在主配置文件 nginx.conf 加上 include 指令包含进来。更便于管理。</p>
+<pre><code class="hljs">include vhosts/*.conf;
+
+</code></pre>
+<p>就可以把vhosts的文件都包含进去啦。</p>
+<h2>Localtion</h2>
+<p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
+<p>以上面的例子，可以将root和index指令放到一个location中，那么只有在匹配到这个location时才会访问root后的内容：</p>
+<pre><code class="hljs">    location / {
+        root   /data/www/host2;
+        index  index.html index.htm;
+    }
+</code></pre>
+<h2>location 匹配规则</h2>
+<pre><code class="hljs">~      波浪线表示执行一个正则匹配，区分大小写
+~*    表示执行一个正则匹配，不区分大小写
+^~    ^~表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录
+=      进行普通字符精确匹配
+
+</code></pre>
+<p>匹配例子：</p>
+<pre><code class="hljs">location  = / {
+  # 只匹配&quot;/&quot;.
+  [ configuration A ] 
+}
+location  / {
+  # 匹配任何请求，因为所有请求都是以&quot;/&quot;开始
+  # 但是更长字符匹配或者正则表达式匹配会优先匹配
+  [ configuration B ] 
+}
+location ^~ /images/ {
+  # 匹配任何以 /images/ 开始的请求，并停止匹配 其它location
+  [ configuration C ] 
+}
+location ~* \.(gif|jpg|jpeg)$ {
+  # 匹配以 gif, jpg, or jpeg结尾的请求. 
+  # 但是所有 /images/ 目录的请求将由 [Configuration C]处理.   
+  [ configuration D ] 
+}
+
+请求:
+
+/ -&gt; 符合configuration A
+/documents/document.html -&gt; 符合configuration B
+/images/1.gif -&gt; 符合configuration C
+/documents/1.jpg -&gt;符合 configuration D
+
+
+</code></pre>
+<h2>静态文件映射</h2>
+<p>访问文件的配置主要有 root 和 aliasp's 两个指令。这两个指令的区别容易弄混：</p>
+<h3>alias</h3>
+<p>alias后跟的指定目录是准确的，并且末尾必须加 /。</p>
+<pre><code class="hljs">    location /c/ {
+        alias /a/;
+    }
+
+</code></pre>
+<p>如果访问站点http://location/c访问的就是/a/目录下的站点信息。</p>
+<h3>root</h3>
+<p>root后跟的指定目录是上级目录，并且该上级目录下要含有和location后指定名称的同名目录才行。</p>
+<pre><code class="hljs">    location /c/ {
+        root /a/;
+    }
+
+</code></pre>
+<p>这时访问站点http://location/c访问的就是/a/c目录下的站点信息。</p>
+<p>如果你需要将这个目录展开，在这个location的末尾加上「autoindex on; 」就可以了</p>
+<h2>转发</h2>
+<p>配置起来很简单比如我要将所有的请求到转移到真正提供服务的一台机器的 8001 端口，只要这样：</p>
+<pre><code class="hljs">location / {
+    proxy_pass 172.16.1.1:8001;
+}
+
+</code></pre>
+<p>这样访问host时，就都被转发到 172.16.1.1的8001端口去了。</p>
+<h2>负载均衡</h2>
+<pre><code class="hljs">upstream myserver; {
+    ip_hash;    
+    server 172.16.1.1:8001;
+    server 172.16.1.2:8002;
+    server 172.16.1.3;
+    server 172.16.1.4;
+}
+location / {
+    proxy_pass http://myserver;
+}
+
+</code></pre>
+<p>我们在 upstream 中指定了一组机器，并将这个组命名为 myserver，这样在 proxypass 中只要将请求转移到 myserver 这个 upstream 中我们就实现了在四台机器的反向代理加负载均衡。其中的 ip_hash 指明了我们均衡的方式是按照用户的 ip 地址进行分配。另外还有轮询、指定权重轮询、fair、url_hash几种调度算法。</p>
+<h1>总结</h1>
+<p>以上是最简单的通过 nginx 实现静态文件转发、反向代理和负载均衡的配置。在 nginx 中所有的功能都是通过模块来实现的，比如当我们配置 upstream 时是用 upstream 模块，而 server 和 location 是在 http core 模块，其他的还有流控的 limt 模块，邮件的 mail 模块，https 的 ssl 模块。他们的配置都是类似的可以再 nginx 的模块文档中找到详细的配置说明。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

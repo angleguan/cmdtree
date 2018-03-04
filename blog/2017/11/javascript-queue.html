@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript数据结构与算法——队列 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript数据结构与算法——队列</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-11-08" itemprop="datePublished">日期：2017年11月08日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>之前说到栈是一种特殊的线性表，队列也是一种列表，与栈不同的是队列是一种FIFO（(First-In-First-Out,先进先出）的数据结构，而栈与之相反。</p>
+<p>队列分为两端——队尾和对首，队列从队尾插入元素，从队首删除元素，可以理解成现实生活中的先到先得的道理，好似排队一样，后到的人只能排在队尾。</p>
+<p>队列和栈一样，同样的两种重要操作就是插入元素和删除元素，队列还有一个操作就是读取队首的元素，即<code>peek()</code>方法，该方法返回位于队首的元素而不将其删除，如果想知道队列中有多少元素也可以通过查看length属性来知道。</p>
+<h2>使用数组实现一个队列</h2>
+<p>之前在数组操作中就提到<code>shift()</code>和<code>push()</code>方法，具体可以查看<a href="https://cmdtree.com/blog/2017/10/js-array-operation.html">JavaScript数据结构与算法——数组操作 - 樊志阳</a></p>
+<p>首先定义一个构造函数：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Queue</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.dataStore = [];
+    <span class="hljs-keyword">this</span>.enqueue = enqueue;
+    <span class="hljs-keyword">this</span>.dequeue = dequeue;
+    <span class="hljs-keyword">this</span>.front = front;
+    <span class="hljs-keyword">this</span>.back = back;
+    <span class="hljs-keyword">this</span>.toString = toString;
+    <span class="hljs-keyword">this</span>.empty = empty;
+}
+</code></pre>
+<h4>实现enqueue方法</h4>
+<p><code>enqueue()</code>方法用于往队列中添加元素</p>
+<pre><code class="hljs">function enqueue(element) {
+    this.dataStore.push(element);
+}
+</code></pre>
+<h4>实现dequeue方法</h4>
+<p><code>dequeue()</code>方法用于删除队列中的元素</p>
+<pre><code class="hljs">function dequeue() {
+    return this.dataStore.shift();
+}
+</code></pre>
+<h4>返回队首或队尾的元素</h4>
+<p>定义如下方法用于返回队首或队尾的元素</p>
+<pre><code class="hljs">function front() {
+    return this.dataStore[0];
+}
+function back() {
+    return this.dataStore[this.dataStore.length-1];
+}
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

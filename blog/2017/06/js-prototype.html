@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JS中的prototype方法 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JS中的prototype方法</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-06-01" itemprop="datePublished">日期：2017年06月01日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>我们先来了解几个知识点:</p>
+<h1>一、原型法设计模式</h1>
+<p>原型法的主要思想是，现在有1个类A,我想要创建一个类B,这个类是以A为原型的,并且能进行扩展。我们称B的原型为A。</p>
+<h1>二、javascript的方法可以分为三类：</h1>
+<p>a.类方法</p>
+<p>b.对象方法</p>
+<p>c.原型方法</p>
+<p>下面是个例子</p>
+<pre><code class="hljs javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">People</span>(<span class="hljs-params">name</span>)
+    </span>{
+      <span class="hljs-keyword">this</span>.name=name;
+      <span class="hljs-comment">//对象方法</span>
+      <span class="hljs-keyword">this</span>.Introduce=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        alert(<span class="hljs-string">"My name is "</span>+<span class="hljs-keyword">this</span>.name);
+      }
+    }
+    <span class="hljs-comment">//类方法</span>
+    People.Run=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      alert(<span class="hljs-string">"I can run"</span>);
+    }
+    <span class="hljs-comment">//原型方法</span>
+    People.prototype.IntroduceChinese=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      alert(<span class="hljs-string">"我的名字是"</span>+<span class="hljs-keyword">this</span>.name);
+    }
+    
+    <span class="hljs-comment">//测试</span>
+    
+    <span class="hljs-keyword">var</span> p1=<span class="hljs-keyword">new</span> People(<span class="hljs-string">"ZhiYang"</span>);
+    
+    p1.Introduce(); <span class="hljs-comment">// My name is ZhiYang</span>
+    
+    People.Run();  <span class="hljs-comment">// I can run</span>
+    
+    p1.IntroduceChinese();  <span class="hljs-comment">// 我的名字是ZhiYang</span>
+</code></pre>
+<h1>一、基本使用方法</h1>
+<p><strong>prototype属性可算是JavaScript与其他面向对象语言的一大不同之处。</strong></p>
+<p>简而言之，prototype就是“一个给类的对象添加方法的方法”，使用prototype属性，可以给类动态地添加方法，以便在JavaScript中实现“继承”的效果。</p>
+<p><em>具体来说，prototype 是在 IE 4 及其以后版本引入的一个针对于某一类的对象的方法，当你用prototype编写一个类后，如果new一个新的对象，浏览器会自动把prototype中的内容替你附加在对象上。这样，通过利用prototype就可以在JavaScript中实现成员函数的定义，甚至是“继承”的效果。</em></p>
+<p>一个简单的示例如下：</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">Number</span>.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num</span>) </span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span> + num );
+}
+</code></pre>
+<p>这是对已有类添加方法。这样写，可以增强已有类的功能，例如可以给Array类增加push方法如下：</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">Array</span>.prototype.push = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">new_element</span>)</span>{ 
+    <span class="hljs-keyword">this</span>[<span class="hljs-keyword">this</span>.length]=new_element; 
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length; 
+} 
+</code></pre>
+<p>对于自定义的类（或者称函数对象），也可以这样写：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyApplication</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.counter = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.map = <span class="hljs-keyword">new</span> GMap2(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"map_canvas"</span>));
+    <span class="hljs-keyword">this</span>.map.setCenter(<span class="hljs-keyword">new</span> GLatLng(<span class="hljs-number">39.917</span>, <span class="hljs-number">116.397</span>), <span class="hljs-number">14</span>);
+    GEvent.bind(<span class="hljs-keyword">this</span>.map, <span class="hljs-string">"click"</span>, <span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.onMapClick);
+}
+
+MyApplication.prototype.onMapClick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.counter++;
+    alert(<span class="hljs-string">"这是您第 "</span> + <span class="hljs-keyword">this</span>.counter + <span class="hljs-string">" 次点击地图"</span>);
+}
+</code></pre>
+<p>这里定义了创建地图的类，并且为其定义了“单击”事件的响应函数。</p>
+<h1>二、prototype的动态特性及弊端</h1>
+<p><strong>需要注意的是，prototype为我们提供了方便，使我们可以在类定义完成之后，仍可以随时为其添加方法、属性，随时添加随时使用——也就是prototype的定义具有动态性。但是越灵活的语言出现错误的可能性越大。这就需要我们在使用时，必须养成一些良好的习惯。</strong></p>
+<p><strong>“首先，如果可以动态添加属性和方法，那么很容易让人想到，当我调用时，我想要调用的属性或者方法存在不？这是一个很严肃的问题，如果当我们调用时根本没有该属性或者方法，将可能导致我们的脚本down掉。” 对于这个问题，在使用时我们以后可以按照下面的写法书写：</strong></p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyObject</span>(<span class="hljs-params">name, size</span>) </span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.size = size;
+}
+
+MyObject.prototype.height = <span class="hljs-string">"2.26 meters"</span>;
+MyObject.prototype.tellHeight = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"height of "</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">" is "</span> + <span class="hljs-keyword">this</span>.height;
+}
+
+<span class="hljs-comment">///////使用 </span>
+<span class="hljs-keyword">var</span> myobj1 = <span class="hljs-keyword">new</span> MyObject(<span class="hljs-string">"haha"</span>, <span class="hljs-number">3</span>);
+<span class="hljs-keyword">if</span> (myobj1.tellHeight) {
+    domDiv.innerHTML += myobj1.tellHeight() + <span class="hljs-string">"; 
+} 
+</span></code></pre>
+<p>属性和方法在不在的问题简单，可是属性和方法变不变化的问题可就严重了。在不在我们可以检测，变不变呢？比如，请看下面的代码：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyObject</span>(<span class="hljs-params">name, size</span>) 
+</span>{ 
+    <span class="hljs-keyword">this</span>.name = name; 
+    <span class="hljs-keyword">this</span>.size = size; 
+} 
+ 
+MyObject.prototype.color = <span class="hljs-string">"red"</span>; 
+MyObject.prototype.tellColor = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) 
+</span>{ 
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"color of "</span>+<span class="hljs-keyword">this</span>.name+<span class="hljs-string">" is "</span>+<span class="hljs-keyword">this</span>.color; 
+} 
+ 
+<span class="hljs-keyword">var</span> myobj1 = <span class="hljs-keyword">new</span> MyObject(<span class="hljs-string">"tiddles"</span>, <span class="hljs-string">"7.5 meters"</span>); 
+domDiv.innerHTML += myobj1.tellColor()+<span class="hljs-string">"&lt;br /&gt;&lt;br /&gt;"</span>; 
+ 
+MyObject.prototype.color = <span class="hljs-string">"green"</span>; 
+ 
+domDiv.innerHTML += myobj1.tellColor()+<span class="hljs-string">"&lt;br /&gt;&lt;br /&gt;"</span>; 
+</code></pre>
+<p>修改的是类MyObject的color属性。但是你惊奇的会看到你之前实例化的对象myobj1的属性值竟然也变化了：</p>
+<pre><code class="hljs">color of tiddles is red
+color of tiddles is green
+</code></pre>
+<p>上面是属性，还有方法，方法也是可以变的！</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyObject</span>(<span class="hljs-params">name, size</span>) 
+</span>{ 
+    <span class="hljs-keyword">this</span>.name = name; 
+    <span class="hljs-keyword">this</span>.size = size; 
+} 
+ 
+MyObject.prototype.color = <span class="hljs-string">"red"</span>; 
+MyObject.prototype.tellColor = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) 
+</span>{ 
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"color of "</span>+<span class="hljs-keyword">this</span>.name+<span class="hljs-string">" is "</span>+<span class="hljs-keyword">this</span>.color; 
+} 
+ 
+<span class="hljs-keyword">var</span> myobj1 = <span class="hljs-keyword">new</span> MyObject(<span class="hljs-string">"tiddles"</span>, <span class="hljs-string">"7.5 meters"</span>); 
+domDiv.innerHTML += myobj1.tellColor()+<span class="hljs-string">"&lt;br /&gt;&lt;br /&gt;"</span>; 
+ 
+MyObject.prototype.color = <span class="hljs-string">"green"</span>; 
+MyObject.prototype.tellColor = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) 
+</span>{ 
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"your color of "</span>+<span class="hljs-keyword">this</span>.name+<span class="hljs-string">" is "</span>+<span class="hljs-keyword">this</span>.color; 
+} 
+ 
+domDiv.innerHTML += myobj1.tellColor()+<span class="hljs-string">"&lt;br /&gt;&lt;br /&gt;"</span>; 
+</code></pre>
+<p>这段代码的结果是：</p>
+<pre><code class="hljs">color of tiddles is red
+your color of tiddles is green
+</code></pre>
+<p>Java和C#这些比较严格的语言，虽然降低了灵活性，但也减少了犯错误的可能。这样，即使一个新手，他写出的代码也不会与高手差太多。但是，像Javascript这样的脚本语言，由于太灵活，所以，一定要有好的代码编写习惯，否则出现了上面的问题，调试时可就难咯！</p>
+<h1>三、prototype的实现机制</h1>
+<p>可以说，prototype实际上是“引用”，而非“赋值”。也就是给一个类添加一个属性或者方法，是给它添加了个引用，而非赋值一份给它。看看下面的这个例子：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ClassA</span>(<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">"a"</span>);
+    <span class="hljs-keyword">this</span>.a = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ alert(); };
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ClassB</span>(<span class="hljs-params"></span>) </span>{
+    alert(<span class="hljs-string">"b"</span>);
+    <span class="hljs-keyword">this</span>.b = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ alert(); };
+}
+
+ClassB.prototype.a = <span class="hljs-keyword">new</span> ClassA();        <span class="hljs-comment">//会导致弹出 a 对话框 </span>
+ClassB.prototype.xx = <span class="hljs-string">"xx"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initialize</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> objB1 = <span class="hljs-keyword">new</span> ClassB();                 <span class="hljs-comment">//弹出 b 对话框 </span>
+    <span class="hljs-keyword">var</span> objB2 = <span class="hljs-keyword">new</span> ClassB();                 <span class="hljs-comment">//弹出 b 对话框 </span>
+    alert(objB1.a == objB2.a);                    <span class="hljs-comment">//true </span>
+    alert(objB1.b == objB2.b);                <span class="hljs-comment">//false </span>
+    alert(<span class="hljs-string">"objB1.xx: "</span> + objB1.xx + <span class="hljs-string">", objB2.xx: "</span> + objB2.xx); <span class="hljs-comment">//objB1.xx: xx, objB2.xx: xx </span>
+    ClassB.prototype.xx = <span class="hljs-string">"yy"</span>;
+    alert(<span class="hljs-string">"objB1.xx: "</span> + objB1.xx + <span class="hljs-string">", objB2.xx: "</span> + objB2.xx); <span class="hljs-comment">//objB1.xx: yy, objB2.xx: yy </span>
+    objB2.xx = <span class="hljs-string">"zz"</span>;
+    alert(<span class="hljs-string">"objB1.xx: "</span> + objB1.xx + <span class="hljs-string">", objB2.xx: "</span> + objB2.xx); <span class="hljs-comment">//objB1.xx: yy, objB2.xx: zz </span>
+}
+initialize(); 
+</code></pre>
+<p>其执行结果是依次弹出以下窗口：</p>
+<pre><code class="hljs">a
+b
+b
+true
+false
+objB1.xx: xx, objB2.xx: xx
+objB1.xx: yy, objB2.xx: yy
+objB1.xx: yy, objB2.xx: zz 
+</code></pre>
+<p>相关的解释已经注释在代码中。从上面的代码可以发现，prototype只是给ClassB添加了ClassA实例的引用。因此，两个ClassB的实例中的a实例相等。</p>
+<p>同时，ClassA的构造函数只在添加引用时被执行一次，此后ClassB的对象实例化时，只执行ClassB的构造函数。</p>
+<pre><code>参考：http://www.cnblogs.com/lidabo/archive/2012/01/05/2313481.html
+http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

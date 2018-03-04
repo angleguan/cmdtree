@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     在BTRFS文件系统中使用snapper快照功能 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">在BTRFS文件系统中使用snapper快照功能</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-16" itemprop="datePublished">日期：2017年09月16日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>很多玩过虚拟机（Vmware，virtualBox）的人都有用过“快照”功能，在系统运行的某个时间，我们可以创建一个快照，把当时整个系统“拍一个照片”，当以后使用中发生了什么错误时，可以一下子恢复到之前快照的中的系统，这是个很强大的功能。</p>
+<p>目前来说，支持快照的文件系统主要有LVM和BTRFS，前者的知名度要大一些，因为在很多桌面发行版安装时都会在分区时有提供格式化全盘并使用LVM逻辑卷管理的选项，而BTRFS文件系统在刚发布时有很大的争议，在其渐渐稳定之后就有传言说它将取代传统（ext日志系统）文件系统，但是后来就慢慢的没什么消息了，相关资料也都是很久以前的了，值得一提的是openSUSE直到现在还是将BTRFS作为默认的文件系统（同时对于单独的/home分区，默认使用XFS文件系统），这是一个亮点，因为大部分的发行版都是默认的EXT4，这种传统的日志文件系统速度那是相当的快啊</p>
+<p><img src="/pics/2017/09/1601.png" alt=""></p>
+<p>这是EXT4，EXT3，XFS，BTRFS文件系统的I/O速度比较，很明显，BTRFS真的时弱爆了，只有200kb每秒，而XFS表现的性能比较平衡，EXT系列最快。</p>
+<h1>在BTRFS中安装系统</h1>
+<p>推荐的做法是在一个设备已有的分区表上创建BTRFS分区，因为当前的UEFI启动必须要有一个FAT格式的efi分区（/boot/EFI）</p>
+<p>也可以使用BTRFS作为分区表：</p>
+<pre><code class="hljs"># mkfs.btrfs /dev/sdX
+</code></pre>
+<p>格式化一个分区为BTRFS文件系统</p>
+<pre><code class="hljs"># mkfs.btrfs -L mylabel /dev/partition
+</code></pre>
+<p>然后挂载格式化好的分区，创建子卷</p>
+<pre><code class="hljs"># btrfs subvolume create /path/to/subvolume
+</code></pre>
+<p>接着挂载子卷</p>
+<pre><code class="hljs"># mount -o compress=lzo,subvol=/path/to/subvolume /dev/partition
+</code></pre>
+<p>更多关于BTRFS的内容可以查看<a href="https://wiki.archlinux.org/index.php/Btrfs">Btrfs - ArchWiki</a></p>
+<h1>使用快照</h1>
+<p><code>snapper</code> 是一个由 openSUSE 开发的 Btrfs/LVM 快照管理软件。它可以自动创建和清理快照序列，在快照之间进行比较，回滚到之前的快照等，能够帮助我们充分利用 btrfs 的高级特性。</p>
+<h2>安装</h2>
+<p>以Archlinux 为例</p>
+<pre><code class="hljs"># pacman -S snapper
+</code></pre>
+<p>Ubuntu系列：</p>
+<pre><code class="hljs"># apt install snapper
+</code></pre>
+<h2>创建配置文件</h2>
+<p>首先需要为 <code>snapper</code> 要管理的 btrfs subvolume 创建配置文件，执行以下命令将根据默认配置模板 <code>/etc/snapper/config-templates/default</code> 创建一个配置文件。</p>
+<pre><code class="hljs">snapper -c configname create-config /path/to/subvolume
+</code></pre>
+<p><strong>例子</strong></p>
+<pre><code class="hljs"># snapper -c arch_rootfs create-config /
+# snapper -c home create-config /home
+</code></pre>
+<p>默认配置文件包括以下内容，更多内容可以 man snapper-configs 查看。</p>
+<pre><code class="hljs"># 要创建快照的子卷
+SUBVOLUME=&quot;/&quot;
+
+# 文件系统类型
+FSTYPE=&quot;btrfs&quot;
+
+# 清理算法将使用的 btrfs qgroup，用于空间配额限制，仅用于 btrfs
+QGROUP=&quot;&quot;
+
+# 快照占用的总空间限制，0.5 = 50%
+SPACE_LIMIT=&quot;0.5&quot;
+
+# 允许访问该配置的用户和用户组，其他用户无法使用 snapper 操作该配置文件及对应快照
+ALLOW_USERS=&quot;&quot;
+ALLOW_GROUPS=&quot;&quot;
+
+# 是否将以上的被允许用户和用户组写入到快照的ACL以允许他们访问快照
+# 只有能够访问快照的用户才能进行查看、比较等操作
+# 快照只能由 root 用户拥有，并且不能对其他用户可写
+SYNC_ACL=&quot;no&quot;
+
+# 后台自动创建后续快照后是否比较前后快照
+BACKGROUND_COMPARISON=&quot;yes&quot;
+
+# 是否运行基于数量的清理算法
+NUMBER_CLEANUP=&quot;yes&quot;
+
+# 基于数量清理使用的参数
+# 允许清理的最小快照创建时间，单位为秒
+NUMBER_MIN_AGE=&quot;1800&quot;
+
+# 保留的快照数目，多余快照将被清理，优先保留新快照
+NUMBER_LIMIT=&quot;50&quot;
+
+# 保留的重要快照数
+NUMBER_LIMIT_IMPORTANT=&quot;10&quot;
+
+# 是否创建每小时快照
+TIMELINE_CREATE=&quot;yes&quot;
+
+# 是否运行基于时间的清理算法
+TIMELINE_CLEANUP=&quot;yes&quot;
+
+# 基于时间清理使用的参数
+# 允许清理的最小快照创建时间，单位为秒
+TIMELINE_MIN_AGE=&quot;1800&quot;
+
+# 保留的每小时快照数量，以下同
+TIMELINE_LIMIT_HOURLY=&quot;10&quot;
+
+# 每日快照为每天创建的第一个快照，以下同
+TIMELINE_LIMIT_DAILY=&quot;10&quot;
+TIMELINE_LIMIT_WEEKLY=&quot;0&quot;
+TIMELINE_LIMIT_MONTHLY=&quot;10&quot;
+TIMELINE_LIMIT_YEARLY=&quot;10&quot;
+
+# 是否清理前后无变动的快照
+EMPTY_PRE_POST_CLEANUP=&quot;yes&quot;
+
+# 清理前后无变动快照时的限制参数
+EMPTY_PRE_POST_MIN_AGE=&quot;1800&quot;
+</code></pre>
+<h2>启动定时器</h2>
+<p>要使用 systemd timer 运行 snapper。启动并启用 <code>snapper-timeline.timer</code> 来启用自动创建快照功能。启动并启用 <code>napper-cleanup.timer</code> 来启用自动清理功能。</p>
+<pre><code class="hljs"># systemctl enable --now snapper-timeline.timer
+# systemctl enable --now snapper-cleanup.timer
+</code></pre>
+<h2>手动创建快照</h2>
+<pre><code class="hljs"># sudo snapper -c configname create --description /path
+</code></pre>
+<h2>查看快照</h2>
+<pre><code class="hljs"># snapper -c configname list
+</code></pre>
+<p><strong>例子</strong></p>
+<pre><code class="hljs"># snapper -c arch_root list
+</code></pre>
+<pre><code class="hljs">类型 | # | 前期 # | 日期                                      | 用户 | 清空   | 描述   | 用户数据
+-------+---+----------+---------------------------------------------+--------+----------+----------+-------------
+single | 0 |          |                                             | root   |          | current  |             
+single | 1 |          | 2017年03月14日 星期二 17时27分56秒 | root   | timeline | timeline |             
+single | 2 |          | 2017年03月14日 星期二 20时00分57秒 | root   | timeline | timeline |             
+single | 3 |          | 2017年03月14日 星期二 21时00分52秒 | root   | timeline | timeline | 
+</code></pre>
+<h3>快照位置</h3>
+<p>一般创建的快照可以在你创建快照的目录下的<code>.snapper</code>文件夹下找到。</p>
+<h2>比较快照</h2>
+<pre><code class="hljs"># snapper -c configname status number1..number2
+</code></pre>
+<p><strong>例子</strong></p>
+<pre><code class="hljs"># snapper -c home status 1..3
+</code></pre>
+<h2>回滚快照</h2>
+<p>使用快照的目的当然是为了滚挂时进行回滚了</p>
+<pre><code class="hljs"># snapper -c configname rollback [number]
+</code></pre>
+<p>不带 number 参数时。将为默认子卷创建一个只读快照，再为当前子卷创建一个读写快照，并将默认子卷设置为后者。
+带 number 参数时。将为当前子卷创建一个只读快照，再为指定 number 的快照创建一个读写快照，并将默认子卷设置为后者。</p>
+<h2>删除快照</h2>
+<pre><code class="hljs"># snapper -c configname delete number1
+# snapper -c configname delete number1..number2
+</code></pre>
+<p><strong>例子</strong></p>
+<pre><code class="hljs"># snapper -c home delete 1
+# snapper -c home delete 1..3
+</code></pre>
+<h2>总结</h2>
+<p>目前来说BTRFS已经是很稳定的了，openSUSE也是将其作为默认文件系统，所以大家完全可以放心的去使用它。但是它也有一些缺点例如速度慢，但是我认为它是值得被使用的，例如，我们使用在使用Archlinux系统中进行滚动升级时，如果发生了什么致命错误，导致我们无法进入到系统，我们就可以利用快照进行回滚，回到当初的某个状态，这对喜欢折腾的人的一个非常棒的功能。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

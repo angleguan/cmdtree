@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     给Git命令使用别名 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">给Git命令使用别名</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-20" itemprop="datePublished">日期：2017年03月20日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>有的时候我们在操作Git时通常要输入非常长的命令又或者是两三行的命令，太麻烦了！</p>
+<p>我们可以像在Linux中那样给命令设置别名，适用于所有平台。</p>
+<h2>如何设置别名</h2>
+<p>首先，要设置一个别名，你有2个选择
+1）</p>
+<pre><code class="hljs">$ git config --global alias.co checkout
+</code></pre>
+<p>是不是非常简单。上面的代码表示，co是一个别名checkout。</p>
+<p>2）编辑 .gitconfig</p>
+<p>你.gitconfig可能看起来像这样：</p>
+<pre><code class="hljs">[alias]
+co = checkout
+</code></pre>
+<p>你还可以使用&quot;!&quot;在shell中执行alised命令。</p>
+<pre><code class="hljs">di=!git status --porcelain --short --ignored | sed -n '&quot;s/^!! //p&quot;'
+</code></pre>
+<h2>注意事项</h2>
+<p>创建别名时，你要注意一下这些：</p>
+<p>1）Git别名不区分大小写</p>
+<pre><code class="hljs">git gco # Lowercase
+git gCo # is actually the same
+</code></pre>
+<p>2）创建太多的shell别名可能会导致命令名冲突。</p>
+<p>例如GS，你使用<code>git status</code>可能会和Ghost Script起冲突。幸运的是我不用Ghost</p>
+<p>你也可以通过输入可执行文件全路径跳过别名，如<code>/usr/bin/GS</code>。</p>
+<h2>实际别名</h2>
+<p>首先，我们将Prezto对于Git的别名转换为对应的Git命令。</p>
+<p>在转换过程中将排除<code>git submodule</code>和<code>git flow</code>别名，因为他们使用的是大写字母用来区分git stash和git fetch。</p>
+<pre><code class="hljs">[alias]
+  # Branch (b)
+  b=branch
+  ba=branch --all --verbose --verbose
+  bl=branch --verbose --verbose
+  bc=checkout -b
+  bx=branch --delete
+  bm=branch --move
+  bs=show-branch
+
+  # Commit (c)
+  c=commit
+  ca=commit --all
+  cm=commit --message
+  cam=commit --all --message
+  co=checkout
+  cop=checkout --patch
+  cf=commit --amend --reuse-message HEAD
+  chp=cherry-pick
+  cr=revert
+  cres=reset &quot;HEAD^&quot;
+  cs=show
+
+  # Data (d)
+  d=ls-files
+  dc=ls-files --cached
+  dd=ls-files --deleted
+  dx=ls-files --deleted
+  dm=ls-files --modified
+  do=ls-files --other --exclude-standard
+  dk=ls-files --killed
+  di=!git status --porcelain --short --ignored | sed -n '&quot;s/^!! //p&quot;'
+
+  # Fetch (f)
+  f=fetch
+  fa=fetch --all
+  fc=clone
+  fp=pull
+  fr=pull --rebase
+  fpr=pull --rebase
+
+  # Grep (g)
+  g=grep
+  gi=grep --ignore-case
+  gl=grep --files-with-matches
+  gL=grep --files-without-matches
+  gv=grep --invert-match
+  gw=grep --word-regexp
+
+  # Index (i)
+  ia=add
+  iap=add --patch
+  iu=add --update
+  id=diff --no-ext-diff --cached
+  idw=diff --no-ext-diff --cached --word-diff
+  ir=reset
+  irp=reset --patch
+  ix=rm -r --cached
+
+  # Merge (m)
+  m=merge
+  mnc=merge --no-commit
+  mf=merge --ff
+  mnf=merge --no-ff
+  ma=merge --abort
+  mt=mergetool
+
+  # Push (p)
+  p=push
+  pf=push --force-with-lease
+  pa=push --all
+  pt=push --tags
+  pat=push --all &amp;&amp; git push --tags
+  pc=!git push --set-upstream origin &quot;$(git-branch-current 2&gt; /dev/null)&quot;
+  pp=!git pull origin &quot;$(git-branch-current 2&gt; /dev/null)&quot; &amp;&amp; git push origin &quot;$(git-branch-current 2&gt; /dev/null)&quot;
+
+  # Rebase (r)
+  r=rebase
+  ra=rebase --abort
+  rc=rebase --continue
+  ri=rebase --interactive
+  rs=rebase --skip
+
+  # Stash (s)
+  stsh = stash --keep-index
+  staash = stash --include-untracked
+  staaash = stash --all
+  s=stash
+  sa=stash apply
+  sx=stash drop
+  sl=stash list
+  sd=stash show --patch --stat
+  sp=stash pop
+  ss=stash save
+  ssu=stash save --include-untracked
+
+  # Working Copy (w)
+  ws=status
+  wd=diff --no-ext-diff
+  wdw=diff --no-ext-diff --word-diff
+  wrs=reset --soft
+  wrh=reset --hard
+  wc=clean -n
+  wcf=clean -f
+  wcfd=clean -df
+  wx=rm -r
+  wxf=rm -rf
+
+</code></pre>
+<p>然后，我们将根据<a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs/9074343#9074343">这个stackoverflow答案</a>添加日志别名。</p>
+<pre><code class="hljs"># Log (l)
+l1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+l2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+l = !git l1
+</code></pre>
+<p>使用下面的别名可以添加快照而不上传，很酷吧</p>
+<pre><code class="hljs">snapshot = !git stash save &quot;snapshot: $(date)&quot; &amp;&amp; git stash apply &quot;stash@{0}&quot;
+ls-snapshots = !git stash list --grep snapshot
+</code></pre>
+<p>列出最近的分支有时是有用的。</p>
+<pre><code class="hljs">recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+</code></pre>
+<p>最后添加URL链接到常用网址</p>
+<pre><code class="hljs">[url &quot;https://aur.archlinux.org/&quot;]
+  insteadOf = &quot;aur:&quot;
+[url &quot;ssh+git://aur4.archlinux.org/&quot;]
+  pushInsteadOf = &quot;aur:&quot;
+[url &quot;https://github.com/&quot;]
+  insteadOf = &quot;gh:&quot;
+[url &quot;git@github.com:&quot;]
+  pushInsteadOf = &quot;gh:&quot;
+</code></pre>
+<h2>一些提示</h2>
+<p>下面这些不是别名，但可能有用。</p>
+<p>Verbose提交消息默认（包括注释掉差异）</p>
+<pre><code class="hljs">[commit]
+    verbose = true
+</code></pre>
+<p>默认推送位置</p>
+<pre><code class="hljs">[push]
+    default = upstream
+</code></pre>
+<p>启用<a href="https://git-scm.com/blog/2010/03/08/rerere.html">rerere</a></p>
+<pre><code class="hljs">[rerere]
+    enabled = true
+</code></pre>
+<p>启用彩色输出</p>
+<pre><code class="hljs">[color]
+    ui = true
+</code></pre>
+<h2>最后</h2>
+<p>这些别名可能会让你产生过对依赖，如果你感觉不使用这些别名对你的工作效率更加有益，你也可以不用，总之以效率为主。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

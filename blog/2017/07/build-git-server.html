@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     自己搭建Git服务器 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">自己搭建Git服务器</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-18" itemprop="datePublished">日期：2017年07月18日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>测试环境： centos 6.8</p>
+</blockquote>
+<p>Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<h1>安装Git</h1>
+<h2>编译安装</h2>
+<h3>检查依赖库和编译工具</h3>
+<p>为了保障后续工作的顺利进行，我们需要检查一下自己的服务器是否已经安装了以下工具</p>
+<pre><code class="hljs">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
+</code></pre>
+<pre><code class="hljs">yum install gcc perl-ExtUtils-MakeMaker
+</code></pre>
+<p>因为我在Cenots6的环境下是已经安装了，但在7.4版本下却没有安装。</p>
+<h3>下载Git</h3>
+<p>选一个目录，用来放下载下来的安装包，这里将安装包放在 /usr/local/src 目录里</p>
+<pre><code class="hljs">cd /usr/local/src
+</code></pre>
+<p>到官网找一个新版稳定的源码包下载到 /usr/local/src 文件夹里</p>
+<pre><code class="hljs">wget https://www.kernel.org/pub/software/scm/git/git-2.10.0.tar.gz
+</code></pre>
+<h3>解压和编译</h3>
+<p>解压下载的源码包</p>
+<pre><code class="hljs">tar -zvxf git-2.10.0.tar.gz
+</code></pre>
+<p>解压后进入 git-2.10.0 文件夹</p>
+<pre><code class="hljs">cd git-2.10.0
+</code></pre>
+<p>执行编译</p>
+<pre><code class="hljs">make all prefix=/usr/local/git
+</code></pre>
+<p>编译完成后, 安装到 /usr/local/git 目录下</p>
+<pre><code class="hljs">make install prefix=/usr/local/git
+</code></pre>
+<h3>配置环境变量</h3>
+<p>将原来的 PATH 指向目录修改为现在的目录</p>
+<pre><code class="hljs">echo 'export PATH=$PATH:/usr/local/git/bin' &gt;&gt; /etc/bashrc
+</code></pre>
+<p>生效环境变量</p>
+<pre><code class="hljs">source /etc/bashrc
+</code></pre>
+<p>此时我们能查看 git 版本号，说明我们已经安装成功了。</p>
+<pre><code class="hljs">[root@host git-2.10.0]# git --version
+git version 2.10.0
+</code></pre>
+<h2>包管理安装</h2>
+<p>例如ubuntu 16.04:</p>
+<pre><code class="hljs">apt-get install git
+</code></pre>
+<h1>配置Git</h1>
+<h2>创建 git 账号</h2>
+<p>为我们刚刚搭建好的 git 创建一个账号</p>
+<p>Centos:</p>
+<pre><code class="hljs">useradd -m gituser
+</code></pre>
+<p>然后为这个账号设置密码</p>
+<pre><code class="hljs">passwd gituser
+</code></pre>
+<p>如果输入过短会报错，但可以忽略。</p>
+<p>Ubuntu:</p>
+<pre><code class="hljs">adduser git
+</code></pre>
+<h2>初始化 git 仓库并配置用户权限</h2>
+<p>我们创建<code>/git/repositories</code>目录用于存放 git 仓库</p>
+<pre><code class="hljs">mkdir -p /git/repositories
+</code></pre>
+<p>创建好后，初始化一个仓库</p>
+<pre><code class="hljs">cd /git/repositories/
+git init --bare test.git
+</code></pre>
+<p>使用bare参数将会创建一个裸仓库，即没有工作区的仓库</p>
+<h2>配置用户权限</h2>
+<p>给 git 仓库目录设置用户和用户组并设置权限</p>
+<pre><code class="hljs">chown -R gituser:gituser test.git
+</code></pre>
+<h2>使用Git</h2>
+<h3>添加公钥</h3>
+<p>在自己本地电脑上生成好公钥，然后复制id_rsa.pub的内容到<code>创建的用户/.ssh/authorized_keys</code>文件里即可。</p>
+<p>到这里我们就已经完成安装了，可以在本地试一试clone仓库</p>
+<pre><code class="hljs">$ git clone gituser@yourIP:/git/repositories/test.git
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

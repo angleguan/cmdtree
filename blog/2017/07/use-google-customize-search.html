@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     定制Google自定义搜索页 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">定制Google自定义搜索页</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-05" itemprop="datePublished">日期：2017年07月05日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>虽然说现在很多博客系统都自带有站点搜索功能或者插件，但是许多搜索插件都不够全面，往往只能索引到文章标题，内容和评论都无法搜索到，这时候就要借助第三方的搜索引擎了。</p>
+<p>现在我们一般有两种选择，百度的或者是谷歌的。</p>
+<p>百度的相对于大陆用户比较友好，众所周知，因为<a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E">GFW</a>的原因，大陆用户是无法使用谷歌自定义搜素引擎的，但是百度对很多草根站长都不太友好，大家可以在搜索引擎上输入<code>site:自己的站点url</code>来测试一下，通常百度对于新建站点和未备案站点都不会收录，或者收录很慢，这点谷歌做很很好，一个新站或者是一篇新的文章发布甚至不到一星期就会收录，所以我这个网站是使用Google自定义搜索的，这个把当时搭建这个搜索功能的过程讲一下。</p>
+<h1>一、新建搜索引擎</h1>
+<p>首先登陆<a href="https://cse.google.com/">谷歌自定义搜索</a>主页</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170704201358.png" alt=""></p>
+<p>点击<code>add</code>，输入网站的相关信息。创建完成</p>
+<h1>二、修改外观</h1>
+<p><img src="/pics/2017/07/TIMscreenshot20170704201846.png" alt=""></p>
+<p>然后点击搜索引擎就可以查看到相关信息，我们先打开外观</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170704202046.png" alt=""></p>
+<p>可以看到谷歌提供了以上设置</p>
+<p>对于<code>叠加</code>，<code>全宽</code>，<code>两栏</code>都是在统一页面输出搜索结果，如果想采用这种方式我建议使用<code>全宽</code>，即在一个页面输入搜索内容然后下面输出结果。</p>
+<p>但是这里我想在所有页面中都包含一个搜索框，然后统一在另一个页面输出搜索结果，经过各种踩坑，最终建议选择<code>仅限结果</code>，然后点击保存并获取代码</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170704203118.png" alt=""></p>
+<p>然后复制代码粘贴在你想要显示结果的页面上即可。</p>
+<h1>三、添加搜索框</h1>
+<p>别忘了，我们刚才粘贴的是只显示结果的代码，我们还需要添加一个搜索框，当然也可以使用外观面板中的搜索框，但是谷歌提供的搜索框自定义程度不高，而且加载时需要浪费较多时间，这里我建议自己写一个搜索框。</p>
+<h1>四、绑定搜索结果</h1>
+<p>然后问题来了，怎么将自己的搜索框连接上搜索结果呢，这里我们可以看到</p>
+<p><img src="/pics/2017/07/TIMscreenshot20170704203327.png" alt=""></p>
+<p>谷歌虽然没有明说，但是已经给我们提供了修改URL参数的功能了，所以我们可以通过使用URL传递搜索内容的方式来跳转至搜索页并显示搜索结果</p>
+<p>如下：</p>
+<pre><code class="hljs">&lt;form action=&quot;https://www.fanzhiyang.com/blog/search&quot; + value&gt;
+  &lt;input type=&quot;text&quot; id=&quot;search-text&quot; name=&quot;q&quot;/&gt;
+  &lt;input type=&quot;submit&quot; /&gt;
+&lt;/form&gt;
+</code></pre>
+<p>粘贴显示搜索结果代码的页面会自动获取当前URL<code>?q=</code>后面的字段作为查找内容，然后直接显示查找内容。</p>
+<p>这也是本博客搜索功能的制作过程。</p>
+<p>（完）</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

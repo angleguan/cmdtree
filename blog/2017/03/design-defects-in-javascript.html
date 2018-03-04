@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Javascript 的 10 个设计缺陷 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Javascript 的 10 个设计缺陷</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-27" itemprop="datePublished">日期：2017年03月27日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>一、为什么 Javascript 有设计缺陷？</h2>
+<p>这里有三个客观原因，导致 Javascript 的设计不够完善。</p>
+<h3>1）设计阶段过于仓促</h3>
+<p>Javascript 的设计，其实只用了十天。</p>
+<p>而且，设计师是为了向公司交差，本人并不愿意这样设计（参见《Javascript 诞生记》）。</p>
+<p>另一方面，这种语言的设计初衷，是为了解决一些简单的网页互动（比如，检查&quot;用户名&quot;是否填写），
+并没有考虑复杂应用的需要。</p>
+<p>设计者做梦也想不到，Javascript 将来可以写出像 Gmail 这种极其庞大复杂的网页。</p>
+<h3>2）没有先例</h3>
+<p>Javascript 同时结合了函数式编程和面向对象编程的特点，这很可能是历史上的第一例。</p>
+<p>而且直到今天为止，Javascript 仍然是世界上唯一使用 Prototype 继承模型的主要语言。</p>
+<p>这使得它没有设计先例可以参考。</p>
+<h3>3）过早的标准化</h3>
+<p>Javascript 的发展非常快，根本没有时间调整设计。</p>
+<p>1995年5月，设计方案定稿；</p>
+<p>10 月，解释器开发成功；</p>
+<p>12 月，向市场推出，立刻被广泛接受，全世界的用户大量使用。</p>
+<p>Javascript 缺乏一个从小到大、慢慢积累用户的过程，而是连续的爆炸式扩散增长。</p>
+<p>大量的既成网页和业余网页设计者的参与，使得调整语言规格困难重重。</p>
+<p>更糟的是，Javascript 的规格还没来及调整，就固化了。</p>
+<p>1996 年 8 月，微软公司强势介入，宣布推出自己的脚本语言 Jscript；</p>
+<p>11 月，为了压制微软，网景公司决定申请 Javascript 的国际标准；</p>
+<p>1997 年 6 月，第一个国际标准 ECMA-262 正式颁布。</p>
+<p>也就是说，Javascript 推出一年半之后，国际标准就问世了。</p>
+<p>设计缺陷还没有充分暴露就成了标准。</p>
+<p>相比之下，C 语言问世将近 20 年之后，国际标准才颁布。</p>
+<h2>二、Javascript 的 10 个设计缺陷</h2>
+<h3>1）不适合开发大型程序</h3>
+<p>Javascript 没有名称空间（namespace），很难模块化；</p>
+<p>没有如何将代码分布在多个文件的规范；</p>
+<p>允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</p>
+<h3>2）非常小的标准库</h3>
+<p>Javascript 提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</p>
+<h3>3）null 和 undefined</h3>
+<p><code>null</code> 属于对象（<code>object</code>）的一种，意思是该对象为空；</p>
+<p><code>undefined</code> 则是一种数据类型，表示未定义。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span>; <span class="hljs-comment">// object</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// undefined</span>
+</code></pre>
+<p>两者非常容易混淆，但是含义完全不同。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> foo;
+alert(foo == <span class="hljs-literal">null</span>); <span class="hljs-comment">// true</span>
+alert(foo == <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span>
+alert(foo === <span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
+alert(foo === <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<p>在编程实践中，<code>null</code> 几乎没用，根本不应该设计它。</p>
+<h3>4）全局变量难以控制</h3>
+<p>Javascript 的全局变量，在所有模块中都是可见的；</p>
+<p>任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</p>
+<pre><code class="hljs javascript">a = <span class="hljs-number">1</span>;
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  b=<span class="hljs-number">2</span>;
+  alert(a);
+})(); <span class="hljs-comment">// 1</span>
+
+alert(b); <span class="hljs-comment">//2</span>
+</code></pre>
+<h3>5）自动插入行尾分号</h3>
+<p>Javascript 的所有语句，都必须以分号结尾。</p>
+<p>但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。</p>
+<p>有时候，这会导致一些难以发现的错误。</p>
+<p>比如，下面这个函数根本无法达到预期的结果，返回值不是一个对象，而是 <code>undefined</code>。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">return</span>
+    {
+      i=<span class="hljs-number">1</span>
+    };
+}
+</code></pre>
+<p>原因是解释器自动在 <code>return</code> 语句后面加上了分号。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">return</span>;
+    {
+      i=<span class="hljs-number">1</span>
+    };
+}
+</code></pre>
+<h3>6）加号运算符</h3>
+<p><code>+</code> 号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。</p>
+<pre><code class="hljs javascript">alert(<span class="hljs-number">1</span>+<span class="hljs-number">10</span>); <span class="hljs-comment">// 11</span>
+alert(<span class="hljs-string">"1"</span>+<span class="hljs-string">"10"</span>); <span class="hljs-comment">// 110</span>
+</code></pre>
+<p>如果一个操作项是字符，另一个操作项是数字，则数字自动转化为字符。</p>
+<pre><code class="hljs javascript">alert(<span class="hljs-number">1</span>+<span class="hljs-string">"10"</span>); <span class="hljs-comment">// 110</span>
+alert(<span class="hljs-string">"10"</span>+<span class="hljs-number">1</span>); <span class="hljs-comment">// 101</span>
+</code></pre>
+<p>这样的设计，不必要地加剧了运算的复杂性，完全可以另行设置一个字符连接的运算符。</p>
+<h3>7）NaN</h3>
+<p><code>NaN</code> 是一种数字，表示超出了解释器的极限。</p>
+<p>它有一些很奇怪的特性：</p>
+<pre><code class="hljs javascript"><span class="hljs-literal">NaN</span> === <span class="hljs-literal">NaN</span>; <span class="hljs-comment">//false</span>
+<span class="hljs-literal">NaN</span> !== <span class="hljs-literal">NaN</span>; <span class="hljs-comment">//true</span>
+alert( <span class="hljs-number">1</span> + <span class="hljs-literal">NaN</span> ); <span class="hljs-comment">// NaN</span>
+</code></pre>
+<p>与其设计 <code>NaN</code>，不如解释器直接报错，反而有利于简化程序。</p>
+<h3>8）数组和对象的区分</h3>
+<p>由于 Javascript 的数组也属于对象（<code>object</code>），所以要区分一个对象到底是不是数组，相当麻烦。Douglas Crockford 的代码是这样的：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">if</span> ( arr &amp;&amp; 
+  <span class="hljs-keyword">typeof</span> arr === <span class="hljs-string">'object'</span> &amp;&amp;
+    <span class="hljs-keyword">typeof</span> arr.length === <span class="hljs-string">'number'</span> &amp;&amp;
+    !arr.propertyIsEnumerable(<span class="hljs-string">'length'</span>)){
+      alert(<span class="hljs-string">"arr is an array"</span>);
+}
+</code></pre>
+<h3>9）== 和 ===</h3>
+<p><code>==</code> 用来判断两个值是否相等。</p>
+<p>当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。</p>
+<pre><code class="hljs javascript"><span class="hljs-string">""</span> == <span class="hljs-string">"0"</span> <span class="hljs-comment">// false</span>
+<span class="hljs-number">0</span> == <span class="hljs-string">""</span> <span class="hljs-comment">// true</span>
+<span class="hljs-number">0</span> == <span class="hljs-string">"0"</span> <span class="hljs-comment">// true</span>
+<span class="hljs-literal">false</span> == <span class="hljs-string">"false"</span> <span class="hljs-comment">// false</span>
+<span class="hljs-literal">false</span> == <span class="hljs-string">"0"</span> <span class="hljs-comment">// true</span>
+<span class="hljs-literal">false</span> == <span class="hljs-literal">undefined</span> <span class="hljs-comment">// false</span>
+<span class="hljs-literal">false</span> == <span class="hljs-literal">null</span> <span class="hljs-comment">// false</span>
+<span class="hljs-literal">null</span> == <span class="hljs-literal">undefined</span> <span class="hljs-comment">// true</span>
+<span class="hljs-string">" \t\r\n"</span> == <span class="hljs-number">0</span> <span class="hljs-comment">// true</span>
+</code></pre>
+<p>因此，推荐任何时候都使用 <code>===</code>（精确判断）比较符。</p>
+<h3>10）基本类型的包装对象</h3>
+<p>Javascript 有三种基本数据类型：字符串、数字和布尔值。</p>
+<p>它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">false</span>);
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>(<span class="hljs-number">1234</span>);
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">"Hello World"</span>);
+</code></pre>
+<p>与基本数据类型对应的对象类型，作用很小，造成的混淆却很大。</p>
+<pre><code class="hljs javascript">alert( <span class="hljs-keyword">typeof</span> <span class="hljs-number">1234</span>); <span class="hljs-comment">// number</span>
+alert( <span class="hljs-keyword">typeof</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>(<span class="hljs-number">1234</span>)); <span class="hljs-comment">// object</span>
+</code></pre>
+<p>关于 Javascript 的更多怪异行为，请参见<a href="http://bonsaiden.github.com/JavaScript-Garden/zh/">Javascript Garden</a>和 <a href="http://wtfjs.com/">http://wtfjs.com/</a>。</p>
+<h2>三、如何看待 Javascript 的设计缺陷？</h2>
+<p>既然 Javascript 有缺陷，数量还不少，那么它是不是一种很糟糕的语言？有没有前途？</p>
+<p>回答是 Javascript 并不算糟糕，相反它的编程能力很强大，前途很光明。</p>
+<p>首先，如果遵守良好的编程规范，加上第三方函数库的帮助，Javascript 的这些缺陷大部分可以回避。</p>
+<p>其次，Javascript 目前是网页编程的唯一语言，只要互联网继续发展，它就必然一起发展。</p>
+<p>目前，许多新项目大大扩展了它的用途，<a href="http://nodejs.org/">node.js</a> 使得 Javascript 可以用于后端的服务器编程，<a href="http://jashkenas.github.com/coffee-script/">coffeeScript</a> 使你可以用 python 和 ruby 的语法，撰写 Javascript。</p>
+<p>最后，只要发布新版本的语言标准（比如 <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAscript 5</a>），就可以弥补这些设计缺陷。</p>
+<p>当然，标准的发布和标准的实现是两回事，上述的很多缺陷也许会一直伴随到 Javascript 存在的最后一天。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

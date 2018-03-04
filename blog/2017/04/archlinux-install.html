@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Arch Linux 安装使用配置 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Arch Linux 安装使用配置</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-04-16" itemprop="datePublished">日期：2017年04月16日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>Arch Linux(或称Arch)是一种以轻量简洁为设计理念的Linux发行版。其开发团队秉承简洁、优雅、正确和代码最小化的设计宗旨。Arch Linux 项目受 CRUX 启发，由 Judd Vinet 于2002年启动。</p>
+</blockquote>
+<p>Arch Linux下载地址</p>
+<ul>
+<li>官方下载地址 <a href="https://www.archlinux.org/download/">Arch Linux - Downloads</a></li>
+<li>阿里云镜像站 <a href="https://mirrors.aliyun.com/archlinux/">Index of /archlinux/</a></li>
+<li>中科大镜像站 <a href="http://mirrors.ustc.edu.cn/archlinux/">Index of /archlinux/</a></li>
+<li>网易云镜像站 <a href="http://mirrors.163.com/archlinux/">Index of /archlinux/</a></li>
+</ul>
+<p>各镜像站进入后选择ISO目录选择最新版本就可以了。</p>
+<p>官方安装wiki <a href="https://wiki.archlinux.org/index.php/Installation_guide">Installation guide - ArchWiki</a></p>
+<p>Arch Linux是官方wiki最完善强大的Linux发行版，其社区也相当活跃，非常适合喜欢一步步diy自己Linux系统的用户使用，这里只是简单介绍一下最基本的<strong>原生Arch Linux</strong>（有相当多的基于Arch的发行版，例如Manjaro Linux都是相当优秀的发行版）系统的<strong>传统</strong>安装过程的步骤。</p>
+<p>这里为了好操作，我使用了VirtualBox虚拟机来安装，推荐大家也先在虚拟机中使用操作一下再到实体机中使用。</p>
+<h1>在VirtualBox虚拟机中操作</h1>
+<h2>配置虚拟环境</h2>
+<p>打开VirtualBox软件，选择上方【新建】</p>
+<p><img src="/pics/2017/04/1601.png" alt=""></p>
+<p>输入虚拟机名称</p>
+<p><img src="/pics/2017/04/1602.png" alt=""></p>
+<p>分配内存，1-2GB就可以了</p>
+<p><img src="/pics/2017/04/1603.png" alt=""></p>
+<p>创建虚拟磁盘，选择【动态分配】还是【固定大小】</p>
+<p><img src="/pics/2017/04/1604.png" alt=""></p>
+<p><img src="/pics/2017/04/1605.png" alt=""></p>
+<p>然后设置好磁盘空间，这里我设置20G</p>
+<p><img src="/pics/2017/04/1606.png" alt=""></p>
+<p>然后创建成功后右键选择刚才创建的虚拟机选择设置</p>
+<p><img src="/pics/2017/04/1607.png" alt=""></p>
+<p>依次选择来挂载一个安装镜像，选择我们刚才下载的镜像</p>
+<p><img src="/pics/2017/04/1608.png" alt=""></p>
+<p>挂载完成后点击【启动】即可</p>
+<h1>配置安装环境</h1>
+<p>这里要在镜像Live中配置好安装前的环境，从这里开始的步骤在虚拟机实体机中通用</p>
+<p><img src="/pics/2017/04/1609.png" alt=""></p>
+<p>配置好镜像启动虚拟机出现这样的画面，选择第一项</p>
+<p>稍等一会就会进入到Live环境了，我们将在这个环境下安装好系统</p>
+<p>首先应该分区，先建立一个Swap交换分区，依次输入如下命令</p>
+<pre><code class="hljs"># fdisk /dev/sda  #选择操作的磁盘
+n               #新建分区
+p               #新建主分区
+Enter           #输入开始的扇区，默认2048，直接回车
+2000000         #输入终止的扇区，视情况选择，我这里输入2000000，约980MB
+</code></pre>
+<p>然后新建一个主分区，用于挂载根目录，同样是上面的步骤，输入n新建一个分区，然后一直回车即可。这里我只新建了两个分区，一个作交换分区一个挂载根目录，一般情况具体使用的话还会挂载/home,/boot等分区，这里不多加累述</p>
+<p><img src="/pics/2017/04/1612.png" alt=""></p>
+<p><img src="/pics/2017/04/1613.png" alt=""></p>
+<h1>开始安装</h1>
+<p>配置好分区之后开始安装系统</p>
+<p><strong>修改镜像源</strong></p>
+<p>因为Archlinux一直都是在线安装的，使用默认源可能会出现速度极慢或无法安装的问题，所以这里我把安装源修改为网易的镜像源</p>
+<p><a href="http://mirrors.163.com/.help/archlinux.html">Archlinux镜像使用帮助</a></p>
+<pre><code class="hljs"># nano /etc/pacman.d/mirrorlist
+</code></pre>
+<p>使用nano编辑器在/etc/pacman.d/mirrorlist文件最前面添加，后面的i686是32位系统的，如果你下载的是64位系统的就改成x86_64</p>
+<pre><code class="hljs"># Server = http://mirrors.163.com/archlinux/$repo/os/i686
+</code></pre>
+<p><img src="/pics/2017/04/1615.png" alt=""></p>
+<p>按Ctrl + o 保存</p>
+<p>Ctrl + x 退出</p>
+<p><strong>开始安装</strong></p>
+<pre><code class="hljs"># pacstrap /mnt base base-devel
+</code></pre>
+<p>然后耐心等待</p>
+<p><strong>生成fstab</strong></p>
+<pre><code class="hljs"># genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+<p>之后就可以跳转到新系统了，使用以下命令</p>
+<pre><code class="hljs"># arch-chroot /mnt
+</code></pre>
+<p>设置语言环境</p>
+<pre><code class="hljs"># nano /etc/locale.gen     #把en_US.UTF-8 UTf-8,zh_CN.GBK GBK,zh_CN.UTF-8 UTF-8,zh_CN GB2312前面的注释去掉
+# locale-gen             #更新语言环境
+</code></pre>
+<p>设置主机名和密码</p>
+<pre><code class="hljs"># nano /etc/hostname
+</code></pre>
+<p>设置root密码</p>
+<pre><code class="hljs"># passwd
+</code></pre>
+<p>安装引导器</p>
+<pre><code class="hljs"># pacman -S grub os-prober
+# grub-install --target=i386-pc /dev/mnt
+# grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<p>卸载分区并重启</p>
+<pre><code class="hljs"># exit
+# umount /mnt
+# shutdown now
+</code></pre>
+<p>关机之后，如果是虚拟机则把刚才挂载的镜像删除，如果是实体机则把安装介质移除</p>
+<p>然后开机就可以进入到新系统了</p>
+<p><img src="/pics/2017/04/1617.png" alt=""></p>
+<p>熟悉的grub2引导界面</p>
+<p><img src="/pics/2017/04/1618.png" alt=""></p>
+<p>输入root和密码。</p>
+<p><strong>上面的安装有个疏落，就是没有安装任何的网络管理工具，这有可能会导致我们初次进入系统是没有网络的</strong></p>
+<p><strong>如果是在虚拟机中，按照刚才的方式进入新系统后，是没有网络连接的这时候输入<code>dhcpcd</code>即可，然后执行<code>systemctl enable dhcpcd.service</code>可以加入开机自启即可。</strong></p>
+<h1>使用配置</h1>
+<h2>显卡驱动</h2>
+<pre><code class="hljs"># lspci | grep VGA    # 确定显卡型号
+# pacman -S &lt;驱动包&gt;
+#
+# # 官方仓库提供的驱动包：
+# # +----------------------+--------------------+--------------+
+# # |                      |        开源        |     私有     |
+# # +----------------------+--------------------+--------------+
+# # |         通用         |   xf86-video-vesa  |              |
+# # +----------------------+--------------------+--------------+
+# # |         Intel        |  xf86-video-intel  |              |
+# # +--------+-------------+--------------------+--------------+
+# # |        | GeForce 9+  |                    |    nvidia    |
+# # +        +-------------+                    +--------------+
+# # | nVidia | GeForce 8/9 | xf86-video-nouveau | nvidia-340xx |
+# # +        +-------------+                    +--------------+
+# # |        | GeForce 6/7 |                    | nvidia-304xx |
+# # +--------+-------------+--------------------+--------------+
+# # |        AMD/ATI       |   xf86-video-ati   |              |
+# # +----------------------+--------------------+--------------+
+
+</code></pre>
+<blockquote>
+<p>虚拟机安装Arch Linux的显卡驱动参考下面</p>
+</blockquote>
+<pre><code class="hljs">VirtualBox: community/virtualbox-guest-dkms
+
+VMWare: extra/xf86-video-vmware
+</code></pre>
+<p>安装中文字体</p>
+<pre><code class="hljs"># pacman -S adobe-source-han-sans-cn-fonts # 可选，思源黑体
+</code></pre>
+<h3>安装桌面环境</h3>
+<pre><code class="hljs"># pacman -S &lt;桌面环境&gt;
+</code></pre>
+<p>官方仓库提供的桌面环境有</p>
+<ul>
+<li><a href="http://cinnamon.linuxmint.com/">Cinnamon</a>: cinnamon</li>
+<li><a href="https://www.enlightenment.org/">Enlightenment</a>: enlightenment</li>
+<li><a href="http://www.gnome.org/">GNOME</a>: gnome gnome-extra</li>
+<li><a href="http://www.kde.org/">KDE</a>: plasma kde-applications kde-l10n-zh_cn</li>
+<li><a href="http://lxde.org/">LXDE</a>: lxde-gtk3</li>
+<li><a href="http://www.xfce.org/">Xfce</a>: xfce4 xfce4-goodies</li>
+<li><a href="https://wiki.archlinux.org/index.php/Desktop_Environment">其他桌面环境</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Window_Manager">窗口管理器</a></li>
+</ul>
+<p><strong>配置桌面启动环境</strong></p>
+<p>启动方式主要有两种：</p>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Startx">startx</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Display_Manager">显示管理器</a></li>
+</ul>
+<h3>安装中文输入法</h3>
+<p><strong>fcitx</strong>：</p>
+<pre><code class="hljs"># pacman -S fcitx-im fcitx-configtool
+</code></pre>
+<p>配置：</p>
+<pre><code class="hljs">export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=&quot;@im=fcitx&quot;
+</code></pre>
+<p>KDM、GDM、LightDM 等显示管理器的用户，向 <code>~/.xprofile</code>添加以上命令。</p>
+<p>startx 与 slim 的用户，向 <code>~/.xinitrc</code>，在 <code>exec</code> 语句前添加以上命令。</p>
+<p>在 GNOME 上使用 fcitx 须禁用 iBus：</p>
+<pre><code class="hljs">$ gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+</code></pre>
+<p>添加输入法：</p>
+<pre><code class="hljs">$ fcitx-configtool
+</code></pre>
+<p>安装其他输入法引擎：</p>
+<pre><code class="hljs"># pacman -S &lt;输入法引擎&gt;
+</code></pre>
+<p>官方仓库提供的 fcitx 输入法引擎：</p>
+<pre><code class="hljs">$ pacman -Ssq fcitx pinyin    # 拼音
+fcitx-cloudpinyin
+fcitx-googlepinyin
+fcitx-libpinyin
+fcitx-sunpinyin
+$ pacman -Ssq fcitx zhengma    # 五笔、郑码、仓颉
+fcitx-table-extra
+</code></pre>
+<p><strong><a href="https://wiki.archlinux.org/index.php/Ibus">iBus</a></strong></p>
+<p>待更新。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

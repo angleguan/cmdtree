@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     CORS跨域资源共享 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">CORS跨域资源共享</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-10-11" itemprop="datePublished">日期：2017年10月11日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>出于安全考虑，浏览器会阻止从脚本内发起的跨域HTTP请求，即使用<code>XMLHttpRequest</code>发起的HTTP请求（AJAX）只能发送到自己的域。CORS就是一个用来允许服务器进行跨域资源访问的一个W3C标准，全称“跨域资源共享”（Cross-origin resource sharing）。</p>
+<p>CORS需要客户端和服务器同时支持，目前所有的浏览器（客户端，低于IE10的不支持）都支持该机制。</p>
+<p>跨域资源共享通常用于以下场景：</p>
+<ul>
+<li>由<code>XMLHttpRequest</code>或<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a>发起的跨域HTTP请求。</li>
+<li>Web字体</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">WebGL</a></li>
+<li>CSS或者Script</li>
+</ul>
+<p>CORS跨域请求分为两类：简单请求和预检请求</p>
+<h2>简单请求</h2>
+<p>满足条件：</p>
+<ul>
+<li>使用GET、HEAD或POST方法</li>
+<li>若使用POST方法，<code>Content-Type</code>的值必须是下列之一
+<ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</li>
+<li>Fetch 规范定义了<a href="https://fetch.spec.whatwg.org/#cors-safelisted-request-header">对 CORS 安全的首部字段集合</a>不得人为设置该集合之外的其他首部字段。该集合为：
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept"><code>Accept</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept-Language"><code>Accept-Language</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Language"><code>Content-Language</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a> （需要注意额外的限制）</li>
+<li><code>DPR</code></li>
+<li><code>Downlink</code></li>
+<li><code>Save-Data</code></li>
+<li><code>Viewport-Width</code></li>
+<li><code>Width</code></li>
+</ul>
+</li>
+</ul>
+<p>原理：</p>
+<p>简单请求直接在头信息中添加<code>Origin</code>字段来处理跨域权限：</p>
+<p><img src="/pics/2017/10/simple_req.png" alt=""></p>
+<p>一个简单的跨域请求例子:</p>
+<pre><code class="hljs">GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre>
+<p>Origin字段指定了要请求的地址。即http://api.bob.com。</p>
+<p>下面是服务器的响应信息：</p>
+<pre><code class="hljs">HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 00:23:53 GMT
+Server: Apache/2.0.61 
+Access-Control-Allow-Origin: *
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: application/xml
+</code></pre>
+<p>返回头信息中的<code>Access-Control-Allow-Origin</code>指定了该资源可被哪些外域访问，<code>*</code>表示该资源可被任意外域访问，如果服务端仅允许来自 http://foo.example 的访问，该首部字段应该指定<code>http://foo.example</code>。</p>
+<p>若如此，该资源将不能被除<code>http://foo.example</code>之外的任何资源访问。</p>
+<h2>预检请求</h2>
+<p>预检请求在对服务器进行跨域访问之前，必须先使用<code>OPTIONS</code>方法发起一个预检请求到该服务器来确认该服务器是否允许跨域请求。</p>
+<p>满足下列<strong>任一</strong>请求时，则必须先发送预检请求：</p>
+<ul>
+<li>使用了下列任一方法：
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/PUT"><code>PUT</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/DELETE"><code>DELETE</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/CONNECT"><code>CONNECT</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/OPTIONS"><code>OPTIONS</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/TRACE"><code>TRACE</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/PATCH"><code>PATCH</code></a></li>
+</ul>
+</li>
+<li>设置了除<a href="https://fetch.spec.whatwg.org/#cors-safelisted-request-header">对 CORS 安全的首部字段集合</a>之外的其他首部字段（参见上述简单请求中的字段）</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a> 指定了不属于上述简单请求中规定的值。</li>
+</ul>
+<p>下面是一个预检请求的例子：</p>
+<pre><code class="hljs">var url = 'http://api.alice.com/cors';
+var xhr = new XMLHttpRequest();
+xhr.open('PUT', url, true);
+xhr.setRequestHeader('X-Custom-Header', 'value');
+xhr.setRequestHeader('Content-Type', 'application/xml');
+xhr.send();
+</code></pre>
+<p>上面的例子使用了PUT方法并使用了自定义头信息<code>X-Custom-Header</code>，而且请求的Content-Type为<code>application/xml</code>。因此，在发送该请求前会由浏览器先发送“预检请求”。</p>
+<p><img src="/pics/2017/10/prelight.png" alt=""></p>
+<p>下面是浏览器发送的预检请求：</p>
+<pre><code class="hljs">OPTIONS /cors HTTP/1.1
+Origin: http://api.bob.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: X-Custom-Header
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre>
+<p>预检请求使用的方法是<code>OPTIONS</code>，Origin字段指定了要请求的源。OPTIONS是HTTP/1.1协议中定义的方法，用以从服务器获取更多信息。预检请求还会携带下列两个字段：</p>
+<pre><code class="hljs">Access-Control-Request-Method: POST
+Access-Control-Request-Headers: X-PINGOTHER
+</code></pre>
+<h5>（1）Access-Control-Request-Method</h5>
+<p>该字段用于告知服务器该请求使用的何种方法，例如上述代码中华使用的POST方法</p>
+<h5>（2）Access-Control-Request-Headers</h5>
+<p>该字段用于告知服务器该请求所携带的额外的自定义请求字段，服务器来判断该请求是否被允许。</p>
+<p>下面是该请求的响应信息：</p>
+<pre><code class="hljs">HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Access-Control-Max-Age: 86400
+
+</code></pre>
+<h5>(1）Access-Control-Allow-Methods</h5>
+<p>该字段表明该服务器允许客户端使用的请求方法，如GET, POST, PUT。</p>
+<h5>（2）Access-Control-Allow-Headers</h5>
+<p>该字段表明了服务器允许请求中携带的额外字段</p>
+<h5>（3）Access-Control-Max-Age</h5>
+<p>该字段表明了此次响应的有效时间，例如86400，也就是一天。在有效时间内，浏览器无需为同一请求再次发送预检请求。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

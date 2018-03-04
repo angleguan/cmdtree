@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript数据结构与算法——数组操作 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript数据结构与算法——数组操作</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-10-19" itemprop="datePublished">日期：2017年10月19日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>数组是一种最基本的数据结构，对于其它语言，如C语言，一个数组的元素只能是同一种，js则不然，你可以在任一一个数组中加入任何类型的数据类型。</p>
+<h2>创建数组</h2>
+<p>在js中，数组（Array）是一种引用类型，你可以像下面这样创建一个Array实例：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> colors = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();
+<span class="hljs-keyword">var</span> colors = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">10</span>);     <span class="hljs-comment">// 传递数量（length）</span>
+<span class="hljs-keyword">var</span> colors = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-string">"red"</span>,<span class="hljs-string">"blue"</span>,<span class="hljs-string">"green"</span>);   <span class="hljs-comment">// 传递包含的项</span>
+
+<span class="hljs-comment">// 可以省略 new 操作符</span>
+<span class="hljs-keyword">var</span> colors = <span class="hljs-built_in">Array</span>();
+</code></pre>
+<p>当然，大部分情况下我们用的是下面这种字面量表示法：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> colors = [<span class="hljs-string">"red"</span>,<span class="hljs-string">"blue"</span>,<span class="hljs-string">"green"</span>];
+</code></pre>
+<h3>数组元素访问</h3>
+<p>可以这样访问一个数组的具体值</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> getValue = colors[<span class="hljs-number">0</span>];   <span class="hljs-comment">// red</span>
+colors[<span class="hljs-number">3</span>] = <span class="hljs-string">"yellow"</span>;   <span class="hljs-comment">// 给数组赋新值</span>
+colors[<span class="hljs-number">2</span>] = <span class="hljs-string">"black"</span> <span class="hljs-comment">// 修改数组第三个值为black</span>
+</code></pre>
+<p>方括号中的索引值表示要访问的值，如果要访问的索引超过了现有的项数，会自动增加索引，如上述第二行就会增加索引为“3”的yellow字符串（最大索引是3，数组长度即为4）。</p>
+<p>可以用<code>length</code>方法得到数组的长度</p>
+<pre><code class="hljs js">alert(colors.length);   <span class="hljs-comment">// 4</span>
+</code></pre>
+<p>可以通过循环输出一个数组的所有值：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &amp;lt; colors.length; i++) {
+  <span class="hljs-built_in">console</span>.log(colors[i]);
+}
+</code></pre>
+<p>访问一个不存在的索引会返回<code>undefined</code></p>
+<h2>操作数组</h2>
+<h3>添加或删除数组</h3>
+<p>我们有一个数组 numbers ，初始化成0到9：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];
+</code></pre>
+<p>如果想给这个数组加上一个值（如10），直接给数组最后一个空位的元素赋值</p>
+<pre><code class="hljs js">numbers[numbers.length] = <span class="hljs-number">10</span>;
+</code></pre>
+<h4>栈方法</h4>
+<p>ECMAScript提供了一种类似栈操作的方法：<code>push()</code>方法和<code>pop()</code>方法</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> colors = [<span class="hljs-string">"red"</span>,<span class="hljs-string">"blue"</span>,<span class="hljs-string">"green"</span>,<span class="hljs-string">"yellow"</span>];   <span class="hljs-comment">// 创建一个数组</span>
+colors.push(<span class="hljs-string">"black"</span>);   <span class="hljs-comment">// 推入一个值，多个值用，隔开</span>
+alert(colors[<span class="hljs-number">4</span>])    <span class="hljs-comment">// black</span>
+</code></pre>
+<pre><code class="hljs js">colors.pop();   <span class="hljs-comment">// 移除最后一项同时减少length值</span>
+alert(colors.length);   <span class="hljs-comment">// 4</span>
+</code></pre>
+<h4>队列方法</h4>
+<p>队列方法与栈方法相反，提供了<code>shift()</code>方法和<code>unshift()</code>方法，同样是上面的数组。</p>
+<pre><code class="hljs js">alert(colors[<span class="hljs-number">0</span>]);   <span class="hljs-comment">// red</span>
+
+colors.shift();     <span class="hljs-comment">// 移除数组第一项</span>
+alert(colors[<span class="hljs-number">0</span>]);   <span class="hljs-comment">// blue</span>
+</code></pre>
+<pre><code class="hljs js">colors.unshift(<span class="hljs-string">"red"</span>);  <span class="hljs-comment">// 向数组前端添加任意值，用，隔开</span>
+alert(colors[<span class="hljs-number">0</span>]);   <span class="hljs-comment">// red</span>
+</code></pre>
+<h3>数组转换</h3>
+<p>还是上面的数组，调用<code>toString()</code>方法会返回数值中每个值用逗号分隔的拼接起来的字符串</p>
+<pre><code class="hljs js">alert(colors.toString());   <span class="hljs-comment">// red,blue,green,yellow</span>
+</code></pre>
+<p>但是这样或许还不能满足我们的需求，如果想自定义分隔符，可以调用<code>join()</code>方法，<code>join()</code>方法接受一个参数，作为拼接字符串时的分隔符</p>
+<pre><code class="hljs js">alert(colors.join(<span class="hljs-string">"|"</span>));    <span class="hljs-comment">// red|blue|green|yellow</span>
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

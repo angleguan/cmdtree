@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Uncss去除未使用的CSS样式 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Uncss去除未使用的CSS样式</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-27" itemprop="datePublished">日期：2017年12月27日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p><a href="https://github.com/giakki/uncss">Uncss</a>是一个可以去除在HTML页面中没有使用过的CSS样式的工具。</p>
+<h2>使用方法</h2>
+<h3>安装使用</h3>
+<p>你可以使用NPM安装uncss来在本地中使用：</p>
+<pre><code class="hljs">npm install -g uncss
+</code></pre>
+<p>最简单的一个例子就是使用<code>uncss</code>命令：</p>
+<pre><code class="hljs">uncss [options] &lt;file or URL, ...&gt;
+</code></pre>
+<p>例如</p>
+<pre><code class="hljs">uncss https://fanzhiyang.com &gt; style.css
+</code></pre>
+<p>这个命令会把我博客主页中所有引用的CSS都进行一次过滤，然后生成仅使用到的样式的CSS文件。</p>
+<p>还可以添加的参数有：</p>
+<pre><code class="hljs">-V, --version                       output the version number
+-i, --ignore &lt;selector, ...&gt;        Do not remove given selectors
+-m, --media &lt;media_query, ...&gt;      Process additional media queries
+-C, --csspath &lt;path&gt;                Relative path where the CSS files are located
+-s, --stylesheets &lt;file, ...&gt;       Specify additional stylesheets to process
+-S, --ignoreSheets &lt;selector, ...&gt;  Do not include specified stylesheets
+-r, --raw &lt;string&gt;                  Pass in a raw string of CSS
+-t, --timeout &lt;milliseconds&gt;        Wait for JS evaluation
+-H, --htmlroot &lt;folder&gt;             Absolute paths' root location
+-u, --uncssrc &lt;file&gt;                Load these options from &lt;file&gt;
+-n, --noBanner                      Disable banner
+-a, --userAgent &lt;string&gt;            Use a custom useragent string
+-h, --help                          output usage information
+</code></pre>
+<h3>在项目中使用</h3>
+<p>你可以在Node.js项目中使用uncss，例如在Gulp中使用，你需要安装<code>gulp-uncss</code>插件，然后编辑<code>gulpfile.js</code>文件</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp'</span>),
+      uncss = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-uncss'</span>);
+gulp.task(<span class="hljs-string">'default'</span>, () =&gt; {
+  gulp.src(<span class="hljs-string">'oldstyle.css'</span>)
+    .pipe(uncss({
+      <span class="hljs-attr">html</span>: [<span class="hljs-string">'index.html'</span>, <span class="hljs-string">'posts/**/*.html'</span>, <span class="hljs-string">'http://example.com'</span>]
+    }))
+    .pipe(gulp.dest(<span class="hljs-string">'output/'</span>));
+});
+</code></pre>
+<p>然后执行<code>gulp</code>命令即可。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

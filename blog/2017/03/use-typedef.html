@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     typedef的几种用法 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">typedef的几种用法</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-18" itemprop="datePublished">日期：2017年03月18日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h1>用途一：</h1>
+<p>定义一种类型的别名，而不只是简单的宏替换。可以用作同时声明指针型的多个对象。比如：</p>
+<pre><code class="hljs">#include &lt;stdio.h&gt;
+
+int main()
+{
+    char *pa, pb;                        //声明指针类型pa,和字符类型pb
+    typedef char *PS;                    //定义指向字符的指针类型，设置类型名为PS
+    PS psa, psb;                        //同时声明指针类型psa,psb
+
+    printf(&quot;pa=%ld\n&quot;, sizeof(pa));        // 8
+    printf(&quot;pb=%ld\n&quot;, sizeof(pb));        // 1
+
+    printf(&quot;psa=%ld\n&quot;, sizeof(psa));    // 8
+    printf(&quot;psb=%ld\n&quot;, sizeof(psb));    // 8
+    return 0;
+}
+</code></pre>
+<h1>用途二:</h1>
+<p>简化结构体变量的声明，在《嗨翻C语言》第五章的结构体&amp;联合&amp;位字段,如：</p>
+<pre><code class="hljs">//此声明声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c
+//同时又声明了结构体变量s1
+//这个结构体并没有标明其标签
+struct 
+{
+    int a;
+    char b;
+    double c;
+} s1;
+
+//此声明声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c
+//结构体的标签被命名为SIMPLE,没有声明变量
+struct SIMPLE
+{
+    int a;
+    char b;
+    double c;
+};
+//用SIMPLE标签的结构体，另外声明了变量t1、t2、t3
+struct SIMPLE t1, t2[20], *t3;
+
+//也可以用typedef创建新类型
+typedef struct
+{
+    int a;
+    char b;
+    double c; 
+} Simple2;
+//现在可以用Simple2作为类型声明新的结构体变量
+Simple2 u1, u2[20], *u3;
+</code></pre>
+<h1>用途三：</h1>
+<p><strong>用typedef来定义与平台无关的类型。</strong></p>
+<p>比如定义一个叫 REAL 的浮点类型，在目标平台一上，让它表示最高精度的类型为：</p>
+<pre><code class="hljs">typedef long double REAL;
+</code></pre>
+<p>在不支持 long double 的平台二上，改为：</p>
+<pre><code class="hljs">typedef double REAL;
+</code></pre>
+<p>在连 double 都不支持的平台三上，改为：</p>
+<pre><code class="hljs">typedef float REAL;
+</code></pre>
+<p>也就是说，当跨平台时，只要改下 <strong>typedef</strong> 本身就行，不用对其他源码做任何修改。</p>
+<p>标准库就广泛使用了这个技巧，比如size_t。另外，因为typedef是定义了一种类型的新别名，不是简单的字符串替换，所以它比宏来得稳健。</p>
+<h1>用途四：</h1>
+<p><strong>为复杂的声明定义一个新的简单的别名</strong></p>
+<p>方法是：在原来的声明里逐步用别名替换一部分复杂声明，如此循环，把带变量名的部分留到最后替换，得到的就是原声明的最简化版。举例：</p>
+<p>原声明：void (b[10]) (void ()());
+变量名为b，先替换右边部分括号里的，pFunParam为别名一：</p>
+<pre><code class="hljs">typedef void (*pFunParam)();
+</code></pre>
+<p>再替换左边的变量b，pFunx为别名二：</p>
+<pre><code class="hljs">typedef void (*pFunx)(pFunParam);
+</code></pre>
+<p>原声明的最简化版：</p>
+<pre><code class="hljs">pFunx b[10];
+</code></pre>
+<p>举例2：</p>
+<pre><code class="hljs">原声明：doube(*)() (*e)[9];
+</code></pre>
+<p>变量名为e，先替换左边部分，pFuny为别名一：</p>
+<pre><code class="hljs">typedef double(*pFuny)();
+</code></pre>
+<p>再替换右边的变量e，pFunParamy为别名二</p>
+<pre><code class="hljs">typedef pFuny (*pFunParamy)[9];
+</code></pre>
+<p>原声明的最简化版：</p>
+<pre><code class="hljs">pFunParamy e;
+</code></pre>
+<p>理解复杂声明可用的“右左法则”：从变量名看起，先往右，再往左，碰到一个圆括号就调转阅读的方向；括号内分析完就跳出括号，还是按先右后左的顺序，如此循环，直到整个声明分析完。举例：</p>
+<pre><code class="hljs">int (*func)(int *p);
+</code></pre>
+<p>首先找到变量名func，外面有一对圆括号，而且左边是一个<code>*</code>号，这说明func是一个指针；然后跳出这个圆括号，先看右边，又遇到圆括号，这说明<code>(*func)</code>是一个函数，所以func是一个指向这类函数的指针，即函数指针，这类函数具有<code>int*</code>类型的形参，返回值类型是int。</p>
+<pre><code class="hljs">int (*func[5])(int *);
+</code></pre>
+<p>func右边是一个[]运算符，说明func是具有5个元素的数组；func的左边有一个<code>*</code>，说明func的元素是指针（注意这里的<code>*</code>不是修饰func，而是修饰func[5]的，原因是[]运算符优先级比<code>*</code>高，func先跟[]结合）。跳出这个括号，看右边，又遇到圆括号，说明func数组的元素是函数类型的指针，它指向的函数具有<code>int*</code>类型的形参，返回值类型为int。</p>
+<p>参考：<a href="http://www.cnblogs.com/csyisong/archive/2009/01/09/1372363.html">关于typedef的用法总结</a></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

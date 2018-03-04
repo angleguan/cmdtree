@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     CSS框架——bulma - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">CSS框架——bulma</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-21" itemprop="datePublished">日期：2017年12月21日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>又是闲得无聊，把博客重新写了一遍，刚开始使用的bootstrap框架，也是做出了现在这个样子，但是感觉不怎么好看，所以又找了找其它框架，然后就找到了这个——<a href="https://bulma.io/">Bulma</a>，看了看还不错，就用它把主题重新写了一遍，下面说说我是如何使用这个框架的：</p>
+<h2>布局</h2>
+<p>首先应该先把网站的整体结构先布置好，像我这个博客的话，就会需要一个顶部<code>nav</code>、底部的<code>footer</code>、中间的部分根据情况是单栏还是双栏则需要加个<code>sidebar</code>。</p>
+<p><img src="/pics/2017/12/2201.png" alt=""></p>
+<p>我这里先以单栏为例，则得到的HTML结构是这样的：</p>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Hello Bulma!<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- nav --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- content --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- footer --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h3>navbar</h3>
+<p>绝大多数的网站都需要一个顶栏，<code>navbar</code>就是bulma的一个组件，一个navbar分为两部分，<code>navbar-brand</code>和<code>navbar-menu</code>，navbar-brand为整个网站的Title或者LOGO。</p>
+<p><img src="/pics/2017/12/2202.png" alt=""></p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"main navigation"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-brand"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- navbar items, navbar burger... --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-menu"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- navbar start, navbar end --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+</code></pre>
+<p>navbar-menu在移动端中会隐藏起来，可以通过一个按钮来点击显示，这就需要在navbar-brand中添加一个button</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button navbar-burger"</span> <span class="hljs-attr">data-target</span>=<span class="hljs-string">"navMenu"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p>因为bulma不包含js代码，所以这段代码需要自己来写了，官网也给了一个例子，其实很简单，如果使用了JQuery的话：</p>
+<pre><code class="hljs js">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  $(<span class="hljs-string">".navbar-burger"</span>).click(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    $(<span class="hljs-string">".navbar-menu"</span>).toggle();
+  })
+})
+</code></pre>
+<p>navbar-menu分为<code>navbar-start</code>和<code>navbar-end</code>其中一个居左一个居右</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-menu"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-start"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- navbar items --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-end"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- navbar items --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>而navbar上面的项目只需要添加一个样式<code>navbar-item</code>类即可。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-start"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-item"</span>&gt;</span>
+    Home
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>navbar默认白色，可以更换颜色，具体可以使用的样式有<code>is-primary</code>、<code>is-link</code>、<code>is-info</code>、<code>is-success</code>、<code>is-warning</code>、<code>is-danger</code>、<code>is-black</code>、<code>is-dark</code>、<code>is-light</code>、<code>is-white</code></p>
+<p>效果如图所示：</p>
+<p><img src="/pics/2017/12/2203.png" alt=""></p>
+<p>关于<code>navbar</code>的更多内容可以查看<a href="https://bulma.io/documentation/components/navbar/">Navbar | Bulma: a modern CSS framework based on Flexbox</a>。</p>
+<h3>section</h3>
+<p>bulma使用<code>section</code>来区分不同的模块，即在nav和footer中间的内容应该为一个section或者多个section，而且使用<code>.section</code>样式。</p>
+<h3>container</h3>
+<p>在bulma中，无论在<code>navbar</code>、<code>section</code>、<code>footer</code>中，都需要立即放一个class为<code>container</code>的div，来让内容居中显示。</p>
+<h3>content</h3>
+<p>这个class类至关重要，因为在bulma中，除了在这个类之外的所有文本都是一样的大小，所以在文章主体中必须添加这个类，当然很简单的方法就是像我这样在section中直接加上这个类就好了。</p>
+<h3>footer</h3>
+<p>footer作为页面的页脚，添加一个class为<code>footer</code>的footer标签即可，<code>footer</code>类的样式为</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.footer</span> {
+    <span class="hljs-attribute">background-color</span>: whitesmoke;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">3rem</span> <span class="hljs-number">1.5rem</span> <span class="hljs-number">6rem</span>;
+}
+</code></pre>
+<p>比较大。</p>
+<p>关于更多布局的方法可以参考我博客的样式和<a href="https://bulma.io">bulma</a>官网的样式。</p>
+<h2>响应式</h2>
+<p>Bulma 的网格体系基于 Flex 布局。需要使用<code>columns</code>来指定容器，使用<code>column</code>指定项目。</p>
+<p>bulma和bootstrap一样，都支持12网格体系，你可以像这样来表示</p>
+<ul>
+<li>is-2</li>
+<li>is-3</li>
+<li>is-4</li>
+<li>is-5</li>
+<li>is-6</li>
+<li>is-7</li>
+<li>is-8</li>
+<li>is-9</li>
+<li>is-10</li>
+<li>is-11</li>
+</ul>
+<p>或者你可以像我一样使用分数表示：</p>
+<ul>
+<li>四分之三：is-three-quarters</li>
+<li>四分之一： is-one-quarter</li>
+<li>三分之二：is-two-thirds</li>
+<li>三分之一：is-one-third</li>
+<li>二分之一：is-half</li>
+<li>五分之四：is-four-fifths</li>
+<li>五分之三：is-three-fifths</li>
+<li>五分之二：is-two-fifths</li>
+<li>五分之一：is-one-fifth</li>
+</ul>
+<p>具体使用实例：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"columns"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column is-two-thirds"</span>&gt;</span>content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column is-one-third"</span>&gt;</span>sidebar<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>例如在我的主页中，左侧的文章列表使用了<code>is-two-thirds</code>，右边的sidebar使用了<code>is-one-third</code>，这与使用<code>is-9</code>、<code>is-3</code>的效果是一样的，也等同于bootstrap中的<code>col-md-9</code>和<code>col-md-3</code>。</p>
+<p><img src="/pics/2017/12/2204.png" alt=""></p>
+<h2>自定义</h2>
+<p>因为下载的bulma压缩包里带有sass源文件，而Jekyll默认就支持编译SASS，所以我直接引用的源码包里的sass文件，再把一些没用到的组件注释掉，省了差不多一半的大小。</p>
+<p>使用Node构建项目时参考<a href="https://bulma.io/documentation/overview/customize/">Customize Bulma Bulma: a modern CSS framework based on Flexbox</a></p>
+<h2>参考&amp;&amp;推荐浏览</h2>
+<ul>
+<li>
+<p><a href="https://bulma.io/documentation/overview/start/">Get started with Bulma Bulma: a modern CSS framework based on Flexbox</a></p>
+</li>
+<li>
+<p><a href="http://www.ruanyifeng.com/blog/2017/10/bulma.html#%E7%BD%91%E6%A0%BC%E4%BD%93%E7%B3%BB">CSS 框架 Bulma 教程 - 阮一峰的网络日志</a></p>
+</li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

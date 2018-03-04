@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     树莓派新手入门教程 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">树莓派新手入门教程</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-06-15" itemprop="datePublished">日期：2017年06月15日</time></p>
+      <span class="post-category">分类：Unix/Linux</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>树莓派（Raspberry Pi）是学习计算机知识、架设服务器的好工具，价格低廉，可玩性高。
+<img src="/pics/2017/06/bg2017061501.png" alt=""></p>
+<p>本文根据我的亲身经验，介绍如何从零开始，搭建一个树莓派服务器，控制 LED 灯。你会看到，树莓派玩起来实在很容易。</p>
+<h1>一、型号</h1>
+<p>树莓派是一个迷你电脑，集成在一块电路板。目前，最新的型号有两个。</p>
+<p>（1）Raspberry Pi 3代 B 型</p>
+<p><img src="/pics/2017/06/bg2017061502.jpg" alt=""></p>
+<p>（2）Raspberry Pi zero （含 zero w）</p>
+<p><img src="/pics/2017/06/bg2017061503.jpg" alt=""></p>
+<p>虽然后者便宜，但是少了许多接口（比如只有一个 USB 口），CPU 和内存都比较低，配件也少，因此推荐购买第3代的 B 型。以下都针对这个型号，但大部分内容对 zero 也适用。</p>
+<h1>二、配件</h1>
+<p>树莓派本身只是一个主机。要运行起来，必须有配件。</p>
+<p>（1）电源</p>
+<p>Micro USB 接口的手机充电器，就可以充当电源，但输出必须是 5V 电压、至少 2A 电流。充电宝当电源也没问题。</p>
+<p><img src="/pics/2017/06/bg2017061504.jpg" alt=""></p>
+<p>（2）Micro SD 卡</p>
+<p>树莓派不带硬盘，Micro SD 卡就是硬盘。最小容量8G，推荐使用16G和32G的卡。</p>
+<p><img src="/pics/2017/06/bg2017061506.jpg" alt=""></p>
+<p>（3）显示器</p>
+<p>树莓派有 HDMI 输出，显示器必须有该接口。如果有 HDMI 转 VGA 的转接线，那么 VGA 显示器也可以。我用的是一个 7 寸的液晶监视器。</p>
+<p><img src="/pics/2017/06/bg2017061507.jpg" alt=""></p>
+<p>不过，显示器只在安装系统时需要，后面可以 SSH 登录，就不需要了。</p>
+<p>（4）无线键鼠</p>
+<p>树莓派内置蓝牙，USB 或蓝牙的无线键鼠都可以用。</p>
+<p><img src="/pics/2017/06/bg2017061508.jpg" alt=""></p>
+<p>就像显示器一样，如果树莓派已经装好系统，而且只当作服务器，无线键鼠也可以不配。</p>
+<h1>三、电子元件</h1>
+<p>除了配件，下面的实验还需要一些电子元件。</p>
+<p>（1）面包板（一块）</p>
+<p><img src="/pics/2017/06/bg2017061509.jpg" alt=""></p>
+<p>（2）连接线（若干）</p>
+<p>注意，连接线必须一端是公头，一端是母头。</p>
+<p><img src="/pics/2017/06/bg2017061510.jpg" alt=""></p>
+<p><img src="/pics/2017/06/bg2017061511.jpg" alt=""></p>
+<p>另外，最好也备一些两端都是公头的连接线。</p>
+<p><img src="/pics/2017/06/bg2017061512.gif" alt=""></p>
+<p>（3）LED 二极管（若干）</p>
+<p><img src="/pics/2017/06/bg2017061512.jpg" alt=""></p>
+<p>（4）270欧姆的电阻（若干）</p>
+<p><img src="/pics/2017/06/bg2017061513.jpg" alt=""></p>
+<h1>四、安装系统</h1>
+<p>如果商家已经装好系统，可以跳过这一步，否则需要自己安装操作系统。</p>
+<p>官方提供的操作系统是 Raspbian，这是 Debian 系统的定制版。</p>
+<p><img src="/pics/2017/06/bg2017061514.png" alt=""></p>
+<p>官方还提供一个安装器 NOOBS，建议通过它来安装 Raspbian，相对简单一点。</p>
+<p><img src="/pics/2017/06/bg2017061515.png" alt=""></p>
+<ul>
+<li><a href="https://www.raspberrypi.org/downloads/noobs/">下载 NOOBS。</a></li>
+<li>格式化 Micro SD 卡为 FAT 格式（<a href="https://www.raspberrypi.org/documentation/installation/noobs.md">操作指导</a>）。</li>
+<li>解压NOOBS.zip到 Micro SD 卡根目录。</li>
+<li>插入 Micro SD 卡到树莓派底部的卡槽，接通电源，启动系统。</li>
+<li>正常情况下，按照屏幕上的提示，一路回车，就能装好系统。</li>
+</ul>
+<p><img src="/pics/2017/06/bg2017061516.png" alt=""></p>
+<h1>五、SSH 登录</h1>
+<p>安装系统后，树莓派就可以上网了（Wifi 或者网线）。这时，你要看一下它的局域网 IP 地址，可以使用下面的命令。</p>
+<pre><code class="hljs zsh">$ sudo ifconfig
+</code></pre>
+<p>然后，从另一台电脑 SSH 登录树莓派。下面的命令是在局域网的另一台电脑上执行的。</p>
+<pre><code class="hljs zsh">$ ssh pi@192.168.1.5
+</code></pre>
+<p>上面代码中，192.168.1.5是我的树莓派的地址，你要换成你的地址。树莓派的默认用户是pi。</p>
+<p>树莓派会提示你输入密码。pi的默认密码是raspberry。正常情况下，这样就可以登录树莓派了。接着，就可以进行各种服务器操作了，比如修改密码。</p>
+<pre><code class="hljs zsh">$ passwd
+</code></pre>
+<p>后面的实验需要将用户加入gpio用户组。</p>
+<pre><code class="hljs zsh">$ sudo adduser pi gpio
+</code></pre>
+<p>上面的代码表示将用户pi加入gpio用户组。</p>
+<h1>六、安装 Node</h1>
+<p>为了运行 Node 脚本，树莓派必须安装 Node，可以参考这篇文章。</p>
+<pre><code class="hljs zsh">$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+$ sudo apt install nodejs
+</code></pre>
+<p>正常情况下，Node 8.x 版就已经安装成功了。</p>
+<pre><code class="hljs zsh">$ node -v
+v8.1.0
+</code></pre>
+<h1>七、点亮 LED</h1>
+<p>树莓派提供了一组对外的 IO 接口，称为 GPIO（ 通用 IO 接口，General-purpose input/output）。
+<img src="/pics/2017/06/bg2017061518.png" alt=""></p>
+<p>它的 40 个脚的定义如下图。</p>
+<p><img src="/pics/2017/06/bg2017061519.png" alt=""></p>
+<p>注意，左上角的第1针（3.3V）是一个方块，其他针脚都是圆的。将树莓派翻过来，背后可以看到 GPIO 有一个角是方的，通过这种方法就可以确认哪一个针眼是3.3V。</p>
+<p><img src="/pics/2017/06/bg2017061516.jpg" alt=""></p>
+<p>通过 GPIO ，树莓派可以与其他电子元件连接。下面根据 Jonathan Perkin 的文章，使用树莓派连接 LED 二极管。</p>
+<p>这里需要用到面包板。本质上，面包板就是几根导线，上面开了许多可以连到导线的孔。</p>
+<p><img src="/pics/2017/06/bg2017061519.jpg" alt=""></p>
+<p>+极和-极是两根垂直的导线，标着1、5、10这些数字的行，每一行都是一根水平的导线。导线与导线之间互不连接，另外，面包板的左右两半也是互不连接的。</p>
+<p>然后，按照下面的图，将树莓派、面包板、LED 灯、电阻连起来。</p>
+<p><img src="/pics/2017/06/bg2017061520.jpg" alt=""></p>
+<p>上图中，红色导线表示电流的正极，从 GPIO 的第1针（3.3V）连到面包板。黑色导线表示电流的负极，从 GPIO 第三排的第6针（ground）连到面包板。它们连到面包板的哪个眼并不重要，但必须保证能组成一个完整的电路（上图的箭头流向）。注意，LED 二极管也有正负极，长脚表示正极，短脚表示负极。电阻没有正负极。</p>
+<p>连接完成后，打开树莓派的电源，LED 应该就会亮起来了。</p>
+<h1>八、LED 控制脚本</h1>
+<p>下面，我们使用 Node 脚本控制 LED。</p>
+<p>首先，将正极的导线从1号针脚（3.3V）拔出，插到第6排的11号针脚（上图的 GPIO 17）。这个针脚的电流是脚本可以控制的。</p>
+<p>然后，在树莓派上新建一个实验目录，并安装控制 GPIO 的 Node 模块rpio。。</p>
+<pre><code class="hljs zsh">$ mkdir led-demo &amp;&amp; <span class="hljs-built_in">cd</span> led-demo
+$ npm init -y
+$ npm install -S rpio
+</code></pre>
+<p>接着，新建一个脚本led-on.js。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// led-on.js</span>
+<span class="hljs-keyword">var</span> rpio = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rpio'</span>);
+
+<span class="hljs-comment">// 打开 11 号针脚（GPIO17) 作为输出</span>
+rpio.open(<span class="hljs-number">11</span>, rpio.OUTPUT);
+
+<span class="hljs-comment">// 指定 11 号针脚输出电流（HIGH）</span>
+rpio.write(<span class="hljs-number">11</span>, rpio.HIGH);
+</code></pre>
+<p>运行这个脚本，应该就会看到 LED 灯泡变亮了。</p>
+<pre><code class="hljs zsh">$ node led-on.js
+</code></pre>
+<p>再新建一个led-off.js脚本，只要改一行（完整代码看这里）。</p>
+<pre><code class="hljs js"><span class="hljs-comment">// led-off.js</span>
+<span class="hljs-comment">//...</span>
+
+<span class="hljs-comment">// 指定 11 号针脚停止输出电流（LOW）</span>
+rpio.write(<span class="hljs-number">11</span>, rpio.LOW);
+</code></pre>
+<p>运行这个脚本，LED 灯泡应该就会熄灭了。</p>
+<pre><code class="hljs zsh">$ node led-off.js
+</code></pre>
+<p>有了这两个脚本，让 LED 闪烁就轻而易举了。新建一个led-blink.js脚本。</p>
+<pre><code class="hljs js"><span class="hljs-comment">// led-blink.js</span>
+<span class="hljs-keyword">var</span> rpio = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rpio'</span>);
+rpio.open(<span class="hljs-number">11</span>, rpio.OUTPUT);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">blink</span>(<span class="hljs-params"></span>) </span>{
+  rpio.write(<span class="hljs-number">11</span>, rpio.HIGH);
+  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ledoff</span>(<span class="hljs-params"></span>) </span>{
+    rpio.write(<span class="hljs-number">11</span>, rpio.LOW);
+  }, <span class="hljs-number">50</span>);
+}
+
+setInterval(blink, <span class="hljs-number">100</span>);
+
+</code></pre>
+<p>上面的脚本让 LED 每秒闪烁10次。</p>
+<pre><code class="hljs zsh">$ node led-blink.js
+</code></pre>
+<h1>九、HTTP 服务器</h1>
+<p>通过控制 LED 可以做很多事，比如架设一个 HTTP 服务器，每当有人访问，LED 就闪烁一下。</p>
+<p>首先，在刚才的目录里面装一个服务器模块。</p>
+<pre><code class="hljs zsh">$ npm install -S server
+</code></pre>
+<p>然后，新建一个脚本server.js（完整代码看这里）。</p>
+<pre><code class="hljs js"><span class="hljs-comment">// server.js</span>
+<span class="hljs-keyword">var</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">'server'</span>);
+<span class="hljs-keyword">var</span> { get } = server.router;
+
+<span class="hljs-comment">// ...</span>
+
+server({ <span class="hljs-attr">port</span>: <span class="hljs-number">8080</span> }, [
+  get(<span class="hljs-string">'/'</span> ,  ctx =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'a request is coming...'</span>);
+    blink();
+  }),
+]);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'server starts on 8080 port'</span>);
+</code></pre>
+<p>运行这个脚本。</p>
+<pre><code class="hljs zsh">$ node server.js
+</code></pre>
+<p>然后，再打开一个命令行终端，访问8080端口，LED 就会闪一下。</p>
+<pre><code class="hljs zsh">$ curl http://www.fanzhiyang.com:8080
+</code></pre>
+<p>好了，今天的教程就到这里。接下来，你可以自己探索，做更多的尝试，比如写一个测试用例脚本，只要测试失败 LED 就会长亮，或者组装一个8位的加法器。</p>
+<p>（正文完）</p>
+<blockquote>
+<p>原文链接:http://www.ruanyifeng.com/blog/2017/06/raspberry-pi-tutorial.html 作者:阮一峰</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

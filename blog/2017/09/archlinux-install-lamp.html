@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     在Arch Linux 中搭建LAMP环境 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">在Arch Linux 中搭建LAMP环境</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-09-02" itemprop="datePublished">日期：2017年09月02日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>简单的概括一下在Arch Linux中如何搭建LAMP环境。</p>
+<h2>安装 Apache</h2>
+<p>安装Apache有两种方式：</p>
+<p>一是<strong>编译安装</strong>，在官网下载Apache httpd 压缩包，然后解压，编译安装。<a href="https://httpd.apache.org/download">Download - The Apache HTTP Server Project</a></p>
+<p>这种安装方法适用于各类发行版。</p>
+<pre><code class="hljs">## 编译安装三部曲
+
+$ ./configure
+$ make
+$ make install
+</code></pre>
+<p>另外一种方法就是直接使用<code>pacman</code>包管理器安装了，简单方便，我是使用这种方法安装的。Arch Linux wiki也是介绍的这种方法。<a href="https://wiki.archlinux.org/index.php/Apache_HTTP_Server#Installation">Apache HTTP Server - ArchWiki</a></p>
+<pre><code class="hljs"># pacman -S apache 
+</code></pre>
+<h3>启动 Apache</h3>
+<pre><code class="hljs"># systemctl start httpd
+</code></pre>
+<p>然后访问<code>http://127.0.0.1</code>即可看到一个文件浏览的页面了</p>
+<p><img src="/pics/2017/09/Screenshot_20170902_165037.png" alt=""></p>
+<p>使用这个命令可以查看当前<code>httpd</code>的状态以及排错。</p>
+<pre><code class="hljs"># systemctl status httpd
+</code></pre>
+<p>使用这个命令将<code>httpd</code>加入开机自动启动</p>
+<pre><code class="hljs"># systemctl enable httpd
+</code></pre>
+<h2>安装 PHP</h2>
+<p>同样的也可以使用下载安装，但是我这里直接使用<code>pacman</code>安装了。</p>
+<pre><code class="hljs"># pacman -S php php-apache
+</code></pre>
+<h3>配置 PHP</h3>
+<p><code>php-apache</code> 中包含的 <code>libphp7.so</code> 不支持 <code>mod_mpm_event</code>，仅支持 <code>mod_mpm_prefork</code>。需要在 <code>/etc/httpd/conf/httpd.conf</code>中注释掉:</p>
+<pre><code class="hljs">#LoadModule mpm_event_module modules/mod_mpm_event.so
+</code></pre>
+<p>然后取消下面行的注释:</p>
+<pre><code class="hljs">LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+</code></pre>
+<h3>启用 PHP</h3>
+<p>在 <code>/etc/httpd/conf/httpd.conf</code> 中添加如下行：</p>
+<p>将这一行放在<code>LoadModule</code>的末尾：</p>
+<pre><code class="hljs">LoadModule php7_module modules/libphp7.so
+AddHandler php7-script php
+</code></pre>
+<p>将这一行放到<code>Include</code>列表的末尾：</p>
+<pre><code class="hljs">Include conf/extra/php7_module.conf
+</code></pre>
+<p>重启 httpd.service。</p>
+<pre><code class="hljs">systemctl restart httpd
+</code></pre>
+<p>这次重启会有点长，如果你一下就好了，那就就是出错了，请运行上面提到的命令查看原因。</p>
+<h2>安装 MariaDB</h2>
+<p>MariaDB完全兼容mysql。</p>
+<pre><code class="hljs"># pacman -S mariadb libmariadbclient mariadb-clients 
+</code></pre>
+<h3>配置 MariaDB</h3>
+<p>安装Mariadb软件包之后，你必须运行下面这条命令：</p>
+<pre><code class="hljs"># mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+</code></pre>
+<p>接着执行</p>
+<pre><code class="hljs"># systemctl start mariadb
+# mysql_secure_installation
+# systemctl restart mariadb
+</code></pre>
+<p>第二条命令会提示设置<code>root</code>密码。</p>
+<p>取消 <code>/etc/php/php.ini</code>中 下面行前面的注释 :</p>
+<pre><code class="hljs">extension=pdo_mysql.so
+extension=mysqli.so
+
+</code></pre>
+<p>完成后 重启 <code>httpd.service</code> 服务。</p>
+<pre><code class="hljs"># systemctl restart httpd
+</code></pre>
+<h2>安装 phpMyAdmin</h2>
+<p>管理 <code>MariaDB</code>的方法有很多，wiki提到<code>phpMyAdmin</code>和MariaDB不完全兼容，但是足够执行基本任务。</p>
+<p>安装 <code>phpMyAdmin</code> 也有两种方法：</p>
+<p>一是使用包管理安装</p>
+<pre><code class="hljs"># pacman -S phpmyadmin
+</code></pre>
+<p>但是我不推荐这个方法，配置复杂，而且wiki很多内容已经过时。</p>
+<p>我推荐直接<strong>下载phpmyadmin的压缩包解压到需要的目录</strong>。</p>
+<p>这种方法简单快捷的多。</p>
+<p>直接在<a href="https://www.phpmyadmin.net/">phpMyAdmin</a>官网下载安装压缩包，解压到网站目录即可访即可。</p>
+<h2>结束</h2>
+<p>这里是非常简单的概括了一下安装步骤，很多拓展功能没有提及，比如常用的为Apache开启<code>.htccess</code>支持，开启多虚拟主机等等。</p>
+<p>想要了解更多可以访问wiki，但有些内容已经不适用了，自行斟酌。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

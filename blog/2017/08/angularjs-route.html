@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Angularjs入门学习（七）路由 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Angularjs入门学习（七）路由</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-08-08" itemprop="datePublished">日期：2017年08月08日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>路由(route)，几乎所有的MVC(VM)框架都应该具有的特性，因为它是前端构建单页面应用(SPA)必不可少的组成部分。</p>
+</blockquote>
+<p>路由只是从一个页面重定向到另一个页面。在任何web应用中路由都很重要。AngularJs是一个单页面应用程序，一旦应用程序加载，它永远不会重新加载。在这种情况下我们如何实现路由？我们可以使用指令模板从一个模板导航到另一个模板，但是最好不要这样做，而是将视图限制在布局和模板视图中，并以URL显示模板视图。</p>
+<p>看一个实例:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">"myApp"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#/!"</span>&gt;</span>Main<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#!red"</span>&gt;</span>Red<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#!green"</span>&gt;</span>Green<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#!blue"</span>&gt;</span>Blue<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+<span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">"myApp"</span>, [<span class="hljs-string">"ngRoute"</span>]);
+app.config(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($routeProvider)</span> </span>{
+    $routeProvider
+    .when(<span class="hljs-string">"/"</span>, {
+        templateUrl : <span class="hljs-string">"main.htm"</span>
+    })
+    .when(<span class="hljs-string">"/red"</span>, {
+        templateUrl : <span class="hljs-string">"red.htm"</span>
+    })
+    .when(<span class="hljs-string">"/green"</span>, {
+        templateUrl : <span class="hljs-string">"green.htm"</span>
+    })
+    .when(<span class="hljs-string">"/blue"</span>, {
+        templateUrl : <span class="hljs-string">"blue.htm"</span>
+    });
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><img src="/pics/2017/08/fzy_screenshot20170808175153.png" alt=""></p>
+<p>当Red被点击时，<code>&lt;div ng-view&gt;&lt;/div&gt;</code>中会载入<code>red.htm</code>文件中的内容</p>
+<p><img src="/pics/2017/08/fzy_screenshot20170808175653.png" alt=""></p>
+<p>整个过程中页面不需要重新加载。</p>
+<h2>ng-view</h2>
+<p>ng-view 是ngRoute中包含的一个特殊指令。它相当与一个占位符，表示即将载入页面的位置。</p>
+<p>有三种不同的方式可以达到效果：</p>
+<ul>
+<li><code>&lt;div ng-view&gt;&lt;/div&gt;</code></li>
+<li><code>&lt;ng-view&gt;&lt;/ng-view&gt;</code></li>
+<li><code>&lt;div class=&quot;ng-view&quot;&gt;&lt;/div&gt;</code></li>
+</ul>
+<p>应用程序只能有一个<code>ng-view</code>指令.</p>
+<h2>$routeProvider</h2>
+<p><code>$routeProvider</code>是配置在应用程序的config部分配置路由的提供程序服务，使用$routeProvider您可以定义当用户点击一个链接，显示的页面。</p>
+<p>定义$routeProvider的例子</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">"myApp"</span>, [<span class="hljs-string">"ngRoute"</span>]);
+app.config(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$routeProvider</span>) </span>{
+    $routeProvider
+    .when(<span class="hljs-string">"/"</span>, {
+        <span class="hljs-attr">templateUrl</span> : <span class="hljs-string">"main.htm"</span>
+    })
+    .when(<span class="hljs-string">"/london"</span>, {
+        <span class="hljs-attr">templateUrl</span> : <span class="hljs-string">"london.htm"</span>
+    })
+    .when(<span class="hljs-string">"/paris"</span>, {
+        <span class="hljs-attr">templateUrl</span> : <span class="hljs-string">"paris.htm"</span>
+    });
+});
+</code></pre>
+<h2>controller</h2>
+<p>随着<code>$routeProvider</code>的使用，你可以定义每个视图的控制器</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">"myApp"</span>, [<span class="hljs-string">"ngRoute"</span>]);
+app.config(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$routeProvider</span>) </span>{
+    $routeProvider
+    .when(<span class="hljs-string">"/"</span>, {
+        <span class="hljs-attr">templateUrl</span> : <span class="hljs-string">"main.htm"</span>
+    })
+    .when(<span class="hljs-string">"/london"</span>, {
+        <span class="hljs-attr">templateUrl</span> : <span class="hljs-string">"london.htm"</span>,
+        <span class="hljs-attr">controller</span> : <span class="hljs-string">"londonCtrl"</span>   <span class="hljs-comment">//添加控制器</span>
+    })
+    .when(<span class="hljs-string">"/paris"</span>, {
+        <span class="hljs-attr">templateUrl</span> : <span class="hljs-string">"paris.htm"</span>,
+        <span class="hljs-attr">controller</span> : <span class="hljs-string">"parisCtrl"</span>    <span class="hljs-comment">//添加控制器</span>
+    });
+});
+app.controller(<span class="hljs-string">"londonCtrl"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+    $scope.msg = <span class="hljs-string">"I love London"</span>;
+});
+app.controller(<span class="hljs-string">"parisCtrl"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+    $scope.msg = <span class="hljs-string">"I love Paris"</span>;
+});
+</code></pre>
+<p>然后你可以在london.htm或者paris.htm中使用<code>{{ msg }}</code></p>
+<p>london.htm</p>
+<pre><code class="hljs">&lt;p&gt;{{ msg }}&lt;/p&gt;    // I love London
+</code></pre>
+<h2>template</h2>
+<p>在前面的例子中，我们在$routeProvider.when中使用了templateUrl，这个参数用来插入HTML文件</p>
+<pre><code class="hljs js">$routeProvider.when(<span class="hljs-string">'/computers'</span>, {
+    <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">'views/computers.html'</span>,
+});
+</code></pre>
+<p>以上代码会从服务端获取 views/computers.html 文件内容插入到 ng-view 中。</p>
+<h2>otherwise</h2>
+<p>在$routeProvider中还有个otherwise方法</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">"myApp"</span>, [<span class="hljs-string">"ngRoute"</span>]);
+app.config(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$routeProvider</span>) </span>{
+   $routeProvider
+    .when(<span class="hljs-string">"/banana"</span>, {
+        <span class="hljs-attr">template</span> : <span class="hljs-string">"&lt;h1&gt;Banana&lt;/h1&gt;&lt;p&gt;Bananas contain around 75% water.&lt;/p&gt;"</span>
+    })
+    .when(<span class="hljs-string">"/tomato"</span>, {
+        <span class="hljs-attr">template</span> : <span class="hljs-string">"&lt;h1&gt;Tomato&lt;/h1&gt;&lt;p&gt;Tomatoes contain around 95% water.&lt;/p&gt;"</span>
+    })
+    .otherwise({
+        <span class="hljs-attr">template</span> : <span class="hljs-string">"&lt;h1&gt;Nothing&lt;/h1&gt;&lt;p&gt;Nothing has been selected&lt;/p&gt;"</span>
+    });
+});
+</code></pre>
+<p>上面的例子中，倘若既不是banana又不是tomato的链接被点击时，就会插入</p>
+<p><img src="/pics/2017/08/fzy_screenshot20170808181808.png" alt=""></p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

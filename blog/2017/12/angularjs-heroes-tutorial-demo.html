@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Angular5.0 英雄教程 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Angular5.0 英雄教程</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-12-01" itemprop="datePublished">日期：2017年12月01日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>花了点时间（前后一个月。。。）做了一下angular的英雄教程，官方文档在这里<a href="https://angular.io/tutorial">Angular - Tutorial: Tour of Heroes</a>，中文文档在<a href="https://angular.cn/tutorial">Angular - 教程：英雄指南</a>，我是使用cli构建的应用，做好的仓库<a href="https://github.com/rhatyang/AngularJS-Heroes-Tutorial-Demo">rhatyang/AngularJS-Heroes-Tutorial-Demo: angular heroes tutorial Demo based on angular5 using cli build</a>。</p>
+<p>其实这个教程挺简单的，根本不需要这么多时间，如果认真做的话，即使没有接触过ng的人也能在两天之内做完，如果遇到有坑的话，先看看自己是不是有哪些地方没看到。</p>
+<p>angular在上个月发布了5.0版本，ng的版本有必要提一下，严格上来说angularjs指的是angular1.0版本，是google在2009发布的一款MVC前端框架，而在2016年发布的angular2.0进行了很大的重写，所以通常把angular1.0和angular2.0是分开来的，官方也同时维护这两个版本，上个月发布的5.0和之前的4.0都是基于2.0的再优化。（angular5.0应用需要用cli1.5构建）</p>
+<p>英雄教程是官网推荐的入门教程，里面涉及到了很多ng的功能和特性，所以我推荐想学习ng的同学先从英雄教程入手，推荐使用cli生成应用再按照教程来。</p>
+<pre><code class="hljs">npm install -g @angular/cli
+ng new my-app
+cd my-app
+npm install
+ng serve --open
+</code></pre>
+<p>然后浏览器就会自动打开<code>localhost:4200</code>，接着按照教程做就好了。</p>
+<p>总的来说，你只需要编辑src/app文件夹下的文件，如果你是使用的支持angular的IDE开发，那么期间你可能需要调一下tslint，这个问题头疼了我很久，tslint可以检查你代码的规范性，但也总感觉有些东西很没必要，比如要求你在一个文件的结尾必须多空一行，必须用单引号（我习惯了用双引号啊）所以就需要把<code>quotemark</code>设置为<code>false</code>，以及很多很烦人的规范，当然如果你没我这么毛病你完全可以把自己的编写习惯变成他这个要求，你需要调一下你编辑器的缩进啊等等。</p>
+<p>我建议在刚开始就把html写在一个单独的文件里，不要直接写在template里，例如这样：</p>
+<pre><code class="hljs ts">template: <span class="hljs-string">`
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a routerLink="/dashboard" routerLinkActive="active"&gt;Dashboard&lt;/a&gt;
+      &lt;a routerLink="/heroes" routerLinkActive="active"&gt;Heroes&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `</span>
+</code></pre>
+<p>改成<code>templateUrl</code>即可。</p>
+<pre><code class="hljs">templateUrl: './dashboard.component.html'
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

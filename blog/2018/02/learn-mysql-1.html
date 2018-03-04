@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     [简记]MySQL学习笔记（1）创建数据库插入数据 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">[简记]MySQL学习笔记（1）创建数据库插入数据</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-13" itemprop="datePublished">日期：2018年02月13日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>首先启动mysql服务并登陆</p>
+<pre><code class="hljs">mysql -u root
+</code></pre>
+<p>使用<code>show databases;</code>查看所有的数据库</p>
+<h3>创建数据库</h3>
+<pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> mysql_data;
+</code></pre>
+<p>mysql不区分大小写，但为了区分保留字，所以建议关键字使用全大写</p>
+<p><strong>定位到某个数据库</strong></p>
+<pre><code class="hljs">use mysql_data;
+</code></pre>
+<p>显示该数据库下的数据表</p>
+<pre><code class="hljs">show tables;
+</code></pre>
+<p>创建数据表</p>
+<pre><code class="hljs">CREATE TABLE table1 (
+  rowa int(10),
+  rowb char(20),
+  rowc int(20)
+);
+</code></pre>
+<h3>数据类型</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">大小(字节)</th>
+<th style="text-align:left">用途</th>
+<th style="text-align:left">格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">INT</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">整数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">FLOAT</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">单精度浮点数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">DOUBLE</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">双精度浮点数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">ENUM</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">单选,比如性别</td>
+<td style="text-align:left">ENUM('a','b','c')</td>
+</tr>
+<tr>
+<td style="text-align:left">SET</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">多选</td>
+<td style="text-align:left">SET('1','2','3')</td>
+</tr>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">日期</td>
+<td style="text-align:left">YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:left">TIME</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">时间点或持续时间</td>
+<td style="text-align:left">HH:MM:SS</td>
+</tr>
+<tr>
+<td style="text-align:left">YEAR</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">年份值	YYYY</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">CHAR</td>
+<td style="text-align:left">0~255</td>
+<td style="text-align:left">定长字符串</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">VARCHAR</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0~255	变长字符串</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">TEXT</td>
+<td style="text-align:left">0~65535</td>
+<td style="text-align:left">长文本数据</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3>插入数据</h3>
+<p><strong>显示该数据表下的所有数据</strong></p>
+<pre><code class="hljs">SELECT * FROM table1;
+</code></pre>
+<p><strong>插入数据</strong></p>
+<pre><code class="hljs">INSERT INTO table1(rowname) VALUES(value)
+</code></pre>
+<p>或者直接</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table1 <span class="hljs-keyword">VALUES</span>(<span class="hljs-keyword">value</span>, value2)
+</code></pre>
+<p>一些数据类型需要用单引号括起来，一些数字类型则不用</p>
+<p>没有指定的列的值为NULL</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

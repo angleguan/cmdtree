@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     centos7 mysql数据库安装和配置 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">centos7 mysql数据库安装和配置</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-06-28" itemprop="datePublished">日期：2017年06月28日</time></p>
+      <span class="post-category">分类：使用笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h1>一、系统环境</h1>
+<p>yum update升级以后的系统版本为</p>
+<pre><code class="hljs zsh">[root@yl-web yl]<span class="hljs-comment"># cat /etc/redhat-release </span>
+CentOS Linux release 7.2.1511 (Core)
+</code></pre>
+<h1>二、mysql安装</h1>
+<p>一般网上给出的资料都是</p>
+<pre><code class="hljs zsh"><span class="hljs-comment"># yum install mysql</span>
+<span class="hljs-comment"># yum install mysql-server</span>
+<span class="hljs-comment"># yum install mysql-devel</span>
+</code></pre>
+<p>安装mysql和mysql-devel都成功，但是安装mysql-server失败，如下：</p>
+<pre><code class="hljs zsh">[root@yl-web yl]<span class="hljs-comment"># yum install mysql-server</span>
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.sina.cn
+ * extras: mirrors.sina.cn
+ * updates: mirrors.sina.cn
+No package mysql-server available.
+Error: Nothing to <span class="hljs-keyword">do</span>
+</code></pre>
+<p>查资料发现是CentOS 7 版本将MySQL数据库软件从默认的程序列表中移除，用mariadb代替了。</p>
+<p>有两种解决办法：</p>
+<h2>1、方法一：安装mariadb</h2>
+<p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</p>
+<p>安装mariadb，大小59 M。</p>
+<pre><code class="hljs zsh">[root@yl-web yl]<span class="hljs-comment"># yum install mariadb-server mariadb </span>
+</code></pre>
+<p>mariadb数据库的相关命令是：</p>
+<pre><code class="hljs zsh">systemctl start mariadb  <span class="hljs-comment">#启动MariaDB</span>
+
+systemctl stop mariadb  <span class="hljs-comment">#停止MariaDB</span>
+
+systemctl restart mariadb  <span class="hljs-comment">#重启MariaDB</span>
+
+systemctl <span class="hljs-built_in">enable</span> mariadb  <span class="hljs-comment">#设置开机启动</span>
+</code></pre>
+<p>所以先启动数据库</p>
+<pre><code class="hljs">[root@yl-web yl]# systemctl start mariadb
+</code></pre>
+<p>然后就可以正常使用mysql了</p>
+<pre><code class="hljs zsh">[root@yl-web yl]<span class="hljs-comment"># mysql -u root -p</span>
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 5.5.41-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2014, Oracle, MariaDB Corporation Ab and others.
+
+Type <span class="hljs-string">'help;'</span> or <span class="hljs-string">'\h'</span> <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>. Type <span class="hljs-string">'\c'</span> to clear the current input statement.
+
+MariaDB [(none)]&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| <span class="hljs-built_in">test</span>               |
++--------------------+
+4 rows <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)
+
+MariaDB [(none)]&gt; 
+</code></pre>
+<p>安装mariadb后显示的也是 MariaDB [(none)]&gt; ，可能看起来有点不习惯。下面是第二种方法。</p>
+<h1>2、方法二：官网下载安装mysql-server</h1>
+<pre><code class="hljs zsh"><span class="hljs-comment"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</span>
+<span class="hljs-comment"># rpm -ivh mysql-community-release-el7-5.noarch.rpm</span>
+<span class="hljs-comment"># yum install mysql-community-server</span>
+</code></pre>
+<p>安装成功后重启mysql服务。</p>
+<h1>service mysqld restart</h1>
+<p>初次安装mysql，root账户没有密码。</p>
+<pre><code class="hljs">[root@yl-web yl]# mysql -u root 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.6.26 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql&gt; 
+</code></pre>
+<p>设置密码</p>
+<pre><code class="hljs zsh">mysql&gt; <span class="hljs-built_in">set</span> password <span class="hljs-keyword">for</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> =password(<span class="hljs-string">'password'</span>);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; 
+</code></pre>
+<p>不需要重启数据库即可生效。</p>
+<p>在mysql安装过程中如下内容：</p>
+<pre><code class="hljs">Installed:
+  mysql-community-client.x86_64 0:5.6.26-2.el7                mysql-community-devel.x86_64 0:5.6.26-2.el7                
+  mysql-community-libs.x86_64 0:5.6.26-2.el7                  mysql-community-server.x86_64 0:5.6.26-2.el7               
+
+Dependency Installed:
+  mysql-community-common.x86_64 0:5.6.26-2.el7                                                                            
+
+Replaced:
+  mariadb.x86_64 1:5.5.41-2.el7_0          mariadb-devel.x86_64 1:5.5.41-2.el7_0   mariadb-libs.x86_64 1:5.5.41-2.el7_0  
+  mariadb-server.x86_64 1:5.5.41-2.el7_0  
+</code></pre>
+<p>所以安装完以后mariadb自动就被替换了，将不再生效。</p>
+<pre><code class="hljs zsh">[root@yl-web yl]<span class="hljs-comment"># rpm -qa |grep mariadb</span>
+[root@yl-web yl]<span class="hljs-comment"># </span>
+</code></pre>
+<h1>三、配置mysql</h1>
+<h2>1、编码</h2>
+<p>mysql配置文件为/etc/my.cnf</p>
+<p>最后加上编码配置</p>
+<pre><code class="hljs">[mysql]
+default-character-set =utf8
+</code></pre>
+<p>这里的字符编码必须和/usr/share/mysql/charsets/Index.xml中一致。</p>
+<h2>2、远程连接设置</h2>
+<p>把在所有数据库的所有表的所有权限赋值给位于所有IP地址的root用户。</p>
+<pre><code class="hljs zsh">mysql&gt; grant all privileges on *.* to root@<span class="hljs-string">'%'</span>identified by <span class="hljs-string">'password'</span>;
+</code></pre>
+<p>如果是新用户而不是root，则要先新建用户</p>
+<pre><code class="hljs zsh">mysql&gt;create user <span class="hljs-string">'username'</span>@<span class="hljs-string">'%'</span> identified by <span class="hljs-string">'password'</span>;  
+</code></pre>
+<p>此时就可以进行远程连接了。</p>
+<blockquote>
+<p>原文：http://www.cnblogs.com/starof/p/4680083.html</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

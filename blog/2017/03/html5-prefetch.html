@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     HTML5 Prefetch - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">HTML5 Prefetch</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-26" itemprop="datePublished">日期：2017年03月26日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p><strong>prefetch 即预加载，在用户需要前我们就将所需的资源加载完毕。</strong></p>
+<h2>有了浏览器缓存，为何还需要预加载？</h2>
+<ul>
+<li>用户可能是第一次访问网站，此时还无缓存</li>
+<li>用户可能清空了缓存</li>
+<li>缓存可能已经过期，资源将重新加载</li>
+<li>用户访问的缓存文件可能不是最新的，需要重新加载</li>
+</ul>
+<h2>Chrome 的预加载技术</h2>
+<p>现在的 chrome 聪明到根据你的浏览记录，预测到你可能访问或搜索哪些网站，在你打开网站之前就加载好了一些资源了。</p>
+<p>举个栗子，当你在搜索框输入 &quot;amaz&quot; 时，它猜测到你可能要访问 amazon.com，可能就帮你加载了这个网站的一些资源。</p>
+<p>如果这个预测算法精准的话，就能大大地提高用户的浏览体验了。</p>
+<h2>DNS prefetch</h2>
+<p>我们知道，当我们访问一个网站如 <code>www.amazon.com</code> 时，需要将这个域名先转化为对应的 IP 地址，这是一个非常耗时的过程。</p>
+<p>DNS prefetch 分析这个页面需要的资源所在的域名，浏览器空闲时提前将这些域名转化为 IP 地址，真正请求资源时就避免了上述这个过程的时间。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">'x-dns-prefetch-control'</span> <span class="hljs-attr">content</span>=<span class="hljs-string">'on'</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'dns-prefetch'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'http://g-ecx.images-amazon.com'</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'dns-prefetch'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'http://z-ecx.images-amazon.com'</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'dns-prefetch'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'http://ecx.images-amazon.com'</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'dns-prefetch'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'http://completion.amazon.com'</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'dns-prefetch'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'http://fls-na.amazon.com'</span>&gt;</span>
+</code></pre>
+<p>应用场景1：我们的资源存在在不同的 CDN 中，那提前声明好这些资源的域名，就可以节省请求发生时产生的域名解析的时间。</p>
+<p>应用场景2：如果我们知道用户接下来的操作一定会发起一起资源的请求，那就可以将这个资源进行 DNS-Prefetch，加强用户体验。</p>
+<h2>Resource prefetch</h2>
+<p>在 Chrome 下，我们可以用 <code>link</code> 标签声明特定文件的预加载：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'subresource'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'critical.js'</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'subresource'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'main.css'</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'prefetch'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'secondary.js'</span>&gt;</span>
+</code></pre>
+<p>在 Firefox 中或用 <code>meta</code> 标签声明：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Link"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"&lt;critical.js&gt;; rel=prefetch"</span>&gt;</span>
+</code></pre>
+<p><code>rel='subresource'</code> 表示当前页面必须加载的资源，应该放到页面最顶端先加载，有最高的优先级。</p>
+<p><code>rel='prefetch'</code> 表示当 subresource 所有资源都加载完后，开始预加载这里指定的资源，有最低的优先级。</p>
+<p>注意：只有可缓存的资源才进行预加载，否则浪费资源！</p>
+<h2>Pre render</h2>
+<p>前面说到的预解析 DNS、预加载资源已经够强悍了有木有，可还有更厉害的预渲染（Pre-rendering）！</p>
+<p>预渲染意味着我们提前加载好用户即将访问的下一个页面，否则进行预渲染这个页面将浪费资源，慎用！</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'prerender'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'http://www.pagetoprerender.com'</span>&gt;</span>
+</code></pre>
+<p><code>rel='prerender'</code>表示浏览器会帮我们渲染但隐藏指定的页面，一旦我们访问这个页面，则秒开了！</p>
+<p>在 Firefox 中或用 <code>rel='next'</code> 来声明</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"next"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.pagetoprerender.com"</span>&gt;</span>
+</code></pre>
+<h2>不是所有的资源都可以预加载</h2>
+<p>当资源为以下列表中的资源时，将阻止预渲染操作：</p>
+<ul>
+<li>URL 中包含下载资源</li>
+<li>页面中包含音频、视频</li>
+<li>POST、PUT 和 DELETE 操作的 ajax 请求</li>
+<li>HTTP 认证(Authentication)</li>
+<li>HTTPS 页面</li>
+<li>含恶意软件的页面</li>
+<li>弹窗页面</li>
+<li>占用资源很多的页面</li>
+<li>打开了 chrome developer tools 开发工具</li>
+</ul>
+<h2>手动触发预渲染操作</h2>
+<p>在 <code>head</code> 中强势插入 <code>link[rel='prerender']</code> 即可：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> hint=<span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"link"</span>)
+hint.setAttribute(<span class="hljs-string">"rel"</span>,<span class="hljs-string">"prerender"</span>)
+hint.setAttribute(<span class="hljs-string">"href"</span>,<span class="hljs-string">"next-page.html"</span>)
+<span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">"head"</span>)[<span class="hljs-number">0</span>].appendChild(hint)
+</code></pre>
+<h2>兼容性</h2>
+<p>这么好用的特性，当然要考虑各浏览器的兼容程度了(哭：</p>
+<p>IE9 支持 DNS pre-fetching 但管它叫 prefetch。</p>
+<p>IE10+ 中 dns-prefetch 和 prefetch 是等价的。</p>
+<p>其他方面的测试，目前还没有很好的方案，暂且只能通过查看浏览器是否缓存来测试。</p>
+<p>在 Chrome 中打开了 chrome developer tools 开发工具会阻止页面的预渲染，所以我们看不到这个过程，但可以在 chrome://cache/ 或 chrome://net-internals/#prerender 中查看。</p>
+<p>Firefox 可以在 about:cache 中查看。</p>
+<h2>警告</h2>
+<p>这些特定还是实验性质的，将来可能改变。</p>
+<p>权利越大，责任越大，不要滥用！</p>
+<p>参考链接</p>
+<ul>
+<li><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d">html5-prefetch</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching">MDN Controlling DNS prefetching</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ">MDN Link prefetching FAQ</a></li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     使用Node.js开发一个静态博客生成器（二）——模板 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">使用Node.js开发一个静态博客生成器（二）——模板</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-04" itemprop="datePublished">日期：2018年02月04日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>art-template 是一个简约、超快的模板引擎。它采用作用域预声明的技术来优化模板渲染速度，从而获得接近 JavaScript 极限的运行性能，并且同时支持 NodeJS 和浏览器。</p>
+</blockquote>
+<p>一个静态站点生成器自然要用到模板语言，如jade,ejs,handlebars,mustache等，这里我使用的是国人开发的art-template，据说速度是相当的快。</p>
+<p>其实我在之前一直是不知道怎么使用模板语言，我原先对于模板文件的工作方式是这样理解的：</p>
+<p>由JS获取要应用到模板文件的数据然后传入模板文件生成文件</p>
+<p>而其实真正的方式是这样的：</p>
+<p>由JS读取模板文件并将模板需要的数据作为参数传给模板函数然后得到生成好的数据，这一切的过程其实都在JS中实现，并不是我以为的要由模板文件来进行编译。</p>
+<h3>为什么要选择artTemplate呢</h3>
+<ul>
+<li>
+<p>可以使用传统模板语法，即双大括号！（这是我最喜欢的语法）</p>
+</li>
+<li>
+<p>查询文档很方便（有中文版，因为是由国人开发的）</p>
+</li>
+<li>
+<p>速度快，这点其实并没有太大的感觉</p>
+</li>
+</ul>
+<h2>使用方法</h2>
+<p>使用方法非常简单，可以参考其<a href="https://aui.github.io/art-template/zh-cn/index.html">中文文档</a></p>
+<p>我这里简单说下如何将它与现有代码即这个博客生成器结合起来</p>
+<h3>Markdown解析器</h3>
+<p>这里我选择<a href="https://www.npmjs.com/package/markdown-it">markdown-it</a>，类似的还有marked、showdown等</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> md = <span class="hljs-built_in">require</span>(<span class="hljs-string">'markdown-it'</span>)();
+<span class="hljs-keyword">var</span> result = md.render(<span class="hljs-string">'# markdown-it rulezz!'</span>);
+<span class="hljs-built_in">console</span>.log(result) <span class="hljs-comment">// &lt;h1&gt;markdown-it rulezz!&lt;/h1&gt;</span>
+</code></pre>
+<p>因为之前我们使用front-matter对markdown文件进行了解析，得到的文章内容应该是<code>content.body</code>，然后使用markdown-it将这个值解析为html即可。</p>
+<h3>模板编译</h3>
+<p>我们这里只需要用到一个核心方法：</p>
+<pre><code class="hljs js">template.render(source, data, options);
+</code></pre>
+<p>其中我们将模板文件作为<code>source</code>传进去，然后data应该为一个对象，额外的选项暂时不需要。</p>
+<h3>模板变量</h3>
+<p>接着来看一下一个博客生成器中应该用到哪些变量是必须得：</p>
+<pre><code class="hljs">站点信息(site对象)：
+  标题(title)：config.json文件定义
+  链接(url)：config.json文件定义
+  所有文章(posts数组)：posts.json中的posts值
+  所有分类(categories对象)：config.json文件定义，应为键对值对象
+
+页面信息(page对象)：
+  标题(title)：由front-matter解析得到的content.attributes.title
+  日期(date)：由front-matter解析得到的content.attributes.date（只有文章有）
+  所属分类(category)：由front-matter解析得到的content.attributes.content
+</code></pre>
+<p>然后将这些值全部放入一个对象中供<code>template.render</code>调用，为了方便复用，需要判断当前的页面是页面还是文章或者是分类页，所以我将它写成函数，判断当前是什么页面来进行解析并返回一个对象即可。</p>
+<p>具体data.js的实现方式在<a href="https://github.com/rhatyang/blog/blob/master/lib/template/data.js">这里是代码</a></p>
+<h3>编辑模板</h3>
+<p>然后就可以来编写模板了（主题）</p>
+<p>可以这样来循环所有的文章</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  {{each site.posts}}
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{$value.path}}"</span>&gt;</span>{{$value.title}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{{$value.date}}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  {{/each}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<p>得到所有的分类</p>
+<pre><code class="hljs html">{{each site.categories}}
+<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pure-menu-item"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pure-menu-link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{site.url}}/{{$value.path}}"</span>&gt;</span>{{$value.title}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+{{/each}}
+</code></pre>
+<p>对于单个分类页的变量储存方式，我像Jekyll那样将当前分类页的名称作为分类变量的第一项，然后将当前分类下的所有文章作为一个数组存到当前分类数组的第二项，所以可以这样来输出：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{category[0]}}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span> <span class="hljs-comment">&lt;!-- 分类页标题 --&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 文章 --&gt;</span>
+{{each category[1]}}
+<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{$value.path}}"</span>&gt;</span>{{$value.title}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{{$value.date}}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+{{/each}}
+</code></pre>
+<p>跟Jekyll很像是吧</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

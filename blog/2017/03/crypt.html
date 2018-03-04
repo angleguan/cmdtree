@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     crypt()函数 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">crypt()函数</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-24" itemprop="datePublished">日期：2017年03月24日</time></p>
+      <span class="post-category">分类：网络技术与安全</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h1>数据加密</h1>
+<p>数据加密利用密码技术对信息进行加密，实现信息的隐蔽，从而起到保护信息安全的作用。它通过加密算法和加密秘钥将原来是明文的文件或数据进行处理，使其成文不可读的一段代码，也就是所谓的“密文”，来达到保护数据的安全性。</p>
+<h1>Crypt()函数</h1>
+<p>crypt()函数返回使用DES、Blowfish或MD5算法加密的字符串。在不同的操作系统上，crypt()函数的行为不同，某些操作系统支持一种以上的算法类型。在安装时，PHP回忆检查什么算法可用以及使用什么算法。</p>
+<p><strong>crypt()函数的语法：</strong></p>
+<pre><code class="hljs php">string crypt(string str[,string salt]);
+</code></pre>
+<p>参数str：必需。是需要加密的字符串。</p>
+<p>参数salt：可选。用于增加被加密字符数目的字符串（干扰串），以使字符更加安全。若没有提供salt参数，每次调用该函数时会随机生成一个干扰串。</p>
+<p><strong>crypt()函数的算法：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[CRYPT_SALT_LENGTH]</td>
+<td style="text-align:left">默认的加密长度。使用标准的 DES 加密，长度为 2</td>
+</tr>
+<tr>
+<td style="text-align:left">[CRYPT_STD_DES]</td>
+<td style="text-align:left">基于标准 DES 算法的散列使用 &quot;./0-9A-Za-z&quot; 字符中的两个字符作为盐值。在盐值中使用非法的字符将导致 crypt() 失败。</td>
+</tr>
+<tr>
+<td style="text-align:left">[CRYPT_EXT_DES]</td>
+<td style="text-align:left">扩展的基于 DES 算法的散列。其盐值为 9 个字符的字符串，由 1 个下划线后面跟着 4 字节循环次数和 4 字节盐值组成。它们被编码成可打印字符，每个字符 6 位，有效位最少的优先。0 到 63 被编码为 &quot;./0-9A-Za-z&quot;。在盐值中使用非法的字符将导致 crypt() 失败。</td>
+</tr>
+<tr>
+<td style="text-align:left">[CRYPT_MD5]</td>
+<td style="text-align:left">MD5 散列使用一个以 $1$ 开始的 12 字符的字符串盐值。</td>
+</tr>
+<tr>
+<td style="text-align:left">[CRYPT_BLOWFISH]</td>
+<td style="text-align:left">Blowfish 算法使用如下盐值：“$2a$”，一个两位 cost 参数，“$” 以及 64 位由 “./0-9A-Za-z” 中的字符组合而成的字符串。在盐值中使用此范围之外的字符将导致 crypt() 返回一个空字符串。两位 cost 参数是循环次数以 2 为底的对数，它的范围是 04-31，超出这个范围将导致 crypt() 失败。</td>
+</tr>
+<tr>
+<td style="text-align:left">CRYPT_SHA256</td>
+<td style="text-align:left">SHA-256 算法使用一个以 $5$ 开头的 16 字符字符串盐值进行散列。如果盐值字符串以 “rounds=&lt;N&gt;$” 开头，N 的数字值将被用来指定散列循环的执行次数，这点很像 Blowfish 算法的 cost 参数。默认的循环次数是 5000，最小是 1000，最大是 999,999,999。超出这个范围的 N 将会被转换为最接近的值。</td>
+</tr>
+<tr>
+<td style="text-align:left">CRYPT_SHA512</td>
+<td style="text-align:left">SHA-512 算法使用一个以 $6$ 开头的 16 字符字符串盐值进行散列。如果盐值字符串以 “rounds=&lt;N&gt;$” 开头，N 的数字值将被用来指定散列循环的执行次数，这点很像 Blowfish 算法的 cost 参数。默认的循环次数是 5000，最小是 1000，最大是 999,999,999。超出这个范围的 N 将会被转换为最接近的值。在该函数支持多种算法的系统上，如果支持上述常量则设置为 &quot;1&quot;，否则设置为 &quot;0&quot;。</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span>
+    $str=<span class="hljs-string">"This is example"</span>;  
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'加密前的值为：'</span>.$str;
+    $crypttostr=crypt($str);
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;p&gt;加密后$str的值为：'</span>.$crypttostr;
+ <span class="hljs-meta">?&gt;</span>
+</code></pre>
+<p>运行结果如图显示：</p>
+<p><img src="/pics/2017/03/742738-20160101133811354-215165089.png" alt="">
+<img src="/pics/2017/03/742738-20160101133921964-1414775621.png" alt=""></p>
+<p>从两幅运行结果图可以发现，刷新之后生成的加密结果都不相同，这就对加密后的数据进行判断就成了一个问题。而我们也知道crypt()函数是单向函数，密文不可以还原成明文。且每次加密后的数据都不相同，这就是salt参数要解决的问题。crypt()函数用salt参数对明文进行加密，判断时，对输出的信息再次使用相同的salt参数进行加密，对比两次加密后结果的判断。</p>
+<blockquote>
+<p>注：crypt()函数没有相应的解码函数，它是一种单向加密函数。</p>
+</blockquote>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

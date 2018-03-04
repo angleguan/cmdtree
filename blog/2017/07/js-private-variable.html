@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JS中的私有变量 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JS中的私有变量</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-31" itemprop="datePublished">日期：2017年07月31日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>任何在函数中定义的变量，都可以认为是私有变量，因为不能在函数的外部访问这些变量。私有变量包括函数的参数，局部变量以及在函数内部定义的其他函数。</p>
+<p>如果在函数内部创建一个闭包，那么闭包可以通过自己的作用域链访问这些变量。而利用这一点，就可以创建用于访问私有变量的公有方法。</p>
+<p>我们把有权访问私有变量和私有函数的公有方法称为特权方法。</p>
+<h2>创建特权方法的方式</h2>
+<h3>1、第一种是在构造函数中定义特权方法，基本模式如下：</h3>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyObject</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">//私有变量和私有函数</span>
+  <span class="hljs-keyword">var</span> privateVariable =<span class="hljs-number">10</span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">privateFunction</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-comment">//特权函数</span>
+  <span class="hljs-keyword">this</span>.publicMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    privateVariable++;
+    <span class="hljs-keyword">return</span> privateFunction();
+  };
+}
+</code></pre>
+<p>在创建MyObject的实例后，除了使用<code>publicMethod()</code>这一个途径外，没有其他办法可以访问<code>privateVariable</code>和<code>privateFunction()</code>。</p>
+<p>利用私有和特权成员，可以隐藏那些不应该被直接修改的数据。例如：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name</span>)</span>{
+  <span class="hljs-keyword">this</span>.getName=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> name;
+  }
+  <span class="hljs-keyword">this</span>.setName=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>)</span>{
+    name=value;
+  }
+}
+
+<span class="hljs-keyword">var</span> person=<span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Nicholas"</span>);
+alert(person.getName());  <span class="hljs-comment">//Nicholas</span>
+person.setName(<span class="hljs-string">"Greg"</span>);
+alert(person.getName());  <span class="hljs-comment">//Greg</span>
+</code></pre>
+<p>私有变量name在Person的每一个实例中都不相同，因为每次调用构造函数都会重新创建这两个方法。</p>
+<h3>2、在私有作用域中定义私有变量和函数</h3>
+<p>通过在私有作用域中定义私有变量和函数，同样可以创建特权方法。为了不用在每一个实例中都重新创建私有变量和私有方法，可以采用原型模式。</p>
+<p>我们先来简单的了解一下什么是原型：</p>
+<p>我们创建的每一个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。如下面例子所示：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{
+}
+
+Person.prototype.name=<span class="hljs-string">"Nicholas"</span>;
+Person.prototype.age=<span class="hljs-number">29</span>;
+Person.prototype.job=<span class="hljs-string">"Software Engineering"</span>;
+
+Person.prototype.sayName=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+};
+
+<span class="hljs-keyword">var</span> person1=<span class="hljs-keyword">new</span> Person();
+alert(person1.sayName());  <span class="hljs-comment">//Nicholas</span>
+<span class="hljs-keyword">var</span> person2=<span class="hljs-keyword">new</span> Person();
+alert(person2.sayName());  <span class="hljs-comment">//Nicholas</span>
+alert(person1.sayName()==person2.sayName());  <span class="hljs-comment">//true</span>
+</code></pre>
+<p>接下来我们看一下通过静态私有变量创建特权方法的基本模式：</p>
+<pre><code class="hljs js">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+
+  <span class="hljs-comment">//私有变量和私有函数</span>
+  <span class="hljs-keyword">var</span> privateVariale = <span class="hljs-number">10</span>;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">privateFunction</span>(<span class="hljs-params"></span>)</span>{
+     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+   <span class="hljs-comment">//构造函数</span>
+  MyObject = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  };
+
+  <span class="hljs-comment">//公有/特权方法</span>
+  MyObject.prototype.publicMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    privateVariale++;
+    privateFunction();
+  }
+})();
+</code></pre>
+<p>首先，公有方法是在原型上定义的，这一点体现了典型的原型模式。同时，我们在声明<code>MyObject</code>的时候没有使用<code>var</code>关键字。记住：未经声明的变量，总是会创建一个全局变量。因此，MyObject就成了一个全局变量，能够在私有作用域之外被访问到。但是，在严格模式下，给未经声明的变量赋值会导致错误。</p>
+<p>这个模式与在构造函数中定义特权方法的主要区别，就在于私有变量和函数是由实例共享的。由于特权方法是在原型上定义的，因此所有实例都使用一个函数。而这个特权方法，作为一个闭包，总是包含着对作用域的引用。</p>
+<pre><code class="hljs js">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> name = <span class="hljs-string">""</span>;
+  
+  Person = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>)</span>{
+    name=value;
+  };
+  Person.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> name;
+  };
+  Person.prototype.setName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>)</span>{
+    name=value;
+  };
+})();
+
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Nocholas"</span>);
+alert(person1.getName());<span class="hljs-comment">//Nocholas</span>
+
+person1.setName(<span class="hljs-string">"Greg"</span>);
+alert(person1.getName());<span class="hljs-comment">//Greg</span>
+
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Michale"</span>);
+alert(person1.getName());<span class="hljs-comment">//Michale</span>
+alert(person2.getName());<span class="hljs-comment">//Michale</span>
+</code></pre>
+<p>在这种模式下，变量<code>name</code>就变成了一个静态的，由所有实例共享的属性。结果就是所有的实例会返回相同的值。</p>
+<h3>3、单例模块模式</h3>
+<p>所谓单例（singleton），指的就是只有一个实例的对象。按照惯例，Javascript是以对象字面量的方式来创建单例对象的。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> singleton={
+  <span class="hljs-attr">name</span>:value;
+  method:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// 这是方法的代码</span>
+  };
+};
+</code></pre>
+<p>模块模式通过为单例添加私有变量和特权方法能够使其得到增强。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> singleton={
+  
+  <span class="hljs-comment">//私有变量和私有函数</span>
+  <span class="hljs-keyword">var</span> privateVariable = <span class="hljs-number">10</span>;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">privateFunction</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+  <span class="hljs-comment">//特权/公有方法和属性</span>
+  <span class="hljs-keyword">return</span>{
+    <span class="hljs-attr">publicProperty</span>:<span class="hljs-literal">true</span>;
+    publicMethod:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      privateVariable++;
+      privateFunction();  
+    }
+  }
+};
+</code></pre>
+<p>由于这个对象是在匿名函数内部定义的，因此它的公有方法有权访问私有变量和函数。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> application = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+
+<span class="hljs-comment">//私有变量和函数</span>
+<span class="hljs-keyword">var</span> components = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();
+
+<span class="hljs-comment">//初始化</span>
+components.push(<span class="hljs-keyword">new</span> BaseComponent());
+
+<span class="hljs-comment">//公共</span>
+<span class="hljs-keyword">return</span>{
+  <span class="hljs-attr">getComponentCount</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">）{
+    return components.length;
+  }，
+  registerComponent:function(component</span>)</span>{
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> component ==<span class="hljs-string">"object"</span>){
+      component.push(component);
+    }
+  }
+};
+}();
+</code></pre>
+<h4>增强的模块模式</h4>
+<p>这种增强的模块模式适合那些单例必须是某种类型的实例，同时还必须添加某些属性和（或）方法对其加以增强的情况。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> singleton = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+
+  <span class="hljs-comment">//私有变量和私有函数</span>
+  <span class="hljs-keyword">var</span> privateVariable = <span class="hljs-number">10</span>;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">privateFunction</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-comment">//创建对象</span>
+  <span class="hljs-keyword">var</span> object = <span class="hljs-keyword">new</span> customeType();
+
+  <span class="hljs-comment">//添加公有属性和方法</span>
+  object.publicProperty = <span class="hljs-literal">true</span>;
+  object.publicMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    privateVariable++;
+    privateFunction();
+  };
+
+  <span class="hljs-comment">//返回这个对象</span>
+  <span class="hljs-keyword">return</span> object;
+}
+</code></pre>
+<p>总结：</p>
+<p>1）函数表达式不同于函数声明。函数声明要求有名字，但函数表达式不需要。没有名字的函数表达式也叫做匿名函数。</p>
+<p>2）在无法确定如何引用函数的情况下，递归函数就会变得特别复杂。</p>
+<p>3）递归函数应该始终使用arguments.callee来递归地调用自身，不要使用函数名，函数名可能会发生变化。</p>
+<p>4）在后台执行环境中，闭包的作用链包含着它自己的作用域，包含函数的作用域和全局作用域。</p>
+<p>5）通常，函数的作用域及其所有变量都会在函数执行结束后被销毁。</p>
+<p>6）但是，当函数返回了一个闭包时，这个函数的作用域将会在内存中一直保存到闭包不存在为止。</p>
+<p>7）即使JavaScript中没有正式的私有属性的概念，但是可以使用闭包来实现公有方法，而通过公有方法可以访问包含在作用域中定义的变量。</p>
+<p>8）有权访问私有变量的公有方法叫做特权方法。</p>
+<p>9）可以使用构造函数，原型模式来实现自定义类型的特权方法，也可以使用模块模式，增强的模块模式来实现单例的特权方法。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Express框架快速入门 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Express框架快速入门</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-18" itemprop="datePublished">日期：2017年03月18日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>Node.js本身就可以依靠自己HTTP模块来搭建一个简单的Web服务器，但是一般我们使用框架来帮助完成，<code>Express</code>就是一个基于Node.js的简洁高效的Web框架。</p>
+<h2>一、安装Express</h2>
+<p>Express的上手十分简单，我们先创建一个项目目录，取名为hello-express。</p>
+<pre><code class="hljs">$ mkdir hello-express
+</code></pre>
+<p>进入该目录，初始化package.json</p>
+<pre><code class="hljs">$ npm init
+</code></pre>
+<p>安装express</p>
+<pre><code class="hljs">$ npm install express --save
+</code></pre>
+<h2>二、创建启动文件</h2>
+<p>我们在项目根目录新建一个启动文件，取名为index.js，输入以下代码：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> app = express();
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  res.send(<span class="hljs-string">'Hello World!'</span>);
+});
+
+<span class="hljs-keyword">var</span> server = app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> host = server.address().address;
+  <span class="hljs-keyword">var</span> port = server.address().port;
+
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening at http://%s:%s'</span>, host, port);
+});
+</code></pre>
+<p>上面的代码启动一个服务并监听从 3000 端口进入的所有连接请求。他将对所有 (/) URL 或 路由 返回 “Hello World!” 字符串。对于其他所有路径全部返回 404 Not Found。</p>
+<p>通过如下命令启动此应用：</p>
+<pre><code class="hljs">$ node app.js
+</code></pre>
+<p>然后在浏览器中打开 http://localhost:3000/ 并查看输出结果。</p>
+<p><img src="/pics/2017/03/1401.png" alt=""></p>
+<p>Express已经在正常工作了。</p>
+<h3>基本介绍</h3>
+<p><code>var app = express()</code>生成了一个express实例 app。</p>
+<p>上述index.js中的<code>app.get</code>用于指定不同的访问路径所对应的回调函数，这叫做“路由”（routing）。上面代码只指定了根目录的回调函数，因此只有一个路由记录，实际应用中，可能有多个路由记录。这时，最好就把路由放到一个单独的文件夹中，使用Express应用生成器（express-generator）就是这样做的，把路由文件放到一个名为routes的文件夹内。然后用如下方法访问它：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> route = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./routes/index'</span>);
+</code></pre>
+<p>这是一种推荐的方法。</p>
+<p><code>app.listen</code>用来设置监听的端口。设置<code>app.listen(80)</code>就可以直接通过localhost访问了</p>
+<h2>运行原理</h2>
+<h3>http模块</h3>
+<p>Express框架建立在Node.js内置的<code>http</code>模块上。http模块生成服务器的原始代码如下。</p>
+<pre><code class="hljs js">
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+
+<span class="hljs-keyword">var</span> app = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.writeHead(<span class="hljs-number">200</span>, {<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span>});
+  response.end(<span class="hljs-string">"Hello world!"</span>);
+});
+
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-string">"localhost"</span>);
+</code></pre>
+<p>上面代码的关键是http模块的<code>createServer</code>方法，表示生成一个HTTP服务器实例。该方法接受一个回调函数，该回调函数的参数，分别为代表HTTP请求和HTTP回应的<code>request</code>对象和<code>response</code>对象。</p>
+<p><strong>对http模块的再包装</strong></p>
+<p>Express框架的核心是对http模块的再包装。上面的代码用Express改写如下。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> app = express();
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{  
+    res.send(<span class="hljs-string">'Hello world!'</span>);
+});
+app.listen(<span class="hljs-number">3000</span>);  
+
+<span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">"express"</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+  response.end(<span class="hljs-string">"Hello world!\n"</span>);
+});
+
+http.createServer(app).listen(<span class="hljs-number">1337</span>);
+</code></pre>
+<p>比较两段代码，可以看到它们非常接近，唯一的差别是createServer方法的参数，从一个回调函数变成了一个Epress对象的实例。而这个实例使用了use方法，加载了与上一段代码相同的回调函数。</p>
+<p>Express框架等于在http模块之上，加了一个中间层，而use方法则相当于调用中间件。</p>
+<h3>中间件</h3>
+<p>简单说，中间件（middleware）就是处理HTTP请求的函数，用来完成各种特定的任务，比如检查用户是否登录、分析数据、以及其他在需要最终将数据发送给用户之前完成的任务。它最大的特点就是，一个中间件处理完，再传递给下一个中间件。</p>
+<p>Node.js的内置模块http的<code>createServer</code>方法，可以生成一个服务器实例，该实例允许在运行过程中，调用一系列函数（也就是中间件）。当一个HTTP请求进入服务器，服务器实例会调用第一个中间件，完成后根据设置，决定是否再调用下一个中间件。中间件内部可以使用服务器实例的<code>response</code>对象（ServerResponse，即回调函数的第二个参数），以及一个<code>next</code>回调函数（即第三个参数）。每个中间件都可以对HTTP请求（request对象）做出回应，并且决定是否调用next方法，将request对象再传给下一个中间件。</p>
+<p>一个不进行任何操作、只传递request对象的中间件，大概是下面这样：</p>
+<pre><code class="hljs js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">uselessMiddleware</span>(<span class="hljs-params">req, res, next</span>) </span>{ 
+    next();
+}
+</code></pre>
+<p>上面代码的<code>next</code>为中间件的回调函数。如果它带有参数，则代表抛出一个错误，参数为错误文本。</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">uselessMiddleware</span>(<span class="hljs-params">req, res, next</span>) </span>{ 
+    next(<span class="hljs-string">'出错了！'</span>);
+}
+</code></pre>
+<p>抛出错误以后，后面的中间件将不再执行，直到发现一个错误处理函数为止。</p>
+<h3>use方法</h3>
+<p><code>use</code>是express调用中间件的方法，它返回一个函数。下面是一个连续调用两个中间件的例子。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">"express"</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response, next</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"In comes a "</span> + request.method + <span class="hljs-string">" to "</span> + request.url);
+  next();
+});
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+  response.end(<span class="hljs-string">"Hello world!\n"</span>);
+});
+
+http.createServer(app).listen(<span class="hljs-number">1337</span>);
+
+</code></pre>
+<p>上面代码先调用第一个中间件，在控制台输出一行信息，然后通过<code>next</code>方法，调用第二个中间件，输出HTTP回应。由于第二个中间件没有调用next方法，所以不再request对象就不再向后传递了。</p>
+<p>使用use方法，可以根据请求的网址，返回不同的网页内容。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">"express"</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response, next</span>) </span>{
+  <span class="hljs-keyword">if</span> (request.url == <span class="hljs-string">"/"</span>) {
+    response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+    response.end(<span class="hljs-string">"Welcome to the homepage!\n"</span>);
+  } <span class="hljs-keyword">else</span> {
+    next();
+  }
+});
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response, next</span>) </span>{
+  <span class="hljs-keyword">if</span> (request.url == <span class="hljs-string">"/about"</span>) {
+    response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+  } <span class="hljs-keyword">else</span> {
+    next();
+  }
+});
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.writeHead(<span class="hljs-number">404</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+  response.end(<span class="hljs-string">"404 error!\n"</span>);
+});
+
+http.createServer(app).listen(<span class="hljs-number">1337</span>);
+</code></pre>
+<p>上面代码通过request.url属性，判断请求的网址，从而返回不同的内容。</p>
+<p>除了在回调函数内部，判断请求的网址，Express也允许将请求的网址写在use方法的第一个参数。</p>
+<pre><code class="hljs js">app.use(<span class="hljs-string">'/'</span>, someMiddleware);
+</code></pre>
+<p>上面代码表示，只对根目录的请求，调用某个中间件。</p>
+<p>因此，上面的代码可以写成下面的样子。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">"express"</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+app.use(<span class="hljs-string">"/"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response, next</span>) </span>{
+    response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+    response.end(<span class="hljs-string">"Welcome to the homepage!\n"</span>);
+});
+
+app.use(<span class="hljs-string">"/about"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response, next</span>) </span>{
+    response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+    response.end(<span class="hljs-string">"Welcome to the about page!\n"</span>);
+});
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.writeHead(<span class="hljs-number">404</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+  response.end(<span class="hljs-string">"404 error!\n"</span>);
+});
+
+http.createServer(app).listen(<span class="hljs-number">1337</span>);
+</code></pre>
+<h2>Express的方法</h2>
+<p><code>all</code>方法和<code>HTTP</code>动词方法</p>
+<p>针对不同的请求，Express提供了<code>use</code>方法的一些别名。比如，上面代码也可以用别名的形式来写。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">"express"</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+<span class="hljs-keyword">var</span> app = express();
+
+app.all(<span class="hljs-string">"*"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response, next</span>) </span>{
+  response.writeHead(<span class="hljs-number">200</span>, { <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/plain"</span> });
+  next();
+});
+
+app.get(<span class="hljs-string">"/"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.end(<span class="hljs-string">"Welcome to the homepage!"</span>);
+});
+
+app.get(<span class="hljs-string">"/about"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.end(<span class="hljs-string">"Welcome to the about page!"</span>);
+});
+
+app.get(<span class="hljs-string">"*"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.end(<span class="hljs-string">"404!"</span>);
+});
+
+http.createServer(app).listen(<span class="hljs-number">1337</span>);
+</code></pre>
+<p>上面代码的all方法表示，所有请求都必须通过该中间件，参数中的<code>*</code>表示对所有路径有效。get方法则是只有GET动词的HTTP请求通过该中间件，它的第一个参数是请求的路径。由于get方法的回调函数没有调用next方法，所以只要有一个中间件被调用了，后面的中间件就不会再被调用了。</p>
+<p>除了get方法以外，Express还提供<code>post</code>、<code>put</code>、<code>delete</code>方法，即HTTP动词都是Express的方法。</p>
+<p>这些方法的第一个参数，都是请求的路径。除了绝对匹配以外，Express允许模式匹配。</p>
+<pre><code class="hljs js">app.get(<span class="hljs-string">"/hello/:who"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+  res.end(<span class="hljs-string">"Hello, "</span> + req.params.who + <span class="hljs-string">"."</span>);
+});
+</code></pre>
+<p>上面代码将匹配“/hello/alice”网址，网址中的alice将被捕获，作为<code>req.params.who</code>属性的值。需要注意的是，捕获后需要对网址进行检查，过滤不安全字符，上面的写法只是为了演示，生产中不应这样直接使用用户提供的值。</p>
+<p>如果在模式参数后面加上问号，表示该参数可选。</p>
+<pre><code class="hljs js">app.get(<span class="hljs-string">'/hello/:who?'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>) </span>{
+    <span class="hljs-keyword">if</span>(req.params.id) {
+        res.end(<span class="hljs-string">"Hello, "</span> + req.params.who + <span class="hljs-string">"."</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+        res.send(<span class="hljs-string">"Hello, Guest."</span>);
+    }
+});
+</code></pre>
+<p>下面是一些更复杂的模式匹配的例子。</p>
+<pre><code class="hljs js">app.get(<span class="hljs-string">'/forum/:fid/thread/:tid'</span>, middleware)
+
+<span class="hljs-comment">// 匹配/commits/71dbb9c</span>
+<span class="hljs-comment">// 或/commits/71dbb9c..4c084f9这样的git格式的网址</span>
+app.get(<span class="hljs-regexp">/^\/commits\/(\w+)(?:\.\.(\w+))?$/</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>)</span>{
+  <span class="hljs-keyword">var</span> <span class="hljs-keyword">from</span> = req.params[<span class="hljs-number">0</span>];
+  <span class="hljs-keyword">var</span> to = req.params[<span class="hljs-number">1</span>] || <span class="hljs-string">'HEAD'</span>;
+  res.send(<span class="hljs-string">'commit range '</span> + <span class="hljs-keyword">from</span> + <span class="hljs-string">'..'</span> + to);
+});
+</code></pre>
+<h3>set方法</h3>
+<p>set方法用于指定变量的值。</p>
+<pre><code class="hljs js">app.set(<span class="hljs-string">"views"</span>, __dirname + <span class="hljs-string">"/views"</span>);
+
+app.set(<span class="hljs-string">"view engine"</span>, <span class="hljs-string">"jade"</span>);
+</code></pre>
+<p>上面代码使用set方法，为系统变量<code>views</code>和<code>view engine</code>指定值。</p>
+<h3>response对象</h3>
+<p>（1）response.redirect方法</p>
+<p><code>response.redirect</code>方法允许网址的重定向。</p>
+<pre><code class="hljs js">response.redirect(<span class="hljs-string">"/hello/anime"</span>);
+
+response.redirect(<span class="hljs-string">"http://www.example.com"</span>);
+
+response.redirect(<span class="hljs-number">301</span>, <span class="hljs-string">"http://www.example.com"</span>);
+</code></pre>
+<p>（2）response.sendFile方法</p>
+<p><code>response.sendFile</code>方法用于发送文件。</p>
+<pre><code class="hljs js">response.sendFile(<span class="hljs-string">"/path/to/anime.mp4"</span>);
+</code></pre>
+<p>（3）response.render方法</p>
+<p><code>response.render</code>方法用于渲染网页模板。</p>
+<pre><code class="hljs js">app.get(<span class="hljs-string">"/"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>{
+  response.render(<span class="hljs-string">"index"</span>, { <span class="hljs-attr">message</span>: <span class="hljs-string">"Hello World"</span> });
+});
+</code></pre>
+<p>上面代码使用<code>render</code>方法，将message变量传入index模板，渲染成HTML网页。</p>
+<h3>requst对象</h3>
+<p>（1）request.ip</p>
+<p><code>request.ip</code>属性用于获得HTTP请求的IP地址。</p>
+<p>（2）request.files</p>
+<p><code>request.files</code>用于获取上传的文件。</p>
+<h2>express-generator</h2>
+<p>通过应用生成器工具 express 可以快速创建一个应用的骨架。</p>
+<p>安装方法：</p>
+<pre><code class="hljs zsh">$ npm install express-generator -g
+</code></pre>
+<p>例如，下面的示例就是在当前工作目录下创建一个命名为 myapp 的应用。</p>
+<pre><code class="hljs">$ express myapp
+
+   create : myapp
+   create : myapp/package.json
+   create : myapp/app.js
+   create : myapp/public
+   create : myapp/public/javascripts
+   create : myapp/public/images
+   create : myapp/routes
+   create : myapp/routes/generate.js
+   create : myapp/routes/users.js
+   create : myapp/public/stylesheets
+   create : myapp/public/stylesheets/style.css
+   create : myapp/views
+   create : myapp/views/index.jade
+   create : myapp/views/layout.jade
+   create : myapp/views/error.jade
+   create : myapp/bin
+   create : myapp/bin/www
+
+</code></pre>
+<p>然后安装所有依赖包：</p>
+<pre><code class="hljs">$ cd myapp 
+$ npm install
+</code></pre>
+<p>运行</p>
+<pre><code class="hljs">$ DEBUG=blog node ./bin/www(windows 下：DEBUG=blog:* npm start )
+</code></pre>
+<p>然后在浏览器中打开<code>http://localhost:3000/</code> 网址就可以看到这个应用了。i</p>
+<p>通过 Express 应用生成器创建的应用一般都有如下目录结构：</p>
+<pre><code class="hljs">.
+├── app.js
+├── bin                ## 存放可执行文件
+│   └── www
+├── package.json
+├── public             ## 存放 image、css、js 等文件
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes             ## 存放路由文件
+│   ├── generate.js
+│   └── users.js
+└── views              ## 存放视图文件或者说模版文件
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+
+7 directories, 9 files
+
+</code></pre>
+<h3>模版引擎</h3>
+<p>模板引擎（Template Engine）是一个将页面模板和要显示的数据结合起来生成 HTML 页面的工具。</p>
+<blockquote>
+<p>模板引擎的功能是将页面模板和要显示的数据结合起来生成 HTML 页面。它既可以运 行在服务器端又可以运行在客户端，大多数时候它都在服务器端直接被解析为 HTML，解析完成后再传输给客户端，因此客户端甚至无法判断页面是否是模板引擎生成的。有时候模板引擎也可以运行在客户端，即浏览器中，典型的代表就是 XSLT，它以 XML 为输入，在客户端生成 HTML 页面。但是由于浏览器兼容性问题，XSLT 并不是很流行。目前的主流还是由服务器运行模板引擎。在 MVC 架构中，模板引擎包含在服务器端。控制器得到用户请求后，从模型获取数据，调用模板引擎。模板引擎以数据和页面模板为输入，生成 HTML 页面，然后返回给控制器，由控制器交回客户端。             ——《Node.js开发指南》</p>
+</blockquote>
+<p>早期的Express应用生成使用<code>ejs</code>模板引擎（hexo博客生成系统使用的引擎），现在使用的是<code>jade</code>模板引擎。</p>
+<h4>使用模板引擎</h4>
+<p>我们可以通过以下两行代码设置了模板文件的存储位置和使用的模板引擎：</p>
+<pre><code class="hljs js">app.set(<span class="hljs-string">'views'</span>, __dirname + <span class="hljs-string">'/views'</span>);
+app.set(<span class="hljs-string">'view engine'</span>, <span class="hljs-string">'ejs'</span>);
+</code></pre>
+<p>我们看一下<code>/views/index.jade</code>文件</p>
+<pre><code class="hljs">extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+</code></pre>
+<p>我们不难发现，其实大部分的模板引擎语法相似。</p>
+<p>再看一下<code>/routes/generate.js</code>文件</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> router = express.Router();
+
+<span class="hljs-comment">/* GET home page. */</span>
+router.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) </span>{
+  res.render(<span class="hljs-string">'index'</span>, { <span class="hljs-attr">title</span>: <span class="hljs-string">'Express'</span> });
+});
+
+<span class="hljs-built_in">module</span>.exports = router;
+</code></pre>
+<p>当我们 <code>res.render('index', { title: 'Express' });</code> 时，模板引擎会把 <code>#{title}</code> 替换成 Express，然后把替换后的页面显示给用户。这就是模板渲染</p>
+<p>更多关于模板引擎的相关知识自行查找相应模板引擎文档了解。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

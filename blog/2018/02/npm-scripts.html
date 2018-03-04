@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     npm scripts - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">npm scripts</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-21" itemprop="datePublished">日期：2018年02月21日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <h2>npm scripts</h2>
+<p>npm scripts是定义在node项目中package.json文件中scripts字段的脚本命令。</p>
+<p>例如：</p>
+<pre><code class="hljs json">{
+  // ...
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"build"</span>: <span class="hljs-string">"gulp build"</span>
+  }
+}
+</code></pre>
+<p>上面的scripts值是一个对象，里面的每一项属性都是一个命令，对应的值就是一段命令。可以通过使用<code>npm run &lt;脚本名&gt;</code>的形式运行命令。</p>
+<p>例如上例中运行<code>npm run build</code>实则就是运行<code>gulp build</code>。</p>
+<p>可以通过运行<code>npm run</code>命令查看当前项目中所有可用的命令。</p>
+<h2>命令类型</h2>
+<p><code>npm scripts</code>运行命令的本质就是创建一个shell环境来运行命令，因此，一般普通的shell命令都可以在npm scripts中使用。</p>
+<p><code>npm scripts</code>同时也支持shell的一般特性。</p>
+<h2>传参</h2>
+<p>要向<code>npm scripts</code>中传递参数，要用双横杠<code>--</code>标明。</p>
+<pre><code class="hljs json"><span class="hljs-string">"lint"</span>: <span class="hljs-string">"jshint **.js"</span>
+</code></pre>
+<p>向上面的npm run lint命令传入参数，必须写成下面这样。</p>
+<pre><code class="hljs sh">$ npm run lint --  --reporter checkstyle &gt; checkstyle.xml
+</code></pre>
+<p>也可以在package.json里面再封装一个命令。</p>
+<pre><code class="hljs json"><span class="hljs-string">"lint"</span>: <span class="hljs-string">"jshint **.js"</span>,
+<span class="hljs-string">"lint:checkstyle"</span>: <span class="hljs-string">"npm run lint -- --reporter checkstyle &gt; checkstyle.xml"</span>
+</code></pre>
+<h2>多个命令</h2>
+<p>一个<code>npm script</code>里可以运行多个命令，使用&amp;或者&amp;&amp;隔开即可。</p>
+<h2>默认值</h2>
+<p><code>npm script</code>默认提供了两个默认命令，可以不定义直接运行：</p>
+<pre><code class="hljs json"><span class="hljs-string">"start"</span>: <span class="hljs-string">"node server.js"</span>，
+<span class="hljs-string">"install"</span>: <span class="hljs-string">"node-gyp rebuild"</span>
+</code></pre>
+<p>上面代码中，npm run start的默认值是node server.js，前提是项目根目录下有server.js这个脚本；npm run install的默认值是node-gyp rebuild，前提是项目根目录下有binding.gyp文件。</p>
+<h2>钩子</h2>
+<p>在<code>npm script</code>中存在两个钩子，<code>pre</code>和<code>post</code>，就拿下面的<code>lines</code>脚本来说，它的钩子脚本就是<code>prelines</code> 和<code>postlines</code></p>
+<pre><code class="hljs json"><span class="hljs-string">"scripts"</span>:{
+  <span class="hljs-attr">"prelines"</span>: <span class="hljs-string">"node prelines.js"</span>,
+  <span class="hljs-attr">"lines"</span>: <span class="hljs-string">"find src -name \"*.js\" | xargs cat | wc -l"</span>,
+  <span class="hljs-attr">"postlines"</span>: <span class="hljs-string">"node postlines"</span>
+}
+</code></pre>
+<p>执行<code>npm run lines</code>，会先执行<code>prelines</code>再执行<code>lines</code>之后再执行<code>postlines</code>。</p>
+<h2>生命周期事件</h2>
+<p>还有一些<code>script</code>会在模块安装，发布，卸载等不同的生命周期被执行。</p>
+<pre><code class="hljs">prepublish, publish, postpublish：发布模块
+
+preinstall, install, postinstall：安装模块
+
+preuninstall, uninstall, postuninstall：卸载模块
+
+preversion, version, postversion：在使用 npm version 修改版本号的时候执行
+
+pretest, test, posttest：执行 npm test 的时候
+
+prestop, stop, poststop：执行 npm stop 的时候
+
+prestart, start, poststart：执行 npm start 的时候
+
+prerestart, restart, postrestart：执行 npm restart 的时候
+</code></pre>
+<p>这些 script 会在不同的时刻自动被执行，这也是为什么<code>npm run test</code>可以简写为<code>npm test</code>的原因了，在执行 npm test 的时候会以次执行 pretest、test 和 posttest，当然了，如果没有指定 pretest 和 posttest，会默默地跳过。</p>
+<p>还有 npm restart 这个命令比较叼，它不单单执行 prerestart, restart, postrestart 这三个，而是按下面的顺序来执行：</p>
+<pre><code class="hljs">prerestart
+
+prestop
+
+stop
+
+poststop
+
+restart
+
+prestart
+
+start
+
+poststart
+
+postrestart
+</code></pre>
+<h2>变量</h2>
+<p>npm可以使用npm内部的变量，例如通过<code>npm_package_</code>前缀，npm 脚本可以拿到package.json里面的字段。</p>
+<p>例如：</p>
+<pre><code class="hljs json">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>, 
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.2.5"</span>,
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"view"</span>: <span class="hljs-string">"node view.js"</span>
+  }
+}
+</code></pre>
+<p>view.js</p>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(process.env.npm_package_name); <span class="hljs-comment">// foo</span>
+<span class="hljs-built_in">console</span>.log(process.env.npm_package_version); <span class="hljs-comment">// 1.2.5</span>
+</code></pre>
+<p>上面代码中，我们通过环境变量<code>process.env</code>对象，拿到package.json的字段值。如果是 Bash 脚本，可以用<code>$npm_package_name</code>和<code>$npm_package_version</code>取到这两个值。</p>
+<p><code>npm_package_</code>前缀也支持嵌套的package.json字段。</p>
+<pre><code class="hljs json"><span class="hljs-string">"repository"</span>: {
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"git"</span>,
+  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"xxx"</span>
+},
+scripts: {
+  <span class="hljs-attr">"view"</span>: <span class="hljs-string">"echo $npm_package_repository_type"</span>
+}
+</code></pre>
+<p>上面代码中，repository字段的type属性，可以通过npm_package_repository_type取到。</p>
+<h2>参考</h2>
+<ul>
+<li>
+<p><a href="http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html">npm scripts 使用指南 - 阮一峰的网络日志</a></p>
+</li>
+<li>
+<p><a href="https://segmentfault.com/a/1190000007684156#articleHeader3">npm script 用法详解 - 即刻出发_ - SegmentFault 思否</a></p>
+</li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     Angularjs入门学习（六）表单 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">Angularjs入门学习（六）表单</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-07-31" itemprop="datePublished">日期：2017年07月31日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>AngularJS 表单是输入控件的集合。</p>
+<p><strong>HTML 控件</strong></p>
+<p>以下 HTML input 元素被称为 HTML 控件:</p>
+<ul>
+<li>input 元素</li>
+<li>select 元素</li>
+<li>button 元素</li>
+<li>textarea 元素</li>
+</ul>
+<h2>ng中的表单与Controller</h2>
+<p>看这个小标题也行你会差异，表单验证，怎么跟controller扯上关系了。ng中的form已经不同于我们平时用的form标签，做了增强。<strong>form是FormController的一个实例</strong>。如何理解这句话呢？想想我们使用ng-controller指令的情景：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"testC"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"test"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"a"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">scritp</span>&gt;</span>
+function testC($scope){
+  //.............
+}
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>应用了<code>ng-controller</code>的div就是testC的一个实例，我们可以在模板中使用定义在$scopt上的任何属性和方法，而testC的定义也是由我们自己实现的。当我们使用<code>&lt;form&gt;</code>的时候也是这样的道理，FormController由ng为我们定义好了，有一系列属性和方法提供给我们完成验证工作，form实例通过name属性来进行标识，我们可以通过此标识来访问form实例的属性和方法，如：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myform"</span>&gt;</span>
+  {{ myform.$valid }}
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>form提供的属性都是用来表示表单的验证状态的，包括：<code>$pristine</code>(表单没有填写记录)、<code>$dirty</code>(表单有填写记录)、<code>$valid</code>(通过验证)、<code>$invalid</code>(未通过验证)、<code>$error</code>(验证错误信息)。除<code>$error</code>外，前四个的值为true或false表示相应的状态。<code>$error</code>的值为一个js对象，包含了以下验证内容的状态：</p>
+<ul>
+<li>email</li>
+<li>max</li>
+<li>maxlength</li>
+<li>min</li>
+<li>minlength</li>
+<li>number</li>
+<li>pattern</li>
+<li>required</li>
+<li>url</li>
+</ul>
+<p>这些内容我们会在稍后的例子中看到。<code>FormController</code>还提供了一些方法，我们一般不手工调用它们，都是系统自己调用。可参考官方文档：<a href="http://docs.angularjs.org/api/ng.directive:form.FormController">http://docs.angularjs.org/api/ng.directive:form.FormController</a></p>
+<p>表单元素，如input、checkbox、radio等也不是普通的表单元素了，它们通通是NgModelController的实例。与form一样，也是通过name属性来标识。FormController拥有的那五个属性，NgModelController也同样拥有，除此之外，还有许多额外的属性和方法，我们稍后也在示例中展示，可参考官方文档：<a href="http://docs.angularjs.org/api/ng.directive:ngModel.NgModelController">http://docs.angularjs.org/api/ng.directive:ngModel.NgModelController</a></p>
+<p>还有一个特性需要了解，一个表单中的表单元素，会作为这个form的属性自动加在上面，通过name标识就可以访问到，如：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myform"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myname"</span> /&gt;</span>
+  {{myform.myname.$valid}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<h2>表单绑定实例</h2>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">"formController"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">novalidate</span>&gt;</span>
+    First Name:<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"user.firstName"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+    Last Name:<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"user.lastName"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">"reset()"</span>&gt;</span>RESET<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>form = {{user}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>master = {{master}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">formController</span> <span class="hljs-params">($scope)</span> </span>{
+    $scope.master = {firstName: <span class="hljs-string">"John"</span>, lastName: <span class="hljs-string">"Doe"</span>};
+    $scope.reset = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        $scope.user = angular.copy($scope.master);
+    };
+    $scope.reset();
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p><strong>实例解析</strong></p>
+<p>AngularJS <code>ng-model</code> 指令用于绑定 <code>input</code> 元素到模型中。</p>
+<p>模型对象 master 的值为 <code>{&quot;firstName&quot; : &quot;John&quot;, &quot;lastName&quot; : &quot;Doe&quot;}</code>。</p>
+<p>模型函数 reset 设置了模型对象 user 等于 master。</p>
+<p>AngularJS提供可与HTML控件相关联的多个事件。例如<code>ng-click</code>通常与按钮相关联。以下是AngularJS支持的事件。</p>
+<ul>
+<li><code>ng-click</code></li>
+<li><code>ng-dbl-click</code></li>
+<li><code>ng-mousedown</code></li>
+<li><code>ng-mouseup</code></li>
+<li><code>ng-mouseenter</code></li>
+<li><code>ng-mouseleave</code></li>
+<li><code>ng-mousemove</code></li>
+<li><code>ng-mouseover</code></li>
+<li><code>ng-keydown</code></li>
+<li><code>ng-keyup</code></li>
+<li><code>ng-keypress</code></li>
+<li><code>ng-change</code></li>
+</ul>
+<h2>ng内置的验证规则</h2>
+<p>ng框架提供了非常方便的验证机制，你只需要在标签上加点指令，像使用HTML5提供的验证那样，然后在css中根据规则定义好正确/错误的样式就OK了，例如我们要让一个文本框为必填项，使用required：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myform novalidate"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">required</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>有几点需要注意：</p>
+<p>1、在<code>&lt;form&gt;</code>上加了一个novalidate，用来禁止掉浏览器默认的验证行为，因为ng已经对HTML5的几种表单新特性做了兼容处理。</p>
+<p>2、表单元素必须有ng-model，否则无法触发验证</p>
+<p>3、在css中分别定义<code>.ng-pristine</code>、<code>.ng-valid</code>、<code>.ng-invalid</code>、<code>.ng-dirty</code>这四种样式，ng会根据相应的状态自动加上样式。</p>
+<h2>只在提交表单后显示错误信息</h2>
+<p>有时候不想在用户正在输入的时候显示错误信息. 当前错误信息会在用户输入表单时立即显示. 由于Angular很棒的数据绑定特性，这是可以发生的. 因为所有的事务都可以在一瞬间发生改变，这在表单验证时会有副作用.</p>
+<p>对于你想要只在表单正要提交之后才显示错误消息的场景, 你就需要对上面的代码做一些小调整.</p>
+<p>1、你要去掉提交按钮上的ng-disabled，因为我们想要用户即使是在表单没有全部验证完的情况下也能点击提交.</p>
+<p>2、你要在表单已经被提交之后添加一个变量. 在你的 <code>submitForm()</code> 函数中, 只要加入 <code>$scope.submitted = true</code> 就行了;. 一旦表单被提交，它就会保存提交值为true的submitted变量.</p>
+<p>3、将错误规则从<code>ng-class=&quot;{ 'has-error' : userForm.name.$invalid &amp;&amp; !userForm.name.$pristine }&quot;</code> 调整为 <code>ng-class=&quot;{ 'has-error' : userForm.name.$invalid &amp;&amp; !userForm.name.$pristine &amp;&amp; submitted }&quot;.</code> 这就确保了错误消息只会在表单被提交时被显示出来. 你也许会需要为这个变量调整所有其它的 ng-class 和 ng-show.</p>
+<p>现在，只有在submitted变量被设置为true时才会显示错误信息.</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     理解事件冒泡与事件捕获 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">理解事件冒泡与事件捕获</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-10-27" itemprop="datePublished">日期：2017年10月27日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <blockquote>
+<p>当一个元素嵌套了另一个元素，两个元素都对同一个事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。事件传播模式决定了元素以哪个顺序接收事件。</p>
+</blockquote>
+<h1>事件冒泡</h1>
+<p>看下面这个例子：</p>
+<pre><code class="hljs">    &lt;div id=&quot;btn1&quot;&gt;
+        &lt;div id=&quot;btn2&quot;&gt;
+            &lt;div id=&quot;btn3&quot;&gt;
+                hello world!
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        document.getElementById('btn1').addEventListener(&quot;click&quot;, function () {
+            console.log(&quot;这是btn1&quot;)
+        })
+        document.getElementById('btn2').addEventListener(&quot;click&quot;, function () {
+            console.log(&quot;这是btn2&quot;)
+        })
+        document.getElementById('btn3').addEventListener(&quot;click&quot;, function () {
+            console.log(&quot;这是btn3&quot;)
+        })
+    &lt;/script&gt;
+</code></pre>
+<p>当hello world被点击时，控制台输出的信息是这样的：</p>
+<p><img src="/pics/2017/10/2801.png" alt=""></p>
+<p>这些被按照<code>自下而上</code>的顺序依次触发，从子元素依次触发到父元素（直到document对象，有些浏览器则一直冒泡到window对象），这有点像在水中冒泡泡一样，从下面慢慢到上面，所以这叫做事件冒泡。</p>
+<p><img src="/pics/2017/10/2807.png" alt=""></p>
+<h2>阻止事件冒泡</h2>
+<h4>(1)、stopPropagation</h4>
+<p>可以在触发函数中添加<code>stopPropagation()</code>方法来阻止事件冒泡，例如上面的代码中，我们只想让当hello World被点击时触发btn3的事件监听</p>
+<pre><code class="hljs">    document.getElementById('btn3').addEventListener(&quot;click&quot;, function (event) {
+        event.stopPropagation();
+        console.log(&quot;这是btn3&quot;)
+    })
+</code></pre>
+<p>传入事件参数，触发<code>stopPropagation()</code>方法，然后看看控制台</p>
+<p><img src="/pics/2017/10/2802.png" alt=""></p>
+<p>无论点击多少次都只会触发一个事件，即在遍历到第一个监听时就停止了遍历。</p>
+<p>如果添加到第二个（btn2）事件监听上，</p>
+<pre><code class="hljs">    document.getElementById('btn2').addEventListener(&quot;click&quot;, function (event) {
+        event.stopPropagation();
+        console.log(&quot;这是btn2&quot;)
+    })
+</code></pre>
+<p><img src="/pics/2017/10/2803.png" alt=""></p>
+<p>同样的，向上冒泡到第二个事件就停止了。</p>
+<h4>(2)、cancelBubble</h4>
+<p>顾名思义，取消冒泡，同样是上面那个例子，我们可以这样写</p>
+<pre><code class="hljs">    document.getElementById('btn3').addEventListener(&quot;click&quot;, function (event) {
+        event.cancelBubble = true;
+        console.log(&quot;这是btn3&quot;)
+    })
+</code></pre>
+<p>同样也会达到只会触发btn3一个事件的效果</p>
+<h4>(3)、cancelBubble和stopPropagation()的区别</h4>
+<p><strong>二者实现的效果是一样的</strong>，唯一的区别是在兼容性上面，cancelBubble的设计初衷是用在IE上面，下面是MDN文档中的兼容性列表</p>
+<p><img src="/pics/2017/10/2804.png" alt=""></p>
+<p>以及在whatwg下的issue，<a href="https://github.com/whatwg/dom/issues/211">cancelBubble legacy property · Issue #211 · whatwg/dom</a>，有兴趣的可以去了解一下</p>
+<p>说白了是个历史遗留问题，貌似在除了Firefox之外的浏览器都能正常使用</p>
+<h1>事件捕获</h1>
+<p>同样是上面的代码，<code>addEventListener()</code>其实接受三个参数<code>type</code>、<code>listener</code>和<code>useCapture</code>。</p>
+<p><code>useCapture</code>接受一个布尔值，默认为<code>false</code>,</p>
+<p>当<code>useCapture</code>为<code>true</code>时，事件只捕获，不冒泡。</p>
+<pre><code class="hljs">    &lt;div id=&quot;btn1&quot;&gt;
+        &lt;div id=&quot;btn2&quot;&gt;
+            &lt;div id=&quot;btn3&quot;&gt;
+                hello world!
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        document.getElementById('btn1').addEventListener(&quot;click&quot;, function () {
+            console.log(&quot;这是btn1&quot;)
+        },true)
+        document.getElementById('btn2').addEventListener(&quot;click&quot;, function () {
+            console.log(&quot;这是btn2&quot;)
+        },true)
+        document.getElementById('btn3').addEventListener(&quot;click&quot;, function () {
+            console.log(&quot;这是btn3&quot;)
+        },true)
+    &lt;/script&gt;
+</code></pre>
+<p><img src="/pics/2017/10/2806.png" alt=""></p>
+<p>上面的代码点击时是这样的，事件从document对象（DOM2级规范规定，也有从window对象）一个个节点的遍历下来。</p>
+<p><img src="/pics/2017/10/2805.png" alt=""></p>
+<blockquote>
+<p>IE8不支持useCapture，详情参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener() - Web API 接口</a></p>
+</blockquote>
+<p>因为老版本浏览器不支持，很少人会使用事件捕获，大部分情况下使用事件冒泡，有特殊情况下才会考虑使用事件捕获。</p>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

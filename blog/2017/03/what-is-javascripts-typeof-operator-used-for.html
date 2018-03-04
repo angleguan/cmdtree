@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     JavaScript 的 typeof 的用途 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">JavaScript 的 typeof 的用途</h1>
+    <div class="page-meta">
+      <p><time datetime="2017-03-22" itemprop="datePublished">日期：2017年03月22日</time></p>
+      <span class="post-category">分类：JavaScript</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>JavaScript 中的 <code>typeof</code> 其实非常复杂，它可以用来做很多事情，但同时也有很多怪异的表现。
+本文列举出了它的多个用法，而且还指出了存在的问题以及解决办法。</p>
+<p>阅读本文的前提是，你现在应该已经知道<strong>原始值</strong>和<strong>对象值</strong>的区别了。</p>
+<h2>检查一个变量是否存在，是否有值</h2>
+<p>typeof在两种情况下会返回 &quot;undefined&quot;:</p>
+<ul>
+<li>
+<p>变量没有被声明</p>
+</li>
+<li>
+<p>变量的值是 <code>undefined</code></p>
+</li>
+</ul>
+<p>例如:</p>
+<pre><code class="hljs js">&gt; <span class="hljs-keyword">typeof</span> undeclaredVariable === <span class="hljs-string">"undefined"</span>
+<span class="hljs-literal">true</span>
+
+&gt; <span class="hljs-keyword">var</span> declaredVariable;
+&gt; <span class="hljs-keyword">typeof</span> declaredVariable
+<span class="hljs-string">'undefined'</span>
+
+&gt; <span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>
+<span class="hljs-string">'undefined'</span>
+</code></pre>
+<p>还有其他办法检测某个值是否是 <code>undefined</code>:</p>
+<pre><code class="hljs js">&gt; <span class="hljs-keyword">var</span> value = <span class="hljs-literal">undefined</span>;
+&gt; value === <span class="hljs-literal">undefined</span>
+<span class="hljs-literal">true</span>
+</code></pre>
+<p>但这种方法如果使用在一个未声明的变量上的时候，就会抛出异常，因为只有 <code>typeof</code> 才可以正常检测未声明的变量的同时还不报错：</p>
+<pre><code class="hljs js">&gt; undeclaredVariable === <span class="hljs-literal">undefined</span>
+<span class="hljs-built_in">ReferenceError</span>: undeclaredVariable is not defined
+</code></pre>
+<p>注意：未初始化的变量，没有被传入参数的形参，不存在的属性，都不会出现上面的问题，因为它们总是可访问的，值总是 <code>undefined</code>：</p>
+<pre><code class="hljs">&gt; var declaredVariable;
+&gt; declaredVariable === undefined
+true
+
+&gt; (function (x) { return x === undefined }())
+true
+
+&gt; ({}).foo === undefined
+true
+</code></pre>
+<p>译者注：因此，如果想检测一个可能没有被声明的全局变量是否存在，也可以使用 <code>if(window.maybeUndeclaredVariable){}</code>。</p>
+<p>问题：<code>typeof</code> 在完成这样的任务时显得很繁杂.</p>
+<p>解决办法：这样的操作不是很常见，所以有人觉的没必要再找更好的解决办法了。
+不过也许有人会提出一个专门的操作符：</p>
+<pre><code class="hljs js">&gt; defined undeclaredVariable
+<span class="hljs-literal">false</span>
+
+&gt; <span class="hljs-keyword">var</span> declaredVariable;
+&gt; defined declaredVariable
+<span class="hljs-literal">false</span>
+</code></pre>
+<p>或者，也许有人还需要一个检测变量是否被声明的操作符：</p>
+<pre><code class="hljs">&gt; declared undeclaredVariable
+false
+
+&gt; var declaredVariable;
+&gt; declared declaredVariable
+true
+</code></pre>
+<p>译者注：在 perl 里，上面的 <code>defined</code> 操作符相当于 <code>defined()</code>，上面的 <code>declared</code> 操作符相当于 <code>exists()</code>。</p>
+<h2>判断一个值不等于 undefined 也不等于 null</h2>
+<p>问题：如果你想检测一个值是否被定义过(值不是 <code>undefined</code> 也不是 <code>null</code>)，那么你就遇到了 <code>typeof</code> 最有名的一个怪异表现(被认为是一个 bug)：<code>typeof null</code> 返回了 &quot;object&quot;：</p>
+<pre><code class="hljs">&gt; typeof null 
+'object'
+</code></pre>
+<p>译者注：这只能说是最初的 JavaScript 实现的 bug，而现在标准就是这样规范的。V8 曾经修正并实现过 <code>typeof null === &quot;null&quot;</code>，但最终证明不可行。<a href="http://wiki.ecmascript.org/doku.php?id=harmony:typeof_null">http://wiki.ecmascript.org/doku.php?id=harmony:typeof_null</a>。</p>
+<p>（译注：typeof 在操作 null 时会返回 &quot;object&quot;，这是 JavaScript 语言本身的 bug。不幸的是，这个 bug 永远不可能被修复了，因为太多已有的代码已经依赖了这样的表现。但是 null 到底是不是 对象呢？stackoverflow 有关于这个问题的讨论：<a href="http://stackoverflow.com/questions/801032/null-object-in-javascript/7968470#7968470">http://stackoverflow.com/questions/801032/null-object-in-javascript/7968470#7968470</a><a href="http://weibo.com/justjavac">@justjavac</a>）</p>
+<p>解决办法：不要使用 <code>typeof</code> 来做这项任务，用下面这样的函数来代替：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isDefined</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">return</span> x !== <span class="hljs-literal">null</span> &amp;&amp; x !== <span class="hljs-literal">undefined</span>;
+}
+</code></pre>
+<p>另一个可能性是引入一个 “默认值运算符”，在 myValue 未定义的情况下，下面的表达式会返回 defaultValue：</p>
+<pre><code class="hljs javascript">myValue ?? defaultValue
+</code></pre>
+<p>上面的表达式等价于：</p>
+<pre><code class="hljs javascript">(myValue !== <span class="hljs-literal">undefined</span> &amp;&amp; myValue !== <span class="hljs-literal">null</span>) ? myValue : defaultValue
+</code></pre>
+<p>又或者：</p>
+<pre><code class="hljs javascript">myValue ??= defaultValue
+</code></pre>
+<p>其实是下面这条语句的简化：</p>
+<pre><code class="hljs javascript">myValue = myValue ?? defaultValue
+</code></pre>
+<p>当你访问一个嵌套的属性时，比如 bar，你或许会需要这个运算符的帮助：</p>
+<pre><code class="hljs javascript">obj.foo.bar
+</code></pre>
+<p>如果 <code>obj</code> 或者 <code>obj.foo</code> 是未定义的，上面的表达式会抛出异常。
+一个运算符 .?? 可以让上面的表达式在遍历一层一层的属性时，返回第一个遇到的值为 <code>undefined</code> 或 <code>null</code> 的属性：</p>
+<pre><code class="hljs javascript">obj.??foo.??bar
+</code></pre>
+<p>上面的表达式等价于：</p>
+<pre><code class="hljs javascript">(obj === <span class="hljs-literal">undefined</span> || obj === <span class="hljs-literal">null</span>) ? obj
+  : (obj.foo === <span class="hljs-literal">undefined</span> || obj.foo === <span class="hljs-literal">null</span>) ? obj.foo
+    : obj.foo.bar
+</code></pre>
+<h2>区分对象值和原始值</h2>
+<p>下面的函数用来检测 x 是否是一个对象值：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isObject</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">typeof</span> x === <span class="hljs-string">"function"</span> || (<span class="hljs-keyword">typeof</span> x === <span class="hljs-string">"object"</span> &amp;&amp; x !== <span class="hljs-literal">null</span>));
+}
+</code></pre>
+<p>问题：上面的检测比较复杂，是因为 <code>typeof</code> 把函数和对象看成是不同的类型，而且 <code>typeof null</code> 返回 &quot;object&quot;.</p>
+<p>解决办法：下面的方法也经常用于检测对象值：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isObject2</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">return</span> x === <span class="hljs-built_in">Object</span>(x);
+}
+</code></pre>
+<p>警告：你也许认为这里可以使用 <code>instanceof Object</code> 来检测，但是 <code>instanceof</code> 是通过使用使用一个对象的原型来判断实例关系的，那么没有原型的对象怎么办呢：</p>
+<pre><code class="hljs">&gt; var obj = Object.create(null);
+&gt; Object.getPrototypeOf(obj)
+null
+</code></pre>
+<p>obj 确实是一个对象，但它不是任何值的实例:</p>
+<pre><code class="hljs">&gt; typeof obj
+'object'
+&gt; obj instanceof Object
+false
+</code></pre>
+<p>在实际中，你可能很少遇到这样的对象，但它的确存在，而且有它的用途。</p>
+<p>译者注：<code>Object.prototype</code> 就是唯一的一个内置的，没有原型的对象。</p>
+<pre><code class="hljs">&gt;Object.getPrototypeOf(Object.prototype)
+null
+&gt;typeof Object.prototype
+'object'
+&gt;Object.prototype instanceof Object 
+false
+</code></pre>
+<h2>原始值的类型是什么?</h2>
+<p><code>typeof</code> 是最好的用来查看某个原始值的类型的方式。</p>
+<pre><code class="hljs">&gt; typeof &quot;abc&quot;
+'string'
+&gt; typeof undefined
+'undefined'
+</code></pre>
+<p>问题：你必须知道 <code>typeof null</code> 的怪异表现。</p>
+<pre><code class="hljs">&gt; typeof null  // 要小心!
+'object'
+</code></pre>
+<p>解决办法：下面的函数可以修复这个问题(只针对这个用例)。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPrimitiveTypeName</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">var</span> typeName = <span class="hljs-keyword">typeof</span> x;
+  <span class="hljs-keyword">switch</span>(typeName) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"undefined"</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"boolean"</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"number"</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"string"</span>:
+      <span class="hljs-keyword">return</span> typeName;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"object"</span>:
+      <span class="hljs-keyword">if</span> (x === <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"null"</span>;
+      }
+    <span class="hljs-keyword">default</span>: <span class="hljs-comment">// 前面的判断都没通过</span>
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">"参数不是一个原始值: "</span>+x);
+  }
+}
+</code></pre>
+<p>更好的解决办法：实现一个函数 <code>getTypeName()</code>，除了可以返回原始值的的类型，还可以返回对象值的内部 [[Class]] 属性。
+这里讲了如何实现这个函数(译者注：jQuery 中的 <code>$.type</code> 就是这样的实现)</p>
+<h2>某个值是否是函数</h2>
+<p>typeof 可以用来检测一个值是否是函数。</p>
+<pre><code class="hljs">&gt; typeof function () {}
+'function'
+&gt; typeof Object.prototype.toString
+'function'
+</code></pre>
+<p>原则上说，<code>instanceof Function</code> 也可以进行这种需求的检测。</p>
+<p>乍一看，貌似写法还更加优雅。</p>
+<p>但是，浏览器有一个怪癖：每一个框架和窗口都有它自己的全局变量。</p>
+<p>因此，如果你将某个框架中的对象传到另一个框架中，<code>instanceof</code> 就不能正常工作了，因为这两个框架有着不同的构造函数。</p>
+<p>这就是为什么 ECMAScript5 中会有 <code>Array.isArray()</code> 方法的原因。</p>
+<p>如果有一个能够跨框架的，用于检查一个对象是否是给定的构造函数的实例的方法的话，那会很好。</p>
+<p>上述的 <code>getTypeName()</code> 是一个可用的变通方法，但也许还有一个更根本的解决方案。</p>
+<h2>综述</h2>
+<p>下面提到的，应该是目前 JavaScript 中最迫切需要的，可以代替一些 <code>typeof</code> 目前职责的功能特性：</p>
+<ul>
+<li>
+<p><code>isDefined()</code> (比如 <code>Object.isDefined()</code>): 可以作为一个函数或者一个运算符</p>
+</li>
+<li>
+<p><code>isObject()</code></p>
+</li>
+<li>
+<p><code>getTypeName()</code></p>
+</li>
+<li>
+<p>能够跨框架的,检测一个对象是否是指定的构造函数的实例的机制</p>
+</li>
+</ul>
+<p>检查某个变量是否已经被声明这样的需求，可能没那么必要有自己的运算符。</p>
+<h2>参考文章</h2>
+<ul>
+<li>
+<p><a href="http://justjavac.com/javascript/2012/12/22/javascript-values-not-everything-is-an-object.html">JavaScript 并非所有的东西都是对象</a></p>
+</li>
+<li>
+<p><a href="http://www.2ality.com/2011/11/improving-typeof.html">Improving the JavaScript typeof operator</a></p>
+</li>
+</ul>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>

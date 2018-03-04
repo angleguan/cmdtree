@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+     MySQL学习笔记（2）约束 - 沉默的大树 
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <a class="pure-menu-header" href="https://cmdtree.com">沉默的大树</a>
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com">
+              Home</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/about.html">
+              </i>About</a>
+          </li>
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/contact.html">
+              </i>Contact</a>
+          </li>
+          <!--
+              <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://cmdtree.com/index.xml">
+                  <i class="fa fa-rss fa-fw"></i>RSS</a>
+              </li> -->
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://github.com/rhatyang" target="_blank">
+              </i>GitHub</a>
+          </li>
+        </ul>
+        <ul class="pure-menu-list category-list">
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/network.html">网络技术与安全
+              <span>(9)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/use.html">使用笔记
+              <span>(47)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/learn.html">学习笔记
+              <span>(29)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/history.html">历史爱好者
+              <span>(3)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/lifetime.html">晃眼一生
+              <span>(17)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/linux.html">Unix/Linux
+              <span>(15)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/javascript.html">JavaScript
+              <span>(36)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/other.html">杂文
+              <span>(5)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/review.html">观后感
+              <span>(2)</span>
+            </a>
+          </li>
+          
+          <li class="pure-menu-item">
+            <a class="pure-menu-link" href="https://cmdtree.com/blog/python.html">Python
+              <span>(2)</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <div class="small-print copyright">
+          © 2018. All rights reserved.
+        </div>
+        <div class="small-print powered">
+          Powered by Node.js. Open Source on
+          <a href="https://github.com/rhatyang/cmdtree" target="_blank">Github</a>.
+        </div>
+        <div class="small-print">
+          所有内容根据
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">CC BY 4.0</a>
+          协议进行开源
+        </div>
+        <div class="last-updated small-print">
+          最后一次更新在：2018年3月4日
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      
+<article class="content page" itemscope itemtype="http://schema.org/Blogpageing">
+  <div class="page-header">
+    <h1 class="page-title">MySQL学习笔记（2）约束</h1>
+    <div class="page-meta">
+      <p><time datetime="2018-02-13" itemprop="datePublished">日期：2018年02月13日</time></p>
+      <span class="post-category">分类：学习笔记</span>
+    </div>
+  </div>
+  <div class="page-content" itemprop="articleBody">
+    <p>约束是一种限制，它通过对表的行或列的数据做出限制，来确保表的数据的完整性、唯一性。</p>
+<p>MYSQL中，常用的几种约束：</p>
+<p>| 约束类型：  | 主键 | 	 默认值  | 	唯一 |  外键 |  非空|
+| 关键字：|   PRIMARY KEY | 	 DEFAULT | 	 UNIQUE |  FOREIGN KEY |  NOT NULL|</p>
+<h2>默认约束</h2>
+<p>默认值约束 (DEFAULT) 规定，当有 <code>DEFAULT</code> 约束的列，插入数据为空时，将使用默认值。</p>
+<p><strong>添加默认约束</strong></p>
+<pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> student(
+  joinTime DATETIME <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>
+ );
+</code></pre>
+<p><code>CURRENT_TIMESTAMP</code>为当前时间</p>
+<h2>主键约束</h2>
+<p>主键约束列不允许重复，即任意两行的主键值都不相同；每行都具有一个主键值，也不允许出现空值；</p>
+<p><strong>添加主键</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> student(
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">INT</span> PRIMARY <span class="hljs-keyword">KEY</span>,         
+  <span class="hljs-keyword">name</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>),          
+)
+</code></pre>
+<p><strong>为已存在的表添加主键</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span>
+<span class="hljs-keyword">add</span> primary <span class="hljs-keyword">key</span>(<span class="hljs-keyword">id</span>),
+<span class="hljs-keyword">modify</span> <span class="hljs-keyword">id</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) AUTO_INCREMENT;
+</code></pre>
+<p><strong>删除主键</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span>
+<span class="hljs-keyword">drop</span> primary <span class="hljs-keyword">key</span>,
+<span class="hljs-keyword">modify</span> <span class="hljs-keyword">id</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>);
+</code></pre>
+<h2>外键约束</h2>
+<p>外键用来指定参照完整性约束，被指定为外键的列必需要有索引，外键参考列必需为另一个表的主键。</p>
+<p><strong>创建外键约束</strong></p>
+<p>例如表user(id,username)和表article(id,uid,title)，其中<code>article.uid</code>是外键指向<code>user.id</code>主键</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> article (
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>),
+  uid <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>),
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-keyword">id</span>),
+  <span class="hljs-keyword">CONSTRAINT</span> fk_user_article_uid FOREIGN <span class="hljs-keyword">KEY</span> (uid) <span class="hljs-keyword">REFERENCES</span> <span class="hljs-keyword">user</span>(<span class="hljs-keyword">id</span>)
+);
+</code></pre>
+<p><strong>为没有外键约束的表添加外键约束</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> article 
+<span class="hljs-keyword">add</span> <span class="hljs-keyword">constraint</span> fk_user_article_uid FOREIGN <span class="hljs-keyword">KEY</span>(uid) <span class="hljs-keyword">REFERENCES</span> <span class="hljs-keyword">user</span>(<span class="hljs-keyword">id</span>);
+</code></pre>
+<p><strong>删除外键</strong></p>
+<p>例如删除article表的外键<code>fk_user_article_uid</code></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> article
+<span class="hljs-keyword">drop</span> foreign <span class="hljs-keyword">key</span> fk_user_article_uid;
+</code></pre>
+<h2>唯一约束</h2>
+<p>唯一约束的列的值不能重复，使用<code>UNIQUE KEY</code>关键字指定</p>
+<p><strong>创建表时添加唯一约束</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span>(
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) PRIMARY <span class="hljs-keyword">KEY</span> AUTO_INCREMENT,
+  email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">KEY</span>
+);
+</code></pre>
+<p><strong>为已存在的表添加唯一约束</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span>
+<span class="hljs-keyword">add</span> <span class="hljs-keyword">constraint</span> uk_user_email <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">KEY</span>(email);
+</code></pre>
+<p><strong>删除唯一约束</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span>
+<span class="hljs-keyword">drop</span> <span class="hljs-keyword">key</span> uk_user_email;
+</code></pre>
+<h2>非空约束</h2>
+<p>指定为非空的字段不能取<code>NULL</code>值</p>
+<p><strong>创建表时添加非空约束</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span> (
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) PRIMARY <span class="hljs-keyword">KEY</span> AUTO_INCREMENT,
+  email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+);
+</code></pre>
+<p><strong>为已存在的表添加非空约束</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">user</span>
+<span class="hljs-keyword">modify</span> <span class="hljs-keyword">column</span> email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>);
+</code></pre>
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <script src="/js/ui.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113894191-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-113894191-1');
+
+  </script>
+</body>
+
+</html>
